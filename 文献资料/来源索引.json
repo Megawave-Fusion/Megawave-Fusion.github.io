@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ITER-HCD",
+    "title": "ITER — External heating systems",
+    "url": "https://www.iter.org/machine/supporting-systems/external-heating-systems",
+    "scope": "辅助加热概览；装置参数须按具体版本引用",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "ITER 辅助加热系统"
+  },
+  {
+    "id": "IPP-CONFIG",
+    "title": "IPP — Fusionsanlagen",
+    "url": "https://www.ipp.mpg.de/9752/anlagentypen",
+    "scope": "托卡马克与仿星器概念",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "马克斯·普朗克等离子体物理研究所：聚变装置类型"
+  },
+  {
+    "id": "IAEA-ROUTES",
+    "title": "IAEA — Fusion Technologies",
+    "url": "https://nucleus.iaea.org/sites/connect/FUSEpublic/SitePages/Fusion-Technologies.aspx",
+    "scope": "聚变路线分类；概览中的发展愿景不作为性能证据",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "国际原子能机构：聚变技术路线"
+  },
+  {
+    "id": "IAEA-FFDB",
+    "title": "IAEA — Fusion Facility Database",
+    "url": "https://nucleus.iaea.org/sites/fusion-portal/SitePages/FFDB.aspx?web=1",
+    "scope": "装置检索入口；本库未批量导入数据库",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "国际原子能机构：聚变装置数据库"
+  },
+  {
+    "id": "ITER-BLANKET",
+    "title": "ITER — Blanket",
+    "url": "https://www.iter.org/machine/blanket",
+    "scope": "包层与第一壁工程入口；注意设计版本",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "ITER 包层"
+  },
+  {
+    "id": "ITER-DIAG",
+    "title": "ITER — Diagnostics",
+    "url": "https://www.iter.org/machine/supporting-systems/diagnostics",
+    "scope": "诊断系统入口",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "ITER 诊断系统"
+  },
+  {
+    "id": "ITER-SYSTEMS",
+    "title": "ITER — Supporting systems",
+    "url": "https://www.iter.org/machine/supporting-systems",
+    "scope": "配套工程系统分类",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "ITER 配套系统"
+  },
+  {
+    "id": "ITER-FUEL",
+    "title": "ITER — Fuelling",
+    "url": "https://www.iter.org/machine/supporting-systems/fuelling",
+    "scope": "燃料与循环子系统",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "ITER 燃料系统"
+  },
+  {
+    "id": "IPP-HCD",
+    "title": "IPP — Heating a Fusion Plasma",
+    "url": "https://www.ipp.mpg.de/5436011/09_Plasma_Heating.pdf",
+    "scope": "加热与电流驱动教学入口",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "马克斯·普朗克等离子体物理研究所：等离子体加热课程"
+  },
+  {
+    "id": "STUTTGART-EBW",
+    "title": "University of Stuttgart — Bernstein-wave experiments",
+    "url": "https://www.igvp.uni-stuttgart.de/en/research/plasma-dynamics-and-diagnostics/projects/bernstein-wave/",
+    "scope": "EBW 与 O-X-B 模转换",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "斯图加特大学：伯恩斯坦波实验"
+  },
+  {
+    "id": "GA-HELICON",
+    "title": "General Atomics — DIII-D 2018 Long Torus Opening",
+    "url": "https://www.ga.com/images/products/energy/magnetic_fusion/DIII-D_APS_3102_1118.pdf",
+    "scope": "历史 Helicon 系统方案；不代表当前运行成果",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "通用原子公司：DIII-D 装置升级历史资料"
+  },
+  {
+    "id": "IAEA-FRC-NBI",
+    "title": "IAEA FEC 2016 — C-2U FRC sustainment by NBI",
+    "url": "https://conferences.iaea.org/event/98/contributions/11670/",
+    "scope": "FRC 中 NBI 应用的历史会议摘要",
+    "checked_on": "2026-09-09",
+    "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
+    "中文标题": "国际原子能机构：C-2U 中性束维持场反位形会议摘要"
+  }
+]

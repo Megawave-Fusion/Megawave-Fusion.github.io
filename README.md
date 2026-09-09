@@ -1,42 +1,35 @@
 # 曦融兆波 · 聚变知识库
 
-Megawave-Fusion 组织内部知识库。以“原理 → 装置 → 独立辅助加热系统 → 腔体材料”为主线，补充诊断、仿真、工程、实验和文献。
+Megawave-Fusion 组织内部知识库，按“原理 → 装置 → 辅助加热 → 腔体材料”的逻辑整理，补充诊断、仿真、工程、实验和文献。
 
-初版提供可扩展分类、系统专题导读、官方参考入口和记录模板。工程条目中的待填写字段并非已完成设计或验收结论。
+## 分类
 
-## 分类导航
-
-| 类目 | 收录范围 |
+| 类目 | 内容 |
 | --- | --- |
-| [01 原理与基础物理](01-fundamentals/README.md) | 反应、约束、平衡、波与粒子、输运及功率收支 |
-| [02 装置与技术路线](02-devices/README.md) | 托卡马克、FRC、磁镜、仿星器及补充路线 |
-| [03 辅助加热与电流驱动](03-heating-current-drive/README.md) | 每套系统独立管理，ICRH / ECRH / NBI / LHCD / EBW / Helicon |
-| [04 腔体、面向等离子体部件与材料](04-chamber-materials/README.md) | 真空室、第一壁、偏滤器、材料数据和制造工艺 |
-| [05 诊断、控制与数据采集](05-diagnostics-control/README.md) | 测量、标定、实时控制、时序及数据质量 |
-| [06 仿真、计算与验证](06-simulation/README.md) | 模型、求解器、耦合、基准、不确定性与可复现计算 |
-| [07 配套工程系统](07-engineering/README.md) | 磁体、电源、真空、冷却、燃料、屏蔽和维护 |
-| [08 实验、测试与运行](08-experiments/README.md) | 试验计划、台架、放电记录、标定、验收与故障复盘 |
-| [09 项目、机构与产业资料](09-projects-industry/README.md) | 装置档案、团队、供应链、专利及技术成熟度 |
-| [10 文献、课程与术语](10-literature/README.md) | 论文笔记、教材、课程、会议、术语与官方来源 |
+| [基础原理](基础原理/README.md) | 聚变反应、约束、平衡、波与粒子、输运和能量收支 |
+| [装置路线](装置路线/README.md) | 托卡马克、场反位形、磁镜、仿星器及其他路线 |
+| [辅助加热](辅助加热/README.md) | 各套加热与电流驱动系统分别管理 |
+| [腔体材料](腔体材料/README.md) | 真空室、第一壁、偏滤器、材料、制造与壁面相互作用 |
+| [诊断控制](诊断控制/README.md) | 诊断方法、标定、数据质量和实时控制 |
+| [仿真计算](仿真计算/README.md) | 模型、耦合、验证、不确定性与可复现计算 |
+| [工程系统](工程系统/README.md) | 磁体、电源、真空、冷却、燃料、屏蔽和维护 |
+| [实验运行](实验运行/README.md) | 试验计划、放电记录、验收与故障复盘 |
+| [项目产业](项目产业/README.md) | 装置档案、机构、供应链、专利与技术成熟度 |
+| [文献资料](文献资料/README.md) | 学习路径、论文、课程、术语和参考来源 |
 
-## 辅助加热：各系统独立入口
+## 辅助加热系统
 
-- [ICRH / ICRF：离子回旋加热](03-heating-current-drive/icrh/README.md)
-- [ECRH / ECCD：电子回旋加热与电流驱动](03-heating-current-drive/ecrh/README.md)
-- [NBI / NBCD：中性束注入与电流驱动](03-heating-current-drive/nbi/README.md)
-- [LHCD / LHH：低杂波电流驱动与加热](03-heating-current-drive/lhcd/README.md)
-- [EBW：电子伯恩斯坦波加热与电流驱动](03-heating-current-drive/ebw/README.md)
-- [Helicon：螺旋波加热与电流驱动](03-heating-current-drive/helicon/README.md)
+- [离子回旋加热（ICRH / ICRF）](辅助加热/离子回旋加热/README.md)
+- [电子回旋加热（ECRH / ECCD）](辅助加热/电子回旋加热/README.md)
+- [中性束注入（NBI / NBCD）](辅助加热/中性束注入/README.md)
+- [低杂波电流驱动（LHCD / LHH）](辅助加热/低杂波电流驱动/README.md)
+- [电子伯恩斯坦波加热（EBW）](辅助加热/电子伯恩斯坦波加热/README.md)
+- [螺旋波加热（Helicon）](辅助加热/螺旋波加热/README.md)
 
-每个系统均有独立的原理、设备组成、设计计算、控制保护、测试验收、文献与案例页面。跨系统知识通过链接复用。
+## 使用方式
 
-## 如何使用
+每个类目一个主页面，各套辅助加热系统分别一个主页面。直接在页面内的相关章节积累资料，内容增长到确有必要时再拆分文件。
 
-1. 从上方分类或 [完整目录](CATALOG.md) 找到条目归属。
-2. 复制 [知识条目](templates/knowledge-entry.md)、[论文笔记](templates/paper-note.md)、[装置档案](templates/device-profile.md) 或 [系统规格](templates/system-spec.md) 模板。
-3. 填写来源、版本、单位、适用条件和证据状态，通过 Pull Request 更新。
-4. 提交前执行 `python3 scripts/check_kb.py` 检查内部链接和目录。
+目录采用中文且不加编号；各目录保留 `README.md` 作为 GitHub 自动展示的首页，正文使用中文，保留必要的专业缩写和原始文献标题。
 
-[编写规范](CONTRIBUTING.md) · [分类与标签规则](TAXONOMY.md) · [建设待办](ROADMAP.md) · [术语表](10-literature/glossary.md) · [来源目录](references/README.md)
-
-中文为主要说明语言，保留英文术语、缩写与原文标题。文件路径使用稳定的英文名称，所有内部链接采用相对路径。
+来源、记录模板和审核要求见 [编写说明](编写说明.md)。当前内容为分类与专题初稿，具体技术条目待领域审核。
