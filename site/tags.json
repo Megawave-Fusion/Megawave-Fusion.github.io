@@ -413,5 +413,255 @@
     "tag": "MF000083",
     "status": "draft",
     "kind": "专题"
+  },
+  "基础原理/等离子体基本概念/README.md#SI 单位、电子伏特与温度能量": {
+    "tag": "MF000084",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#分布函数、密度、流速与温度的定义": {
+    "tag": "MF000085",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#准中性、净电荷与有限电场": {
+    "tag": "MF000086",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#Debye 屏蔽与多组分屏蔽长度": {
+    "tag": "MF000087",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#集体效应、Debye 球粒子数与弱耦合": {
+    "tag": "MF000088",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#等离子体频率及其恢复力": {
+    "tag": "MF000089",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#热速度、惯性长度与尺度表": {
+    "tag": "MF000090",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体基本概念/README.md#磁化、碰撞与模型选择的独立判据": {
+    "tag": "MF000091",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#Lorentz 方程与磁场不做功": {
+    "tag": "MF000092",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#回旋运动、带符号频率与 Larmor 半径": {
+    "tag": "MF000093",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#均匀电磁场中的 E×B 漂移与力漂移": {
+    "tag": "MF000094",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#磁场强度梯度引起的 grad-B 漂移": {
+    "tag": "MF000095",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#磁力线曲率漂移与环形场的局限": {
+    "tag": "MF000096",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#磁矩守恒、镜力与绝热压缩": {
+    "tag": "MF000097",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#磁镜反射、镜比与损失锥": {
+    "tag": "MF000098",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/单粒子运动/README.md#绝热不变量、导引中心排序与失效条件": {
+    "tag": "MF000099",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#分布函数、速度矩与温度的含义": {
+    "tag": "MF000100",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#Vlasov 方程、Boltzmann 方程与电磁自洽": {
+    "tag": "MF000101",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#Maxwell 分布、各向同性与非平衡状态": {
+    "tag": "MF000102",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#从动理学推导连续性、动量和内能方程": {
+    "tag": "MF000103",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#矩层级、闭合、平均自由程与 Knudsen 数": {
+    "tag": "MF000104",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#Rutherford 散射与多次小偏转的累积": {
+    "tag": "MF000105",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#Coulomb 对数、屏蔽和短程截断": {
+    "tag": "MF000106",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#偏转、慢化、动量和能量频率不能互换": {
+    "tag": "MF000107",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#电子—离子温度交换为什么较慢": {
+    "tag": "MF000108",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#Fokker–Planck、Landau 算子与守恒检验": {
+    "tag": "MF000109",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#经典热流与 Spitzer 电阻的适用条件": {
+    "tag": "MF000110",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/动理学与碰撞/README.md#集体屏蔽、Balescu–Lenard 与多体碰撞的区别": {
+    "tag": "MF000111",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#平面波、符号约定与线性化": {
+    "tag": "MF000112",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#从感应电流到介电张量和色散矩阵": {
+    "tag": "MF000113",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#电子等离子体振荡与 Bohm–Gross 修正": {
+    "tag": "MF000114",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#离子声波与电子 Boltzmann 响应": {
+    "tag": "MF000115",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#非磁化横电磁波与密度截止": {
+    "tag": "MF000116",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#冷磁化响应、圆偏振与 whistler 分支": {
+    "tag": "MF000117",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#垂直传播的 O 模、X 模与上混杂频率": {
+    "tag": "MF000118",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#理想 MHD 的剪切 Alfvén 波与快慢磁声波": {
+    "tag": "MF000119",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#相速度、群速度、截止与共振的区别": {
+    "tag": "MF000120",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#Landau 共振与无碰撞阻尼": {
+    "tag": "MF000121",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#回旋共振、谐波与射频能量通道": {
+    "tag": "MF000122",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/等离子体波/README.md#波吸收功率、Hermitian 分解与能量核算": {
+    "tag": "MF000123",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#从双流体到单流体": {
+    "tag": "MF000124",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#理想 MHD 的方程与适用条件": {
+    "tag": "MF000125",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#广义欧姆定律与 Hall 项": {
+    "tag": "MF000126",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#磁压力、磁张力与等离子体 beta": {
+    "tag": "MF000127",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#磁通冻结的精确含义": {
+    "tag": "MF000128",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#电阻扩散、磁雷诺数与 Lundquist 数": {
+    "tag": "MF000129",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#静态平衡与 Grad–Shafranov 方程": {
+    "tag": "MF000130",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#能量守恒与欧姆加热": {
+    "tag": "MF000131",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#平衡、线性稳定性与能量原理": {
+    "tag": "MF000132",
+    "status": "draft",
+    "kind": "基础知识"
+  },
+  "基础原理/流体与磁流体力学/README.md#磁重联与 Sweet–Parker 标度": {
+    "tag": "MF000133",
+    "status": "draft",
+    "kind": "基础知识"
   }
 }

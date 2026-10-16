@@ -94,7 +94,10 @@ class Builder:
         self.chapters, self.sections, self.entries = prepare_content(register)
         self.paths = {s['source']: s['url'] for s in self.sections}
         self.paths.update({'README.md': '/about/', '编写说明.md': '/contributing/',
-                           '网站维护.md': '/maintenance/', '文献资料/来源索引.json': '/data/sources.json'})
+                           '网站维护.md': '/maintenance/', '核验记录.md': '/verification/',
+                           'site/verification.json': '/data/verification.json', '文献资料/来源索引.json': '/data/sources.json'})
+        self.verification = json.loads((ROOT / 'site/verification.json').read_text())
+        self.checked_sources = {p for p, h in self.verification.get('source_sha256', {}).items() if (ROOT / p).is_file() and digest(ROOT / p) == h}
         self.search = []
         self.pages = []
         self.sequence = [{'url': '/', 'title': CONFIG['title']}, {'url': '/contents/', 'title': '完整目录'}]
@@ -162,8 +165,8 @@ class Builder:
 <link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css}"><script type="module" src="/assets/site.mjs?v={js}"></script>{math_scripts}</head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="{REPO}">GitHub ↗</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div>{breadcrumb}</div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
-<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav>{self.chapter_links(current)}<a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a></nav></details>{self.nav(url) if reader else ''}{body}{self.nav(url,True) if reader else ''}</main></div>
+<div class="breadcrumb"><div>{breadcrumb}</div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav>{self.chapter_links(current)}<a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details>{self.nav(url) if reader else ''}{body}{self.nav(url,True) if reader else ''}</main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="{REPO}">GitHub ↗</a></span></div></footer></body></html>'''
         target = self.out / ('404.html' if url == '/404.html' else url.strip('/') + '/index.html' if url != '/' else 'index.html')
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -171,6 +174,8 @@ class Builder:
         self.pages.append(url)
 
     def status(self, record):
+        if record.get('status', 'draft') == 'draft' and record.get('source') in self.checked_sources:
+            return '资料与公式已复核（模型辅助） · 待专家审核'
         return {'draft': '草稿 · 待领域审核', 'reviewing': '审核中', 'reviewed': '已审核', 'archived': '已归档'}[record.get('status', 'draft')]
 
     def tools(self, url, title, source=None, tag=None):
@@ -206,7 +211,7 @@ class Builder:
         shutil.copytree(vendor, self.out / 'assets/mathjax')
         (self.out / '.nojekyll').touch()
         total = len(self.entries)
-        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a><a class="button" href="/contents/">完整目录</a><a class="button" href="/references/">参考文献</a><a class="button" href="/contributing/">参与编写</a></div></section><p class="reading-note">当前版本为专题提纲与资料入口，技术条目待领域审核。设计目标、仿真预测和实验结果分别记录。</p>'''
+        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a><a class="button" href="/contents/">完整目录</a><a class="button" href="/references/">参考文献</a><a class="button" href="/contributing/">参与编写</a></div></section><p class="reading-note">等离子体物理已补充五个正文专题，含定义、推导、算例与适用条件。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
         self.page('/', CONFIG['title'], hero + self.contents(), reader=False)
         self.page('/contents/', '完整目录', '<h1>完整目录</h1><p class="lead">按章节浏览，或直接进入带永久标签的知识条目。</p>' + self.contents(True))
         for chapter in self.chapters:
@@ -227,7 +232,7 @@ class Builder:
                                   chapter_slug=chapter['slug'], chapter_title=chapter['title'], section_title=section['title'],
                                   aliases=section['slug'])
             toc = '<details class="page-toc" open><summary>本节内容</summary><ul>' + ''.join(f'<li><a href="#{e["tag"]}">{ESC(e["title"])}</a></li>' for e in section['entries']) + '</ul></details>'
-            body = f'<p class="eyebrow">Section {section["number"]} · 连续阅读</p><h1>{ESC(section["title"])}</h1><div class="page-meta"><span>{len(section["entries"])} 个条目</span><span class="status">专题初稿 · 待领域审核</span></div><div class="prose">{intro}</div>' + toc + ''.join(blocks) + self.tools(section['url'], section['title'], section['source'])
+            body = f'<p class="eyebrow">Section {section["number"]} · 连续阅读</p><h1>{ESC(section["title"])}</h1><div class="page-meta"><span>{len(section["entries"])} 个条目</span><span class="status">{self.status(section)}</span></div><div class="prose">{intro}</div>' + toc + ''.join(blocks) + self.tools(section['url'], section['title'], section['source'])
             self.page(section['url'], section['title'], body, chapter, [(chapter['url'], chapter['title'])], math=True)
             self.index_record(section['title'], section['url'], intro, kind='专题', chapter_slug=chapter['slug'], chapter_title=chapter['title'], section_title=section['title'], aliases=section['slug'])
         for entry in self.entries:
@@ -241,6 +246,7 @@ class Builder:
         json_write(self.out / 'tags.json', {e['tag']: {'title': e['title'], 'source': e['source'], 'url': e['url'], 'status': e['status']} for e in self.entries})
         json_write(self.out / 'navigation.json', [{'url': p['url'], 'title': p['title']} for p in self.sequence])
         json_write(self.out / 'data/sources.json', self.references)
+        json_write(self.out / 'data/verification.json', self.verification)
         sources = sorted(self.paths)
         manifest = {p: digest(ROOT / p) for p in sources}
         tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
@@ -248,14 +254,14 @@ class Builder:
         receipt = {'built_at': datetime.now(timezone.utc).isoformat(), 'source_commit': self.revision,
                    'chapters': len(self.chapters), 'sections': len(self.sections), 'entries': len(self.entries),
                    'references': len(self.references), 'source_files': manifest, 'build_inputs': build_inputs,
-                   'content_status': 'draft; domain review not completed', 'all_registered_sources_rendered': True}
+                   'content_status': 'draft; scoped model-assisted source and formula review; specialist review pending', 'checked_source_count': len(self.checked_sources), 'all_registered_sources_rendered': True}
         json_write(self.out / 'edition.json', receipt)
         (self.out / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join(f'<url><loc>{CONFIG["url"]}{url}</loc></url>' for url in self.pages if url != '/404.html') + '</urlset>')
         (self.out / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {CONFIG["url"]}/sitemap.xml\n')
         print(f'Built {len(self.pages)} pages, {total} entries, {len(self.sections)} sections, {len(self.references)} references -> {self.out}')
 
     def ancillary(self):
-        for source, url, title in [('README.md','/about/','关于知识库'),('编写说明.md','/contributing/','编写与审核'),('网站维护.md','/maintenance/','网站维护')]:
+        for source, url, title in [('README.md','/about/','关于知识库'),('编写说明.md','/contributing/','编写与审核'),('网站维护.md','/maintenance/','网站维护'),('核验记录.md','/verification/','内容核验记录')]:
             text = re.sub(r'^# .+\n', '', (ROOT / source).read_text(), count=1)
             content = self.render(text, source)
             self.page(url, title, '<h1>' + title + '</h1><article class="prose">' + content + '</article>', math=True, reader=False)
@@ -263,7 +269,7 @@ class Builder:
         options = ''.join(f'<option value="{c["slug"]}">{ESC(c["title"])}</option>' for c in self.chapters)
         body = f'''<h1>搜索知识库</h1><p>支持中文、英文缩写、正文关键词和永久标签。多个关键词以空格分隔。</p><div class="search-controls"><label for="chapter-filter">章节<select id="chapter-filter"><option value="">全部章节</option>{options}</select></label><label for="kind-filter">类型<select id="kind-filter"><option value="">全部类型</option><option>条目</option><option>专题</option><option>文献</option><option>说明</option></select></label></div><p id="search-status" class="search-status" role="status" aria-live="polite">正在载入搜索索引…</p><div id="search-results"></div><button type="button" id="show-more" hidden>显示更多结果</button><noscript><p class="noscript">全文搜索需要 JavaScript。仍可通过<a href="/contents/">完整目录</a>阅读所有内容。</p></noscript>'''
         self.page('/search/', '搜索知识库', body, reader=False)
-        body = '<h1>参考文献与来源</h1><p>原库收录的 12 条机构资料和课程入口。来源核对日期保留原始记录；尚未完成全文逐篇审核。</p>'
+        body = f'<h1>参考文献与来源</h1><p>共 {len(self.references)} 条机构资料、课程和论文入口。来源核对日期及范围逐条记录；本次等离子体正文在各条目就近注明具体章节与公式位置。</p>'
         for ref in self.references:
             anchor = ref['id']
             title = ref.get('中文标题', ref['title'])
@@ -272,7 +278,7 @@ class Builder:
         self.page('/references/', '参考文献与来源', body, reader=False)
         body = f'''<h1>讨论与勘误</h1><p>知识库的讨论保存在 GitHub Discussions。每个条目页面都有“查看本页讨论”和“发起讨论”入口，通过永久标签关联内容。</p><p>欢迎提出原理解释、文献补充、工程经验和勘误。请说明对应条目、适用条件、来源与证据。</p><div class="page-actions"><a class="button primary" href="{REPO}/discussions">进入讨论区 ↗</a><a class="button" href="{REPO}/issues/new">提交勘误 ↗</a></div><p class="reading-note">当前使用 GitHub 原生讨论入口；站内嵌入式评论尚未启用。发表讨论需要登录 GitHub。</p>'''
         self.page('/comments/', '讨论与勘误', body, reader=False)
-        body = f'''<h1>版本与来源</h1><p>本阅读版完整收录迁移时的 18 份 Markdown 文档及 12 条来源记录。原始正文保留中文目录，由同一份源文件生成连续阅读页与条目页。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>专题初稿；未进行领域审核或正式证明验证。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
+        body = f'''<h1>版本与来源</h1><p>本阅读版包含 {len(self.sections)} 个专题、{len(self.entries)} 个永久条目和 {len(self.references)} 条来源记录。正文保留中文目录，由同一份源文件生成连续阅读页与条目页；原仓库历史完整保留。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>新增等离子体正文完成限定范围的模型辅助复核；领域专家审核仍待完成。<a href="/verification/">详见核验记录</a>。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li><li><a href="/data/verification.json">内容复核范围与源文校验值</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
         self.page('/sources/', '版本与来源', body, reader=False)
         self.page('/404.html', '页面未找到', '<h1>页面未找到</h1><p>可用关键词或永久标签查找条目，也可以返回完整目录。</p><a class="button" href="/contents/">浏览完整目录</a>', reader=False)
 

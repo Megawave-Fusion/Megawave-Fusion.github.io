@@ -4,15 +4,159 @@
   "url": "https://megawave-fusion.github.io",
   "repository": "Megawave-Fusion/Megawave-Fusion.github.io",
   "chapters": [
-    {"slug":"foundations","title":"基础原理","description":"从聚变反应到约束、平衡、波与输运。","sections":[["foundations","基础原理/README.md"]]},
-    {"slug":"devices","title":"装置路线","description":"不同磁场拓扑、约束方式与装置构型。","sections":[["devices","装置路线/README.md"]]},
-    {"slug":"heating","title":"辅助加热","description":"六套独立的加热与电流驱动系统。","sections":[["heating","辅助加热/README.md"],["icrh","辅助加热/离子回旋加热/README.md"],["ecrh","辅助加热/电子回旋加热/README.md"],["nbi","辅助加热/中性束注入/README.md"],["lhcd","辅助加热/低杂波电流驱动/README.md"],["ebw","辅助加热/电子伯恩斯坦波加热/README.md"],["helicon","辅助加热/螺旋波加热/README.md"]]},
-    {"slug":"materials","title":"腔体材料","description":"真空室、第一壁、偏滤器与壁面相互作用。","sections":[["materials","腔体材料/README.md"]]},
-    {"slug":"diagnostics","title":"诊断控制","description":"测量、标定、数据质量与实时反馈。","sections":[["diagnostics","诊断控制/README.md"]]},
-    {"slug":"simulation","title":"仿真计算","description":"模型、求解器、耦合与可复现计算。","sections":[["simulation","仿真计算/README.md"]]},
-    {"slug":"engineering","title":"工程系统","description":"磁体、电源、真空、低温与燃料循环。","sections":[["engineering","工程系统/README.md"]]},
-    {"slug":"experiments","title":"实验运行","description":"从试验计划到运行记录与故障复盘。","sections":[["experiments","实验运行/README.md"]]},
-    {"slug":"industry","title":"项目产业","description":"装置档案、机构、供应链与技术成熟度。","sections":[["industry","项目产业/README.md"]]},
-    {"slug":"literature","title":"文献资料","description":"学习路径、术语与可追溯的参考来源。","sections":[["literature","文献资料/README.md"]]}
+    {
+      "slug": "foundations",
+      "title": "基础原理",
+      "description": "等离子体概念、粒子轨道、动理学与碰撞、波粒相互作用、流体与 MHD。",
+      "sections": [
+        [
+          "foundations",
+          "基础原理/README.md"
+        ],
+        [
+          "plasma-basics",
+          "基础原理/等离子体基本概念/README.md"
+        ],
+        [
+          "particle-motion",
+          "基础原理/单粒子运动/README.md"
+        ],
+        [
+          "kinetic-collisions",
+          "基础原理/动理学与碰撞/README.md"
+        ],
+        [
+          "plasma-waves",
+          "基础原理/等离子体波/README.md"
+        ],
+        [
+          "fluid-mhd",
+          "基础原理/流体与磁流体力学/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "devices",
+      "title": "装置路线",
+      "description": "不同磁场拓扑、约束方式与装置构型。",
+      "sections": [
+        [
+          "devices",
+          "装置路线/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "heating",
+      "title": "辅助加热",
+      "description": "六套独立的加热与电流驱动系统。",
+      "sections": [
+        [
+          "heating",
+          "辅助加热/README.md"
+        ],
+        [
+          "icrh",
+          "辅助加热/离子回旋加热/README.md"
+        ],
+        [
+          "ecrh",
+          "辅助加热/电子回旋加热/README.md"
+        ],
+        [
+          "nbi",
+          "辅助加热/中性束注入/README.md"
+        ],
+        [
+          "lhcd",
+          "辅助加热/低杂波电流驱动/README.md"
+        ],
+        [
+          "ebw",
+          "辅助加热/电子伯恩斯坦波加热/README.md"
+        ],
+        [
+          "helicon",
+          "辅助加热/螺旋波加热/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "materials",
+      "title": "腔体材料",
+      "description": "真空室、第一壁、偏滤器与壁面相互作用。",
+      "sections": [
+        [
+          "materials",
+          "腔体材料/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "diagnostics",
+      "title": "诊断控制",
+      "description": "测量、标定、数据质量与实时反馈。",
+      "sections": [
+        [
+          "diagnostics",
+          "诊断控制/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "simulation",
+      "title": "仿真计算",
+      "description": "模型、求解器、耦合与可复现计算。",
+      "sections": [
+        [
+          "simulation",
+          "仿真计算/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "engineering",
+      "title": "工程系统",
+      "description": "磁体、电源、真空、低温与燃料循环。",
+      "sections": [
+        [
+          "engineering",
+          "工程系统/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "experiments",
+      "title": "实验运行",
+      "description": "从试验计划到运行记录与故障复盘。",
+      "sections": [
+        [
+          "experiments",
+          "实验运行/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "industry",
+      "title": "项目产业",
+      "description": "装置档案、机构、供应链与技术成熟度。",
+      "sections": [
+        [
+          "industry",
+          "项目产业/README.md"
+        ]
+      ]
+    },
+    {
+      "slug": "literature",
+      "title": "文献资料",
+      "description": "学习路径、术语与可追溯的参考来源。",
+      "sections": [
+        [
+          "literature",
+          "文献资料/README.md"
+        ]
+      ]
+    }
   ]
 }

@@ -19,6 +19,17 @@ def check(site):
         ids = [n['id'] for n in soup.find_all(id=True)]
         if len(ids) != len(set(ids)):
             errors.append(f'Duplicate HTML id: {path.relative_to(site)}')
+        # Broken Markdown table delimiters can silently drop formula content.
+        for block in soup.select('.prose'):
+            copy = BeautifulSoup(str(block), 'html.parser')
+            for node in copy.select('.arithmatex, code, pre'):
+                node.decompose()
+            if '$' in copy.get_text():
+                errors.append(f'Unrendered math delimiter in {path.relative_to(site)}')
+        for table in soup.select('.prose table'):
+            width = len(table.select('thead tr th'))
+            if width and any(len(row.find_all(['td', 'th'], recursive=False)) != width for row in table.select('tbody tr')):
+                errors.append(f'Inconsistent table columns: {path.relative_to(site)}')
         pages[path.resolve()] = (soup, set(ids))
         if not soup.select_one('main#main') or not soup.title:
             errors.append(f'Missing page structure: {path}')
