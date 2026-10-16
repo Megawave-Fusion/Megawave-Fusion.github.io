@@ -4,3 +4,11 @@ __pycache__/
 .env
 .env.*
 *.part
+
+# 本机运行数据、登录信息和安装包
+.运行环境/
+
+.venv/
+_site/
+.build/
+node_modules/

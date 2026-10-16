@@ -5,7 +5,8 @@ import json
 import re
 根目录 = Path(__file__).resolve().parents[1]
 错误 = []
-文档 = sorted(根目录.rglob('*.md'))
+忽略目录 = {'.git', '.venv', '.运行环境', '_site', 'docs', '.build', 'vendor', 'node_modules'}
+文档 = sorted(p for p in 根目录.rglob('*.md') if not 忽略目录.intersection(p.relative_to(根目录).parts))
 引用 = set()
 for 文件 in 文档:
     相对路径 = 文件.relative_to(根目录)
