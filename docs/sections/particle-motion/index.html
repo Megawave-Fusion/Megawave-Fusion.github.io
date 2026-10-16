@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>单粒子运动 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="单粒子运动 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/particle-motion/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/particle-motion/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=c8e2b5bf8c"><script type="module" src="/assets/site.mjs?v=0d0b11e2da"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/foundations/">基础原理</a><span>/</span><span>单粒子运动</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录"><a class="active" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a></nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav><a class="active" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details><nav class="reader-nav " aria-label="阅读顺序"><a class="previous" href="/tag/MF000091/"><small>← 上一页</small>磁化、碰撞与模型选择的独立判据</a><a class="next" href="/tag/MF000092/"><small>下一页 →</small>Lorentz 方程与磁场不做功</a></nav><p class="eyebrow">Section 1.3 · 连续阅读</p><h1>单粒子运动</h1><div class="page-meta"><span>8 个条目</span><span class="status">资料与公式已复核（模型辅助） · 待专家审核</span></div><div class="prose"><p>单粒子轨道是理解磁约束、漂移、磁镜和波粒共振的起点。本专题先把电磁场视为给定场，研究测试粒子；真实等离子体还必须由所有组分的电荷和电流自洽求场。除特别说明外，采用 SI、非相对论、无碰撞近似；<span class="arithmatex">\(q\)</span> 始终是带符号电荷，<span class="arithmatex">\(e&gt;0\)</span> 是元电荷大小，<span class="arithmatex">\(B=|\mathbf B|\)</span>，<span class="arithmatex">\(\mathbf b=\mathbf B/B\)</span>。各漂移公式是满足尺度排序时的导引中心近似，不是任意电磁场中的精确轨道。</p></div><details class="page-toc" open><summary>本节内容</summary><ul><li><a href="#MF000092">Lorentz 方程与磁场不做功</a></li><li><a href="#MF000093">回旋运动、带符号频率与 Larmor 半径</a></li><li><a href="#MF000094">均匀电磁场中的 E×B 漂移与力漂移</a></li><li><a href="#MF000095">磁场强度梯度引起的 grad-B 漂移</a></li><li><a href="#MF000096">磁力线曲率漂移与环形场的局限</a></li><li><a href="#MF000097">磁矩守恒、镜力与绝热压缩</a></li><li><a href="#MF000098">磁镜反射、镜比与损失锥</a></li><li><a href="#MF000099">绝热不变量、导引中心排序与失效条件</a></li></ul></details><section class="entry-block" id="MF000092"><div class="entry-heading"><h2><span class="entry-number">1.3.1</span><a href="/tag/MF000092/">Lorentz 方程与磁场不做功</a></h2><a class="tag" href="/tag/MF000092/">MF000092</a></div><div class="prose"><p>对质量 <span class="arithmatex">\(m\)</span>、电荷 <span class="arithmatex">\(q\)</span> 的非相对论粒子，位置 <span class="arithmatex">\(\mathbf x\)</span> 和速度 <span class="arithmatex">\(\mathbf v\)</span> 满足</p>
+<div class="arithmatex">\[
+\frac{d\mathbf x}{dt}=\mathbf v,
+\qquad
+m\frac{d\mathbf v}{dt}=q\left(\mathbf E+\mathbf v\times\mathbf B\right).
+\]</div>
+<p><span class="arithmatex">\(m\)</span> 用 kg，<span class="arithmatex">\(q\)</span> 用 C，<span class="arithmatex">\(\mathbf E\)</span> 用 <span class="arithmatex">\(\mathrm{V\,m^{-1}}\)</span>，<span class="arithmatex">\(\mathbf B\)</span> 用 T，力的单位为 N。这里没有 Gaussian-cgs 中的 <span class="arithmatex">\(1/c\)</span>。两边点乘 <span class="arithmatex">\(\mathbf v\)</span>，并用 <span class="arithmatex">\(\mathbf v\cdot(\mathbf v\times\mathbf B)=0\)</span>，得到精确的非相对论功率关系</p>
+<div class="arithmatex">\[
+\frac{dK}{dt}=q\mathbf E\cdot\mathbf v,
+\qquad K=\frac12mv^2.
+\]</div>
+<p>因此磁力改变速度方向而不直接改变动能。这不仅对均匀或静态磁场成立；磁力项在任意时刻都与速度正交。不过时变磁场伴随 <span class="arithmatex">\(\nabla\times\mathbf E=-\partial_t\mathbf B\)</span>，感应电场可以做功，故“磁力不做功”不能被误写成“磁压缩绝不加热”。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html">UT Austin：Motion in Uniform Fields，式 (2.1)</a>；<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html">Invariance of Magnetic Moment，式 (2.60)–(2.65)</a>。</p>
+<p>若场与时间无关且 <span class="arithmatex">\(\mathbf E=-\nabla\phi\)</span>，则</p>
+<div class="arithmatex">\[
+\frac{d}{dt}(K+q\phi)=0,
+\qquad
+K_2-K_1=-q(\phi_2-\phi_1).
+\]</div>
+<p>这里 <span class="arithmatex">\(\phi\)</span> 的单位是 V，<span class="arithmatex">\(q\phi\)</span> 的单位为 J。电子从低电势走向高电势时，<span class="arithmatex">\(q=-e\)</span> 使其势能下降、动能增加；单价正离子恰好相反。例如电子跨过 <span class="arithmatex">\(+100\,\mathrm V\)</span> 的电势增量，获得 <span class="arithmatex">\(100\,\mathrm{eV}\)</span> 动能。这个符号检查比凭“沿电场方向加速”口头记忆更可靠，因为电子受力与电场相反。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html">UT Austin：Magnetic Mirrors，式 (2.83)–(2.85)</a>。</p>
+<p><strong>适用范围与误区。</strong> 本式未包含碰撞、辐射反作用或外加非电磁力，单个粒子的动能变化也不能直接等同于整个等离子体温度变化。对相对论粒子应使用 <span class="arithmatex">\(d(\gamma m\mathbf v)/dt=q(\mathbf E+\mathbf v\times\mathbf B)\)</span>；功率仍为 <span class="arithmatex">\(q\mathbf E\cdot\mathbf v\)</span>，但动能不再等于 <span class="arithmatex">\(mv^2/2\)</span>。轨道数值计算若在 <span class="arithmatex">\(\mathbf E=0\)</span> 的静态场中出现持续动能漂移，首先应检查积分误差，而不能把它解释为磁场加热。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000092/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000093"><div class="entry-heading"><h2><span class="entry-number">1.3.2</span><a href="/tag/MF000093/">回旋运动、带符号频率与 Larmor 半径</a></h2><a class="tag" href="/tag/MF000093/">MF000093</a></div><div class="prose"><p>取均匀静态 <span class="arithmatex">\(\mathbf B=B\hat{\mathbf z}\)</span>、<span class="arithmatex">\(\mathbf E=0\)</span>，Lorentz 方程的分量为</p>
+<div class="arithmatex">\[
+\dot v_x=\Omega v_y,
+\qquad
+\dot v_y=-\Omega v_x,
+\qquad
+\dot v_\parallel=0,
+\qquad
+\Omega=\frac{qB}{m}.
+\]</div>
+<p>带符号的 <span class="arithmatex">\(\Omega\)</span> 编码旋转方向，而 <span class="arithmatex">\(\omega_c=|\Omega|\)</span> 是正的回旋角频率。若初速度取 <span class="arithmatex">\(v_x(0)=v_\perp\)</span>、<span class="arithmatex">\(v_y(0)=0\)</span>，则 <span class="arithmatex">\(v_x=v_\perp\cos\Omega t\)</span>、<span class="arithmatex">\(v_y=-v_\perp\sin\Omega t\)</span>。因此在 <span class="arithmatex">\(x\)</span> 向右、<span class="arithmatex">\(y\)</span> 向上的图中，正粒子从 <span class="arithmatex">\(+x\)</span> 速度转向 <span class="arithmatex">\(-y\)</span>，电子相反；给出坐标比不注明观察方向的“顺时针”说法更清楚。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.1，式 (2.8)–(2.11)</a>。</p>
+<p>轨道半径、周期和每周期的平行位移为</p>
+<div class="arithmatex">\[
+\rho=\frac{v_\perp}{|\Omega|}
+=\frac{mv_\perp}{|q|B},
+\qquad
+\tau_c=\frac{2\pi}{|\Omega|},
+\qquad
+\Delta z=v_\parallel\tau_c.
+\]</div>
+<p><span class="arithmatex">\(\rho\)</span>、<span class="arithmatex">\(\Delta z\)</span> 用 m，<span class="arithmatex">\(\tau_c\)</span> 用 s。半径必须非负，因此不能写成 <span class="arithmatex">\(v_\perp/\Omega_e\)</span> 后把电子半径当作负数。平行分量只使圆轨道变成螺旋线，不直接改变回旋频率；这里的频率独立于速度是非相对论结果。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html">UT Austin：Motion in Uniform Fields，式 (2.3)、(2.5)–(2.7)</a>。</p>
+<p>用给定的垂直动能 <span class="arithmatex">\(K_\perp=mv_\perp^2/2\)</span> 可改写为 <span class="arithmatex">\(\rho=\sqrt{2mK_\perp}/(|q|B)\)</span>。例如 <span class="arithmatex">\(B=5\,\mathrm T\)</span>、<span class="arithmatex">\(K_\perp=1\,\mathrm{keV}\)</span> 时，电子半径约 <span class="arithmatex">\(21.3\,\mu\mathrm m\)</span>，氘离子半径约 <span class="arithmatex">\(1.29\,\mathrm{mm}\)</span>。这比较的是单粒子的垂直动能；如果改为 Maxwellian 温度算例，必须说明选择哪一种热速度。相同质量和磁场下，把垂直动能增大四倍会使半径增大两倍，而不是四倍。</p>
+<p><strong>适用范围与误区。</strong> 这里的“固定导引中心”只在无电场且磁场均匀时成立；梯度、曲率、其他力以及电场会让导引中心移动。带电粒子也并非焊接在某一条数学磁力线上。对磁零点 <span class="arithmatex">\(B=0\)</span>，回旋表达式本身失去定义；对相对论能量，回旋频率变为 <span class="arithmatex">\(|q|B/(\gamma m)\)</span>，不能继续按常数 <span class="arithmatex">\(|q|B/m\)</span> 计算共振。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000093/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000094"><div class="entry-heading"><h2><span class="entry-number">1.3.3</span><a href="/tag/MF000094/">均匀电磁场中的 E×B 漂移与力漂移</a></h2><a class="tag" href="/tag/MF000094/">MF000094</a></div><div class="prose"><p>在均匀、静态且 <span class="arithmatex">\(B\ne0\)</span> 的场中，分解 <span class="arithmatex">\(\mathbf E=\mathbf E_\perp+E_\parallel\mathbf b\)</span>。沿场运动满足 <span class="arithmatex">\(m\dot v_\parallel=qE_\parallel\)</span>；垂直运动可写成回旋运动叠加匀速漂移</p>
+<div class="arithmatex">\[
+\mathbf v_E=\frac{\mathbf E\times\mathbf B}{B^2}.
+\]</div>
+<p>它的单位为 <span class="arithmatex">\(\mathrm{m\,s^{-1}}\)</span>。代入可直接验证 <span class="arithmatex">\(\mathbf E_\perp+\mathbf v_E\times\mathbf B=0\)</span>：令 <span class="arithmatex">\(\mathbf w_\perp=\mathbf v_\perp-\mathbf v_E\)</span> 后，<span class="arithmatex">\(\mathbf w_\perp\)</span> 满足无电场的回旋方程。电子与离子的 <span class="arithmatex">\(\mathbf v_E\)</span> 相同，因为电荷在电力和磁力两边抵消；这并不意味着两种粒子的瞬时回旋速度相同。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html">UT Austin：Motion in Uniform Fields，式 (2.2)–(2.4)</a>。</p>
+<p>若 <span class="arithmatex">\(\mathbf E=E_x\hat{\mathbf x}\)</span>、<span class="arithmatex">\(\mathbf B=B\hat{\mathbf z}\)</span>，则 <span class="arithmatex">\(\mathbf v_E=-(E_x/B)\hat{\mathbf y}\)</span>。取 <span class="arithmatex">\(E_x=10^3\,\mathrm{V\,m^{-1}}\)</span>、<span class="arithmatex">\(B=5\,\mathrm T\)</span>，漂移为 <span class="arithmatex">\(-200\hat{\mathbf y}\,\mathrm{m\,s^{-1}}\)</span>，这一方向对正离子和电子一致。均匀静态垂直电场对周期回旋的平均净功为零，因为 <span class="arithmatex">\(\mathbf E\cdot\mathbf v_E=0\)</span>、回旋速度周期平均为零；但瞬时 <span class="arithmatex">\(q\mathbf E\cdot\mathbf v\)</span> 可以不为零，初始动能也不必恒定。</p>
+<p>一个缓慢、近似恒定的额外垂直力 <span class="arithmatex">\(\mathbf F_\perp\)</span> 产生最低阶力漂移</p>
+<div class="arithmatex">\[
+\mathbf v_F=\frac{\mathbf F\times\mathbf B}{qB^2}.
+\]</div>
+<p>把 <span class="arithmatex">\(\mathbf F=q\mathbf E\)</span> 代入便返回 <span class="arithmatex">\(\mathbf v_E\)</span>；若 <span class="arithmatex">\(\mathbf F\)</span> 与电荷无关，例如重力 <span class="arithmatex">\(m\mathbf g\)</span>，漂移就会随电荷符号改变方向。这个公式可由平均力平衡 <span class="arithmatex">\(\mathbf F_\perp+q\mathbf v_F\times\mathbf B=0\)</span> 导出，但不能无条件套用于快速共振驱动。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.2–§2.2.1，式 (2.14)–(2.23)</a>。</p>
+<p><strong>适用范围与误区。</strong> 取非均匀场的局域 <span class="arithmatex">\(\mathbf E\times\mathbf B/B^2\)</span> 时，需要场在回旋尺度上平滑；快速变化的电场会产生极化等修正。相同的 <span class="arithmatex">\(\mathbf v_E\)</span> 对精确准中性的混合物给出 <span class="arithmatex">\(\mathbf j_E=\rho_q\mathbf v_E\simeq0\)</span>，但它仍运输粒子、压力与能量，所以“无净漂移电流”不等于“无输运”。如果 <span class="arithmatex">\(E_\perp/B\)</span> 接近光速，非相对论分解不能用于定量计算。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000094/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000095"><div class="entry-heading"><h2><span class="entry-number">1.3.4</span><a href="/tag/MF000095/">磁场强度梯度引起的 grad-B 漂移</a></h2><a class="tag" href="/tag/MF000095/">MF000095</a></div><div class="prose"><p>在磁场随空间缓慢变化时，回旋轨道的强场一侧弯曲更紧，弱场一侧弯曲更松，轨道一周后一般不再闭合。对满足导引中心排序的粒子，定义正的磁矩标量 <span class="arithmatex">\(\mu=mv_\perp^2/(2B)\)</span>，得到最低阶梯度漂移</p>
+<div class="arithmatex">\[
+\mathbf v_{\nabla B}
+=\frac{\mu}{qB}\,\mathbf b\times\nabla B
+=\frac{mv_\perp^2}{2qB^3}\,\mathbf B\times\nabla B
+=\frac{K_\perp}{qB^2}\,\mathbf b\times\nabla B.
+\]</div>
+<p><span class="arithmatex">\(\nabla B\)</span> 的单位是 <span class="arithmatex">\(\mathrm{T\,m^{-1}}\)</span>，<span class="arithmatex">\(\mu\)</span> 的单位是 <span class="arithmatex">\(\mathrm{J\,T^{-1}}\)</span>，结果是速度。三个表达式等价，尤其要保留最后两式中不同的 <span class="arithmatex">\(B\)</span> 次数。电子与正离子的方向相反；这与同向的 E×B 漂移形成可检验的区别。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html">UT Austin：Magnetic Drifts，式 (2.52)、(2.53)</a>；<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.3，式 (2.36)、(2.37)</a>。</p>
+<p>也可把回旋平均后的有效磁镜力写作 <span class="arithmatex">\(\mathbf F_{\mu}=-\mu\nabla B\)</span>。它的垂直部分代入力漂移 <span class="arithmatex">\(\mathbf F\times\mathbf B/(qB^2)\)</span>，恰好给出上式。这里的有效力是回旋平均描述中的量，并不是给原始 Lorentz 方程额外添加一项后再同时计算完整回旋；否则会重复计数。平行部分 <span class="arithmatex">\(-\mu\nabla_\parallel B\)</span> 则影响沿场运动。</p>
+<p>令 <span class="arithmatex">\(\mathbf B=B(x)\hat{\mathbf z}\)</span>、<span class="arithmatex">\(dB/dx&gt;0\)</span>，则 <span class="arithmatex">\(\mathbf b\times\nabla B\)</span> 指向 <span class="arithmatex">\(+y\)</span>，正离子向 <span class="arithmatex">\(+y\)</span> 漂移，电子向 <span class="arithmatex">\(-y\)</span> 漂移。定义 <span class="arithmatex">\(L_B=B/|\nabla_\perp B|\)</span>，漂移大小为</p>
+<div class="arithmatex">\[
+|\mathbf v_{\nabla B}|=\frac{K_\perp}{|q|B L_B}.
+\]</div>
+<p>对单价粒子 <span class="arithmatex">\(K_\perp=1\,\mathrm{keV}\)</span>、<span class="arithmatex">\(B=5\,\mathrm T\)</span>、<span class="arithmatex">\(L_B=0.5\,\mathrm m\)</span>，大小为 <span class="arithmatex">\(400\,\mathrm{m\,s^{-1}}\)</span>。相同电荷量和相同垂直动能时，该估算不显含质量；若改为固定速度比较，就会有质量依赖。这两种比较不能混在一起。</p>
+<p><strong>适用范围与误区。</strong> 该式要求 <span class="arithmatex">\(\rho/L_B\ll1\)</span>、背景变化慢于回旋，且这里使用的 <span class="arithmatex">\(v_\perp\)</span> 是相对于导引中心的回旋速度；显著 E×B 流应先分离。<span class="arithmatex">\(\nabla B\)</span> 指磁场大小的梯度，不是整个矢量场的导数；只有其垂直于磁场的部分进入漂移。把局部的导引中心漂移乘上密度，也不自动等于总宏观电流，完整电流还涉及回旋磁化以及分布函数的空间变化。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000095/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000096"><div class="entry-heading"><h2><span class="entry-number">1.3.5</span><a href="/tag/MF000096/">磁力线曲率漂移与环形场的局限</a></h2><a class="tag" href="/tag/MF000096/">MF000096</a></div><div class="prose"><p>磁力线即使大小不变，也可能改变方向。定义曲率向量</p>
+<div class="arithmatex">\[
+\boldsymbol\kappa=(\mathbf b\cdot\nabla)\mathbf b,
+\qquad
+\mathbf b\cdot\boldsymbol\kappa=0,
+\qquad
+R_c=\frac{1}{|\boldsymbol\kappa|}.
+\]</div>
+<p><span class="arithmatex">\(\boldsymbol\kappa\)</span> 指向局部曲率中心，单位 <span class="arithmatex">\(\mathrm{m^{-1}}\)</span>；<span class="arithmatex">\(R_c\)</span> 是曲率半径，单位 m。沿弯曲磁力线运动的导引中心有与 <span class="arithmatex">\(v_\parallel^2\boldsymbol\kappa\)</span> 相关的惯性效应。在静态磁场、弱电漂移的最低阶近似下，曲率漂移为</p>
+<div class="arithmatex">\[
+\mathbf v_\kappa
+=\frac{mv_\parallel^2}{qB}\,\mathbf b\times\boldsymbol\kappa
+=\frac{v_\parallel^2}{\Omega}\,\mathbf b\times\boldsymbol\kappa.
+\]</div>
+<p>由于 <span class="arithmatex">\(v_\parallel\)</span> 以平方出现，同一种电荷沿同一磁力线正向或反向运动时，其曲率漂移方向相同；改变电荷符号则反向。这是检查符号和理解往返轨道平均漂移的有用方法。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html">UT Austin：Magnetic Drifts，式 (2.54)–(2.56)</a>。</p>
+<p>把平行动能 <span class="arithmatex">\(K_\parallel=mv_\parallel^2/2\)</span> 代入，得到 <span class="arithmatex">\(|\mathbf v_\kappa|=2K_\parallel/(|q|BR_c)\)</span>。例如单价粒子 <span class="arithmatex">\(K_\parallel=1\,\mathrm{keV}\)</span>、<span class="arithmatex">\(B=5\,\mathrm T\)</span>、<span class="arithmatex">\(R_c=2\,\mathrm m\)</span> 时，曲率漂移为 <span class="arithmatex">\(200\,\mathrm{m\,s^{-1}}\)</span>。与梯度漂移比较时，不能忘记这里因 <span class="arithmatex">\(mv_\parallel^2=2K_\parallel\)</span> 产生的系数二。</p>
+<p>以轴对称纯环向真空场 <span class="arithmatex">\(\mathbf B=B_0R_0\hat{\boldsymbol\phi}/R\)</span> 为例，柱坐标满足 <span class="arithmatex">\(\hat{\mathbf R}\times\hat{\boldsymbol\phi}=\hat{\mathbf z}\)</span>，并有 <span class="arithmatex">\(\boldsymbol\kappa=-\hat{\mathbf R}/R\)</span>、<span class="arithmatex">\(\nabla B=-(B/R)\hat{\mathbf R}\)</span>。于是两种漂移同向叠加为</p>
+<div class="arithmatex">\[
+\mathbf v_{\nabla B}+\mathbf v_\kappa
+=\frac{m}{qBR}\left(v_\parallel^2+\frac12v_\perp^2\right)\hat{\mathbf z}.
+\]</div>
+<p>正离子与电子发生相反的垂直漂移。因此把直磁场弯成没有端点的圆环，并不足以获得良好单粒子约束；还需要考虑磁场扭转、轨道宽度和自洽电场等物理。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.4–§2.5，式 (2.45)、(2.55)、(2.56)</a>。</p>
+<p><strong>适用范围与误区。</strong> 上述环向场只是一个指定几何例子，不是实际托卡马克的完整场。一般有等离子体电流的磁场中，<span class="arithmatex">\(\nabla B/B\)</span> 与 <span class="arithmatex">\(\boldsymbol\kappa\)</span> 不能直接互换；真空场中的特定关系有其 Maxwell 方程前提。强 E×B 流、时间变化或显著惯性需要保留更一般的导引中心惯性漂移，不能只留下 <span class="arithmatex">\(v_\parallel^2\boldsymbol\kappa\)</span> 项。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000096/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000097"><div class="entry-heading"><h2><span class="entry-number">1.3.6</span><a href="/tag/MF000097/">磁矩守恒、镜力与绝热压缩</a></h2><a class="tag" href="/tag/MF000097/">MF000097</a></div><div class="prose"><p>缓变磁场中的第一绝热不变量在最低阶为</p>
+<div class="arithmatex">\[
+\mu=\frac{mv_\perp^2}{2B}=\frac{K_\perp}{B},
+\qquad
+\frac{d\mu}{dt}\simeq0.
+\]</div>
+<p><span class="arithmatex">\(\mu\)</span> 是正标量，单位 <span class="arithmatex">\(\mathrm{J\,T^{-1}}\)</span>，不是带符号电荷。若画成回旋电流环，其磁偶极矩矢量指向 <span class="arithmatex">\(-\mathbf b\)</span>，即 <span class="arithmatex">\(\boldsymbol\mu_{\mathrm{orb}}=-\mu\mathbf b\)</span>；这与使用正标量 <span class="arithmatex">\(\mu\)</span> 表示轨道不变量并不矛盾。这里的 <span class="arithmatex">\(v_\perp\)</span> 是扣除慢漂移后的回旋速度，不能把显著整体垂直流的动能全部计入磁矩。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.6–§2.6.1，式 (2.85)–(2.97)，区分标量与电流环矢量</a>；<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html">UT Austin：Invariance of Magnetic Moment，式 (2.60)–(2.70)</a>。</p>
+<p>在静态、无电场且慢漂移能量可忽略时，总动能 <span class="arithmatex">\(K_\parallel+\mu B\)</span> 保持不变。沿场坐标记为 <span class="arithmatex">\(s\)</span>，因 <span class="arithmatex">\(ds/dt=v_\parallel\)</span>，对能量求导得到导引中心镜力方程</p>
+<div class="arithmatex">\[
+m\frac{dv_\parallel}{dt}=-\mu\frac{\partial B}{\partial s}.
+\]</div>
+<p>这个等式可由导引中心方程直接延拓至反射点，不能在 <span class="arithmatex">\(v_\parallel=0\)</span> 处依靠除以 <span class="arithmatex">\(v_\parallel\)</span> 来证明。它表明粒子进入更强磁场时，平行动能减小而垂直动能增大；总动能仍不变。镜力对正负电荷都指向弱场方向，虽然相应的横向漂移方向会随电荷改变。</p>
+<p>若粒子从 <span class="arithmatex">\(B_0\)</span> 进入 <span class="arithmatex">\(2B_0\)</span>，并在途中保持磁矩，则 <span class="arithmatex">\(K_\perp\)</span> 增为原来的两倍；若其初始 <span class="arithmatex">\(K_\parallel\)</span> 不够提供这部分能量，粒子会先反射，不会真的到达 <span class="arithmatex">\(2B_0\)</span>。例如 <span class="arithmatex">\(K_{\perp0}=2\,\mathrm{keV}\)</span>、<span class="arithmatex">\(K_{\parallel0}=1\,\mathrm{keV}\)</span> 时，静磁场中的镜点满足 <span class="arithmatex">\(B_m/B_0=(K_{\perp0}+K_{\parallel0})/K_{\perp0}=1.5\)</span>。这是一项仅由守恒量得到的判断，不需要先积分完整螺旋轨道。</p>
+<p>若磁场本身缓慢增强，<span class="arithmatex">\(\mu\)</span> 保持近似不变仍使 <span class="arithmatex">\(K_\perp=\mu B\)</span> 增加，但现在不应再使用静态无电场的总动能守恒。增加的能量来自感应电场；这是 betatron acceleration 或绝热磁压缩的基本机制。外部场能与粒子能之间的交换，和纯静磁场中两个速度分量之间的能量转换必须分开记账。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.6.2、§2.7</a>。</p>
+<p><strong>适用范围与误区。</strong> “绝热”在这里意为参数变化慢于相关周期，不是热力学上的绝热壁。<span class="arithmatex">\(\mu\)</span> 的最低阶表达式不是任意轨道的精确常数；快速变化、碰撞、回旋共振和有限回旋半径效应都可能破坏它。强波加热正可通过打破某些近似不变量改变粒子分布，所以不能在同一模型中一面严格固定 <span class="arithmatex">\(\mu\)</span>，一面无解释地加入垂直共振加热。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000097/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000098"><div class="entry-heading"><h2><span class="entry-number">1.3.7</span><a href="/tag/MF000098/">磁镜反射、镜比与损失锥</a></h2><a class="tag" href="/tag/MF000098/">MF000098</a></div><div class="prose"><p>考虑静态磁镜，粒子从磁场最小处 <span class="arithmatex">\(B_0\)</span> 出发，两端最大磁场均为 <span class="arithmatex">\(B_{\max}\)</span>，镜比定义为 <span class="arithmatex">\(R_m=B_{\max}/B_0&gt;1\)</span>。假设单次往返中碰撞可忽略、磁矩近似守恒、静电势差和慢漂移动能可忽略。以初始 pitch angle <span class="arithmatex">\(\alpha_0\)</span> 表示速度与 <span class="arithmatex">\(+\mathbf B\)</span> 的夹角，则</p>
+<div class="arithmatex">\[
+K=\frac12m(v_{\parallel0}^2+v_{\perp0}^2),
+\qquad
+\mu=\frac{K\sin^2\alpha_0}{B_0},
+\qquad
+B_m=\frac{B_0}{\sin^2\alpha_0}.
+\]</div>
+<p>镜点 <span class="arithmatex">\(B_m\)</span> 来自 <span class="arithmatex">\(v_\parallel=0\)</span> 时的 <span class="arithmatex">\(K=\mu B_m\)</span>。只要 <span class="arithmatex">\(B_m&lt;B_{\max}\)</span>，粒子就在到达端部最大场前反射，因此通常的被俘获条件为</p>
+<div class="arithmatex">\[
+\sin^2\alpha_0&gt;\frac1{R_m},
+\qquad
+\alpha_L=\arcsin(R_m^{-1/2}).
+\]</div>
+<p>速度空间中沿 <span class="arithmatex">\(+\mathbf B\)</span> 和 <span class="arithmatex">\(-\mathbf B\)</span> 各有一个半角 <span class="arithmatex">\(\alpha_L\)</span> 的损失锥；等号处为理想模型的俘获–通过分界，不能据此承诺稳健约束。<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf">MIT OCW：Motion of Charged Particles，§2.6.3–§2.6.4，式 (2.112)–(2.118)</a>；<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html">UT Austin：Magnetic Mirrors，式 (2.88)–(2.90)</a>。</p>
+<p>例如 <span class="arithmatex">\(R_m=4\)</span> 时，<span class="arithmatex">\(\alpha_L=30^\circ\)</span>。初始 <span class="arithmatex">\(\alpha_0=45^\circ\)</span> 的粒子在 <span class="arithmatex">\(B_m=2B_0\)</span> 处反射；<span class="arithmatex">\(\alpha_0=20^\circ\)</span> 的粒子所需镜点约为 <span class="arithmatex">\(8.55B_0\)</span>，超过可用最大场，因此不会在端部之前发生纯磁反射。对磁场最小处各向同性的速度方向分布，两端损失锥占立体角比例为</p>
+<div class="arithmatex">\[
+f_{\mathrm{cone}}=\frac{2\,2\pi(1-\cos\alpha_L)}{4\pi}
+=1-\sqrt{1-\frac1{R_m}}.
+\]</div>
+<p><span class="arithmatex">\(R_m=4\)</span> 给出约 <span class="arithmatex">\(13.4\%\)</span>。这是初始方向空间的几何比例，不是稳态损失率，也不是粒子约束时间；后两者还依赖补充、散射、飞行时间和势结构。</p>
+<p>若存在沿轨道的静电势差，则应使用</p>
+<div class="arithmatex">\[
+\mathcal E=\frac12mv_\parallel^2+\mu B+q\phi,
+\qquad
+K_\parallel(s)=K_{\parallel0}
+-\mu[B(s)-B_0]-q[\phi(s)-\phi_0].
+\]</div>
+<p>可达区域要求 <span class="arithmatex">\(K_\parallel(s)\ge0\)</span>；真正的有效势垒是沿轨道的 <span class="arithmatex">\(\mu B+q\phi\)</span>。仅有局部 <span class="arithmatex">\(E\ll Bv\)</span> 并不能保证累计势能差 <span class="arithmatex">\(|q\Delta\phi|\)</span> 远小于动能，因此不能据“弱电场”直接套用纯磁损失锥公式。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html">UT Austin：Magnetic Mirrors，式 (2.85)、(2.86)</a>。</p>
+<p><strong>适用范围与误区。</strong> 实际磁镜中，碰撞或波动可把被俘获粒子散射进损失锥；非对称端部需分别检查两个势垒。磁镜反射不证明横向漂移轨道稳定，也不证明没有宏观或速度空间不稳定性。镜比增大能缩小理想损失锥，但不能只凭镜比给出实际约束性能或聚变增益。</p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000098/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000099"><div class="entry-heading"><h2><span class="entry-number">1.3.8</span><a href="/tag/MF000099/">绝热不变量、导引中心排序与失效条件</a></h2><a class="tag" href="/tag/MF000099/">MF000099</a></div><div class="prose"><p>导引中心方法把快速回旋与慢轨道分离。其核心是粒子一周内遇到的电磁场变化足够小，而不只是固定空间点处的 <span class="arithmatex">\(\partial_tB\)</span> 小。一个保守的局部检查包括</p>
+<div class="arithmatex">\[
+\frac{\rho|\nabla B|}{B}\ll1,
+\qquad
+\frac{\rho}{R_c}\ll1,
+\qquad
+\frac{|v_\parallel|}{|\Omega|L_{\parallel,B}}\ll1,
+\qquad
+\frac{|\partial_tB|}{|\Omega|B}\ll1.
+\]</div>
+<p><span class="arithmatex">\(L_{\parallel,B}\)</span> 表示沿场遇到的场强或方向变化尺度；还应检查慢漂移穿越背景梯度的速率，以及电场在轨道尺度上的变化。若在一次回旋内粒子经历的显著散射概率不可忽略，碰撞也破坏这一无碰撞平均。以上是不等式量级检查，不是对任意初值给出统一误差界的定理。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html">UT Austin：Guiding Center Motion，式 (2.21)–(2.30)</a>。</p>
+<p>第一不变量是 <span class="arithmatex">\(\mu\)</span>。对在两个镜点 <span class="arithmatex">\(s_1,s_2\)</span> 之间作周期往返运动的被俘获粒子，还可定义第二不变量</p>
+<div class="arithmatex">\[
+J_b=\oint m v_\parallel\,ds
+=2\int_{s_1}^{s_2}
+\sqrt{2m[\mathcal E-\mu B(s)-q\phi(s)]}\,ds.
+\]</div>
+<p><span class="arithmatex">\(J_b\)</span> 的单位为 <span class="arithmatex">\(\mathrm{J\,s}\)</span>；在闭合积分中，返回段的 <span class="arithmatex">\(v_\parallel\)</span> 与有向 <span class="arithmatex">\(ds\)</span> 同时反号，所以两段相加为正，而不是互相抵消。这里采用慢漂移动能可忽略的静态轨道来定义瞬时往返积分；它在背景变化慢于往返周期 <span class="arithmatex">\(\tau_b\)</span> 时才可能近似守恒。仅仅 <span class="arithmatex">\(\tau_{\mathrm{bg}}\gg\tau_c\)</span> 足以支持回旋绝热，却不足以保证往返绝热。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node26.html">UT Austin：Second Adiabatic Invariant，式 (2.115)–(2.118) 及往返时间条件</a>。</p>
+<p>若慢漂移还形成近似闭合的第三种周期轨道，且背景变化比漂移周期 <span class="arithmatex">\(\tau_d\)</span> 更慢，可进一步讨论第三绝热不变量；在相应排序下，它与漂移轨道所围磁通 <span class="arithmatex">\(\Psi_d=\int\mathbf B\cdot d\mathbf S\)</span> 成正比。不是每一种聚变装置轨道都自动具备这种闭合漂移结构；磁面几何闭合也不等价于任意粒子漂移轨道闭合。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures1/node27.html">UT Austin：Third Adiabatic Invariant，式 (2.119)、(2.120)</a>。</p>
+<p>因此常见的理想层次是 <span class="arithmatex">\(\tau_c\ll\tau_b\ll\tau_d\)</span>，但每个守恒量都需要与背景变化时间单独比较。靠近俘获–通过分界时，往返周期可能很长，第二不变量可先失效，而第一不变量仍近似有效。类似地，回旋共振满足粒子沿轨道看到的扰动频率接近回旋频率，即使实验室中的某些背景量缓慢，也可能持续改变磁矩。</p>
+<p><strong>实际使用。</strong> 选择全轨道、导引中心或回旋平均模型前，应列出粒子能量和 pitch angle 范围，再检查整个轨道上而非仅初始点处的尺度比。守恒量可用作数值误差诊断，但只有当物理假设允许它守恒时才有效；在有碰撞、显式加热或时变势的计算中强行“修正”能量为常数，会删掉真实物理。一个局部尺度检查通过，也不保证长期轨道没有共振、随机化或损失。</p>
+<p><a href="/sections/foundations/">返回基础原理</a></p></div><div class="entry-tools"><span>资料与公式已复核（模型辅助） · 待专家审核</span><a href="/tag/MF000099/">条目详情与引用 →</a></div></section><div class="page-tools"><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/%E5%8D%95%E7%B2%92%E5%AD%90%E8%BF%90%E5%8A%A8/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E5%8D%95%E7%B2%92%E5%AD%90%E8%BF%90%E5%8A%A8%22">查看本页讨论 ↗</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions/new?category=general&title=%5Bsections-particle-motion%5D%20%E5%8D%95%E7%B2%92%E5%AD%90%E8%BF%90%E5%8A%A8">发起讨论 ↗</a></div><details><summary>引用本页 · BibTeX</summary><pre id="citation">@misc{fusion-sections-particle-motion,
+  author = {{Megawave-Fusion}},
+  title = {单粒子运动},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/particle-motion/},
+  note = {Fusion Stacks; revision 5e2fe638327e}
+}</pre><button type="button" data-copy="citation">复制引用</button></details></div><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000091/"><small>← 上一页</small>磁化、碰撞与模型选择的独立判据</a><a class="next" href="/tag/MF000092/"><small>下一页 →</small>Lorentz 方程与磁场不做功</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></span></div></footer></body></html>

@@ -1,0 +1,1272 @@
+{
+  "date": "2026-10-16",
+  "review_type": "model_assisted_author_and_independent_cross_review",
+  "human_specialist_review": false,
+  "result": "no unresolved material issues identified within stated assumptions",
+  "source_sha256": {
+    "基础原理/动理学与碰撞/README.md": "af9adbc7b7fedc20aba203999c6ec48b86d8f5e6b6f2ad8a68eb89c8f0480f2e",
+    "基础原理/单粒子运动/README.md": "f971d93335bb83ab50a7b56fd8aeca7b72856446f82c1d35331959acae01f9d1",
+    "基础原理/流体与磁流体力学/README.md": "0c72311ecf65931080cb0b00bc7f2b1e3bfe7a013db460061e4890003ba67af5",
+    "基础原理/等离子体基本概念/README.md": "efd5999615edac986282da6e5f634c9b2e9e8672bcb25db47e1e8fc90972f7f5",
+    "基础原理/等离子体波/README.md": "fb266a3314c5ff131a4d81c9be169d17bb799e1ea3275a6a43ca543de2c6d4ac"
+  },
+  "new_entries": 50,
+  "han_character_count": 24408,
+  "sections": [
+    {
+      "source": "基础原理/动理学与碰撞/README.md",
+      "headings": [
+        "分布函数、速度矩与温度的含义",
+        "Vlasov 方程、Boltzmann 方程与电磁自洽",
+        "Maxwell 分布、各向同性与非平衡状态",
+        "从动理学推导连续性、动量和内能方程",
+        "矩层级、闭合、平均自由程与 Knudsen 数",
+        "Rutherford 散射与多次小偏转的累积",
+        "Coulomb 对数、屏蔽和短程截断",
+        "偏转、慢化、动量和能量频率不能互换",
+        "电子—离子温度交换为什么较慢",
+        "Fokker–Planck、Landau 算子与守恒检验",
+        "经典热流与 Spitzer 电阻的适用条件",
+        "集体屏蔽、Balescu–Lenard 与多体碰撞的区别"
+      ]
+    },
+    {
+      "source": "基础原理/单粒子运动/README.md",
+      "headings": [
+        "Lorentz 方程与磁场不做功",
+        "回旋运动、带符号频率与 Larmor 半径",
+        "均匀电磁场中的 E×B 漂移与力漂移",
+        "磁场强度梯度引起的 grad-B 漂移",
+        "磁力线曲率漂移与环形场的局限",
+        "磁矩守恒、镜力与绝热压缩",
+        "磁镜反射、镜比与损失锥",
+        "绝热不变量、导引中心排序与失效条件"
+      ]
+    },
+    {
+      "source": "基础原理/流体与磁流体力学/README.md",
+      "headings": [
+        "从双流体到单流体",
+        "理想 MHD 的方程与适用条件",
+        "广义欧姆定律与 Hall 项",
+        "磁压力、磁张力与等离子体 beta",
+        "磁通冻结的精确含义",
+        "电阻扩散、磁雷诺数与 Lundquist 数",
+        "静态平衡与 Grad–Shafranov 方程",
+        "能量守恒与欧姆加热",
+        "平衡、线性稳定性与能量原理",
+        "磁重联与 Sweet–Parker 标度"
+      ]
+    },
+    {
+      "source": "基础原理/等离子体基本概念/README.md",
+      "headings": [
+        "SI 单位、电子伏特与温度能量",
+        "分布函数、密度、流速与温度的定义",
+        "准中性、净电荷与有限电场",
+        "Debye 屏蔽与多组分屏蔽长度",
+        "集体效应、Debye 球粒子数与弱耦合",
+        "等离子体频率及其恢复力",
+        "热速度、惯性长度与尺度表",
+        "磁化、碰撞与模型选择的独立判据"
+      ]
+    },
+    {
+      "source": "基础原理/等离子体波/README.md",
+      "headings": [
+        "平面波、符号约定与线性化",
+        "从感应电流到介电张量和色散矩阵",
+        "电子等离子体振荡与 Bohm–Gross 修正",
+        "离子声波与电子 Boltzmann 响应",
+        "非磁化横电磁波与密度截止",
+        "冷磁化响应、圆偏振与 whistler 分支",
+        "垂直传播的 O 模、X 模与上混杂频率",
+        "理想 MHD 的剪切 Alfvén 波与快慢磁声波",
+        "相速度、群速度、截止与共振的区别",
+        "Landau 共振与无碰撞阻尼",
+        "回旋共振、谐波与射频能量通道",
+        "波吸收功率、Hermitian 分解与能量核算"
+      ]
+    }
+  ],
+  "reviews": {
+    "basics-cross-review": {
+      "date": "2026-10-16",
+      "reviewer": "root agent independent of plasma_basics author",
+      "scope": "Read all 16 entries in the basic-concepts and particle-motion source files; independently re-derived core equations and compared cited primary sources.",
+      "result": "passed after table delimiter correction",
+      "checks": [
+        "Number-density normalization and central pressure moments, trace/thermal energy relation, Gaussian normalization and variance independently integrated.",
+        "Boltzmann response charge sign, multispecies inverse Debye-length sum, quasineutral scaling and N_D=(3 Gamma)^(-3/2) checked algebraically.",
+        "Electron and deuteron plasma/cyclotron frequencies, eV/K conversion, thermal speeds, inertial lengths and gyroradii independently recomputed with 2022 CODATA.",
+        "Uniform-field Lorentz component signs and ExB drift tested by RK4 integration for both signs of charge.",
+        "Grad-B and curvature drifts checked from average force balance, vector orientation, and units; toroidal-field drift direction checked in cylindrical basis.",
+        "Magnetic moment is a positive invariant; orbital magnetic dipole vector is minus mu b. Static mirror energy exchange is distinct from induction heating.",
+        "Loss cone, mirror-point energy condition, potential barrier, and geometric solid-angle fraction checked; finite electrostatic potential not discarded merely because local E is weak.",
+        "Bounce action integrand has momentum units, return-path sign doubles the integral, and adiabatic time-scale conditions are separated."
+      ],
+      "corrections": [
+        "Real browser revealed literal vertical bars in a Markdown table split the gyroradius row. Replaced by TeX lvert/rvert; row and numerical cells now render correctly."
+      ],
+      "limits": [
+        "Model-assisted review only, not external specialist certification.",
+        "Numerical checks cover named teaching benchmarks, not all possible parameter regimes."
+      ]
+    },
+    "mhd-cross-review": {
+      "document": "基础原理/流体与磁流体力学/README.md",
+      "review_date": "2026-10-16",
+      "reviewer": "waves agent, independent of MHD author",
+      "review_kind": "full section-by-section mathematical and source cross-review",
+      "result": "all ten sections pass after listed corrections; not external expert certification",
+      "sha256": "0c72311ecf65931080cb0b00bc7f2b1e3bfe7a013db460061e4890003ba67af5",
+      "sections": [
+        {
+          "title": "从双流体到单流体",
+          "result": "pass",
+          "checks": "Mass-weighted COM and current exact for Z=1; ui~u only after me/mi approximation. Momentum sum cancellation and discarded relative drift tensor stated. Low frequency/long scale does not assert pressure closure.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node59.html",
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node61.html"
+          ]
+        },
+        {
+          "title": "理想 MHD 的方程与适用条件",
+          "result": "pass",
+          "checks": "Continuity, Lorentz force, induction, div B=0, pre-Maxwell Ampere and advected p rho^-gamma mutually consistent. Nonrelativistic speeds and isotropic adiabatic limitations explicit.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node104.html"
+          ]
+        },
+        {
+          "title": "广义欧姆定律与 Hall 项",
+          "result": "pass",
+          "checks": "Rearranged me n De ue=-en(E+ue x B)-div Pe+Re independently: electron acceleration has minus me/e and Re/(en) plus; ui-ue=J/en gives Hall plus. Friction Re=en eta J sign correct.",
+          "sources": [
+            "https://web2.ph.utexas.edu/~morrison/14_morrison_POP_kimura.pdf"
+          ]
+        },
+        {
+          "title": "磁压力、磁张力与等离子体 beta",
+          "result": "pass",
+          "checks": "Vector identity and curvature coefficient B^2/mu0 checked, not B^2/(2mu0). Total pressure includes both species. Numerical example recomputed to stated rounding.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node105.html",
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node11.html"
+          ]
+        },
+        {
+          "title": "磁通冻结的精确含义",
+          "result": "pass",
+          "checks": "Moving loop EMF sign checked; D(B/rho)/Dt=(B/rho.grad)u follows continuity+induction. Isotropic compression exponent 2/3 correct; smoothness and nonideal limitations explicit.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node106.html"
+          ]
+        },
+        {
+          "title": "电阻扩散、磁雷诺数与 Lundquist 数",
+          "result": "pass",
+          "checks": "Variable eta curl form and constant eta Laplacian sign correct. eta vs Dm units correct. Rm and S definitions distinct. Exact sinusoidal diffusion solution gives amplitude decay Dm k^2, energy 2 Dm k^2.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node112.html",
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node123.html"
+          ]
+        },
+        {
+          "title": "静态平衡与 Grad–Shafranov 方程",
+          "result": "pass after bibliographic correction",
+          "checks": "B=grad psi x ephi/R+F ephi/R implies BR=-psi_Z/R, BZ=psi_R/R, mu0 Jphi=-Delta*psi/R. Force gives Delta*psi=-mu0 R^2 pprime-F Fprime. Flux is poloidal flux/2pi and units consistent. Removed nonexistent third coauthor Waelbroeck from Xu 2019 source.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node169.html",
+            "https://farside.ph.utexas.edu/Papers/Xu_2019_Nucl._Fusion_59_064002.pdf"
+          ]
+        },
+        {
+          "title": "能量守恒与欧姆加热",
+          "result": "pass",
+          "checks": "Ideal energy flux reconstructed from kinetic+internal+magnetic equations. J.E=u.(JxB)+eta J^2 sign verified. Internal -p divu plus eta J^2 valid; field energy omission and boundary flux qualified.",
+          "sources": [
+            "https://web2.ph.utexas.edu/~morrison/14_morrison_POP_kimura.pdf"
+          ]
+        },
+        {
+          "title": "平衡、线性稳定性与能量原理",
+          "result": "pass after clarity and typography edits",
+          "checks": "delta B curl(xi x B0) and delta p=-xi.gradp0-gamma p0 divxi checked. deltaW=-1/2 integral xi* F[xi] and omega^2 inertia=2deltaW signs correct. Fixed-wall xi.n=0 and tangent equilibrium B clarified; vacuum/surface/wall energy inclusion retained. DeltaW comma fixed to TeX thin space. Added precise MIT lectures 14 and 16 sources.",
+          "sources": [
+            "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/cda9ba8f1dd4c9f2f9abecc8d010adae_lecture14.pdf",
+            "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/8cdfc4d94a61aa60d91bc02046597130_lecture16.pdf"
+          ]
+        },
+        {
+          "title": "磁重联与 Sweet–Parker 标度",
+          "result": "pass",
+          "checks": "Mass balance, vout~vA and resistive/ideal E matching imply delta/L and vin/vA~S^-1/2. tauSP~sqrt(tauA tauR); half-length constants correctly treated as scaling. S=1e8 example and model-failure caveats correct.",
+          "sources": [
+            "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node131.html"
+          ]
+        }
+      ],
+      "corrections": [
+        {
+          "section": "静态平衡与 Grad–Shafranov 方程",
+          "old": "Xu、Fitzpatrick 与 Waelbroeck (2019)",
+          "new": "Xu 与 Fitzpatrick (2019)",
+          "evidence": "Linked paper cover and author block list only Tao Xu and Richard Fitzpatrick."
+        },
+        {
+          "section": "平衡、线性稳定性与能量原理",
+          "old": "F[xi],dV",
+          "new": "F[xi]\\,dV",
+          "reason": "Fix accidental comma in displayed integral."
+        },
+        {
+          "section": "平衡、线性稳定性与能量原理",
+          "change": "State wall-touching plasma, tangential equilibrium magnetic field and xi.n=0; use precise lecture 14 pages 4-6 and lecture 16 pages 1-5 references."
+        }
+      ],
+      "numerical_checks": {
+        "pressure_Pa": 320435.3268,
+        "magnetic_pressure_Pa": 9947183.943243459,
+        "beta": 0.03221367259601678,
+        "J_dot_minus_u_cross_B_minus_u_dot_J_cross_B": -4.440892098500626e-16,
+        "Sweet_Parker_delta_over_L_S1e8": 0.0001
+      },
+      "sources_live_opened": true,
+      "source_notes": [
+        "MIT 22.611J chapter 4 PDF was opened and sections 4.6, 4.8, 4.11-4.15 checked.",
+        "MIT 22.615 lectures 14, 15 and 16 PDFs opened, self-adjointness and extended energy principle checked.",
+        "Xu 2019 PDF section 2 equations 1-3 checked after restoring SI normalizations.",
+        "Kimura and Morrison 2014 sections II and III examined for consistent electron inertia and energy truncations."
+      ],
+      "remaining_limitations": [
+        "No external plasma-physics expert review.",
+        "No claim of model validity for a particular fusion device.",
+        "Visual rendering, integration, link validation and publishing handled by parent agent."
+      ]
+    },
+    "kinetic-cross-review": {
+      "date": "2026-10-16",
+      "reviewer_agent": "plasma_basics",
+      "reviewed_author": "kinetic_collision",
+      "path": "基础原理/动理学与碰撞/README.md",
+      "sha256_after_review": "af9adbc7b7fedc20aba203999c6ec48b86d8f5e6b6f2ad8a68eb89c8f0480f2e",
+      "status": "cross_review_complete_frozen",
+      "h2_count": 12,
+      "headings_reviewed": [
+        "分布函数、速度矩与温度的含义",
+        "Vlasov 方程、Boltzmann 方程与电磁自洽",
+        "Maxwell 分布、各向同性与非平衡状态",
+        "从动理学推导连续性、动量和内能方程",
+        "矩层级、闭合、平均自由程与 Knudsen 数",
+        "Rutherford 散射与多次小偏转的累积",
+        "Coulomb 对数、屏蔽和短程截断",
+        "偏转、慢化、动量和能量频率不能互换",
+        "电子—离子温度交换为什么较慢",
+        "Fokker–Planck、Landau 算子与守恒检验",
+        "经典热流与 Spitzer 电阻的适用条件",
+        "集体屏蔽、Balescu–Lenard 与多体碰撞的区别"
+      ],
+      "scope": "Read entire text and checked all displayed formulas, unit conventions, assumptions, numeric examples and source support; analytical checks supplemented by independent Python arithmetic. No claim of universal validation or numerical collision-operator simulation.",
+      "result": "No material formula or physics error identified within stated assumptions. Added equation-specific primary citation for dielectric kernel factor.",
+      "changes": [
+        {
+          "type": "source_strengthening",
+          "section": "集体屏蔽、Balescu–Lenard 与多体碰撞的区别",
+          "detail": "Added Princeton AST554 Kunz IV.5.1-IV.5.4 citation next to dielectric-factor formula; MIT conceptual paragraph alone did not display this factor."
+        }
+      ],
+      "checks": [
+        "Particle-number normalization gives f units s^3 m^-6; central-moment P and h have Pa and W/m^2; U=trace(P)/2 is valid beyond Maxwell equilibrium.",
+        "Lorentz phase-space flow is divergence-free; Vlasov characteristics, self-consistent charge/current and Maxwell continuity are consistent.",
+        "Maxwellian normalization, component variance, zero central heat flux and 3 theta=theta_parallel+2 theta_perp checked by Gaussian moments.",
+        "Integrated kinetic moments agree with UT equations 4.33-4.38. Internal energy equation follows subtracting flow energy; sum(Q_s+u_s dot R_s)=0 agrees with 4.30-4.32.",
+        "Kn and magnetization conditions kept distinct; vte/nu example independently recalculated.",
+        "Rutherford tan(chi/2)=b90/b agrees with UT 3.64; repulsive head-on r_min=2b90 follows energy conservation. 2pi b db times chi^2 produces coefficient 8pi and u^-3 scaling.",
+        "Coulomb logarithm uses explicit leading-log cutoffs; hbar/(mu u) defined as order-of-magnitude convention, so no spurious precision from the factor-of-two ambiguity.",
+        "nu_ei prefactor algebraically equals inverse UT 3.188. Reverse momentum frequency follows m_s n_s nu_ssprime symmetry, not the erroneous mass ratio in source 3.191.",
+        "Qi=3(me/mi)n nu(theta_e-theta_i) agrees with UT 4.82; heat capacities 3n/2 imply 2(me/mi)nu fixed-bath rate and 4(me/mi)nu evolving two-temperature difference rate.",
+        "Landau K coefficient equals gamma_ssprime/m_s^2 using UT 3.79,3.93,3.94. U dimensions s/m and K dimensions m^6/s^4 give C dimensions s^2/m^6. Maxwell bracket proportional to w, U w=0; pair prefactors satisfy m_s^2 K_ssprime=m_sprime^2 K_sprime_s.",
+        "FP coefficients retain the 1/2 convention, correct acceleration/diffusion units; fixed-background linear versus full nonlinear operator distinguished.",
+        "Heat conductivity in theta-gradient units is m^-1 s^-1; multiplying by kB produces W/(m K). Spitzer eta scale has ohm m units and is explicitly a scale rather than exact prefactor.",
+        "Balescu-Lenard dielectric factor and many-particle shielding versus binary correlation distinction checked against Princeton Kunz IV.5.1-5.4 and MIT transport notes p12; no full arbitrary-regime operator is claimed."
+      ],
+      "independent_numerical_evidence": {
+        "nu_ei_s_inverse": 137858.71569804958,
+        "v_te_m_s": 18755372.608284798,
+        "vte_over_nu_m": 136.04778278483664,
+        "nu_times_UT_tau_ei": 1.0,
+        "nu_ie_for_deuterium_s_inverse": 37.55874006545345,
+        "two_temperature_difference_decay_rate_s_inverse": 150.2349602618138,
+        "fixed_ion_bath_electron_decay_rate_s_inverse": 75.1174801309069,
+        "U_times_w_max_abs": 9.71445146547012e-17,
+        "Landau_pair_prefactor_ratio": 0.9999999999999997,
+        "all_arithmetic_assertions_passed": true
+      },
+      "source_discrepancies_handled": [
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html",
+          "locator": "3.191",
+          "detail": "Last mass-ratio factor in displayed hierarchy conflicts with explicit 3.188 and 3.190; manuscript correctly derives nu_ie=(me/mi)nu_ei from momentum conservation and explicit times instead."
+        }
+      ],
+      "directly_checked_sources": [
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html",
+          "locator": "3.184-3.190"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html",
+          "locator": "4.82-4.90"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node37.html",
+          "locator": "3.79,3.93,3.94"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node48.html",
+          "locator": "4.24-4.32"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node49.html",
+          "locator": "4.33-4.38"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node35.html",
+          "locator": "3.48,3.64 and magnetic applicability paragraph"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node39.html",
+          "locator": "Coulomb Logarithm"
+        },
+        {
+          "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/923ea57a2611e1f05af813f1919354eb_collisionstrans1.pdf",
+          "locator": "Fokker-Planck coefficient convention, Debye cutoff, pp11-14"
+        },
+        {
+          "url": "https://www.astro.princeton.edu/~kunz/Site/AST554/AST554_Kunz_Lecture_Notes.pdf",
+          "locator": "IV.5.1-IV.5.4; official indexed excerpt checked, direct large PDF open failed in web tool"
+        }
+      ],
+      "unresolved_material_issues": []
+    },
+    "waves-cross-review": {
+      "file": "基础原理/等离子体波/README.md",
+      "reviewer": "kinetic_collision independent cross review",
+      "date": "2026-10-16",
+      "status": "passed_with_minor_clarifications",
+      "scope": "Read all 12 sections twice (before and after author expansion); independently checked Fourier signs, fluid derivations, units, limiting cases, numerical example, kinetic sign conventions, and source matches. No full device calculation.",
+      "sha256_after_review": "fb266a3314c5ff131a4d81c9be169d17bb799e1ea3275a6a43ca543de2c6d4ac",
+      "sections": 12,
+      "han_characters": 7036,
+      "changes": [
+        {
+          "kind": "unit clarification",
+          "detail": "Replaced shorthand kBT=e*T[eV] by exact numeric joule conversion for numeric temperature in eV."
+        },
+        {
+          "kind": "assumption clarification",
+          "detail": "Explicitly required nonrelativistic v_A,c_M << c for ideal MHD wave speeds and neglect of displacement current."
+        }
+      ],
+      "checks": [
+        {
+          "name": "signed_R_L_eigenvectors",
+          "result": "pass",
+          "detail": "Direct matrix multiplication with signed electron Omega negative and positive ion Omega. (1,i) has R eigenvalue and (1,-i) has L eigenvalue.",
+          "maximum_absolute_residual": 0
+        },
+        {
+          "name": "R_L_Lorentz_equation",
+          "result": "pass",
+          "detail": "Circular response v=i(q/m)E/(omega +/- Omega) substituted into both Cartesian Lorentz equations with q/m scaled to one."
+        },
+        {
+          "name": "X_mode_determinant",
+          "result": "pass",
+          "detail": "Substituted N squared=RL/S into S(S-N squared)-D squared.",
+          "absolute_residual": 2.842170943040401e-14
+        },
+        {
+          "name": "MHD_fast_slow_polynomial_and_limits",
+          "result": "pass",
+          "detail": "Checked warm MHD quadratic, both beta orderings, equal speeds, parallel/perpendicular and oblique propagation.",
+          "maximum_absolute_residual": 2.7755575615628914e-15
+        },
+        {
+          "name": "power_Hermitian_loss_identity",
+          "result": "pass",
+          "detail": "Verified sigma_H, dielectric loss relation, and all three quadratic power expressions for arbitrary complex nonsymmetric tensor.",
+          "q_direct": 67.625,
+          "q_H": 67.625,
+          "q_dielectric": 67.62500000000001
+        },
+        {
+          "name": "positive_Drude_absorption",
+          "result": "pass",
+          "detail": "Real sigma positive for nu positive with exp(-i omega t); peak-amplitude power factor one half preserved."
+        },
+        {
+          "name": "Bohm_Gross_example",
+          "result": "pass",
+          "detail": "Independently recomputed k lambda_D=0.1 dimensionless example.",
+          "omega_over_omegape": 1.014889156509222,
+          "vphase_over_vte": 10.14889156509222
+        },
+        {
+          "name": "Landau_sign_and_thermal_velocity",
+          "result": "pass",
+          "detail": "Analytic contour check: 1/(v-vr-i0)=PV+i pi delta; dielectric imaginary part is minus pi prefactor times distribution derivative. Maxwell slope negative and positive Langmuir d epsilonR/d omega imply gamma negative. zeta uses sqrt(2) times one-dimensional thermal standard deviation."
+        }
+      ],
+      "sources_independently_opened": [
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node59.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node67.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node72.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node73.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node75.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node83.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node90.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node91.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node92.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node93.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+        "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node107.html"
+      ],
+      "remaining_limits": [
+        "No independent kinetic root solver or experimental validation conducted",
+        "Site rendering and generated pages not reviewed in this subtask",
+        "All claims remain restricted to the explicitly stated cold-fluid, weak-damping, local homogeneous, or ideal-MHD approximations",
+        "No critical or major formula error found in the reviewed version"
+      ]
+    }
+  },
+  "physics_benchmarks": {
+    "date": "2026-10-16",
+    "result": "passed",
+    "checks": [
+      {
+        "name": "1 eV in kelvin",
+        "actual": 11604.518121550082,
+        "expected": 11604.5,
+        "passed": true
+      },
+      {
+        "name": "electron Debye length [m]",
+        "actual": 2.3508188704793944e-05,
+        "expected": 2.35e-05,
+        "passed": true
+      },
+      {
+        "name": "electron plasma frequency [Hz]",
+        "actual": 89786628113.3423,
+        "expected": 89800000000.0,
+        "passed": true
+      },
+      {
+        "name": "deuteron cyclotron frequency at 5 T [Hz]",
+        "actual": 38131889.01931426,
+        "expected": 38100000.0,
+        "passed": true
+      },
+      {
+        "name": "electron thermal speed [m/s]",
+        "actual": 18755372.608284798,
+        "expected": 18800000.0,
+        "passed": true
+      },
+      {
+        "name": "deuteron thermal gyroradius [m]",
+        "actual": 0.0012920993300553016,
+        "expected": 0.00129,
+        "passed": true
+      },
+      {
+        "name": "electron inertial length [m]",
+        "actual": 0.0005314093266999432,
+        "expected": 0.000531,
+        "passed": true
+      },
+      {
+        "name": "deuteron inertial length [m]",
+        "actual": 0.032195174175177844,
+        "expected": 0.0322,
+        "passed": true
+      },
+      {
+        "name": "Debye sphere electron count",
+        "actual": 5441844.327798533,
+        "expected": 5440000.0,
+        "passed": true
+      },
+      {
+        "name": "total pressure at 10 keV [Pa]",
+        "actual": 320435.3268,
+        "expected": 320400.0,
+        "passed": true
+      },
+      {
+        "name": "beta at 10 keV and 5 T",
+        "actual": 0.032213672591763526,
+        "expected": 0.0322,
+        "passed": true
+      },
+      {
+        "name": "Debye thermal/frequency identity",
+        "actual": 2.3508188704793944e-05,
+        "expected": 2.3508188704793944e-05,
+        "passed": true
+      },
+      {
+        "name": "coupling to Debye population identity",
+        "actual": 5441844.327798533,
+        "expected": 5441844.327798542,
+        "passed": true
+      },
+      {
+        "name": "specified electron-ion frequency [1/s]",
+        "actual": 137858.7155112109,
+        "expected": 138000.0,
+        "passed": true
+      },
+      {
+        "name": "specified electron mean free path [m]",
+        "actual": 136.04778296922098,
+        "expected": 136,
+        "passed": true
+      },
+      {
+        "name": "Gaussian normalization",
+        "actual": 1.0000000000000002,
+        "expected": 1,
+        "passed": true
+      },
+      {
+        "name": "Gaussian mean velocity",
+        "actual": 2.7,
+        "expected": 2.7,
+        "passed": true
+      },
+      {
+        "name": "central pressure moment",
+        "actual": 1.6900000000000002,
+        "expected": 1.6900000000000002,
+        "passed": true
+      },
+      {
+        "name": "odd heat-flux moment",
+        "actual": -1.134136748655272e-17,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "bulk plus thermal energy decomposition",
+        "actual": 8.98,
+        "expected": 8.98,
+        "passed": true
+      },
+      {
+        "name": "ExB trajectory average x q=-1",
+        "actual": -3.546449855151533e-18,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "ExB trajectory average y q=-1",
+        "actual": -1.0000000000000069,
+        "expected": -1,
+        "passed": true
+      },
+      {
+        "name": "ExB trajectory average x q=1",
+        "actual": 3.546449855151533e-18,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "ExB trajectory average y q=1",
+        "actual": -1.0000000000000069,
+        "expected": -1,
+        "passed": true
+      },
+      {
+        "name": "mirror loss-cone parallel energy at throat",
+        "actual": 2.220446049250313e-16,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "cold circular eigenvector sign=-1",
+        "actual": 0.0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "cold circular eigenvector sign=1",
+        "actual": 0.0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=5.0 cos=0.0",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=5.0 cos=0.0",
+        "actual": 0.0,
+        "expected": 0.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=5.0 cos=0.4",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=5.0 cos=0.4",
+        "actual": 16.000000000000014,
+        "expected": 16.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=5.0 cos=1.0",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=5.0 cos=1.0",
+        "actual": 100.0,
+        "expected": 100.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=2.0 cos=0.0",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=2.0 cos=0.0",
+        "actual": 0.0,
+        "expected": 0.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=2.0 cos=0.4",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=2.0 cos=0.4",
+        "actual": 16.000000000000014,
+        "expected": 16.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic sum va=2.0 cos=1.0",
+        "actual": 29.0,
+        "expected": 29.0,
+        "passed": true
+      },
+      {
+        "name": "magnetosonic product va=2.0 cos=1.0",
+        "actual": 100.0,
+        "expected": 100.0,
+        "passed": true
+      },
+      {
+        "name": "GS manufactured-solution operator sign",
+        "actual": 28.89999978143595,
+        "expected": 28.9,
+        "passed": true
+      },
+      {
+        "name": "J dot E mechanical plus Joule work",
+        "actual": 2.58,
+        "expected": 2.58,
+        "passed": true
+      },
+      {
+        "name": "Hall force does zero current work",
+        "actual": -8.881784197001252e-16,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "name": "resistive decay magnetic/Joule energy balance",
+        "actual": 125000000033.00816,
+        "expected": 125000000033.00818,
+        "passed": true
+      }
+    ],
+    "count": 43,
+    "constants": "2022 CODATA; e,kB,c exact SI; rounded measured masses, epsilon0, mu0",
+    "scope": "Independent teaching benchmarks, not all formulas, not a device simulation or expert review"
+  },
+  "math_render": {
+    "formulas": 804,
+    "result": "passed",
+    "errors": [],
+    "scope": "TeX syntax and MathJax conversion only; not correctness of physics"
+  },
+  "source_links": [
+    {
+      "url": "https://farside.ph.utexas.edu/Papers/Xu_2019_Nucl._Fusion_59_064002.pdf",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/Papers/Xu_2019_Nucl._Fusion_59_064002.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html",
+      "content_type": "text/html",
+      "title": "Magnetic Drifts"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node5.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node5.html",
+      "content_type": "text/html",
+      "title": "Fundamental Parameters"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node6.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node6.html",
+      "content_type": "text/html",
+      "title": "Plasma Frequency"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node7.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node7.html",
+      "content_type": "text/html",
+      "title": "Debye Shielding"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node8.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node8.html",
+      "content_type": "text/html",
+      "title": "Plasma Parameter"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node10.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node10.html",
+      "content_type": "text/html",
+      "title": "Magnetized Plasmas"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node104.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node104.html",
+      "content_type": "text/html",
+      "title": "Introduction"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node105.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node105.html",
+      "content_type": "text/html",
+      "title": "Magnetic Pressure"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node106.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node106.html",
+      "content_type": "text/html",
+      "title": "Flux Freezing"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node107.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node107.html",
+      "content_type": "text/html",
+      "title": "MHD Waves"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node11.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node11.html",
+      "content_type": "text/html",
+      "title": "Plasma Beta"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node112.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node112.html",
+      "content_type": "text/html",
+      "title": "MHD Dynamo Theory"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node123.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node123.html",
+      "content_type": "text/html",
+      "title": "Introduction"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node131.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node131.html",
+      "content_type": "text/html",
+      "title": "Sweet-Parker Reconnection"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html",
+      "content_type": "text/html",
+      "title": "Motion in Uniform Fields"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html",
+      "content_type": "text/html",
+      "title": "Guiding Center Motion"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html",
+      "content_type": "text/html",
+      "title": "Invariance of  Magnetic Moment"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html",
+      "content_type": "text/html",
+      "title": "Magnetic Mirrors"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node26.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node26.html",
+      "content_type": "text/html",
+      "title": "Second Adiabatic Invariant"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node27.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node27.html",
+      "content_type": "text/html",
+      "title": "Third Adiabatic Invariant"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node3.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node3.html",
+      "content_type": "text/html",
+      "title": "What is Plasma?"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node31.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node31.html",
+      "content_type": "text/html",
+      "title": "Collision Operator"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node33.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node33.html",
+      "content_type": "text/html",
+      "title": "Boltzmann Collision Operator"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node34.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node34.html",
+      "content_type": "text/html",
+      "title": "Collisional Conservation Laws"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node35.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node35.html",
+      "content_type": "text/html",
+      "title": "Two-Body Coulomb Collisions"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node37.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node37.html",
+      "content_type": "text/html",
+      "title": "Landau Collision Operator"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node39.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node39.html",
+      "content_type": "text/html",
+      "title": "Coulomb Logarithm"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node40.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node40.html",
+      "content_type": "text/html",
+      "title": "Boltzmann H-Theorem"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node41.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node41.html",
+      "content_type": "text/html",
+      "title": "Collision Operator for Maxwellian Distributions"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html",
+      "content_type": "text/html",
+      "title": "Collision Times"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html",
+      "content_type": "text/html",
+      "title": "Moments of Distribution Function"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node48.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node48.html",
+      "content_type": "text/html",
+      "title": "Moments of  Collision Operator"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node49.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node49.html",
+      "content_type": "text/html",
+      "title": "Moments of  Kinetic Equation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node52.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node52.html",
+      "content_type": "text/html",
+      "title": "Fluid Closure"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node54.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node54.html",
+      "content_type": "text/html",
+      "title": "Braginskii Equations"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html",
+      "content_type": "text/html",
+      "title": "Unmagnetized Limit"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node56.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node56.html",
+      "content_type": "text/html",
+      "title": "Magnetized Limit"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node59.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node59.html",
+      "content_type": "text/html",
+      "title": "MHD Equations"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node61.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node61.html",
+      "content_type": "text/html",
+      "title": "Closure in Collisionless Magnetized Plasmas"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node66.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node66.html",
+      "content_type": "text/html",
+      "title": "Introduction"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node67.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node67.html",
+      "content_type": "text/html",
+      "title": "Plane Waves in  Homogeneous Plasmas"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+      "content_type": "text/html",
+      "title": "Cold-Plasma Dielectric Permittivity"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+      "content_type": "text/html",
+      "title": "Cold-Plasma Dispersion Relation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+      "content_type": "text/html",
+      "title": "Wave Polarization"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node71.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node71.html",
+      "content_type": "text/html",
+      "title": "Cutoff and Resonance"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node72.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node72.html",
+      "content_type": "text/html",
+      "title": "Waves in  Unmagnetized Plasmas"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node73.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node73.html",
+      "content_type": "text/html",
+      "title": "Low-Frequency Wave Propagation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+      "content_type": "text/html",
+      "title": "Parallel Wave Propagation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node75.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node75.html",
+      "content_type": "text/html",
+      "title": "Perpendicular Wave Propagation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node79.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node79.html",
+      "content_type": "text/html",
+      "title": "WKB Solutions"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node80.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node80.html",
+      "content_type": "text/html",
+      "title": "Cutoffs"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node81.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node81.html",
+      "content_type": "text/html",
+      "title": "Resonances"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node83.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node83.html",
+      "content_type": "text/html",
+      "title": "Collisional Damping"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node84.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node84.html",
+      "content_type": "text/html",
+      "title": "Pulse Propagation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node9.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node9.html",
+      "content_type": "text/html",
+      "title": "Collisions"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node90.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node90.html",
+      "content_type": "text/html",
+      "title": "Landau Damping"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node91.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node91.html",
+      "content_type": "text/html",
+      "title": "Physics of Landau Damping"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node92.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node92.html",
+      "content_type": "text/html",
+      "title": "Plasma Dispersion Function"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node93.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node93.html",
+      "content_type": "text/html",
+      "title": "Ion Acoustic Waves"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+      "content_type": "text/html",
+      "title": "Waves in  Magnetized Plasmas"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+      "content_type": "text/html",
+      "title": "Parallel Wave Propagation"
+    },
+    {
+      "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node169.html",
+      "status": 200,
+      "final_url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node169.html",
+      "content_type": "text/html",
+      "title": "Grad-Shafranov Equation"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/5617c594de835f49cd769a58ba156ce2_chap3.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/5617c594de835f49cd769a58ba156ce2_chap3.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/75c75c5df51f8fba1b2a903fde937ddc_chap5.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/75c75c5df51f8fba1b2a903fde937ddc_chap5.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/resources/chap4/",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/resources/chap4/",
+      "content_type": "text/html",
+      "title": "Introduction to Plasma Physics I"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/",
+      "content_type": "text/html",
+      "title": "MHD Theory of Fusion Systems"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/8cdfc4d94a61aa60d91bc02046597130_lecture16.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/8cdfc4d94a61aa60d91bc02046597130_lecture16.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/cda9ba8f1dd4c9f2f9abecc8d010adae_lecture14.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/cda9ba8f1dd4c9f2f9abecc8d010adae_lecture14.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/3277350d3d1b252bad754cdf65dcf6da_collisionstrans2.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/3277350d3d1b252bad754cdf65dcf6da_collisionstrans2.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/923ea57a2611e1f05af813f1919354eb_collisionstrans1.pdf",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/923ea57a2611e1f05af813f1919354eb_collisionstrans1.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+      "status": "verified_with_web_tool",
+      "title": "2022 CODATA Fundamental Physical Constants - Complete Listing",
+      "evidence": "web tool opened and read 2022 constants; local TLS handshake unavailable"
+    },
+    {
+      "url": "https://web2.ph.utexas.edu/~morrison/14_morrison_POP_kimura.pdf",
+      "status": 200,
+      "final_url": "https://web2.ph.utexas.edu/~morrison/14_morrison_POP_kimura.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    },
+    {
+      "url": "https://www.astro.princeton.edu/~kunz/Site/AST554/AST554_Kunz_Lecture_Notes.pdf",
+      "status": 200,
+      "final_url": "https://www.astro.princeton.edu/~kunz/Site/AST554/AST554_Kunz_Lecture_Notes.pdf",
+      "content_type": "application/pdf",
+      "title": ""
+    }
+  ],
+  "browser_checks": {
+    "new_sections": 5,
+    "math_error_nodes": 0,
+    "whole_page_horizontal_overflow": false,
+    "narrow_screen": {
+      "section": "fluid-mhd",
+      "width": 390,
+      "scroll_width": 390,
+      "math_error_nodes": 0
+    },
+    "search": "Debye finds MF000087 and related permanent entries"
+  },
+  "limitations": [
+    "Model-assisted review, not external specialist certification.",
+    "Numerical checks cover specified benchmarks, not all parameter regimes or any real device.",
+    "Older category outlines are not promoted to reviewed."
+  ]
+}

@@ -41,6 +41,306 @@
     "url": "/tag/MF000007/",
     "status": "draft"
   },
+  "MF000084": {
+    "title": "SI 单位、电子伏特与温度能量",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000084/",
+    "status": "draft"
+  },
+  "MF000085": {
+    "title": "分布函数、密度、流速与温度的定义",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000085/",
+    "status": "draft"
+  },
+  "MF000086": {
+    "title": "准中性、净电荷与有限电场",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000086/",
+    "status": "draft"
+  },
+  "MF000087": {
+    "title": "Debye 屏蔽与多组分屏蔽长度",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000087/",
+    "status": "draft"
+  },
+  "MF000088": {
+    "title": "集体效应、Debye 球粒子数与弱耦合",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000088/",
+    "status": "draft"
+  },
+  "MF000089": {
+    "title": "等离子体频率及其恢复力",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000089/",
+    "status": "draft"
+  },
+  "MF000090": {
+    "title": "热速度、惯性长度与尺度表",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000090/",
+    "status": "draft"
+  },
+  "MF000091": {
+    "title": "磁化、碰撞与模型选择的独立判据",
+    "source": "基础原理/等离子体基本概念/README.md",
+    "url": "/tag/MF000091/",
+    "status": "draft"
+  },
+  "MF000092": {
+    "title": "Lorentz 方程与磁场不做功",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000092/",
+    "status": "draft"
+  },
+  "MF000093": {
+    "title": "回旋运动、带符号频率与 Larmor 半径",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000093/",
+    "status": "draft"
+  },
+  "MF000094": {
+    "title": "均匀电磁场中的 E×B 漂移与力漂移",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000094/",
+    "status": "draft"
+  },
+  "MF000095": {
+    "title": "磁场强度梯度引起的 grad-B 漂移",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000095/",
+    "status": "draft"
+  },
+  "MF000096": {
+    "title": "磁力线曲率漂移与环形场的局限",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000096/",
+    "status": "draft"
+  },
+  "MF000097": {
+    "title": "磁矩守恒、镜力与绝热压缩",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000097/",
+    "status": "draft"
+  },
+  "MF000098": {
+    "title": "磁镜反射、镜比与损失锥",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000098/",
+    "status": "draft"
+  },
+  "MF000099": {
+    "title": "绝热不变量、导引中心排序与失效条件",
+    "source": "基础原理/单粒子运动/README.md",
+    "url": "/tag/MF000099/",
+    "status": "draft"
+  },
+  "MF000100": {
+    "title": "分布函数、速度矩与温度的含义",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000100/",
+    "status": "draft"
+  },
+  "MF000101": {
+    "title": "Vlasov 方程、Boltzmann 方程与电磁自洽",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000101/",
+    "status": "draft"
+  },
+  "MF000102": {
+    "title": "Maxwell 分布、各向同性与非平衡状态",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000102/",
+    "status": "draft"
+  },
+  "MF000103": {
+    "title": "从动理学推导连续性、动量和内能方程",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000103/",
+    "status": "draft"
+  },
+  "MF000104": {
+    "title": "矩层级、闭合、平均自由程与 Knudsen 数",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000104/",
+    "status": "draft"
+  },
+  "MF000105": {
+    "title": "Rutherford 散射与多次小偏转的累积",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000105/",
+    "status": "draft"
+  },
+  "MF000106": {
+    "title": "Coulomb 对数、屏蔽和短程截断",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000106/",
+    "status": "draft"
+  },
+  "MF000107": {
+    "title": "偏转、慢化、动量和能量频率不能互换",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000107/",
+    "status": "draft"
+  },
+  "MF000108": {
+    "title": "电子—离子温度交换为什么较慢",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000108/",
+    "status": "draft"
+  },
+  "MF000109": {
+    "title": "Fokker–Planck、Landau 算子与守恒检验",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000109/",
+    "status": "draft"
+  },
+  "MF000110": {
+    "title": "经典热流与 Spitzer 电阻的适用条件",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000110/",
+    "status": "draft"
+  },
+  "MF000111": {
+    "title": "集体屏蔽、Balescu–Lenard 与多体碰撞的区别",
+    "source": "基础原理/动理学与碰撞/README.md",
+    "url": "/tag/MF000111/",
+    "status": "draft"
+  },
+  "MF000112": {
+    "title": "平面波、符号约定与线性化",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000112/",
+    "status": "draft"
+  },
+  "MF000113": {
+    "title": "从感应电流到介电张量和色散矩阵",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000113/",
+    "status": "draft"
+  },
+  "MF000114": {
+    "title": "电子等离子体振荡与 Bohm–Gross 修正",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000114/",
+    "status": "draft"
+  },
+  "MF000115": {
+    "title": "离子声波与电子 Boltzmann 响应",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000115/",
+    "status": "draft"
+  },
+  "MF000116": {
+    "title": "非磁化横电磁波与密度截止",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000116/",
+    "status": "draft"
+  },
+  "MF000117": {
+    "title": "冷磁化响应、圆偏振与 whistler 分支",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000117/",
+    "status": "draft"
+  },
+  "MF000118": {
+    "title": "垂直传播的 O 模、X 模与上混杂频率",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000118/",
+    "status": "draft"
+  },
+  "MF000119": {
+    "title": "理想 MHD 的剪切 Alfvén 波与快慢磁声波",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000119/",
+    "status": "draft"
+  },
+  "MF000120": {
+    "title": "相速度、群速度、截止与共振的区别",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000120/",
+    "status": "draft"
+  },
+  "MF000121": {
+    "title": "Landau 共振与无碰撞阻尼",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000121/",
+    "status": "draft"
+  },
+  "MF000122": {
+    "title": "回旋共振、谐波与射频能量通道",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000122/",
+    "status": "draft"
+  },
+  "MF000123": {
+    "title": "波吸收功率、Hermitian 分解与能量核算",
+    "source": "基础原理/等离子体波/README.md",
+    "url": "/tag/MF000123/",
+    "status": "draft"
+  },
+  "MF000124": {
+    "title": "从双流体到单流体",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000124/",
+    "status": "draft"
+  },
+  "MF000125": {
+    "title": "理想 MHD 的方程与适用条件",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000125/",
+    "status": "draft"
+  },
+  "MF000126": {
+    "title": "广义欧姆定律与 Hall 项",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000126/",
+    "status": "draft"
+  },
+  "MF000127": {
+    "title": "磁压力、磁张力与等离子体 beta",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000127/",
+    "status": "draft"
+  },
+  "MF000128": {
+    "title": "磁通冻结的精确含义",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000128/",
+    "status": "draft"
+  },
+  "MF000129": {
+    "title": "电阻扩散、磁雷诺数与 Lundquist 数",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000129/",
+    "status": "draft"
+  },
+  "MF000130": {
+    "title": "静态平衡与 Grad–Shafranov 方程",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000130/",
+    "status": "draft"
+  },
+  "MF000131": {
+    "title": "能量守恒与欧姆加热",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000131/",
+    "status": "draft"
+  },
+  "MF000132": {
+    "title": "平衡、线性稳定性与能量原理",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000132/",
+    "status": "draft"
+  },
+  "MF000133": {
+    "title": "磁重联与 Sweet–Parker 标度",
+    "source": "基础原理/流体与磁流体力学/README.md",
+    "url": "/tag/MF000133/",
+    "status": "draft"
+  },
   "MF000008": {
     "title": "托卡马克",
     "source": "装置路线/README.md",

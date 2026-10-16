@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>热速度、惯性长度与尺度表 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="热速度、惯性长度与尺度表 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000090/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000090/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=c8e2b5bf8c"><script type="module" src="/assets/site.mjs?v=0d0b11e2da"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/foundations/">基础原理</a><span>/</span><a href="/sections/plasma-basics/">等离子体基本概念</a><span>/</span><span>热速度、惯性长度与尺度表</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录"><a class="active" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a></nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav><a class="active" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details><nav class="reader-nav " aria-label="阅读顺序"><a class="previous" href="/tag/MF000089/"><small>← 上一页</small>等离子体频率及其恢复力</a><a class="next" href="/tag/MF000091/"><small>下一页 →</small>磁化、碰撞与模型选择的独立判据</a></nav><p class="eyebrow">Entry 1.2.7 · 基础知识</p><h1>热速度、惯性长度与尺度表</h1><div class="page-meta"><span class="tag">MF000090</span><span class="status">资料与公式已复核（模型辅助） · 待专家审核</span><a href="/sections/plasma-basics/#MF000090">在连续正文中阅读</a></div><article class="prose"><p>热速度不是只有一种定义。本条对各向同性、非相对论 Maxwellian 的相对速度 <span class="arithmatex">\(\mathbf c=\mathbf v-\mathbf u\)</span>，使用</p>
+<div class="arithmatex">\[
+v_{ts}=\sqrt{\frac{2\Theta_s}{m_s}},
+\qquad
+\sigma_{v_x}=\sqrt{\frac{\Theta_s}{m_s}},
+\qquad
+v_{\mathrm{rms}}=\sqrt{\frac{3\Theta_s}{m_s}}.
+\]</div>
+<p><span class="arithmatex">\(v_{ts}\)</span> 是三维速率分布 <span class="arithmatex">\(4\pi c^2f_M(c)\)</span> 的最概然速率；<span class="arithmatex">\(\sigma_{v_x}\)</span> 是任一笛卡尔分量的标准差；<span class="arithmatex">\(v_{\mathrm{rms}}=\sqrt{\langle c^2\rangle}\)</span> 是均方根速率，三者单位均为 <span class="arithmatex">\(\mathrm{m\,s^{-1}}\)</span>。此外平均速率是 <span class="arithmatex">\(\langle c\rangle=\sqrt{8\Theta_s/(\pi m_s)}\)</span>。这些区别可由高斯积分或对 <span class="arithmatex">\(c^2\exp[-mc^2/(2\Theta)]\)</span> 求极值直接检查；引用“thermal velocity”时应把定义一起写出。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node5.html">UT Austin：Fundamental Parameters，式 (1.3)</a>。</p>
+<p>同一组分的 Debye 长度满足精确的定义关系</p>
+<div class="arithmatex">\[
+\lambda_{Ds}=\frac{\sqrt{\Theta_s/m_s}}{\omega_{ps}}
+=\frac{v_{ts}}{\sqrt2\,\omega_{ps}},
+\qquad
+d_s=\frac{c}{\omega_{ps}}.
+\]</div>
+<p><span class="arithmatex">\(d_s\)</span> 是惯性长度，单位 m，<span class="arithmatex">\(c\)</span> 是光速。<span class="arithmatex">\(\lambda_D\)</span> 与 <span class="arithmatex">\(d_s\)</span> 的比值含热速度相对光速的因子，所对应的物理响应不同。<span class="arithmatex">\(d_e\)</span> 常称电子趋肤深度的特征尺度；实际电磁场衰减长度还依赖频率、碰撞和磁场，不能在所有驱动下都直接等于 <span class="arithmatex">\(d_e\)</span>。例如固定离子、无磁、无碰撞冷电子模型有 <span class="arithmatex">\(k^2c^2=\omega^2-\omega_{pe}^2\)</span>；在 <span class="arithmatex">\(\omega&lt;\omega_{pe}\)</span> 时，衰减长度为 <span class="arithmatex">\(c/\sqrt{\omega_{pe}^2-\omega^2}\)</span>，只有其低频极限才趋于 <span class="arithmatex">\(d_e\)</span>。<a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node6.html">UT Austin：Plasma Frequency，式 (1.7)、(1.8)</a>；<a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/75c75c5df51f8fba1b2a903fde937ddc_chap5.pdf">MIT OCW：Electromagnetic Waves，§5.2.1–§5.2.2，式 (5.53)–(5.57)</a>。</p>
+<p>以下取纯单价氘，<span class="arithmatex">\(n_e=n_D=10^{20}\,\mathrm{m^{-3}}\)</span>、<span class="arithmatex">\(\Theta_e=\Theta_D=1\,\mathrm{keV}\)</span>，回旋半径以 <span class="arithmatex">\(v_{ts}\)</span> 和 <span class="arithmatex">\(B=5\,\mathrm T\)</span> 计算：</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>物理量</th>
+<th>电子</th>
+<th>氘离子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(v_{ts}\)</span></td>
+<td><span class="arithmatex">\(1.88\times10^7\,\mathrm{m\,s^{-1}}\)</span></td>
+<td><span class="arithmatex">\(3.10\times10^5\,\mathrm{m\,s^{-1}}\)</span></td>
+</tr>
+<tr>
+<td>单种 <span class="arithmatex">\(\lambda_{Ds}\)</span></td>
+<td><span class="arithmatex">\(23.5\,\mu\mathrm m\)</span></td>
+<td><span class="arithmatex">\(23.5\,\mu\mathrm m\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d_s=c/\omega_{ps}\)</span></td>
+<td><span class="arithmatex">\(0.531\,\mathrm{mm}\)</span></td>
+<td><span class="arithmatex">\(3.22\,\mathrm{cm}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\rho_{ts}=v_{ts}/\lvert\Omega_s\rvert\)</span></td>
+<td><span class="arithmatex">\(21.3\,\mu\mathrm m\)</span></td>
+<td><span class="arithmatex">\(1.29\,\mathrm{mm}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>相同温度、相同电荷量和相同数密度下，单种 Debye 长度与质量无关；热速度却随 <span class="arithmatex">\(m^{-1/2}\)</span> 变化，惯性长度与热回旋半径随 <span class="arithmatex">\(m^{1/2}\)</span> 变化。这解释了为何电子与离子可能对同一尺度的扰动作出不同响应。总静态 Debye 长度仍需按上一条对可响应组分求和，不能把表中两项相加。</p>
+<p><strong>使用方法与误区。</strong> 应把梯度尺度、波长、轨道宽度和网格尺度分别与物理尺度比较；其中网格足够细只说明可能分辨某尺度，不证明所用模型包含该物理。热回旋半径也不能代替高能尾粒子的实际 <span class="arithmatex">\(m_sv_\perp/(|q_s|B)\)</span>。把 <span class="arithmatex">\(v_t\)</span> 的两种定义混用会产生 <span class="arithmatex">\(\sqrt2\)</span> 误差，而把角频率与普通频率混用会再引入 <span class="arithmatex">\(2\pi\)</span> 误差。</p></article><aside class="related"><h2>本节其他条目</h2><ul><li><a href="/tag/MF000084/">SI 单位、电子伏特与温度能量</a></li><li><a href="/tag/MF000085/">分布函数、密度、流速与温度的定义</a></li><li><a href="/tag/MF000086/">准中性、净电荷与有限电场</a></li><li><a href="/tag/MF000087/">Debye 屏蔽与多组分屏蔽长度</a></li><li><a href="/tag/MF000088/">集体效应、Debye 球粒子数与弱耦合</a></li><li><a href="/tag/MF000089/">等离子体频率及其恢复力</a></li><li><a href="/tag/MF000091/">磁化、碰撞与模型选择的独立判据</a></li></ul></aside><div class="page-tools"><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000090%22">查看本页讨论 ↗</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions/new?category=general&title=%5BMF000090%5D%20%E7%83%AD%E9%80%9F%E5%BA%A6%E3%80%81%E6%83%AF%E6%80%A7%E9%95%BF%E5%BA%A6%E4%B8%8E%E5%B0%BA%E5%BA%A6%E8%A1%A8">发起讨论 ↗</a></div><details><summary>引用本页 · BibTeX</summary><pre id="citation">@misc{fusion-MF000090,
+  author = {{Megawave-Fusion}},
+  title = {热速度、惯性长度与尺度表},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000090/},
+  note = {Fusion Stacks; revision 5e2fe638327e}
+}</pre><button type="button" data-copy="citation">复制引用</button></details></div><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000089/"><small>← 上一页</small>等离子体频率及其恢复力</a><a class="next" href="/tag/MF000091/"><small>下一页 →</small>磁化、碰撞与模型选择的独立判据</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></span></div></footer></body></html>

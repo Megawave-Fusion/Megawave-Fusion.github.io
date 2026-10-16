@@ -106,5 +106,689 @@
     "checked_on": "2026-09-09",
     "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
     "中文标题": "国际原子能机构：C-2U 中性束维持场反位形会议摘要"
+  },
+  {
+    "id": "PLASMA-001",
+    "title": "Xu 与 Fitzpatrick (2019)，§2，式 (1)–(3)，归一化约定",
+    "url": "https://farside.ph.utexas.edu/Papers/Xu_2019_Nucl._Fusion_59_064002.pdf",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Xu 与 Fitzpatrick (2019)，§2，式 (1)–(3)，归一化约定"
+  },
+  {
+    "id": "PLASMA-002",
+    "title": "Magnetic Drifts",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Magnetic Drifts，式 (2.52)、(2.53)"
+  },
+  {
+    "id": "PLASMA-003",
+    "title": "Fundamental Parameters",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node5.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Fundamental Parameters，式 (1.1)–(1.4)"
+  },
+  {
+    "id": "PLASMA-004",
+    "title": "Plasma Frequency",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node6.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Plasma Frequency，式 (1.5)、(1.6)"
+  },
+  {
+    "id": "PLASMA-005",
+    "title": "Debye Shielding",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node7.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Debye Shielding，式 (1.11)–(1.15)"
+  },
+  {
+    "id": "PLASMA-006",
+    "title": "Plasma Parameter",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures/node8.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Plasma Parameter，式 (1.16)–(1.20)"
+  },
+  {
+    "id": "PLASMA-007",
+    "title": "Magnetized Plasmas",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node10.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Magnetized Plasmas，式 (1.29)–(1.33)"
+  },
+  {
+    "id": "PLASMA-008",
+    "title": "Introduction",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node104.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Magnetohydrodynamic Fluids: Introduction，§8.1，式 (8.1)–(8.6)"
+  },
+  {
+    "id": "PLASMA-009",
+    "title": "Magnetic Pressure",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node105.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Magnetic Pressure，§8.2，式 (8.7)–(8.12)"
+  },
+  {
+    "id": "PLASMA-010",
+    "title": "Flux Freezing",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node106.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Flux Freezing，§8.3，式 (8.13)–(8.21)"
+  },
+  {
+    "id": "PLASMA-011",
+    "title": "MHD Waves",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node107.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§8.4，式 (8.22)–(8.45)"
+  },
+  {
+    "id": "PLASMA-012",
+    "title": "Plasma Beta",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node11.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Plasma Beta，§1.9"
+  },
+  {
+    "id": "PLASMA-013",
+    "title": "MHD Dynamo Theory",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node112.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，MHD Dynamo Theory，§8.9，式 (8.100)–(8.102)"
+  },
+  {
+    "id": "PLASMA-014",
+    "title": "Introduction",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node123.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Magnetic Reconnection: Introduction，§9.1"
+  },
+  {
+    "id": "PLASMA-015",
+    "title": "Sweet-Parker Reconnection",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node131.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Sweet-Parker Reconnection，§9.9，式 (9.138)–(9.153)"
+  },
+  {
+    "id": "PLASMA-016",
+    "title": "Motion in Uniform Fields",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node16.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Motion in Uniform Fields，式 (2.1)"
+  },
+  {
+    "id": "PLASMA-017",
+    "title": "Guiding Center Motion",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html",
+    "scope": "单粒子运动、等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Guiding Center Motion，式 (2.21)–(2.30)"
+  },
+  {
+    "id": "PLASMA-018",
+    "title": "Invariance of  Magnetic Moment",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Invariance of Magnetic Moment，式 (2.60)–(2.65)"
+  },
+  {
+    "id": "PLASMA-019",
+    "title": "Magnetic Mirrors",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Magnetic Mirrors，式 (2.83)–(2.85)"
+  },
+  {
+    "id": "PLASMA-020",
+    "title": "Second Adiabatic Invariant",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node26.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Second Adiabatic Invariant，式 (2.115)–(2.118) 及往返时间条件"
+  },
+  {
+    "id": "PLASMA-021",
+    "title": "Third Adiabatic Invariant",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node27.html",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Third Adiabatic Invariant，式 (2.119)、(2.120)"
+  },
+  {
+    "id": "PLASMA-022",
+    "title": "What is Plasma?",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node3.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：What is Plasma?，准中性定义"
+  },
+  {
+    "id": "PLASMA-023",
+    "title": "Collision Operator",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node31.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Collision Operator，式 (3.1)–(3.9)"
+  },
+  {
+    "id": "PLASMA-024",
+    "title": "Boltzmann Collision Operator",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node33.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Boltzmann Collision Operator"
+  },
+  {
+    "id": "PLASMA-025",
+    "title": "Collisional Conservation Laws",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node34.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Collisional Conservation Laws"
+  },
+  {
+    "id": "PLASMA-026",
+    "title": "Two-Body Coulomb Collisions",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node35.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Two-Body Coulomb Collisions，式 (3.38)–(3.64)"
+  },
+  {
+    "id": "PLASMA-027",
+    "title": "Landau Collision Operator",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node37.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Landau Collision Operator，式 (3.87)–(3.94)"
+  },
+  {
+    "id": "PLASMA-028",
+    "title": "Coulomb Logarithm",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node39.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Coulomb Logarithm，式 (3.114)–(3.122) 及其单位说明"
+  },
+  {
+    "id": "PLASMA-029",
+    "title": "Boltzmann H-Theorem",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node40.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Boltzmann H-Theorem"
+  },
+  {
+    "id": "PLASMA-030",
+    "title": "Collision Operator for Maxwellian Distributions",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node41.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Collision Operator for Maxwellian Distributions"
+  },
+  {
+    "id": "PLASMA-031",
+    "title": "Collision Times",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Collision Times，定义 (3.184)、显式式 (3.188)、(3.190)"
+  },
+  {
+    "id": "PLASMA-032",
+    "title": "Moments of Distribution Function",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html",
+    "scope": "动理学与碰撞、等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Moments of Distribution Function，式 (4.5)–(4.18)"
+  },
+  {
+    "id": "PLASMA-033",
+    "title": "Moments of  Collision Operator",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node48.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Moments of Collision Operator，式 (4.19)–(4.32)"
+  },
+  {
+    "id": "PLASMA-034",
+    "title": "Moments of  Kinetic Equation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node49.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Moments of Kinetic Equation，式 (4.33)–(4.38)"
+  },
+  {
+    "id": "PLASMA-035",
+    "title": "Fluid Closure",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node52.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Fluid Closure"
+  },
+  {
+    "id": "PLASMA-036",
+    "title": "Braginskii Equations",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node54.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Braginskii Equations，闭合小参数及式 (4.70)–(4.73)"
+  },
+  {
+    "id": "PLASMA-037",
+    "title": "Unmagnetized Limit",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Unmagnetized Limit，式 (4.82)、(4.86)"
+  },
+  {
+    "id": "PLASMA-038",
+    "title": "Magnetized Limit",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node56.html",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Magnetized Limit，式 (4.95)–(4.106)"
+  },
+  {
+    "id": "PLASMA-039",
+    "title": "MHD Equations",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node59.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，MHD Equations，§4.14，式 (4.192)–(4.198)"
+  },
+  {
+    "id": "PLASMA-040",
+    "title": "Closure in Collisionless Magnetized Plasmas",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node61.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Closure in Collisionless Magnetized Plasmas，§4.16"
+  },
+  {
+    "id": "PLASMA-041",
+    "title": "Introduction",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node66.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.1 Introduction"
+  },
+  {
+    "id": "PLASMA-042",
+    "title": "Plane Waves in  Homogeneous Plasmas",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node67.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.2，式 (5.1)–(5.5)"
+  },
+  {
+    "id": "PLASMA-043",
+    "title": "Cold-Plasma Dielectric Permittivity",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.3，式 (5.16)–(5.19)"
+  },
+  {
+    "id": "PLASMA-044",
+    "title": "Cold-Plasma Dispersion Relation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.4，式 (5.40)–(5.55)"
+  },
+  {
+    "id": "PLASMA-045",
+    "title": "Wave Polarization",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.5，式 (5.56)–(5.60)"
+  },
+  {
+    "id": "PLASMA-046",
+    "title": "Cutoff and Resonance",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node71.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.6 Cutoff and Resonance"
+  },
+  {
+    "id": "PLASMA-047",
+    "title": "Waves in  Unmagnetized Plasmas",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node72.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.7 Waves in Unmagnetized Plasmas"
+  },
+  {
+    "id": "PLASMA-048",
+    "title": "Low-Frequency Wave Propagation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node73.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.8 Low-Frequency Wave Propagation"
+  },
+  {
+    "id": "PLASMA-049",
+    "title": "Parallel Wave Propagation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.9，式 (5.90)–(5.94) 及 whistler 频段"
+  },
+  {
+    "id": "PLASMA-050",
+    "title": "Perpendicular Wave Propagation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node75.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§5.10，式 (5.97)–(5.98)"
+  },
+  {
+    "id": "PLASMA-051",
+    "title": "WKB Solutions",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node79.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§6.2 WKB Solutions"
+  },
+  {
+    "id": "PLASMA-052",
+    "title": "Cutoffs",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node80.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§6.3 Cutoffs"
+  },
+  {
+    "id": "PLASMA-053",
+    "title": "Resonances",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node81.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "§6.4 Resonances，式 (6.29) 中正则化与边界条件"
+  },
+  {
+    "id": "PLASMA-054",
+    "title": "Collisional Damping",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node83.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§6.6 Collisional Damping"
+  },
+  {
+    "id": "PLASMA-055",
+    "title": "Pulse Propagation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node84.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§6.7 Pulse Propagation"
+  },
+  {
+    "id": "PLASMA-056",
+    "title": "Collisions",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node9.html",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "UT Austin：Collisions，式 (1.21)–(1.27)"
+  },
+  {
+    "id": "PLASMA-057",
+    "title": "Landau Damping",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node90.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.2，式 (7.23)–(7.29)"
+  },
+  {
+    "id": "PLASMA-058",
+    "title": "Physics of Landau Damping",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node91.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.3 Physics of Landau Damping"
+  },
+  {
+    "id": "PLASMA-059",
+    "title": "Plasma Dispersion Function",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node92.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.4 Plasma Dispersion Function"
+  },
+  {
+    "id": "PLASMA-060",
+    "title": "Ion Acoustic Waves",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node93.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.5，式 (7.49)–(7.52) 及温度条件讨论"
+  },
+  {
+    "id": "PLASMA-061",
+    "title": "Waves in  Magnetized Plasmas",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.6 Waves in Magnetized Plasmas，式 (7.80)–(7.87)"
+  },
+  {
+    "id": "PLASMA-062",
+    "title": "Parallel Wave Propagation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+    "scope": "等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，§7.7，式 (7.98)–(7.101)"
+  },
+  {
+    "id": "PLASMA-063",
+    "title": "Grad-Shafranov Equation",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node169.html",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Fitzpatrick，Grad-Shafranov Equation，§14.3，式 (14.30)–(14.33)"
+  },
+  {
+    "id": "PLASMA-064",
+    "title": "MIT OCW：Introduction，§1.2.1，式 (1.17)",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT OCW：Introduction，§1.2.1，式 (1.17)"
+  },
+  {
+    "id": "PLASMA-065",
+    "title": "MIT 22.611J，Collisions in Plasmas，§3.3.4 Random Walk in Angle",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/5617c594de835f49cd769a58ba156ce2_chap3.pdf",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.611J，Collisions in Plasmas，§3.3.4 Random Walk in Angle"
+  },
+  {
+    "id": "PLASMA-066",
+    "title": "MIT OCW：Electromagnetic Waves，§5.2.1–§5.2.2，式 (5.53)–(5.57)",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/75c75c5df51f8fba1b2a903fde937ddc_chap5.pdf",
+    "scope": "等离子体基本概念、等离子体波；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT OCW：Electromagnetic Waves，§5.2.1–§5.2.2，式 (5.53)–(5.57)"
+  },
+  {
+    "id": "PLASMA-067",
+    "title": "MIT OCW：Motion of Charged Particles，§2.1，式 (2.8)–(2.11)",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf",
+    "scope": "单粒子运动；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT OCW：Motion of Charged Particles，§2.1，式 (2.8)–(2.11)"
+  },
+  {
+    "id": "PLASMA-068",
+    "title": "Introduction to Plasma Physics I",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/resources/chap4/",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.611J，第 4 章 §4.6，双流体到单流体推导"
+  },
+  {
+    "id": "PLASMA-069",
+    "title": "MHD Theory of Fusion Systems",
+    "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.615，MHD Theory of Fusion Systems"
+  },
+  {
+    "id": "PLASMA-070",
+    "title": "Lecture 16，第 1–5 页，能量原理、表面与真空能量",
+    "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/8cdfc4d94a61aa60d91bc02046597130_lecture16.pdf",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Lecture 16，第 1–5 页，能量原理、表面与真空能量"
+  },
+  {
+    "id": "PLASMA-071",
+    "title": "MIT 22.615，Lecture 14，第 4–6 页，自伴性与固定边界",
+    "url": "https://ocw.mit.edu/courses/22-615-mhd-theory-of-fusion-systems-spring-2007/cda9ba8f1dd4c9f2f9abecc8d010adae_lecture14.pdf",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.615，Lecture 14，第 4–6 页，自伴性与固定边界"
+  },
+  {
+    "id": "PLASMA-072",
+    "title": "MIT 22.616，Collisions and Transport Theory II，Collision Operator: Summary",
+    "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/3277350d3d1b252bad754cdf65dcf6da_collisionstrans2.pdf",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.616，Collisions and Transport Theory II，Collision Operator: Summary"
+  },
+  {
+    "id": "PLASMA-073",
+    "title": "MIT 22.616，Collisions and Transport Theory I，Debye cutoff 讨论",
+    "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/923ea57a2611e1f05af813f1919354eb_collisionstrans1.pdf",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "MIT 22.616，Collisions and Transport Theory I，Debye cutoff 讨论"
+  },
+  {
+    "id": "PLASMA-074",
+    "title": "2022 CODATA Fundamental Physical Constants - Complete Listing",
+    "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "scope": "等离子体基本概念；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "NIST：2022 CODATA 常数表，electron volt 条目"
+  },
+  {
+    "id": "PLASMA-075",
+    "title": "Kimura 与 Morrison，On energy conservation in extended magnetohydrodynamics (2014)，§II–III",
+    "url": "https://web2.ph.utexas.edu/~morrison/14_morrison_POP_kimura.pdf",
+    "scope": "流体与磁流体力学；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Kimura 与 Morrison，On energy conservation in extended magnetohydrodynamics (2014)，§II–III"
+  },
+  {
+    "id": "PLASMA-076",
+    "title": "Princeton，Kunz：AST554 Lecture Notes，§IV.5，式 (IV.5.1)–(IV.5.4)，原文将介电函数记为 $D$",
+    "url": "https://www.astro.princeton.edu/~kunz/Site/AST554/AST554_Kunz_Lecture_Notes.pdf",
+    "scope": "动理学与碰撞；具体推导及原文位置见对应正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
+    "中文标题": "Princeton，Kunz：AST554 Lecture Notes，§IV.5，式 (IV.5.1)–(IV.5.4)，原文将介电函数记为 $D$"
   }
 ]
