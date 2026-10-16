@@ -1,4 +1,6 @@
-import {searchNodes, getNeighborhood, filterGraph, layoutFlow, layoutHierarchy} from './knowledge-core.mjs';
+import {searchNodes, getNeighborhood, filterGraph, layoutFlow} from './knowledge-core.mjs';
+import {layoutHierarchy3D} from './knowledge-3d-layout.mjs';
+import {KnowledgeGraph3D} from './knowledge-3d.mjs';
 
 const root = document.querySelector('#knowledge-tree');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -18,13 +20,13 @@ async function start() {
   if (!state.selected) state.mode='all';
   if(state.view==='flow'&&!state.selected&&!state.chapter&&!state.path&&params.get('all')!=='1')state.path='icrh';
   let selectedGroup = '', visible, positions = new Map(), nodeElements = new Map(), edgeElements = [], viewport = {x:0,y:0,k:1}, graphSize = {width:1400,height:1100};
-  let lastSize = {width:0,height:0};
+  let lastSize = {width:0,height:0}, graph3d = null, spin = false;
   root.classList.add('kt');
-  root.innerHTML = `<div class="kt-head"><div><p class="kt-eyebrow">KNOWLEDGE ATLAS / FUSION STACKS</p><h1>聚变知识树</h1><p class="kt-description">知识库 → 章节 → 专题 → Tag。逐层展开知识，在具体条目之间发现关联。</p></div><div class="kt-total"><b>${data.nodes.length}</b>永久 Tag · 四层知识网络</div></div>
-    <div class="kt-controls"><div class="kt-controls-top"><div class="kt-switch" role="group" aria-label="知识树视图"><button type="button" data-view="neural">${iconNeural}神经网络</button><button type="button" data-view="flow">${iconFlow}学习流程</button></div><div class="kt-options"><label><input type="checkbox" id="kt-labels">全部标题</label><label><input type="checkbox" id="kt-related" checked>相关连线</label><button type="button" id="kt-reset">重置</button></div></div>
+  root.innerHTML = `<div class="kt-head"><div><p class="kt-eyebrow">KNOWLEDGE ATLAS / FUSION STACKS</p><h1>聚变知识树</h1><p class="kt-description">知识库 → 章节 → 专题 → Tag。在三维空间中逐层展开知识，旋转探索具体条目之间的关联。</p></div><div class="kt-total"><b>${data.nodes.length}</b>永久 Tag · 四层知识网络</div></div>
+    <div class="kt-controls"><div class="kt-controls-top"><div class="kt-switch" role="group" aria-label="知识树视图"><button type="button" data-view="neural">${iconNeural}三维神经图</button><button type="button" data-view="flow">${iconFlow}学习流程</button></div><div class="kt-options"><label><input type="checkbox" id="kt-labels">全部标题</label><label><input type="checkbox" id="kt-related" checked>相关连线</label><button type="button" id="kt-spin" aria-pressed="false">自动旋转</button><button type="button" id="kt-reset">重置</button></div></div>
     <div class="kt-filter-row"><label class="kt-field kt-search-wrap">定位知识点<input type="search" id="kt-search" placeholder="搜索标题、ICRH 或 MF000016" autocomplete="off" aria-controls="kt-results" aria-expanded="false"><div class="kt-search-results" id="kt-results" hidden></div></label><label class="kt-field">章节<select id="kt-chapter"><option value="">全部章节</option>${data.chapters.map(c=>`<option value="${esc(c.id)}">${esc(c.title)}</option>`).join('')}</select></label><label class="kt-field">学习路线<select id="kt-path"><option value="">自由探索</option>${data.paths.map(p=>`<option value="${esc(p.id)}">${esc(p.title)}</option>`).join('')}</select></label></div><div class="kt-depth" id="kt-depth" role="group" aria-label="展开层级"><span>展开到</span><button type="button" data-depth="0">知识库</button><button type="button" data-depth="1">章节</button><button type="button" data-depth="2">专题</button><button type="button" data-depth="3" aria-pressed="true">Tag</button><small>点击大节点可单独展开 / 收起</small></div><div class="kt-route-note" id="kt-route-note"></div></div>
-    <div class="kt-workspace" id="kt-workspace"><div class="kt-stage" id="kt-stage"><div class="kt-stage-header"><div><div class="kt-stage-kicker" id="kt-stage-title"></div><div class="kt-stage-count" id="kt-count" role="status" aria-live="polite"></div></div><span class="kt-badge" id="kt-badge"></span><button type="button" class="kt-mobile-jump" id="kt-jump">节点详情 ↓</button></div><svg class="kt-canvas" id="kt-canvas" tabindex="0" role="group" aria-label="可交互知识树。拖动平移，滚轮缩放；Tab选择节点，回车查看详情，方向键平移，加减键缩放。"><defs><marker id="kt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#71a6b5"/></marker></defs><g id="kt-world"><g id="kt-edges"></g><g id="kt-nodes"></g></g></svg><p class="kt-empty" id="kt-empty" hidden>当前筛选没有节点。请切换章节或重置视图。</p><div class="kt-help">滚轮 / 双指缩放 · 拖动平移 · 点击节点探索</div><span class="kt-zoom-level" id="kt-zoom-level"></span><div class="kt-zoom" role="group" aria-label="画布控制"><button type="button" id="kt-minus" aria-label="缩小">−</button><button type="button" id="kt-plus" aria-label="放大">+</button><button type="button" class="kt-fit" id="kt-fit">适应画布</button><button type="button" id="kt-fullscreen" aria-label="全屏知识树">⛶</button></div></div><aside class="kt-inspector" id="kt-inspector" aria-label="节点详情" tabindex="-1"></aside></div>
-    <div class="kt-legend"><span class="kt-legend-item"><i class="kt-legend-line arrow"></i>建议先学 → 后续知识</span><span class="kt-legend-item"><i class="kt-legend-line dashed"></i>主题相关</span><span class="kt-legend-item"><i class="kt-legend-line member"></i>层级归属</span><span>总节点 → 大章节 → 中专题 → 小 Tag</span></div><div class="kt-chapter-legend" aria-label="章节颜色">${data.chapters.map(c=>`<button type="button" data-legend="${esc(c.id)}"><i class="kt-swatch" style="--color:${esc(c.color)}"></i>${esc(c.title)}</button>`).join('')}</div><p class="kt-footnote">${esc(data.note || '学习关系由编者整理，是阅读建议，不是严格或完整的先修条件；没有连线不表示知识无关。')} 神经网络按四级组织展开；流程图按 Tag 之间的学习关系分层。功能参考<a href="https://wuli.wiki/apps/tree2/brain.html" target="_blank" rel="noopener">小时百科知识树</a>，布局与实现为本站独立编写。<a href="/contents/">查看文字目录 →</a></p>`;
+    <div class="kt-workspace" id="kt-workspace"><div class="kt-stage" id="kt-stage"><div class="kt-stage-header"><div><div class="kt-stage-kicker" id="kt-stage-title"></div><div class="kt-stage-count" id="kt-count" role="status" aria-live="polite"></div></div><span class="kt-badge" id="kt-badge"></span><button type="button" class="kt-mobile-jump" id="kt-jump">节点详情 ↓</button></div><div class="kt-three" id="kt-three"></div><svg class="kt-canvas" id="kt-canvas" tabindex="0" role="group" aria-label="可交互知识树。拖动平移，滚轮缩放；Tab选择节点，回车查看详情，方向键平移，加减键缩放。"><defs><marker id="kt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#71a6b5"/></marker></defs><g id="kt-world"><g id="kt-edges"></g><g id="kt-nodes"></g></g></svg><p class="kt-empty" id="kt-empty" hidden>当前筛选没有节点。请切换章节或重置视图。</p><div class="kt-help" id="kt-help"></div><span class="kt-zoom-level" id="kt-zoom-level"></span><div class="kt-zoom" role="group" aria-label="画布控制"><button type="button" id="kt-minus" aria-label="缩小">−</button><button type="button" id="kt-plus" aria-label="放大">+</button><button type="button" class="kt-fit" id="kt-fit">适应画布</button><button type="button" id="kt-fullscreen" aria-label="全屏知识树">⛶</button></div></div><aside class="kt-inspector" id="kt-inspector" aria-label="节点详情" tabindex="-1"></aside></div>
+    <div class="kt-legend"><span class="kt-legend-item"><i class="kt-legend-line arrow"></i>建议先学 → 后续知识</span><span class="kt-legend-item"><i class="kt-legend-line dashed"></i>主题相关</span><span class="kt-legend-item"><i class="kt-legend-line member"></i>层级归属</span><span>总节点 → 大章节 → 中专题 → 小 Tag</span></div><div class="kt-chapter-legend" aria-label="章节颜色">${data.chapters.map(c=>`<button type="button" data-legend="${esc(c.id)}"><i class="kt-swatch" style="--color:${esc(c.color)}"></i>${esc(c.title)}</button>`).join('')}</div><p class="kt-footnote">${esc(data.note || '学习关系由编者整理，是阅读建议，不是严格或完整的先修条件；没有连线不表示知识无关。')} 三维神经图按四级组织展开；流程图按 Tag 之间的学习关系分层。功能参考<a href="https://wuli.wiki/apps/tree2/brain.html" target="_blank" rel="noopener">小时百科知识树</a>，布局与实现为本站独立编写。<a href="/contents/">查看文字目录 →</a></p>`;
   const $ = id => root.querySelector('#'+id);
   const svg=$('kt-canvas'), world=$('kt-world'), stage=$('kt-stage'), panel=$('kt-inspector'), results=$('kt-results');
   const color = n => chapters.get(n.chapter || n.id)?.color || '#70aebc';
@@ -51,7 +53,12 @@ async function start() {
     root.querySelectorAll('[data-legend]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.legend===state.chapter));
     stage.dataset.view=state.view;
     $('kt-depth').hidden=state.view!=='neural';
-    $('kt-stage-title').textContent=state.view==='neural'?'NEURAL VIEW / 知识连接':'FLOW VIEW / 学习方向';
+    $('kt-three').hidden=state.view!=='neural';
+    svg.toggleAttribute('hidden',state.view!=='flow');
+    $('kt-spin').hidden=state.view!=='neural';
+    $('kt-fit').textContent=state.view==='neural'?'重置视角':'适应画布';
+    $('kt-help').textContent=state.view==='neural'?'拖动旋转 · Shift 拖动平移 · 滚轮 / 双指缩放':'滚轮 / 双指缩放 · 拖动平移 · 点击节点探索';
+    $('kt-stage-title').textContent=state.view==='neural'?'3D NEURAL VIEW / 三维知识网络':'FLOW VIEW / 学习方向';
     $('kt-badge').textContent=state.view==='neural'?'ROOT → CHAPTER → TOPIC → TAG':'先学 → 后学';
     const path=data.paths.find(p=>p.id===state.path);
     $('kt-route-note').textContent=path?path.description:state.mode!=='all'&&state.selected?`${{'ancestors':'前置知识','descendants':'后续学习','neighbors':'直接关联'}[state.mode]} · ${byId.get(state.selected).title}`:state.view==='flow'&&!state.selected?'全图概览：建议选择一条学习路线，或搜索 Tag，查看可读的局部流程。':'';
@@ -114,31 +121,86 @@ async function start() {
     return `M${x1},${y1} Q${(x1+x2)/2-dy*.07},${(y1+y2)/2+dx*.07} ${x2},${y2}`;
   }
   function updateEdges(){edgeElements.forEach(({edge,element})=>element.setAttribute('d',edgePath(edge)));}
+  function setSpin(value){
+    spin=!!value;
+    graph3d?.setAutoRotate(spin);
+    $('kt-spin').setAttribute('aria-pressed',String(spin));
+    $('kt-spin').textContent=spin?'暂停旋转':'自动旋转';
+  }
+  function ensure3D(){
+    if(graph3d)return graph3d;
+    try{
+      graph3d=new KnowledgeGraph3D($('kt-three'),{
+        onSelect(id){
+          const node=positions.get(id);if(!node)return;
+          setSpin(false);
+          if(node.nodeType!=='tag'){selectedGroup=id;state.selected='';state.mode='all';toggleGroup(id);}
+          else selectNode(id,false);
+        },
+        onViewChange(view){
+          if(state.view!=='neural')return;
+          $('kt-zoom-level').textContent=Math.round(view.zoom*100)+'%';
+          spin=view.autoRotate;
+          $('kt-spin').setAttribute('aria-pressed',String(spin));
+          $('kt-spin').textContent=spin?'暂停旋转':'自动旋转';
+        }
+      });
+      return graph3d;
+    }catch{
+      $('kt-three').innerHTML='<div class="kt-3d-error"><h2>当前浏览器无法创建三维视图</h2><p>请启用浏览器硬件加速后重试。你仍可以搜索 Tag、阅读正文，或打开学习流程图。</p><button type="button" id="kt-fallback-flow">打开学习流程图</button></div>';
+      $('kt-spin').disabled=true;
+      $('kt-fallback-flow').addEventListener('click',()=>root.querySelector('[data-view="flow"]').click());
+      return null;
+    }
+  }
   function renderGraph() {
     syncControls();
     visible=filterGraph(data,{chapter:state.chapter,focus:state.selected,mode:state.mode,path:state.path});
     let edges=visible.edges.filter(e=>state.related||e.type!=='related');
-    const selectedChapters=new Set(visible.nodes.map(n=>n.chapter)),selectedSections=new Set(visible.nodes.map(n=>n.section));
     let layout;
-    if(state.view==='flow'&&state.path){
+    if(state.view==='neural'){
+      // Layout the full inventory before filtering so a branch keeps its place.
+      const full=layoutHierarchy3D(data,{collapsed:state.collapsed});
+      const allowed=new Set(visible.nodes.length?['root:'+data.root.id]:[]);
+      visible.nodes.forEach(n=>{allowed.add(n.id);allowed.add('chapter:'+n.chapter);allowed.add('section:'+n.section);});
+      layout={...full,nodes:full.nodes.filter(n=>allowed.has(n.id))};
+      const ids=new Set(layout.nodes.map(n=>n.id));
+      edges=full.edges.filter(e=>ids.has(e.source)&&ids.has(e.target)&&(state.related||e.type!=='related'));
+    }else if(state.path){
       const order=data.paths.find(p=>p.id===state.path).nodes;
       const columns=stage.clientWidth<460?2:3;
       const ordered=order.map(id=>visible.nodes.find(n=>n.id===id)).filter(Boolean);
       layout={nodes:ordered.map((n,i)=>{const row=Math.floor(i/columns),column=row%2?columns-1-i%columns:i%columns;return {...n,x:136+column*300,y:90+row*160,level:i};}),width:columns*300-28,height:Math.ceil(ordered.length/columns)*160+20};
-    } else layout=state.view==='flow'?layoutFlow(visible.nodes,edges):layoutHierarchy({...data,chapters:data.chapters.filter(c=>selectedChapters.has(c.id)),sections:data.sections.filter(s=>selectedSections.has(s.id)),nodes:visible.nodes,edges},{collapsed:state.collapsed,width:1400,height:1100});
-    positions=new Map(layout.nodes.map(n=>[n.id,{...n}])); graphSize={width:layout.width,height:layout.height};
-    if(state.view==='neural')edges=layout.edges;
-    nodeElements.clear(); edgeElements=[];$('kt-nodes').replaceChildren();$('kt-edges').replaceChildren();
-    for(const n of positions.values())addNode(n);
-    edges.forEach(edge=>{const element=svgElement('path',{class:'kt-edge '+edge.type,d:edgePath(edge)});if(edge.type==='prerequisite')element.setAttribute('marker-end','url(#kt-arrow)');$('kt-edges').append(element);edgeElements.push({edge,element});});
+    }else layout=layoutFlow(visible.nodes,edges);
+    positions=new Map(layout.nodes.map(n=>[n.id,{...n}]));
+    graphSize={width:layout.width||1400,height:layout.height||1100};
+    nodeElements.clear();edgeElements=[];$('kt-nodes').replaceChildren();$('kt-edges').replaceChildren();
+    if(state.view==='neural'){
+      ensure3D()?.setGraph({nodes:layout.nodes,edges,chapters:data.chapters,bounds:layout.bounds});
+      graph3d?.resize();
+    }else{
+      setSpin(false);
+      for(const n of positions.values())addNode(n);
+      edges.forEach(edge=>{const element=svgElement('path',{class:'kt-edge '+edge.type,d:edgePath(edge)});if(edge.type==='prerequisite')element.setAttribute('marker-end','url(#kt-arrow)');$('kt-edges').append(element);edgeElements.push({edge,element});});
+    }
     const tags=[...positions.values()].filter(n=>!n.nodeType||n.nodeType==='tag').length;
     const groups=positions.size-tags;
     $('kt-count').textContent=`${tags} / ${data.nodes.length} 个 Tag${groups?' · '+groups+' 个上层节点':''} · ${edges.filter(e=>e.type!=='membership').length} 条知识关系`;
     $('kt-empty').hidden=!!positions.size;
-    refreshSelection(); fit(); renderPanel();
+    refreshSelection();if(state.view==='flow')fit();else lastSize=size();renderPanel();
   }
   function refreshSelection(){
     const neighborhood=state.selected&&state.mode==='all'?getNeighborhood(data.nodes,data.edges,state.selected,'neighbors'):null;
+    if(state.view==='neural'){
+      let activeIds=null;
+      if(neighborhood){
+        activeIds=new Set(neighborhood);activeIds.add('root:'+data.root.id);
+        for(const id of neighborhood){const n=byId.get(id);if(n){activeIds.add('chapter:'+n.chapter);activeIds.add('section:'+n.section);}}
+      }
+      graph3d?.setSelection({id:state.selected||selectedGroup,activeIds});
+      graph3d?.setLabels(state.labels);
+      return;
+    }
     for(const [id,g] of nodeElements){
       const n=positions.get(id),branch=!!n.nodeType&&n.nodeType!=='tag',chosen=id===state.selected||id===selectedGroup;
       g.classList.toggle('is-selected',chosen);
@@ -154,6 +216,7 @@ async function start() {
   }
   function selectNode(id,reveal=true){
     if(!byId.has(id))return;
+    setSpin(false);
     const prior=state.mode;state.selected=id;selectedGroup='';
     if(reveal){state.chapter='';state.path='';state.mode='all';state.collapsed.delete('root:'+data.root.id);state.collapsed.delete('chapter:'+byId.get(id).chapter);state.collapsed.delete('section:'+byId.get(id).section);}
     $('kt-search').value='';results.hidden=true;$('kt-search').setAttribute('aria-expanded','false');
@@ -161,17 +224,25 @@ async function start() {
     if(reveal)centerOn(id,state.view==='flow'?.95:1.2);
   }
   function toggleGroup(id){
-    const restoreFocus=document.activeElement?.dataset.node===id;
+    const restoreFocus=document.activeElement?.dataset.node===id||document.activeElement?.dataset.node3d===id;
     if(state.collapsed.has(id))state.collapsed.delete(id);else state.collapsed.add(id);
     root.querySelectorAll('[data-depth]').forEach(b=>b.setAttribute('aria-pressed','false'));
     renderGraph();
-    if(restoreFocus)nodeElements.get(id)?.focus({preventScroll:true});
+    if(restoreFocus)requestAnimationFrame(()=>(state.view==='neural'?$('kt-three').querySelector(`[data-node3d="${CSS.escape(id)}"]`):nodeElements.get(id))?.focus({preventScroll:true}));
   }
   function relationList(title,edges,direction){
     if(!edges.length)return '';
     return `<section class="kt-relations"><h3>${title} · ${edges.length}</h3>${edges.map(e=>{const n=byId.get(direction==='incoming'?e.source:direction==='outgoing'?e.target:e.source===state.selected?e.target:e.source);return `<button type="button" class="kt-relation" data-select="${n.id}">${esc(n.title)}<small>${n.id} · ${esc(n.sectionTitle)}</small><span class="kt-reason">${esc(e.reason)}</span></button>`;}).join('')}</section>`;
   }
   function renderPanel(){
+    const active=document.activeElement;
+    const restore=panel.contains(active);
+    const attribute=restore?['data-mode','data-toggle-group','data-chapter-only','data-select','data-route'].find(key=>active.hasAttribute(key)):null;
+    const selector=attribute?`[${attribute}="${CSS.escape(active.getAttribute(attribute))}"]`:null;
+    writePanel();
+    if(restore)(selector&&panel.querySelector(selector)||panel).focus({preventScroll:true});
+  }
+  function writePanel(){
     if(selectedGroup){
       const [type,key]=selectedGroup.split(':'),c=type==='root'?data.root:type==='chapter'?chapters.get(key):sections.get(key);
       const members=data.nodes.filter(n=>type==='root'||(type==='chapter'?n.chapter===key:n.section===key)),collapsed=state.collapsed.has(selectedGroup);
@@ -179,7 +250,7 @@ async function start() {
       return;
     }
     const n=byId.get(state.selected);
-    if(!n){panel.innerHTML=`<div class="kt-panel-kicker">START EXPLORING</div><h2>知识，连成一张网。</h2><p>从知识库总节点，逐层展开章节、专题，直到最小的 Tag。点击任意上层节点可以展开或收起分支。</p><p>点击小节点，查看它的永久 Tag、正文与学习关联。</p><div class="kt-path-buttons">${data.paths.map(p=>`<button type="button" class="kt-path-button" data-route="${p.id}">${esc(p.title)}<small>${p.nodes.length} 个 Tag · 查看学习路线 →</small></button>`).join('')}</div><section class="kt-relations"><h3>怎么读这张图</h3><p>实线箭头从建议先学的条目指向后续条目。虚线表示主题关联，不代表先后顺序。</p><p>流程图按学习关系分层；神经网络同时呈现层级与跨章节连接。</p></section>`;return;}
+    if(!n){panel.innerHTML=`<div class="kt-panel-kicker">START EXPLORING</div><h2>知识，连成一张网。</h2><p>从知识库总节点，逐层展开章节、专题，直到最小的 Tag。点击任意上层节点可以展开或收起分支。</p><p>点击小节点，查看它的永久 Tag、正文与学习关联。</p><div class="kt-path-buttons">${data.paths.map(p=>`<button type="button" class="kt-path-button" data-route="${p.id}">${esc(p.title)}<small>${p.nodes.length} 个 Tag · 查看学习路线 →</small></button>`).join('')}</div><section class="kt-relations"><h3>怎么读这张图</h3><p>实线箭头从建议先学的条目指向后续条目。虚线表示主题关联，不代表先后顺序。</p><p>拖动旋转三维网络，滚轮缩放，Shift 加拖动可平移；手机用单指旋转、双指缩放和平移。流程图按学习关系分层。</p></section>`;return;}
     const incoming=data.edges.filter(e=>e.type==='prerequisite'&&e.target===n.id),outgoing=data.edges.filter(e=>e.type==='prerequisite'&&e.source===n.id),related=data.edges.filter(e=>e.type==='related'&&(e.source===n.id||e.target===n.id));
     panel.innerHTML=`<div class="kt-panel-kicker">TAG / 最小知识节点</div><span class="kt-tag">${n.id}</span><h2>${esc(n.title)}</h2><div class="kt-chapter-line"><i class="kt-swatch" style="--color:${esc(color(n))}"></i>${esc(n.sectionTitle)}</div><p>${esc(n.summary)}</p><div class="kt-review-status">${esc(n.statusLabel||{'draft':'草稿 · 待领域审核','reviewing':'审核中','reviewed':'已审核','archived':'已归档'}[n.status])}</div><a class="kt-open" href="${esc(n.url)}">阅读这个 Tag 的正文 ↗</a><div class="kt-panel-actions">${[['neighbors','直接关联'],['ancestors','前置知识'],['descendants','后续学习'],['all','显示全图']].map(([mode,label])=>`<button type="button" data-mode="${mode}" aria-pressed="${state.mode===mode}">${label}</button>`).join('')}</div>${relationList('建议先学',incoming,'incoming')}${relationList('后续知识',outgoing,'outgoing')}${relationList('主题相关',related,'related')}${!incoming.length&&!outgoing.length&&!related.length?'<p>该 Tag 的学习关系尚未编排，可直接进入正文。</p>':''}`;
   }
@@ -187,6 +258,7 @@ async function start() {
   function size(){return {width:stage.clientWidth,height:stage.clientHeight};}
   function fit(){
     const s=size();lastSize=s;
+    if(state.view==='neural'){graph3d?.resetView();return;}
     const points=[...positions.values()],flow=state.view==='flow';
     const left=points.length?Math.min(...points.map(n=>n.x-(flow?124:75))):0;
     const right=points.length?Math.max(...points.map(n=>n.x+(flow?124:75))):graphSize.width;
@@ -195,24 +267,25 @@ async function start() {
     const k=Math.max(.035,Math.min(1.2,(s.width-35)/(right-left),(s.height-100)/(bottom-top)));
     viewport={x:s.width/2-(left+right)/2*k,y:s.height/2-(top+bottom)/2*k+10,k};transform();
   }
-  function centerOn(id,scale){const p=positions.get(id);if(!p)return;const s=size();viewport={x:s.width/2-p.x*scale,y:s.height/2-p.y*scale,k:scale};transform();}
-  function zoom(factor,x,y){const s=size();x??=s.width/2;y??=s.height/2;const k=Math.max(.035,Math.min(4,viewport.k*factor)),ratio=k/viewport.k;viewport={x:x-(x-viewport.x)*ratio,y:y-(y-viewport.y)*ratio,k};transform();}
-  function route(id){state.path=id;state.chapter='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();}
+  function centerOn(id,scale){if(state.view==='neural'){graph3d?.focusNode(id);return;}const p=positions.get(id);if(!p)return;const s=size();viewport={x:s.width/2-p.x*scale,y:s.height/2-p.y*scale,k:scale};transform();}
+  function zoom(factor,x,y){if(state.view==='neural'){graph3d?.zoom(factor);return;}const s=size();x??=s.width/2;y??=s.height/2;const k=Math.max(.035,Math.min(4,viewport.k*factor)),ratio=k/viewport.k;viewport={x:x-(x-viewport.x)*ratio,y:y-(y-viewport.y)*ratio,k};transform();}
+  function route(id){state.path=id;state.chapter='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();fit();}
   root.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;if(state.view==='flow'){selectedGroup='';if(!state.selected&&!state.chapter&&!state.path)state.path='icrh';}renderGraph();if(state.selected&&state.mode==='all')centerOn(state.selected,state.view==='flow'?.95:1.2);}));
-  $('kt-chapter').addEventListener('change',event=>{state.chapter=event.target.value;state.path='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();});
+  $('kt-chapter').addEventListener('change',event=>{state.chapter=event.target.value;state.path='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();fit();});
   $('kt-path').addEventListener('change',event=>route(event.target.value));
-  root.querySelectorAll('[data-legend]').forEach(b=>b.addEventListener('click',()=>{state.chapter=state.chapter===b.dataset.legend?'':b.dataset.legend;state.path='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();}));
+  root.querySelectorAll('[data-legend]').forEach(b=>b.addEventListener('click',()=>{state.chapter=state.chapter===b.dataset.legend?'':b.dataset.legend;state.path='';state.mode='all';state.selected='';selectedGroup='';state.collapsed.clear();renderGraph();fit();}));
   root.querySelectorAll('[data-depth]').forEach(b=>b.addEventListener('click',()=>{state.collapsed.clear();selectedGroup='';state.selected='';state.mode='all';const depth=Number(b.dataset.depth);if(depth===0)state.collapsed.add('root:'+data.root.id);if(depth===1)data.chapters.forEach(c=>state.collapsed.add('chapter:'+c.id));if(depth===2)data.sections.forEach(s=>state.collapsed.add('section:'+s.id));root.querySelectorAll('[data-depth]').forEach(button=>button.setAttribute('aria-pressed',String(button===b)));renderGraph();}));
+  $('kt-spin').addEventListener('click',()=>setSpin(!spin));
   $('kt-labels').addEventListener('change',e=>{state.labels=e.target.checked;refreshSelection();});
   $('kt-related').addEventListener('change',e=>{state.related=e.target.checked;renderGraph();});
-  $('kt-reset').addEventListener('click',()=>{state.selected='';state.chapter='';state.path='';state.mode='all';state.labels=false;state.related=true;state.collapsed.clear();selectedGroup='';$('kt-search').value='';results.hidden=true;$('kt-search').setAttribute('aria-expanded','false');renderGraph();});
+  $('kt-reset').addEventListener('click',()=>{state.selected='';state.chapter='';state.path='';state.mode='all';state.labels=false;state.related=true;state.collapsed.clear();selectedGroup='';$('kt-search').value='';results.hidden=true;$('kt-search').setAttribute('aria-expanded','false');setSpin(false);renderGraph();fit();});
   panel.addEventListener('click',event=>{
     const b=event.target.closest('button');if(!b)return;
     if(b.dataset.select)selectNode(b.dataset.select);
     if(b.dataset.route)route(b.dataset.route);
-    if(b.dataset.mode){state.mode=b.dataset.mode;state.chapter='';state.path='';state.collapsed.clear();renderGraph();}
+    if(b.dataset.mode){state.mode=b.dataset.mode;state.chapter='';state.path='';state.collapsed.clear();renderGraph();fit();}
     if(b.dataset.toggleGroup)toggleGroup(b.dataset.toggleGroup);
-    if(b.dataset.chapterOnly){state.chapter=b.dataset.chapterOnly;state.path='';state.mode='all';state.collapsed.delete('chapter:'+state.chapter);renderGraph();}
+    if(b.dataset.chapterOnly){state.chapter=b.dataset.chapterOnly;state.path='';state.mode='all';state.collapsed.delete('chapter:'+state.chapter);renderGraph();fit();}
   });
   $('kt-jump').addEventListener('click',()=>{panel.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});panel.focus({preventScroll:true});});
   $('kt-search').addEventListener('input',()=>{
@@ -257,7 +330,7 @@ async function start() {
   function endPointer(event){pointers.delete(event.pointerId);if(svg.hasPointerCapture(event.pointerId))svg.releasePointerCapture(event.pointerId);if(pointers.size)beginGesture();else gesture=null;setTimeout(()=>{if(!pointers.size)suppressClick=false;},0);}
   svg.addEventListener('pointerup',endPointer);svg.addEventListener('pointercancel',endPointer);
   svg.addEventListener('keydown',event=>{if(event.key==='+'||event.key==='='){event.preventDefault();zoom(1.3);}if(event.key==='-'){event.preventDefault();zoom(1/1.3);}if(event.key==='0'){event.preventDefault();fit();}const offsets={ArrowLeft:[40,0],ArrowRight:[-40,0],ArrowUp:[0,40],ArrowDown:[0,-40]};if(offsets[event.key]){event.preventDefault();viewport.x+=offsets[event.key][0];viewport.y+=offsets[event.key][1];transform();}});
-  new ResizeObserver(()=>{const s=size();if(s.width!==lastSize.width||s.height!==lastSize.height){if(state.view==='flow'&&state.path&&(s.width<460)!==(lastSize.width<460))renderGraph();else fit();}}).observe(stage);
+  new ResizeObserver(()=>{const s=size();if(s.width!==lastSize.width||s.height!==lastSize.height){if(state.view==='neural'){lastSize=s;graph3d?.resize();return;}if(state.view==='flow'&&state.path&&(s.width<460)!==(lastSize.width<460))renderGraph();else fit();}}).observe(stage);
   renderGraph();
   if(state.selected&&state.mode==='all')centerOn(state.selected,state.view==='flow'?.95:1.2);
 }

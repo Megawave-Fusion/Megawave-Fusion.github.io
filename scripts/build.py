@@ -100,7 +100,9 @@ class Builder:
         self.paths = {s['source']: s['url'] for s in self.sections}
         self.paths.update({'README.md': '/about/', '编写说明.md': '/contributing/',
                            '网站维护.md': '/maintenance/', '核验记录.md': '/verification/',
-                           'site/verification.json': '/data/verification.json', '文献资料/来源索引.json': '/data/sources.json'})
+                           'site/verification.json': '/data/verification.json', '文献资料/来源索引.json': '/data/sources.json',
+                           'site/assets/vendor/three/LICENSE': '/assets/vendor/three/LICENSE',
+                           'site/assets/vendor/three/provenance.json': '/assets/vendor/three/provenance.json'})
         self.verification = json.loads((ROOT / 'site/verification.json').read_text())
         self.checked_sources = {p for p, h in self.verification.get('source_sha256', {}).items() if (ROOT / p).is_file() and digest(ROOT / p) == h}
         self.graph = build_graph(self.chapters, self.entries,
@@ -119,10 +121,19 @@ class Builder:
         self.revision = source_revision()
         self.references = json.loads((ROOT / '文献资料/来源索引.json').read_text())
         self.versions = {name: digest(ROOT / 'site/assets' / name)[:10]
-                         for name in ('site.css', 'site.mjs', 'math-config.js', 'knowledge-tree.css', 'knowledge-tree.mjs')}
-        self.graph_module = (ROOT / 'site/assets/knowledge-tree.mjs').read_text().replace(
-            "'./knowledge-core.mjs'", f"'./knowledge-core.mjs?v={digest(ROOT / 'site/assets/knowledge-core.mjs')[:10]}'")
-        self.versions['knowledge-tree.mjs'] = hashlib.sha256(self.graph_module.encode()).hexdigest()[:10]
+                         for name in ('site.css', 'site.mjs', 'math-config.js', 'knowledge-tree.css',
+                                      'knowledge-3d.css', 'knowledge-tree.mjs')}
+        self.graph_modules = {}
+        module_versions = {}
+        # Rewrite dependencies before hashing their importers, so changes in the
+        # shared core also invalidate the 3D layout and main UI module versions.
+        for module in ('knowledge-core.mjs', 'knowledge-3d-layout.mjs', 'knowledge-3d.mjs', 'knowledge-tree.mjs'):
+            content = (ROOT / 'site/assets' / module).read_text()
+            for dependency, version in module_versions.items():
+                content = content.replace(f"'./{dependency}'", f"'./{dependency}?v={version}'")
+            self.graph_modules[module] = content
+            module_versions[module] = hashlib.sha256(content.encode()).hexdigest()[:10]
+        self.versions['knowledge-tree.mjs'] = module_versions['knowledge-tree.mjs']
 
     def render(self, text, source):
         rendered = markdown.markdown(text, extensions=['tables', 'fenced_code', 'footnotes', 'pymdownx.arithmatex'],
@@ -223,7 +234,8 @@ class Builder:
             shutil.rmtree(self.out)
         self.out.mkdir(parents=True)
         shutil.copytree(ROOT / 'site/assets', self.out / 'assets')
-        (self.out / 'assets/knowledge-tree.mjs').write_text(self.graph_module)
+        for module, content in self.graph_modules.items():
+            (self.out / 'assets' / module).write_text(content)
         vendor = ROOT / 'vendor/mathjax'
         if not (vendor / 'tex-chtml.js').exists():
             raise ValueError('Self-hosted MathJax missing; run scripts/vendor_mathjax.py')
@@ -281,11 +293,11 @@ class Builder:
         print(f'Built {len(self.pages)} pages, {total} entries, {len(self.sections)} sections, {len(self.references)} references -> {self.out}')
 
     def ancillary(self):
-        tree_body = '<div id="knowledge-tree" data-url="/data/knowledge-graph.json"></div><noscript><h1>知识树</h1><p>神经元网络和学习流程图需要 JavaScript。仍可通过<a href="/contents/">完整目录</a>阅读所有条目。</p></noscript>'
+        tree_body = '<div id="knowledge-tree" data-url="/data/knowledge-graph.json"></div><noscript><h1>知识树</h1><p>三维神经网络和学习流程图需要 JavaScript。仍可通过<a href="/contents/">完整目录</a>阅读所有条目。</p></noscript>'
         self.page('/knowledge-tree/', '知识树', tree_body, reader=False, full_width=True,
-                  styles=('knowledge-tree.css',), modules=('knowledge-tree.mjs',),
-                  description='在神经元网络与学习流程图之间切换，探索全部聚变知识条目、建议先学关系与学习路径。')
-        self.index_record('知识树 · 神经元网络与学习流程图', '/knowledge-tree/',
+                  styles=('knowledge-tree.css', 'knowledge-3d.css'), modules=('knowledge-tree.mjs',),
+                  description='在可旋转的三维神经网络与学习流程图之间切换，逐层探索聚变知识库、章节、专题、永久条目与建议学习路径。')
+        self.index_record('知识树 · 三维神经网络与学习流程图', '/knowledge-tree/',
                           '探索全部知识条目、章节、主题关联与建议学习路径。', kind='工具',
                           chapter_slug='', chapter_title='', section_title='知识树')
         for source, url, title in [('README.md','/about/','关于知识库'),('编写说明.md','/contributing/','编写与审核'),('网站维护.md','/maintenance/','网站维护'),('核验记录.md','/verification/','内容核验记录')]:
