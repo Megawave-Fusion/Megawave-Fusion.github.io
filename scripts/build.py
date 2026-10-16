@@ -14,6 +14,11 @@ from urllib.parse import quote, unquote, urlsplit
 import markdown
 from bs4 import BeautifulSoup
 
+try:
+    from .knowledge_graph import build_graph
+except ImportError:  # Direct invocation: python scripts/build.py.
+    from knowledge_graph import build_graph
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / 'site/site.json').read_text())
 REGISTRY = ROOT / 'site/tags.json'
@@ -98,6 +103,11 @@ class Builder:
                            'site/verification.json': '/data/verification.json', '文献资料/来源索引.json': '/data/sources.json'})
         self.verification = json.loads((ROOT / 'site/verification.json').read_text())
         self.checked_sources = {p for p, h in self.verification.get('source_sha256', {}).items() if (ROOT / p).is_file() and digest(ROOT / p) == h}
+        self.graph = build_graph(self.chapters, self.entries,
+                                 json.loads((ROOT / 'site/knowledge-relations.json').read_text()), self.status)
+        registered_tags = {record['tag'] for record in json.loads(REGISTRY.read_text()).values()}
+        if {node['id'] for node in self.graph['nodes']} != registered_tags:
+            raise ValueError('Knowledge graph must contain exactly one node per permanent tag')
         self.search = []
         self.pages = []
         self.sequence = [{'url': '/', 'title': CONFIG['title']}, {'url': '/contents/', 'title': '完整目录'}]
@@ -109,7 +119,10 @@ class Builder:
         self.revision = source_revision()
         self.references = json.loads((ROOT / '文献资料/来源索引.json').read_text())
         self.versions = {name: digest(ROOT / 'site/assets' / name)[:10]
-                         for name in ('site.css', 'site.mjs', 'math-config.js')}
+                         for name in ('site.css', 'site.mjs', 'math-config.js', 'knowledge-tree.css', 'knowledge-tree.mjs')}
+        self.graph_module = (ROOT / 'site/assets/knowledge-tree.mjs').read_text().replace(
+            "'./knowledge-core.mjs'", f"'./knowledge-core.mjs?v={digest(ROOT / 'site/assets/knowledge-core.mjs')[:10]}'")
+        self.versions['knowledge-tree.mjs'] = hashlib.sha256(self.graph_module.encode()).hexdigest()[:10]
 
     def render(self, text, source):
         rendered = markdown.markdown(text, extensions=['tables', 'fenced_code', 'footnotes', 'pymdownx.arithmatex'],
@@ -148,7 +161,7 @@ class Builder:
         link = lambda p, direction: f'<a class="{direction}" href="{p["url"]}"><small>{"← 上一页" if direction == "previous" else "下一页 →"}</small>{ESC(p["title"])}</a>' if p else ''
         return f'<nav class="reader-nav {"bottom" if bottom else ""}" aria-label="阅读顺序">{link(previous,"previous")}{link(following,"next")}</nav>'
 
-    def page(self, url, title, body, chapter=None, breadcrumbs=None, math=False, reader=True, description=''):
+    def page(self, url, title, body, chapter=None, breadcrumbs=None, math=False, reader=True, description='', full_width=False, styles=(), modules=()):
         canonical = CONFIG['url'] + url
         current = chapter['slug'] if chapter else ''
         crumbs = [('/', '首页')] + (breadcrumbs or [])
@@ -158,15 +171,20 @@ class Builder:
         css = self.versions['site.css']
         js = self.versions['site.mjs']
         math_scripts = f'<script src="/assets/math-config.js?v={self.versions["math-config.js"]}"></script><script defer src="/assets/mathjax/tex-chtml.js"></script>' if math else ''
+        extra_assets = ''.join(f'<link rel="stylesheet" href="/assets/{name}?v={self.versions[name]}">' for name in styles)
+        extra_assets += ''.join(f'<script type="module" src="/assets/{name}?v={self.versions[name]}"></script>' for name in modules)
+        body_class = ' class="knowledge-tree-page"' if full_width else ''
+        layout_class = 'layout knowledge-tree-layout' if full_width else 'layout'
+        main_class = ' class="knowledge-tree-main"' if full_width else ''
         text = f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{ESC(title)} · Fusion Stacks</title><meta name="description" content="{ESC(description or '曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。')}">
 <meta name="theme-color" content="#123c54"><meta property="og:title" content="{ESC(title)} · Fusion Stacks"><meta property="og:description" content="{ESC(description or CONFIG['title'])}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="article">
-<link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css}"><script type="module" src="/assets/site.mjs?v={js}"></script>{math_scripts}</head>
-<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="{REPO}">GitHub ↗</a></nav></div>
+<link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css}"><script type="module" src="/assets/site.mjs?v={js}"></script>{math_scripts}{extra_assets}</head>
+<body{body_class}><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="{REPO}">GitHub ↗</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div>{breadcrumb}</div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
-<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav>{self.chapter_links(current)}<a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details>{self.nav(url) if reader else ''}{body}{self.nav(url,True) if reader else ''}</main></div>
+<div class="breadcrumb"><div>{breadcrumb}</div></div><div class="{layout_class}"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"{main_class}><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav>{self.chapter_links(current)}<a href="/knowledge-tree/">知识树</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details>{self.nav(url) if reader else ''}{body}{self.nav(url,True) if reader else ''}</main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="{REPO}">GitHub ↗</a></span></div></footer></body></html>'''
         target = self.out / ('404.html' if url == '/404.html' else url.strip('/') + '/index.html' if url != '/' else 'index.html')
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -205,13 +223,14 @@ class Builder:
             shutil.rmtree(self.out)
         self.out.mkdir(parents=True)
         shutil.copytree(ROOT / 'site/assets', self.out / 'assets')
+        (self.out / 'assets/knowledge-tree.mjs').write_text(self.graph_module)
         vendor = ROOT / 'vendor/mathjax'
         if not (vendor / 'tex-chtml.js').exists():
             raise ValueError('Self-hosted MathJax missing; run scripts/vendor_mathjax.py')
         shutil.copytree(vendor, self.out / 'assets/mathjax')
         (self.out / '.nojekyll').touch()
         total = len(self.entries)
-        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a><a class="button" href="/contents/">完整目录</a><a class="button" href="/references/">参考文献</a><a class="button" href="/contributing/">参与编写</a></div></section><p class="reading-note">已补充等离子体物理五个正文专题及离子回旋加热专题，含定义、推导、算例与适用条件。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
+        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a><a class="button" href="/contents/">完整目录</a><a class="button" href="/knowledge-tree/">探索知识树</a><a class="button" href="/references/">参考文献</a><a class="button" href="/contributing/">参与编写</a></div></section><p class="reading-note">已补充等离子体物理五个正文专题及离子回旋加热专题，含定义、推导、算例与适用条件。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
         self.page('/', CONFIG['title'], hero + self.contents(), reader=False)
         self.page('/contents/', '完整目录', '<h1>完整目录</h1><p class="lead">按章节浏览，或直接进入带永久标签的知识条目。</p>' + self.contents(True))
         for chapter in self.chapters:
@@ -245,9 +264,10 @@ class Builder:
         json_write(self.out / 'search-index.json', self.search)
         json_write(self.out / 'tags.json', {e['tag']: {'title': e['title'], 'source': e['source'], 'url': e['url'], 'status': e['status']} for e in self.entries})
         json_write(self.out / 'navigation.json', [{'url': p['url'], 'title': p['title']} for p in self.sequence])
+        json_write(self.out / 'data/knowledge-graph.json', self.graph)
         json_write(self.out / 'data/sources.json', self.references)
         json_write(self.out / 'data/verification.json', self.verification)
-        sources = sorted(self.paths)
+        sources = sorted({*self.paths, 'site/knowledge-relations.json'})
         manifest = {p: digest(ROOT / p) for p in sources}
         tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
         build_inputs = {p: digest(ROOT/p) for p in tracked if p and (ROOT/p).is_file() and not p.startswith('docs/')}
@@ -261,6 +281,13 @@ class Builder:
         print(f'Built {len(self.pages)} pages, {total} entries, {len(self.sections)} sections, {len(self.references)} references -> {self.out}')
 
     def ancillary(self):
+        tree_body = '<div id="knowledge-tree" data-url="/data/knowledge-graph.json"></div><noscript><h1>知识树</h1><p>神经元网络和学习流程图需要 JavaScript。仍可通过<a href="/contents/">完整目录</a>阅读所有条目。</p></noscript>'
+        self.page('/knowledge-tree/', '知识树', tree_body, reader=False, full_width=True,
+                  styles=('knowledge-tree.css',), modules=('knowledge-tree.mjs',),
+                  description='在神经元网络与学习流程图之间切换，探索全部聚变知识条目、建议先学关系与学习路径。')
+        self.index_record('知识树 · 神经元网络与学习流程图', '/knowledge-tree/',
+                          '探索全部知识条目、章节、主题关联与建议学习路径。', kind='工具',
+                          chapter_slug='', chapter_title='', section_title='知识树')
         for source, url, title in [('README.md','/about/','关于知识库'),('编写说明.md','/contributing/','编写与审核'),('网站维护.md','/maintenance/','网站维护'),('核验记录.md','/verification/','内容核验记录')]:
             text = re.sub(r'^# .+\n', '', (ROOT / source).read_text(), count=1)
             content = self.render(text, source)
@@ -278,7 +305,7 @@ class Builder:
         self.page('/references/', '参考文献与来源', body, reader=False)
         body = f'''<h1>讨论与勘误</h1><p>知识库的讨论保存在 GitHub Discussions。每个条目页面都有“查看本页讨论”和“发起讨论”入口，通过永久标签关联内容。</p><p>欢迎提出原理解释、文献补充、工程经验和勘误。请说明对应条目、适用条件、来源与证据。</p><div class="page-actions"><a class="button primary" href="{REPO}/discussions">进入讨论区 ↗</a><a class="button" href="{REPO}/issues/new">提交勘误 ↗</a></div><p class="reading-note">当前使用 GitHub 原生讨论入口；站内嵌入式评论尚未启用。发表讨论需要登录 GitHub。</p>'''
         self.page('/comments/', '讨论与勘误', body, reader=False)
-        body = f'''<h1>版本与来源</h1><p>本阅读版包含 {len(self.sections)} 个专题、{len(self.entries)} 个永久条目和 {len(self.references)} 条来源记录。正文保留中文目录，由同一份源文件生成连续阅读页与条目页；原仓库历史完整保留。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>等离子体物理与离子回旋加热正文完成限定范围的模型辅助复核；领域专家审核仍待完成。<a href="/verification/">详见核验记录</a>。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li><li><a href="/data/verification.json">内容复核范围与源文校验值</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
+        body = f'''<h1>版本与来源</h1><p>本阅读版包含 {len(self.sections)} 个专题、{len(self.entries)} 个永久条目和 {len(self.references)} 条来源记录。正文保留中文目录，由同一份源文件生成连续阅读页与条目页；原仓库历史完整保留。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>等离子体物理与离子回旋加热正文完成限定范围的模型辅助复核；领域专家审核仍待完成。<a href="/verification/">详见核验记录</a>。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/data/knowledge-graph.json">知识树节点、编者关系与学习路径</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li><li><a href="/data/verification.json">内容复核范围与源文校验值</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
         self.page('/sources/', '版本与来源', body, reader=False)
         self.page('/404.html', '页面未找到', '<h1>页面未找到</h1><p>可用关键词或永久标签查找条目，也可以返回完整目录。</p><a class="button" href="/contents/">浏览完整目录</a>', reader=False)
 

@@ -1,0 +1,966 @@
+{
+  "version": 1,
+  "note": "所有永久条目均收录。箭头表示编者依据当前正文整理的建议先学关系，并非严格、唯一或完整的知识依赖；无箭头连线表示主题关联。未连线的条目仍可阅读，不能据此断定彼此无关。关系不改变正文审核状态，部分条目仍为提纲。",
+  "edges": [
+    {
+      "source": "MF000084",
+      "target": "MF000085",
+      "type": "prerequisite",
+      "reason": "先明确温度能量和 SI 单位，再阅读分布函数各阶矩的定义。"
+    },
+    {
+      "source": "MF000085",
+      "target": "MF000086",
+      "type": "prerequisite",
+      "reason": "先区分各物种密度，再理解多离子准中性条件中的电荷加权。"
+    },
+    {
+      "source": "MF000086",
+      "target": "MF000087",
+      "type": "prerequisite",
+      "reason": "先理解有限净电荷与电势的关系，再学习线性屏蔽响应。"
+    },
+    {
+      "source": "MF000087",
+      "target": "MF000088",
+      "type": "prerequisite",
+      "reason": "Debye 长度是定义 Debye 球粒子数、讨论弱耦合的尺度。"
+    },
+    {
+      "source": "MF000089",
+      "target": "MF000090",
+      "type": "prerequisite",
+      "reason": "先理解等离子体频率，再比较惯性长度与热速度形成的尺度。"
+    },
+    {
+      "source": "MF000090",
+      "target": "MF000091",
+      "type": "prerequisite",
+      "reason": "已有速度和长度尺度有助于分别比较磁化、碰撞与模型适用条件。"
+    },
+    {
+      "source": "MF000092",
+      "target": "MF000093",
+      "type": "prerequisite",
+      "reason": "回旋轨道是 Lorentz 方程在均匀静磁场下的解。"
+    },
+    {
+      "source": "MF000093",
+      "target": "MF000094",
+      "type": "prerequisite",
+      "reason": "先理解回旋运动，再分离均匀横向力导致的导引中心漂移。"
+    },
+    {
+      "source": "MF000093",
+      "target": "MF000095",
+      "type": "prerequisite",
+      "reason": "grad-B 漂移推导使用回旋半径及缓变磁场的轨道平均。"
+    },
+    {
+      "source": "MF000093",
+      "target": "MF000097",
+      "type": "prerequisite",
+      "reason": "磁矩及其绝热守恒以局部回旋运动和周期平均为基础。"
+    },
+    {
+      "source": "MF000097",
+      "target": "MF000098",
+      "type": "prerequisite",
+      "reason": "磁镜反射与损失锥使用磁矩和总能量守恒。"
+    },
+    {
+      "source": "MF000097",
+      "target": "MF000099",
+      "type": "prerequisite",
+      "reason": "先掌握磁矩这一例子，再比较不同绝热不变量及其失效排序。"
+    },
+    {
+      "source": "MF000085",
+      "target": "MF000100",
+      "type": "prerequisite",
+      "reason": "由基础物种矩定义过渡到动理学中压力张量与热流的含义。"
+    },
+    {
+      "source": "MF000100",
+      "target": "MF000101",
+      "type": "prerequisite",
+      "reason": "先认识相空间分布，再学习其由自洽电磁场驱动的演化方程。"
+    },
+    {
+      "source": "MF000100",
+      "target": "MF000102",
+      "type": "prerequisite",
+      "reason": "先区分矩与完整分布，再理解漂移 Maxwell 分布的各向同性及其平衡适用条件。"
+    },
+    {
+      "source": "MF000101",
+      "target": "MF000103",
+      "type": "prerequisite",
+      "reason": "连续性、动量和内能方程来自对动理学方程取速度矩。"
+    },
+    {
+      "source": "MF000103",
+      "target": "MF000104",
+      "type": "prerequisite",
+      "reason": "取矩得到层级后，才能明确闭合关系补充了哪些信息。"
+    },
+    {
+      "source": "MF000105",
+      "target": "MF000106",
+      "type": "prerequisite",
+      "reason": "Coulomb 对数来自多次小偏转的积分及长短程截断。"
+    },
+    {
+      "source": "MF000106",
+      "target": "MF000107",
+      "type": "prerequisite",
+      "reason": "先明确碰撞积分的近似，再区分偏转、慢化和能量交换频率。"
+    },
+    {
+      "source": "MF000107",
+      "target": "MF000108",
+      "type": "prerequisite",
+      "reason": "电子离子温度交换需使用能量频率，不能替换为偏转频率。"
+    },
+    {
+      "source": "MF000107",
+      "target": "MF000109",
+      "type": "prerequisite",
+      "reason": "先区分碰撞过程，再阅读守恒的 Fokker–Planck 与 Landau 算子。"
+    },
+    {
+      "source": "MF000104",
+      "target": "MF000110",
+      "type": "prerequisite",
+      "reason": "经典热流和电阻要求先检查闭合、平均自由程及局域近似。"
+    },
+    {
+      "source": "MF000087",
+      "target": "MF000111",
+      "type": "prerequisite",
+      "reason": "动态集体屏蔽的讨论需要先认识静态屏蔽的成立条件。"
+    },
+    {
+      "source": "MF000112",
+      "target": "MF000113",
+      "type": "prerequisite",
+      "reason": "介电张量和色散矩阵沿用平面波时间约定与线性响应。"
+    },
+    {
+      "source": "MF000089",
+      "target": "MF000114",
+      "type": "prerequisite",
+      "reason": "Bohm–Gross 关系在电子等离子体振荡基础上加入热修正。"
+    },
+    {
+      "source": "MF000113",
+      "target": "MF000116",
+      "type": "prerequisite",
+      "reason": "非磁化横波截止由介电响应和 Maxwell 波动方程得出。"
+    },
+    {
+      "source": "MF000112",
+      "target": "MF000115",
+      "type": "prerequisite",
+      "reason": "离子声波的流体推导将平面波线性化与电子 Boltzmann 响应结合。"
+    },
+    {
+      "source": "MF000113",
+      "target": "MF000117",
+      "type": "prerequisite",
+      "reason": "冷磁化响应是介电张量在带磁场物种运动中的具体形式。"
+    },
+    {
+      "source": "MF000117",
+      "target": "MF000118",
+      "type": "prerequisite",
+      "reason": "O、X 模利用同一冷磁化介电张量在垂直传播时的分支。"
+    },
+    {
+      "source": "MF000112",
+      "target": "MF000120",
+      "type": "prerequisite",
+      "reason": "理解相位与波包需要先明确平面波中的频率和波数。"
+    },
+    {
+      "source": "MF000101",
+      "target": "MF000121",
+      "type": "prerequisite",
+      "reason": "Landau 阻尼来自速度分布的动理学响应，不由无压冷模型推出。"
+    },
+    {
+      "source": "MF000093",
+      "target": "MF000122",
+      "type": "prerequisite",
+      "reason": "回旋共振的谐波条件使用带符号回旋频率及粒子轨道。"
+    },
+    {
+      "source": "MF000113",
+      "target": "MF000123",
+      "type": "prerequisite",
+      "reason": "波功率的 Hermitian 分解需要介电张量和复振幅约定。"
+    },
+    {
+      "source": "MF000104",
+      "target": "MF000124",
+      "type": "prerequisite",
+      "reason": "从双流体约化为单流体时，需要明确矩闭合及尺度排序。"
+    },
+    {
+      "source": "MF000124",
+      "target": "MF000125",
+      "type": "prerequisite",
+      "reason": "理想 MHD 是单流体模型在进一步近似下的闭合方程组。"
+    },
+    {
+      "source": "MF000124",
+      "target": "MF000126",
+      "type": "prerequisite",
+      "reason": "广义欧姆定律保留双流体相对运动产生的 Hall 等项。"
+    },
+    {
+      "source": "MF000125",
+      "target": "MF000127",
+      "type": "prerequisite",
+      "reason": "由 MHD 动量方程中的洛伦兹力分解理解磁压力与张力。"
+    },
+    {
+      "source": "MF000125",
+      "target": "MF000128",
+      "type": "prerequisite",
+      "reason": "磁通冻结由理想欧姆定律和 Faraday 定律共同导出。"
+    },
+    {
+      "source": "MF000126",
+      "target": "MF000129",
+      "type": "prerequisite",
+      "reason": "电阻扩散是在欧姆定律中保留有限电阻后讨论的效应。"
+    },
+    {
+      "source": "MF000125",
+      "target": "MF000130",
+      "type": "prerequisite",
+      "reason": "Grad–Shafranov 方程针对 MHD 静态平衡再施加轴对称条件。"
+    },
+    {
+      "source": "MF000125",
+      "target": "MF000131",
+      "type": "prerequisite",
+      "reason": "MHD 能量账本把动量、感应与内能方程放在同一框架。"
+    },
+    {
+      "source": "MF000130",
+      "target": "MF000132",
+      "type": "prerequisite",
+      "reason": "线性稳定性分析需要先给定被扰动的平衡态。"
+    },
+    {
+      "source": "MF000129",
+      "target": "MF000133",
+      "type": "prerequisite",
+      "reason": "Sweet–Parker 标度比较电阻扩散与平流的时间尺度。"
+    },
+    {
+      "source": "MF000125",
+      "target": "MF000119",
+      "type": "prerequisite",
+      "reason": "剪切 Alfvén 波与快慢磁声波是理想 MHD 的线性波模。"
+    },
+    {
+      "source": "MF000122",
+      "target": "MF000016",
+      "type": "prerequisite",
+      "reason": "先理解回旋共振，再区分 ICRH 名称、ICRF 频段及实际能量接收对象。"
+    },
+    {
+      "source": "MF000092",
+      "target": "MF000134",
+      "type": "prerequisite",
+      "reason": "有限时间共振的能量增长由电场做功和 Lorentz 方程推导。"
+    },
+    {
+      "source": "MF000093",
+      "target": "MF000134",
+      "type": "prerequisite",
+      "reason": "圆偏振驱动的共振解使用离子回旋旋向与频率。"
+    },
+    {
+      "source": "MF000134",
+      "target": "MF000135",
+      "type": "prerequisite",
+      "reason": "由均匀规定场的相位累积扩展到传播波的 Doppler 位移和谐波。"
+    },
+    {
+      "source": "MF000113",
+      "target": "MF000136",
+      "type": "prerequisite",
+      "reason": "ICRF 快波传播使用冷介电张量与 Maxwell 色散矩阵。"
+    },
+    {
+      "source": "MF000117",
+      "target": "MF000136",
+      "type": "prerequisite",
+      "reason": "熟悉冷磁化响应后，可进一步处理多物种 ICRF 快波分支。"
+    },
+    {
+      "source": "MF000016",
+      "target": "MF000136",
+      "type": "prerequisite",
+      "reason": "先明确 ICRH 的传播与吸收条件，再用冷模型辨认快波可达区域。"
+    },
+    {
+      "source": "MF000136",
+      "target": "MF000137",
+      "type": "prerequisite",
+      "reason": "已知快波场结构后，分析离子同旋电场分量和基频耦合。"
+    },
+    {
+      "source": "MF000137",
+      "target": "MF000138",
+      "type": "prerequisite",
+      "reason": "少数离子基频加热依赖对应同旋分量及组分对极化的影响。"
+    },
+    {
+      "source": "MF000135",
+      "target": "MF000139",
+      "type": "prerequisite",
+      "reason": "二次谐波在共振条件基础上还需要有限 Larmor 半径耦合。"
+    },
+    {
+      "source": "MF000136",
+      "target": "MF000140",
+      "type": "prerequisite",
+      "reason": "离子—离子混杂层和模转换需要多物种冷波传播结构作为入口。"
+    },
+    {
+      "source": "MF000138",
+      "target": "MF000141",
+      "type": "prerequisite",
+      "reason": "三离子方案延伸少数物种吸收，并利用主离子混合物调整极化。"
+    },
+    {
+      "source": "MF000140",
+      "target": "MF000141",
+      "type": "prerequisite",
+      "reason": "理解混杂层与极化结构有助于辨认三离子方案的设计条件。"
+    },
+    {
+      "source": "MF000123",
+      "target": "MF000142",
+      "type": "prerequisite",
+      "reason": "核验吸收须结合功率密度与能量守恒，不能只画共振位置。"
+    },
+    {
+      "source": "MF000135",
+      "target": "MF000142",
+      "type": "prerequisite",
+      "reason": "先理解共振条件只筛选相位匹配，再检查可达性、极化与吸收证据。"
+    },
+    {
+      "source": "MF000138",
+      "target": "MF000143",
+      "type": "prerequisite",
+      "reason": "少数离子先吸收射频能量后，其分布演化及碰撞传能决定热粒子收益。"
+    },
+    {
+      "source": "MF000109",
+      "target": "MF000143",
+      "type": "prerequisite",
+      "reason": "快离子分布和碰撞传能需要守恒的动力学算子。"
+    },
+    {
+      "source": "MF000142",
+      "target": "MF000143",
+      "type": "prerequisite",
+      "reason": "建立吸收功率账本后，再区分快离子能量储存、碰撞传递与损失。"
+    },
+    {
+      "source": "MF000143",
+      "target": "MF000018",
+      "type": "prerequisite",
+      "reason": "RF—Fokker–Planck 联算必须区分波吸收、分布演化与背景传能。"
+    },
+    {
+      "source": "MF000017",
+      "target": "MF000019",
+      "type": "prerequisite",
+      "reason": "先识别发射机、传输线与天线接口，再定义对应保护与联锁。"
+    },
+    {
+      "source": "MF000019",
+      "target": "MF000073",
+      "type": "prerequisite",
+      "reason": "明确控制与保护要求后，把状态切换和故障行为写入试验判据。"
+    },
+    {
+      "source": "MF000073",
+      "target": "MF000020",
+      "type": "prerequisite",
+      "reason": "先定义测试对象、仪器和判据，再逐项执行 ICRH 测试与验收。"
+    },
+    {
+      "source": "MF000018",
+      "target": "MF000020",
+      "type": "prerequisite",
+      "reason": "计算结果需要通过端口预算、测量和不确定性检验才能参与验收。"
+    },
+    {
+      "source": "MF000020",
+      "target": "MF000074",
+      "type": "prerequisite",
+      "reason": "完成部件与系统测试后，运行记录应延续其配置和功率口径。"
+    },
+    {
+      "source": "MF000074",
+      "target": "MF000075",
+      "type": "prerequisite",
+      "reason": "验收报告应可追溯到运行配置、原始数据及异常记录。"
+    },
+    {
+      "source": "MF000075",
+      "target": "MF000076",
+      "type": "prerequisite",
+      "reason": "已有测量与验收证据有助于故障复盘中区分已证原因和假设。"
+    },
+    {
+      "source": "MF000059",
+      "target": "MF000060",
+      "type": "prerequisite",
+      "reason": "先确定被测物理量及诊断方法，再制定标定与数据质量要求。"
+    },
+    {
+      "source": "MF000060",
+      "target": "MF000061",
+      "type": "prerequisite",
+      "reason": "反馈和联锁需要已定义的信号单位、时钟、误差与失效状态。"
+    },
+    {
+      "source": "MF000063",
+      "target": "MF000064",
+      "type": "prerequisite",
+      "reason": "多物理耦合前先明确各模型方程、适用范围和输入输出。"
+    },
+    {
+      "source": "MF000064",
+      "target": "MF000065",
+      "type": "prerequisite",
+      "reason": "耦合接口建立后，还要检查守恒、数值收敛和实验适用性。"
+    },
+    {
+      "source": "MF000055",
+      "target": "MF000057",
+      "type": "prerequisite",
+      "reason": "了解材料牌号、加工态和工况后，再确定制造连接与检验记录。"
+    },
+    {
+      "source": "MF000013",
+      "target": "MF000077",
+      "type": "prerequisite",
+      "reason": "先规定装置档案应记录的字段，再整理具体装置及带日期的参数。"
+    },
+    {
+      "source": "MF000001",
+      "target": "MF000002",
+      "type": "related",
+      "reason": "聚变能量收支与约束性能评价使用相互关联的功率和时间尺度。"
+    },
+    {
+      "source": "MF000001",
+      "target": "MF000006",
+      "type": "related",
+      "reason": "欧姆与自加热分别进入聚变能量收支的输入和内部加热项。"
+    },
+    {
+      "source": "MF000002",
+      "target": "MF000005",
+      "type": "related",
+      "reason": "输运及快粒子损失影响约束性能指标的解释。"
+    },
+    {
+      "source": "MF000003",
+      "target": "MF000130",
+      "type": "related",
+      "reason": "基础平衡概览与 Grad–Shafranov 详细推导可交叉阅读。"
+    },
+    {
+      "source": "MF000003",
+      "target": "MF000132",
+      "type": "related",
+      "reason": "平衡和稳定性是相互关联但不能等同的分析层次。"
+    },
+    {
+      "source": "MF000004",
+      "target": "MF000112",
+      "type": "related",
+      "reason": "波与波粒相互作用概览连接平面波和线性化正文。"
+    },
+    {
+      "source": "MF000005",
+      "target": "MF000143",
+      "type": "related",
+      "reason": "快离子能量、碰撞传递及损失是 ICRH 功率解释与输运的共同问题。"
+    },
+    {
+      "source": "MF000007",
+      "target": "MF000084",
+      "type": "related",
+      "reason": "基础参考资料入口与单位和温度能量正文提供不同层次的学习材料。"
+    },
+    {
+      "source": "MF000086",
+      "target": "MF000089",
+      "type": "related",
+      "reason": "准中性近似与电荷振荡涉及不同时间尺度，应对照各自适用条件。"
+    },
+    {
+      "source": "MF000088",
+      "target": "MF000111",
+      "type": "related",
+      "reason": "弱耦合与集体屏蔽的条件有助于比较不同碰撞模型。"
+    },
+    {
+      "source": "MF000091",
+      "target": "MF000099",
+      "type": "related",
+      "reason": "磁化判据与导引中心、绝热不变量排序应分别检查。"
+    },
+    {
+      "source": "MF000094",
+      "target": "MF000096",
+      "type": "related",
+      "reason": "不同漂移均属于轨道平均问题，电荷依赖和几何来源各不相同。"
+    },
+    {
+      "source": "MF000095",
+      "target": "MF000096",
+      "type": "related",
+      "reason": "梯度和曲率漂移常在环形磁场中同时出现。"
+    },
+    {
+      "source": "MF000008",
+      "target": "MF000130",
+      "type": "related",
+      "reason": "托卡马克概览与轴对称平衡方程的适用几何相联系。"
+    },
+    {
+      "source": "MF000009",
+      "target": "MF000028",
+      "type": "related",
+      "reason": "FRC 档案与中性束加热专题包含装置和执行器层面的交叉问题。"
+    },
+    {
+      "source": "MF000010",
+      "target": "MF000098",
+      "type": "related",
+      "reason": "磁镜装置路线对应磁镜反射与损失锥的单粒子基础。"
+    },
+    {
+      "source": "MF000011",
+      "target": "MF000008",
+      "type": "related",
+      "reason": "仿星器与托卡马克可比较磁场拓扑和电流需求，二者不是先后依赖。"
+    },
+    {
+      "source": "MF000012",
+      "target": "MF000013",
+      "type": "related",
+      "reason": "其他约束路线也需用统一装置档案字段记录其条件与证据。"
+    },
+    {
+      "source": "MF000014",
+      "target": "MF000077",
+      "type": "related",
+      "reason": "装置路线来源入口可用于核对具体装置档案。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000016",
+      "type": "related",
+      "reason": "ICRH 的各级功率口径需要与跨系统比较保持一致。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000022",
+      "type": "related",
+      "reason": "ECRH 加热及电流驱动目标应放入统一接口和功率口径比较。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000028",
+      "type": "related",
+      "reason": "NBI 的注入、沉积及吸收功率需与其他系统分别比较。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000034",
+      "type": "related",
+      "reason": "LHCD 的电流驱动指标应与加热功率目标分别说明。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000040",
+      "type": "related",
+      "reason": "EBW 的模转换与可达性须作为独立条件加入系统比较。"
+    },
+    {
+      "source": "MF000015",
+      "target": "MF000046",
+      "type": "related",
+      "reason": "Helicon 的适用装置、波谱与验证范围需要单独记录。"
+    },
+    {
+      "source": "MF000122",
+      "target": "MF000022",
+      "type": "related",
+      "reason": "电子回旋与离子回旋同属波粒共振问题，但频率与传播窗口不同。"
+    },
+    {
+      "source": "MF000118",
+      "target": "MF000040",
+      "type": "related",
+      "reason": "O、X 模传播与 EBW 专题中的 O-X-B 模转换入口相联系。"
+    },
+    {
+      "source": "MF000121",
+      "target": "MF000034",
+      "type": "related",
+      "reason": "低杂波电流驱动与电子共振粒子及分布非对称性相关。"
+    },
+    {
+      "source": "MF000117",
+      "target": "MF000046",
+      "type": "related",
+      "reason": "冷磁化波中的 whistler 分支为理解 Helicon 术语提供背景。"
+    },
+    {
+      "source": "MF000107",
+      "target": "MF000028",
+      "type": "related",
+      "reason": "中性束生成的快粒子需要通过慢化与碰撞能量交换解释沉积。"
+    },
+    {
+      "source": "MF000021",
+      "target": "MF000141",
+      "type": "related",
+      "reason": "ICRH 文献与案例入口可对照三离子方案所引用的实验条件。"
+    },
+    {
+      "source": "MF000023",
+      "target": "MF000067",
+      "type": "related",
+      "reason": "微波源与传输设备的供电和保护需要工程电源接口。"
+    },
+    {
+      "source": "MF000024",
+      "target": "MF000118",
+      "type": "related",
+      "reason": "ECRH 计算需核对磁化波模式、截止及传播条件。"
+    },
+    {
+      "source": "MF000025",
+      "target": "MF000061",
+      "type": "related",
+      "reason": "ECRH 局部保护与全装置控制联锁存在信号和时序接口。"
+    },
+    {
+      "source": "MF000026",
+      "target": "MF000075",
+      "type": "related",
+      "reason": "ECRH 验收数据应进入可追溯的系统验收报告。"
+    },
+    {
+      "source": "MF000027",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "专题文献案例与统一文献归档格式相联系。"
+    },
+    {
+      "source": "MF000029",
+      "target": "MF000068",
+      "type": "related",
+      "reason": "中性束设备与真空、气体和抽气系统存在明确接口。"
+    },
+    {
+      "source": "MF000030",
+      "target": "MF000063",
+      "type": "related",
+      "reason": "中性束设计计算涉及相应轨道、输运与热负荷模型。"
+    },
+    {
+      "source": "MF000031",
+      "target": "MF000061",
+      "type": "related",
+      "reason": "中性束的独立保护需要与全装置联锁协调。"
+    },
+    {
+      "source": "MF000032",
+      "target": "MF000075",
+      "type": "related",
+      "reason": "中性束测试判据和标定结果需要进入验收记录。"
+    },
+    {
+      "source": "MF000033",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "中性束文献案例可按统一文献字段追溯原始条件。"
+    },
+    {
+      "source": "MF000035",
+      "target": "MF000067",
+      "type": "related",
+      "reason": "低杂波功率源的供电、状态与保护需要工程接口。"
+    },
+    {
+      "source": "MF000036",
+      "target": "MF000063",
+      "type": "related",
+      "reason": "低杂波设计计算需要清楚列出使用的波传播和动理学模型。"
+    },
+    {
+      "source": "MF000037",
+      "target": "MF000061",
+      "type": "related",
+      "reason": "低杂波系统保护与总控制系统的状态、延迟和失效接口相关。"
+    },
+    {
+      "source": "MF000038",
+      "target": "MF000075",
+      "type": "related",
+      "reason": "低杂波部件和联调测试需要可追溯的验收报告。"
+    },
+    {
+      "source": "MF000039",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "低杂波文献案例与统一的来源版本、条件和限制记录相联系。"
+    },
+    {
+      "source": "MF000041",
+      "target": "MF000023",
+      "type": "related",
+      "reason": "EBW 与 ECRH 设备专题可对照微波链路，模转换接口另行说明。"
+    },
+    {
+      "source": "MF000042",
+      "target": "MF000040",
+      "type": "related",
+      "reason": "EBW 设计计算需针对其原理条目中的模转换与可达性条件。"
+    },
+    {
+      "source": "MF000043",
+      "target": "MF000061",
+      "type": "related",
+      "reason": "EBW 实验装置的局部保护须与实时控制和联锁接口协调。"
+    },
+    {
+      "source": "MF000044",
+      "target": "MF000075",
+      "type": "related",
+      "reason": "EBW 测试指标与实验条件应进入验收和标定报告。"
+    },
+    {
+      "source": "MF000045",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "EBW 的文献与案例需要保留实验条件、版本及限制。"
+    },
+    {
+      "source": "MF000047",
+      "target": "MF000017",
+      "type": "related",
+      "reason": "Helicon 与 ICRH 可比较射频链路组成，天线与负载条件分别定义。"
+    },
+    {
+      "source": "MF000048",
+      "target": "MF000063",
+      "type": "related",
+      "reason": "Helicon 计算需明确波传播、耦合和吸收模型的适用条件。"
+    },
+    {
+      "source": "MF000049",
+      "target": "MF000061",
+      "type": "related",
+      "reason": "Helicon 的保护与控制接口需要明确状态和失效行为。"
+    },
+    {
+      "source": "MF000050",
+      "target": "MF000075",
+      "type": "related",
+      "reason": "Helicon 测试与验收记录需要区分部件测试和实际等离子体证据。"
+    },
+    {
+      "source": "MF000051",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "Helicon 历史方案和实验案例需按原文时间与证据范围归档。"
+    },
+    {
+      "source": "MF000052",
+      "target": "MF000068",
+      "type": "related",
+      "reason": "真空室密封、烘烤和端口结构与真空系统存在工程接口。"
+    },
+    {
+      "source": "MF000053",
+      "target": "MF000071",
+      "type": "related",
+      "reason": "第一壁与包层设计涉及屏蔽、维护及部件更换条件。"
+    },
+    {
+      "source": "MF000054",
+      "target": "MF000069",
+      "type": "related",
+      "reason": "偏滤器排热需要与冷却回路热负荷和故障响应一起核对。"
+    },
+    {
+      "source": "MF000056",
+      "target": "MF000144",
+      "type": "related",
+      "reason": "RF 鞘层增强的溅射和杂质释放属于等离子体材料相互作用问题。"
+    },
+    {
+      "source": "MF000058",
+      "target": "MF000053",
+      "type": "related",
+      "reason": "材料专题参考入口连接第一壁与包层的原始工程资料。"
+    },
+    {
+      "source": "MF000062",
+      "target": "MF000059",
+      "type": "related",
+      "reason": "诊断参考入口可用于核对仪器、被测量及适用条件。"
+    },
+    {
+      "source": "MF000065",
+      "target": "MF000066",
+      "type": "related",
+      "reason": "可复现环境使验证可重复，但不能替代模型有效性的证据。"
+    },
+    {
+      "source": "MF000065",
+      "target": "MF000020",
+      "type": "related",
+      "reason": "ICRH 验收中需要区分代码验证、模型确认与实际测量。"
+    },
+    {
+      "source": "MF000066",
+      "target": "MF000074",
+      "type": "related",
+      "reason": "运行记录和计算结果都需要数据版本、处理脚本与可追溯标识。"
+    },
+    {
+      "source": "MF000067",
+      "target": "MF000069",
+      "type": "related",
+      "reason": "超导磁体、热负荷和故障保护与低温系统相互耦合。"
+    },
+    {
+      "source": "MF000068",
+      "target": "MF000070",
+      "type": "related",
+      "reason": "燃料注入、排气与循环需要明确真空和气体系统的边界。"
+    },
+    {
+      "source": "MF000072",
+      "target": "MF000067",
+      "type": "related",
+      "reason": "工程参考入口为磁体、电源及配套系统提供机构资料。"
+    },
+    {
+      "source": "MF000073",
+      "target": "MF000060",
+      "type": "related",
+      "reason": "试验判据须结合仪器标定与测量不确定性。"
+    },
+    {
+      "source": "MF000077",
+      "target": "MF000079",
+      "type": "related",
+      "reason": "技术成熟度判断应核对具体装置的带日期状态和性能证据。"
+    },
+    {
+      "source": "MF000078",
+      "target": "MF000079",
+      "type": "related",
+      "reason": "供应链能力和交付证据可以支撑成熟度评估，宣传信息不能替代实测。"
+    },
+    {
+      "source": "MF000080",
+      "target": "MF000084",
+      "type": "related",
+      "reason": "建议学习路径从物理共同语言中的单位与温度开始。"
+    },
+    {
+      "source": "MF000082",
+      "target": "MF000015",
+      "type": "related",
+      "reason": "加热系统比较需先区分 ICRH、ICRF、ECCD 和功率效率等术语。"
+    },
+    {
+      "source": "MF000083",
+      "target": "MF000081",
+      "type": "related",
+      "reason": "来源入口与文献元数据归档共同保持证据的可追溯性。"
+    }
+  ],
+  "paths": [
+    {
+      "id": "plasma",
+      "title": "等离子体到流体模型",
+      "description": "从单位与分布函数出发，理解取矩、闭合及理想 MHD 的成立条件。",
+      "nodes": [
+        "MF000084",
+        "MF000085",
+        "MF000100",
+        "MF000101",
+        "MF000103",
+        "MF000104",
+        "MF000124",
+        "MF000125"
+      ]
+    },
+    {
+      "id": "icrh",
+      "title": "离子回旋加热主线",
+      "description": "从回旋共振进入快波、极化和少数离子吸收，再连接分布演化与计算验收。",
+      "nodes": [
+        "MF000093",
+        "MF000122",
+        "MF000016",
+        "MF000136",
+        "MF000137",
+        "MF000138",
+        "MF000143",
+        "MF000018",
+        "MF000020"
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "射频工程与实验验证",
+      "description": "从设备接口到保护要求、试验判据、运行记录和故障复盘；这是一条建议的阅读路线。",
+      "nodes": [
+        "MF000017",
+        "MF000019",
+        "MF000073",
+        "MF000020",
+        "MF000074",
+        "MF000075",
+        "MF000076"
+      ]
+    },
+    {
+      "id": "waves",
+      "title": "波传播与三离子方案",
+      "description": "从线性介电响应进入冷磁化波、ICRF 快波及混杂层，理解三离子方案的物理条件。",
+      "nodes": [
+        "MF000112",
+        "MF000113",
+        "MF000117",
+        "MF000136",
+        "MF000140",
+        "MF000141"
+      ]
+    }
+  ]
+}
