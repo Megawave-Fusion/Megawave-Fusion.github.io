@@ -8,7 +8,8 @@
     "基础原理/单粒子运动/README.md": "f971d93335bb83ab50a7b56fd8aeca7b72856446f82c1d35331959acae01f9d1",
     "基础原理/流体与磁流体力学/README.md": "0c72311ecf65931080cb0b00bc7f2b1e3bfe7a013db460061e4890003ba67af5",
     "基础原理/等离子体基本概念/README.md": "efd5999615edac986282da6e5f634c9b2e9e8672bcb25db47e1e8fc90972f7f5",
-    "基础原理/等离子体波/README.md": "fb266a3314c5ff131a4d81c9be169d17bb799e1ea3275a6a43ca543de2c6d4ac"
+    "基础原理/等离子体波/README.md": "fb266a3314c5ff131a4d81c9be169d17bb799e1ea3275a6a43ca543de2c6d4ac",
+    "辅助加热/离子回旋加热/README.md": "8f0ee5aa7c01350f981ca17e694b63825eafb8dcc30aa9bea8e6b748245ac1fb"
   },
   "new_entries": 50,
   "han_character_count": 24408,
@@ -1268,5 +1269,1447 @@
     "Model-assisted review, not external specialist certification.",
     "Numerical checks cover specified benchmarks, not all parameter regimes or any real device.",
     "Older category outlines are not promoted to reviewed."
-  ]
+  ],
+  "initial_batch_scope_note": "new_entries, han_character_count, sections, reviews, physics_benchmarks, source_links and browser_checks describe the first plasma-foundations batch. Later work is separately documented under icrh_update. source_sha256 and current_site_math_render cover the current edition.",
+  "icrh_update": {
+    "date": "2026-10-16",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "source_sha256": "8f0ee5aa7c01350f981ca17e694b63825eafb8dcc30aa9bea8e6b748245ac1fb",
+    "entries": 17,
+    "previous_entries_expanded": 6,
+    "new_permanent_entries": 11,
+    "han_character_count": 9025,
+    "headings": [
+      "原理与适用条件",
+      "电场做功与有限时间的单粒子共振",
+      "Doppler 位移、回旋谐波与共振层",
+      "冷介电张量与 ICRF 快波传播",
+      "圆偏振、离子旋向与基频耦合",
+      "少数离子基频加热",
+      "二次谐波与有限 Larmor 半径",
+      "离子—离子混杂层与模转换加热",
+      "三离子方案的极化设计与实验边界",
+      "从共振条件到可核验的吸收结论",
+      "波吸收、快离子分布与碰撞传能",
+      "设备组成与接口",
+      "设计计算与仿真",
+      "RF 鞘层、近场与杂质释放",
+      "控制与保护",
+      "测试与验收",
+      "文献与案例"
+    ],
+    "all_previous_133_tags_preserved": true,
+    "previous_88_reference_records_preserved": true,
+    "additional_reference_records": 18,
+    "review_type": "model-assisted authors plus independent model-agent cross-review and root integration review",
+    "human_specialist_review": false,
+    "result": "passed within stated scope; no unresolved material review issue",
+    "authors": {
+      "theory": {
+        "scope": "ICRH theory draft only; no official README edits, commits or publishing by this author",
+        "draft": ".build/icrh/theory.md",
+        "sha256": "4bb12b6ecb5fb4382ed688a5aeb39db953350dc0db5317681d680a495d55c96b",
+        "section_count": 10,
+        "han_characters": 5036,
+        "display_math_blocks": 22,
+        "conventions": {
+          "time": "Re[E exp(i k.r - i omega t)]",
+          "gyrofrequency": "Omega_s=q_s B_0/m_s is signed; electron negative; B_0 along +z",
+          "circular_basis": "e_ion=(xhat-i yhat)/sqrt(2), E_ion=(Ex+i Ey)/sqrt(2), positive-ion eigenvalue L=S-D",
+          "temperature": "eV denotes k_B T energy; exact 1 eV=1.602176634e-19 J",
+          "concentration": "X_s=n_s/n_e; quasineutral sum Z_s X_s=1"
+        },
+        "sources": [
+          {
+            "author": "A. Fukuyama",
+            "title": "Integrated Modeling for Heating and Current Drive",
+            "year": 2025,
+            "url": "https://www.iter.org/sites/default/files/media/2025-07/l-8_fukuyama.pdf",
+            "locators": "PDF pp.20-26,32-36,48",
+            "verification": "61-page official PDF downloaded and extracted; p24 visually inspected; p25-26 rendered; pedagogical derivations independently reconstructed",
+            "local": ".build/icrh/sources/iter_fukuyama.pdf"
+          },
+          {
+            "author": "Ye.O. Kazakov et al.",
+            "title": "Progress With Applications of Three-Ion ICRF Scenarios for Fusion Research: A Review",
+            "year": 2023,
+            "url": "https://pure.mpg.de/rest/items/item_3541989_4/component/file_3547501/content",
+            "locators": "PDF pp.1-4, particularly p2 thermal charge-to-mass ordering and number concentrations; p3 Doppler-shifted fast population extension",
+            "verification": "12-page official author manuscript downloaded, extracted and relevant sections read; p2 visually inspected and p3 rendered",
+            "local": ".build/icrh/sources/kazakov.pdf"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Cold-Plasma Dielectric Permittivity",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+            "locators": "section 5.3, equations 5.31-5.39",
+            "verification": "official author lecture read; formulas independently checked with signed gyrofrequencies"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Cold-Plasma Dispersion Relation",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+            "locators": "section 5.4, equations 5.40-5.55",
+            "verification": "official author lecture read; 3x3 matrix and reduced 2x2 determinant independently reconstructed"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Wave Polarization",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+            "locators": "section 5.5, equations 5.56-5.60",
+            "verification": "official author lecture read; explicit unit-normalized circular basis checked"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Parallel Wave Propagation",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+            "locators": "section 5.9",
+            "verification": "official author lecture read; cold R/L signs checked"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Waves in Magnetized Plasmas",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+            "locators": "section 7.6, equations 7.68-7.74",
+            "verification": "official author lecture read; gyro-phase harmonic expansion and resonance denominators checked"
+          },
+          {
+            "author": "Richard Fitzpatrick",
+            "title": "Parallel Wave Propagation",
+            "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+            "locators": "section 7.7, equations 7.98-7.101",
+            "verification": "official author lecture read; finite-temperature damping versus cold poles checked"
+          },
+          {
+            "author": "Y. Lin et al.",
+            "title": "Investigation of ICRF Mode Conversion at the Ion-ion Hybrid in Alcator C-Mod",
+            "year": 2003,
+            "url": "https://library.psfc.mit.edu/catalog/reports/2000/03ja/03ja024/03ja024_abs.html",
+            "locators": "author abstract PSFC/JA-03-24, 21 November 2003",
+            "verification": "official HTML retrieved by urllib and text read; web.open timed out; statements used only within abstract scope",
+            "local": ".build/icrh/sources/lin2003.html"
+          },
+          {
+            "author": "Y. Lin et al.",
+            "title": "ICRF mode conversion in three-ion species heating experiment and in flow drive experiment on the Alcator C-Mod tokamak",
+            "year": 2017,
+            "url": "https://library.psfc.mit.edu/catalog/reports/2010/17ja/17ja050/17ja050_full.pdf",
+            "locators": "section 2, PDF pp.2-3 (report has cover page)",
+            "verification": "official PDF downloaded and extracted; p2 visually inspected; confirms n_parallel^2=S, FW conversion to IBW/ICW, double layers and wave diagnostics",
+            "local": ".build/icrh/sources/lin2017.pdf"
+          },
+          {
+            "author": "Ye.O. Kazakov et al.",
+            "title": "Efficient generation of energetic ions in multi-ion plasmas by radio-frequency heating",
+            "year": 2017,
+            "url": "https://www.nature.com/articles/nphys4167",
+            "locators": "publisher abstract, Nature Physics 13,973-978, published 19 June 2017",
+            "verification": "publisher metadata and abstract read; full paywalled article not claimed read; experimental statement cross-checked with official 2023 author review"
+          },
+          {
+            "author": "NIST / CODATA",
+            "title": "Fundamental Physical Constants, 2022 CODATA adjustment",
+            "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+            "locators": "elementary charge; proton, deuteron, triton and helion mass entries",
+            "verification": "official table read live; bare nuclei used, not neutral atoms or spin gyromagnetic ratios"
+          }
+        ],
+        "author_checks": [
+          {
+            "section": "原理与适用条件",
+            "result": "pass",
+            "checks": [
+              "SI and signed gyrofrequency conventions explicit",
+              "ICRF frequency range does not identify final heated species",
+              "local geometry and magnetic ordering bounded"
+            ]
+          },
+          {
+            "section": "电场做功与有限时间的单粒子共振",
+            "result": "pass",
+            "checks": [
+              "direct integrating-factor solution",
+              "sinc energy formula and resonance limit",
+              "E0 defined as real circular-field magnitude",
+              "initial velocity caveat and finite-time spectral width not collision width"
+            ]
+          },
+          {
+            "section": "Doppler 位移、回旋谐波与共振层",
+            "result": "pass",
+            "checks": [
+              "Doppler sign from phase along trajectory",
+              "B proportional 1/R resonance location",
+              "local thermal width is an estimate not absorption prediction",
+              "finite orbit and wave-spectrum limitations"
+            ]
+          },
+          {
+            "section": "冷介电张量与 ICRF 快波传播",
+            "result": "pass",
+            "checks": [
+              "signed R/L denominators",
+              "Maxwell wave matrix",
+              "reduced determinant A(A-Nperp^2)-D^2",
+              "parallel response and mixed-layer failure caveats",
+              "ICRF vs MHD branch naming distinction"
+            ]
+          },
+          {
+            "section": "圆偏振、离子旋向与基频耦合",
+            "result": "pass",
+            "checks": [
+              "circular basis unit normalization",
+              "L eigenvalue for positive-ion rotation",
+              "polarization ratio",
+              "minority cold pole not removed"
+            ]
+          },
+          {
+            "section": "少数离子基频加热",
+            "result": "pass",
+            "checks": [
+              "concentration vs charge fraction",
+              "no universal optimum mixture",
+              "nuclear mass frequency numbers",
+              "direct absorption vs collisional thermalization distinction"
+            ]
+          },
+          {
+            "section": "二次谐波与有限 Larmor 半径",
+            "result": "pass",
+            "checks": [
+              "Bessel identity used only as phase expansion",
+              "full absorption coefficient deliberately not asserted",
+              "second harmonic finite Larmor radius boundary",
+              "D 2nd harmonic vs H fundamental numerical proximity"
+            ]
+          },
+          {
+            "section": "离子—离子混杂层与模转换加热",
+            "result": "pass",
+            "checks": [
+              "IIH condition depends on Nparallel",
+              "mode conversion not heat absorption",
+              "IBW and ICW distinction",
+              "primary author wave-diagnostic sources"
+            ]
+          },
+          {
+            "section": "三离子方案的极化设计与实验边界",
+            "result": "pass",
+            "checks": [
+              "thermal Z/A sandwich condition",
+              "D-(He3)-H ordering",
+              "2017 experiment claim limited to actual demonstrations",
+              "same charge-to-mass fast population extension includes Doppler condition"
+            ]
+          },
+          {
+            "section": "从共振条件到可核验的吸收结论",
+            "result": "pass",
+            "checks": [
+              "Q positive for field-to-particle transfer",
+              "Hermitian conductivity part",
+              "anti-Hermitian susceptibility divided by i gives Hermitian absorption matrix",
+              "explicit omega epsilon0/2 prefactor",
+              "cold singularity does not assign finite absorbed power"
+            ]
+          }
+        ],
+        "numerical_examples": {
+          "fc_MHz_at_5T": {
+            "H": 76.22593218805414,
+            "D": 38.13188901931426,
+            "T": 25.46196962562391,
+            "He3": 50.93354101969324
+          },
+          "D_resonant_energy_E0_1000_Vpm_t_1us_eV": 23.95897248211579,
+          "D_f_40MHz_Bres_T": 5.2449538993124,
+          "D_f_40MHz_B0_5T_R0_3m_Rres_m": 2.8598916764485693,
+          "Doppler_kpar_5_vpar_1e6_shift_MHz": 0.7957747154594766,
+          "finite_time_first_zero_1us_MHz": 1.0,
+          "constants": "2022 CODATA; rounded presentation in draft is unchanged relative to prior 2018 values at shown precision"
+        },
+        "independent_review": {
+          "reviewer": "/root/plasma_basics",
+          "status": "passed all 10 sections and reread expanded portions",
+          "suggestions_applied": [
+            "explicit susceptibility power equality",
+            "nearby NIST nuclear-mass citation"
+          ],
+          "related_tests": "tests/icrh_checks.py; .build/reviews/icrh-checks.json (25 independent checks reported passed by reviewer)"
+        },
+        "unresolved_items": [],
+        "limits": [
+          "Not a device-specific design or heating-efficiency prediction",
+          "No complete hot dielectric tensor or numerical full-wave/Fokker-Planck solution supplied",
+          "No claim that a cold pole proves net absorption",
+          "IPP legacy PDF returned HTTP401 and is not a factual source for this theory draft",
+          "2017 Nature full text was not read; abstract-level claim checked against 2023 author review"
+        ],
+        "fetch_failures": [
+          {
+            "url": "https://www.ipp.mpg.de/5436011/09_Plasma_Heating.pdf",
+            "result": "HTTP401; not relied on"
+          },
+          {
+            "url": "https://www.osti.gov/servlets/purl/1895303",
+            "result": "web502 / urllib EOF; not used as retrieved source"
+          },
+          {
+            "url": "MIT Lin URLs",
+            "result": "web.open timeout resolved by direct official urllib retrieval"
+          }
+        ]
+      },
+      "engineering": {
+        "scope": "ICRH后半部工程与能量闭合草稿；仅工程草稿与此报告，无正式源、共享配置、提交或发布改动",
+        "author": "kinetic_collision",
+        "access_date": "2026-10-16",
+        "status": "draft_frozen_for_independent_review",
+        "file": ".build/icrh/engineering.md",
+        "sha256": "f2a6539589a713cd1b50a6b5b1fcc9f2f284ad7c1471d800bcefa044bd8132e4",
+        "counts": {
+          "h2_entries": 7,
+          "han_characters": 3740,
+          "total_characters": 7530,
+          "display_math_pairs": 4
+        },
+        "required_headings_preserved": [
+          "设备组成与接口",
+          "设计计算与仿真",
+          "控制与保护",
+          "测试与验收",
+          "文献与案例"
+        ],
+        "sources": [
+          {
+            "url": "https://library.psfc.mit.edu/catalog/reports/2000/06rr/06rr008/abstract.php",
+            "title": "Experimental and Numerical Characterization of Ion-Cyclotron Heated Protons on the Alcator C-Mod Tokamak",
+            "retrieval": "official search-index abstract read; direct abstract fetch timed out; DSpace metadata independently opened",
+            "metadata_url": "https://dspace.mit.edu/entities/publication/3326c22e-407c-448e-9f1a-f2b6128ad51c",
+            "checked": "C-Mod proton charge-exchange diagnostic, anisotropy and AORSA/CQL3D comparisons; no quantitative performance copied; report06rr008, DSpace issue record2007-03-21"
+          },
+          {
+            "url": "https://meetings-archive.aps.org/dpp/2023/ki02/4/",
+            "title": "Simulating energetic ions and enhanced neutron rates from ion-cyclotron resonance heating with a new fast, self-consistent full-wave / Fokker-Planck model",
+            "retrieval": "author conference abstract opened",
+            "checked": "TORIC/AORSA and CQL3D coupling; nonMaxwellian response, QL diffusion; C-Mod simulations distinguished from ITER/SPARC projections"
+          },
+          {
+            "url": "https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP05026.pdf",
+            "title": "Hydrogen Plasmas with ICRF Inverted Minority Heating and Mode Conversion Regimes in the JET Tokamak",
+            "retrieval": "institutional author manuscript PDF opened,25pages",
+            "checked": "§1 minority tail and collisional energy sharing; §2.1 ECE FFT/BIS diagnostic restrictions, assumed negligible rapid density response and slower transport"
+          },
+          {
+            "url": "https://www.iter.org/node/20687/how-pump-20-mw-power-1-gram-plasma",
+            "title": "How to pump 20 MW of power into 1 gram of plasma",
+            "retrieval": "official historical engineering page opened",
+            "checked": "functional source/transmission/matching chain only; not current achieved performance or exact source count"
+          },
+          {
+            "url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+            "title": "Electromagnetic Fields and Energy §14.6 Reflection Coefficient Representation of Transmission Lines",
+            "retrieval": "official textbook page opened",
+            "checked": "impedance/reflection-coefficient definitions; real-positive reference impedance restrictions"
+          },
+          {
+            "url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+            "title": "Power Transfer on a Transmission Line",
+            "retrieval": "official OhioState course page opened",
+            "checked": "peak voltage P_i=|V+|^2/(2Z0),P_r=|Gamma|^2P_i,P_L=P_i-P_r; independently derived load P=.5Re(VI*) and RMS conversion"
+          },
+          {
+            "url": "https://scipub.euro-fusion.org/archives/jet-archive/experiments-on-gas-puffing-to-enhance-icrf-antenna-coupling",
+            "title": "Experiments on Gas Puffing to Enhance ICRF Antenna Coupling",
+            "retrieval": "institutional publication record opened",
+            "checked": "SOL density/evanescence/cutoff distance and experimental local puffing coupling improvement; no numeric optimization transplanted"
+          },
+          {
+            "url": "https://arxiv.org/pdf/1309.4644",
+            "title": "Design and operations of load-tolerant external conjugate-T matching system for the A2 ICRH antennas at JET",
+            "retrieval": "author manuscript opened,30pages",
+            "checked": "§2–4 conjugateT networks,coupling,power chain; §5 ELM load changes,A W A C S arc detection; device-specific design not universal thresholds"
+          },
+          {
+            "url": "https://scipub.euro-fusion.org/wp-content/uploads/WPMST1CP16_14736_submitted.pdf",
+            "title": "Progress in reducing ICRF-specific impurity release in ASDEX Upgrade and JET",
+            "retrieval": "institutional author manuscript opened",
+            "checked": "nearfields,RF sheath and impurity release; image-current cancellation design route"
+          },
+          {
+            "url": "https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/",
+            "title": "First results with 3-strap ICRF antennas in ASDEX Upgrade",
+            "retrieval": "institutional publication abstract opened",
+            "checked": "2016 experimental W release reduction; optimal power ratio not copied as universal setting"
+          },
+          {
+            "url": "https://meetings-archive.aps.org/dpp/2005/kp1/30/",
+            "title": "Experimental studies of C-Mod ICRF minority tails via a multi-channel compact neutral particle analyzer",
+            "retrieval": "author conference abstract opened",
+            "checked": "CQL3D synthetic diagnostic compared with observed minority energy spectra"
+          },
+          {
+            "url": "https://doi.org/10.1016/j.nme.2018.12.025",
+            "title": "Scrape-off layer density tailoring with local gas puffing to maximize ICRF power coupling in ITER",
+            "retrieval": "primary publication search abstract read; full publisher open unavailable",
+            "checked": "2019 ITER EMC3-EIRENE/FELICE/ANTITER simulation prediction only, not observed ITER performance; no numerical result repeated"
+          },
+          {
+            "url": "https://www.iter.org/machine/supporting-systems/external-heating-systems",
+            "title": "External heating systems",
+            "retrieval": "official current body opened and independently read",
+            "checked": "2024baseline context;40–55MHz;initial10MW/later20MW planning explicitly future, no specific amplifier/source count inferred"
+          },
+          {
+            "url": "https://www.ipp.mpg.de/5436011/09_Plasma_Heating.pdf",
+            "title": "Plasma Heating historical course entry",
+            "retrieval": "unavailable; root direct request401, subagent web fetch failed; no cache inspected",
+            "checked": "retained historical link only; expressly excluded from evidence for new conclusions"
+          }
+        ],
+        "self_checks": [
+          {
+            "check": "distribution normalization",
+            "result": "local integral f_h d3v=n_h;f_h SI s^3 m^-6;QRF has f_h/s;d3x d3v kinetic energy QRF gives W; orbit-averaged Jacobian caveat explicit"
+          },
+          {
+            "check": "quasilinear structure",
+            "result": "Cartesian schematic diffusion only, phase decorrelation condition; no claim to capture coherent trapping or full orbit physics"
+          },
+          {
+            "check": "power-transfer accounting",
+            "result": "separate wave deposition/fast-particle storage/collision transfers; electron-ion partition has no fixed universal fraction; internal exchange cancels in total"
+          },
+          {
+            "check": "RF circuit convention",
+            "result": "peak phasors factor1/2,RMS no1/2;Gamma formula restricted real-positiveZ0;S11 relation restricted single incidence and other ports matched"
+          },
+          {
+            "check": "multiport and fullwave budget",
+            "result": "power normalized a,b units sqrtW;net sum|a|²-|b|²;mutually exclusive body/edge/line/outgoing channels;transient stored energy separate"
+          },
+          {
+            "check": "RF sheath",
+            "result": "parallel line-integrated field only driving proxy,not equal rectified DC potential;linear cold bulk dielectric insufficient"
+          },
+          {
+            "check": "verification boundary",
+            "result": "conservation,discretization/range convergence,and experimental agreement separated;no invented equipment limits,certification or achieved ITER power"
+          },
+          {
+            "check": "diagnostic citation correction",
+            "result": "removed mistakenly named1997MIT reference;used directly opened JET §2.1 for modulation assumptions and APS2005 for synthetic diagnostic"
+          }
+        ],
+        "uncertainties_and_limits": [
+          "Tang06rr008 abstract available only through official search index in this run; metadata confirmed separately but full PDF fetch failed. The linked report is not claimed fully reread.",
+          "ITER2019 SOL paper classified using primary indexed abstract;full manuscript not obtained;no detailed numerical prediction adopted.",
+          "No implemented fullwave/FP run,actual equipment data,or safety certification is supplied;engineering checks are criteria and learning material.",
+          "Author review does not establish device-wide correctness;independent peer review requested before integration."
+        ],
+        "independent_reviewer": "plasma_basics; preliminary equation review passed; final review pending frozen hash"
+      }
+    },
+    "independent_review": {
+      "date": "2026-10-16",
+      "reviewer": "plasma_basics",
+      "status": "passed_with_stated_scope",
+      "scope": "Independent full reading of both ICRH draft files: 10 theory entries and 7 engineering entries; signs, units, assumptions, numerical examples, and evidence boundaries. No draft edit, shared config, commit or publication by this reviewer.",
+      "files": {
+        ".build/icrh/theory.md": {
+          "sha256": "4bb12b6ecb5fb4382ed688a5aeb39db953350dc0db5317681d680a495d55c96b",
+          "h2_entries": 10
+        },
+        ".build/icrh/engineering.md": {
+          "sha256": "f2a6539589a713cd1b50a6b5b1fcc9f2f284ad7c1471d800bcefa044bd8132e4",
+          "h2_entries": 7
+        }
+      },
+      "numerical_checks": {
+        "reproducible_script": "tests/icrh_checks.py",
+        "report": ".build/reviews/icrh-checks.json",
+        "result": "25/25 passed",
+        "supplemental_calculations": ".build/reviews/icrh-cross-review-calculations.json"
+      },
+      "resolved_review_comments": [
+        {
+          "issue": "State distribution normalization so the RF kinetic energy moment has unambiguous power units.",
+          "resolution": "Engineering author added integral f_h d3v=n_h; f_h unit s^3 m^-6, with orbit-average Jacobian caveat."
+        },
+        {
+          "issue": "The original MIT 14.6 link directly supports reflection/VSWR, but is indirect for the peak-phasor power factor.",
+          "resolution": "Engineering author added independently opened Ohio State transmission-line power page with explicit 1/2 coefficients."
+        },
+        {
+          "issue": "Make the susceptibility power coefficient explicit.",
+          "resolution": "Theory author added Q_s=(omega epsilon0/2) E-dagger [(chi-chi-dagger)/(2i)] E."
+        }
+      ],
+      "theory_review": [
+        {
+          "entries": [
+            "原理与适用条件",
+            "电场做功与有限时间的单粒子共振"
+          ],
+          "verdict": "pass",
+          "evidence": "exp(-i omega t), signed Omega, B along +z and w=vx+i vy give wdot+i Omega w=a exp(-i omega t); zero-initial-value integral and sinc energy verified by direct Cartesian RK4; finite-time reversibility and lack of thermalization explicitly distinguished."
+        },
+        {
+          "entries": [
+            "Doppler 位移、回旋谐波与共振层"
+          ],
+          "verdict": "pass",
+          "evidence": "omega-k_parallel v_parallel=ell Omega; same-sign kv lowers required B and moves layer outward for B~1/R. D, 40MHz, B0=5T, R0=3m gives radius2.85989167645m; v_t=sqrt(kBT/m) explicitly denotes one-dimensional standard deviation."
+        },
+        {
+          "entries": [
+            "冷介电张量与 ICRF 快波传播",
+            "圆偏振、离子旋向与基频耦合"
+          ],
+          "verdict": "pass",
+          "evidence": "Cold R/L signed denominators and -iD/+iD match UT equations5.31-5.39. Full Maxwell matrix checked. Neglecting E_parallel feedback gives N_perp²=[(R-N_parallel²)(L-N_parallel²)]/(S-N_parallel²). Unit-normalized ion vector (x-i y)/sqrt2 has eigenvalueL; polarization ratio from first row independently checked; approximation limitations retained."
+        },
+        {
+          "entries": [
+            "少数离子基频加热",
+            "二次谐波与有限 Larmor 半径"
+          ],
+          "verdict": "pass",
+          "evidence": "Nuclear mass values and frequencies independently computed from NIST2022; D second harmonic at5T76.263778MHz differs slightly from H fundamental76.225932MHz. X_s=n_s/n_e is distinguished from Z_s X_s. Bessel expansion is not misrepresented as a universal single J_l² absorption coefficient; no universal optimal minority fraction."
+        },
+        {
+          "entries": [
+            "离子—离子混杂层与模转换加热",
+            "三离子方案的极化设计与实验边界"
+          ],
+          "verdict": "pass",
+          "evidence": "IIH layer is distinguished from individual cyclotron frequency; mode conversion is energy transfer between modes before damping. Kazakov2023 page2 visually checked: (Z/A)2<(Z/A)3<(Z/A)1 and X_i=n_i/n_e; page3 text independently read for Doppler-shifted same-Z/A NBI extension. Fukuyama24-25 visually checked; 10%H teaching example not promoted to universal rule."
+        },
+        {
+          "entries": [
+            "从共振条件到可核验的吸收结论"
+          ],
+          "verdict": "pass",
+          "evidence": "Peak phasor Q=.5Re(E†J); Hermitian conductivity equals omega epsilon0 times dissipative susceptibility. Direct real-field time quadrature for a complex nonsymmetric conductivity matches both tensor formulas. Stable cold collisionless response and causal singularities are distinguished."
+        }
+      ],
+      "engineering_review": [
+        {
+          "entry": "波吸收、快离子分布与碰撞传能",
+          "verdict": "pass",
+          "evidence": "f normalization and D_RF units give energy-moment unitsW. Independent Gaussian diffusion integration preserves number and yields power2mD n V=26761.9508152W for two perpendicular components, agreeing with integration by parts. Wave/FP equality requires same coordinates, normalization and boundaries; internal collisional exchange cancels in total plasma budget."
+        },
+        {
+          "entry": "设备组成与接口",
+          "verdict": "pass",
+          "evidence": "P=.5Re(VI*)=.5R|I_peak|²=R|I_RMS|²; peak and RMS phasors explicitly differentiated. Functional engineering chain not asserted as a fixed device configuration."
+        },
+        {
+          "entry": "设计计算与仿真",
+          "verdict": "pass",
+          "evidence": "Gamma and forward-minus-reflected identity restricted to real positive reference impedance/same plane. S11 interpretation restricted to one excited port and other matched ports; multiport waves normalized to sqrtW. Accepted port power distinguished from line/metal/edge losses and core absorption; mutual exclusion prevents double counting."
+        },
+        {
+          "entry": "RF 鞘层、近场与杂质释放",
+          "verdict": "pass",
+          "evidence": "Line-integrated parallel RF field is a drive proxy, not assumed equal to rectified DC voltage; nearfield/sheath and core resonance treated separately. Case-specific optimal antenna balance not copied as a general prescription."
+        },
+        {
+          "entry": "控制与保护",
+          "verdict": "pass",
+          "evidence": "No-reflection-threshold violation is not treated as proof of no internal arc; load tolerance and dedicated arc diagnostics separated. No unsupported universal hardware thresholds supplied."
+        },
+        {
+          "entry": "测试与验收",
+          "verdict": "pass",
+          "evidence": "Conservation, convergence, and experimental validation separated. Modulation and synthetic diagnostic limitations preserved; low-power and dummy-load tests do not claim validation of plasma coupling."
+        },
+        {
+          "entry": "文献与案例",
+          "verdict": "pass",
+          "evidence": "Independent current ITER page read:40-55MHz and initial10MW/later20MW explicitly future plans. Historical IPP source acquisition failure disclosed. APS2005 and2023 author abstracts read and correctly limited to their contents."
+        }
+      ],
+      "sources_independently_checked": [
+        {
+          "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+          "location": "2022 CODATA nuclear masses and charge",
+          "method": "live web text"
+        },
+        {
+          "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf",
+          "location": "Chapter2 Lorentz equation, power and signs",
+          "method": "live web PDF text"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+          "location": "5.31-5.39",
+          "method": "live web"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+          "location": "5.40-5.55",
+          "method": "live web"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+          "location": "5.90-5.91 and ion rotation discussion",
+          "method": "live web"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+          "location": "7.98-7.101",
+          "method": "live web"
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node97.html",
+          "location": "7.117 and7.119 resonance phase",
+          "method": "live web"
+        },
+        {
+          "url": "https://www.iter.org/sites/default/files/media/2025-07/l-8_fukuyama.pdf",
+          "location": "PDF pages24-25",
+          "method": "visual inspection of parent-downloaded rendered source pages; no claim of full PDF independent reread"
+        },
+        {
+          "url": "https://pure.mpg.de/rest/items/item_3541989_4/component/file_3547501/content",
+          "location": "PDF page2 visually; page3 fast-ion paragraph and proof-of-principle paragraphs via extracted text",
+          "method": "parent-downloaded source inspected directly"
+        },
+        {
+          "url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+          "location": "forward/backward V,I and power equations",
+          "method": "live web"
+        },
+        {
+          "url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+          "location": "Reflection coefficient and VSWR",
+          "method": "live web"
+        },
+        {
+          "url": "https://meetings-archive.aps.org/dpp/2023/ki02/4/",
+          "location": "author abstract",
+          "method": "live web"
+        },
+        {
+          "url": "https://meetings-archive.aps.org/dpp/2005/kp1/30/",
+          "location": "author abstract",
+          "method": "live web"
+        },
+        {
+          "url": "https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP05026.pdf",
+          "location": "introduction and power partition discussion",
+          "method": "live web PDF text"
+        },
+        {
+          "url": "https://www.iter.org/machine/supporting-systems/external-heating-systems",
+          "location": "2024baseline context and ICRH planning paragraph",
+          "method": "live web;accessed2026-10-16"
+        }
+      ],
+      "unresolved_material_issues": [],
+      "limits": [
+        "This is scoped educational content review, not independent reproduction of all cited experiments, full-wave simulations, equipment certification, or peer-reviewed expert endorsement.",
+        "25 numerical benchmarks do not prove all prose claims. Additional tensor/diffusion quadratures verify selected formula conventions only.",
+        "The MIT2006 abstract direct request timed out during reviewer fetch; author reports official indexed abstract and metadata check. No full report independently read by this reviewer.",
+        "The reviewer did not individually reopen every engineering case-study reference; author source audit retains those acquisition details."
+      ]
+    },
+    "physics_benchmarks": {
+      "date": "2026-10-16",
+      "result": "passed",
+      "count": 25,
+      "checks": [
+        {
+          "name": "H+ (proton): analytic frequency vs Cartesian orbit at 5 T [Hz]",
+          "actual": 76225932.20472847,
+          "expected": 76225932.18805414,
+          "relative_tolerance": 2e-08,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "D+ (deuteron): analytic frequency vs Cartesian orbit at 5 T [Hz]",
+          "actual": 38131889.01914379,
+          "expected": 38131889.01931426,
+          "relative_tolerance": 2e-08,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "T+ (triton): analytic frequency vs Cartesian orbit at 5 T [Hz]",
+          "actual": 25461969.625522345,
+          "expected": 25461969.62562391,
+          "relative_tolerance": 2e-08,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "He3++ (helion): analytic frequency vs Cartesian orbit at 5 T [Hz]",
+          "actual": 50933541.0165119,
+          "expected": 50933541.01969324,
+          "relative_tolerance": 2e-08,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "He4++ (alpha): analytic frequency vs Cartesian orbit at 5 T [Hz]",
+          "actual": 38375843.59535355,
+          "expected": 38375843.59399867,
+          "relative_tolerance": 2e-08,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Same-B frequency ratios: tabulated mass-ratio route and finite Z/A approximation error",
+          "passed": true,
+          "evidence": [
+            {
+              "species": "D+ (deuteron)",
+              "exact_frequency_ratio_to_H": 0.5002482478697735,
+              "from_tabulated_mass_ratio": 0.5002482478753755,
+              "Z_over_A_approximation": 0.5,
+              "approximation_relative_error": -0.0004962493538570775
+            },
+            {
+              "species": "T+ (triton)",
+              "exact_frequency_ratio_to_H": 0.3340329057938923,
+              "from_tabulated_mass_ratio": 0.3340329057933199,
+              "Z_over_A_approximation": 0.3333333333333333,
+              "approximation_relative_error": -0.0020943219917100545
+            },
+            {
+              "species": "He3++ (helion)",
+              "exact_frequency_ratio_to_H": 0.6681917761797521,
+              "from_tabulated_mass_ratio": 0.6681917761859325,
+              "Z_over_A_approximation": 0.6666666666666666,
+              "approximation_relative_error": -0.0022824428067717097
+            },
+            {
+              "species": "He4++ (alpha)",
+              "exact_frequency_ratio_to_H": 0.5034486623177407,
+              "from_tabulated_mass_ratio": 0.5034486623224629,
+              "Z_over_A_approximation": 0.5,
+              "approximation_relative_error": -0.006850077427684394
+            }
+          ]
+        },
+        {
+          "name": "Doppler frequency from electric-field phase sampled along moving orbit [rad/s]",
+          "actual": 249827412.28728834,
+          "expected": 249827412.28718346,
+          "relative_tolerance": 1e-11,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Doppler-shifted D fundamental 1/R layer, v_parallel=-300000 [m]",
+          "actual": 2.842924222342761,
+          "expected": 2.8429242223427615,
+          "relative_tolerance": 1e-13,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Doppler-shifted D fundamental 1/R layer, v_parallel=0 [m]",
+          "actual": 2.8598916764485685,
+          "expected": 2.8598916764485693,
+          "relative_tolerance": 1e-13,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Doppler-shifted D fundamental 1/R layer, v_parallel=300000 [m]",
+          "actual": 2.8770628806627068,
+          "expected": 2.877062880662707,
+          "relative_tolerance": 1e-13,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "1/R resonance layer moves outward for positive kv; second-harmonic radius doubles",
+          "passed": true,
+          "evidence": {
+            "layers": [
+              {
+                "v_parallel_m_s": -300000.0,
+                "radius_m": 2.842924222342761
+              },
+              {
+                "v_parallel_m_s": 0.0,
+                "radius_m": 2.8598916764485685
+              },
+              {
+                "v_parallel_m_s": 300000.0,
+                "radius_m": 2.8770628806627068
+              }
+            ],
+            "second_harmonic_radius_m": 5.719783352897137,
+            "limitation": "Kinematic condition only; no assertion that a harmonic couples or lies inside a particular plasma."
+          }
+        },
+        {
+          "name": "Forced Lorentz initial-value solution: co-rotating resonant (relative vector error)",
+          "actual": 2.9826925041457385e-11,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 2e-08,
+          "passed": true,
+          "evidence": {
+            "numerical_velocity_m_s": [
+              6532.3796747512715,
+              3561.1256344806197
+            ],
+            "analytic_velocity_m_s": [
+              6532.379674877068,
+              3561.1256342978077
+            ],
+            "time_s": 1.5526542312183042e-07,
+            "initial_velocity_m_s": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "name": "Forced Lorentz initial-value solution: co-rotating detuned (relative vector error)",
+          "actual": 3.116788620262974e-11,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 2e-08,
+          "passed": true,
+          "evidence": {
+            "numerical_velocity_m_s": [
+              -102.03634298459502,
+              1574.3096099374739
+            ],
+            "analytic_velocity_m_s": [
+              -102.03634293889822,
+              1574.309609955628
+            ],
+            "time_s": 1.5526542312183042e-07,
+            "initial_velocity_m_s": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "name": "Forced Lorentz initial-value solution: counter-rotating at positive cyclotron frequency (relative vector error)",
+          "actual": 3.0324470269718214e-11,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 2e-08,
+          "passed": true,
+          "evidence": {
+            "numerical_velocity_m_s": [
+              -95.72918372303228,
+              -2.857972873448722e-09
+            ],
+            "analytic_velocity_m_s": [
+              -95.72918371768299,
+              -0.0
+            ],
+            "time_s": 1.5526542312183042e-07,
+            "initial_velocity_m_s": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "name": "Forced Lorentz initial-value solution: linear polarization, sum of two half-amplitude rotations (relative vector error)",
+          "actual": 3.027188710074489e-11,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 2e-08,
+          "passed": true,
+          "evidence": {
+            "numerical_velocity_m_s": [
+              3218.3252455141233,
+              1780.5628172388901
+            ],
+            "analytic_velocity_m_s": [
+              3218.325245579693,
+              1780.5628171489038
+            ],
+            "time_s": 1.5526542312183042e-07,
+            "initial_velocity_m_s": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "name": "Direct forced-orbit integration has fourth-order step-size convergence",
+          "passed": true,
+          "evidence": {
+            "coarse_relative_error": 3.1160125405226443e-07,
+            "fine_relative_error": 1.9478743069191222e-08,
+            "error_ratio_for_halved_time_step": 15.996989792689043
+          }
+        },
+        {
+          "name": "Direct electric-work integral equals kinetic energy, with static B doing zero work [J]",
+          "actual": 9.253969947317889e-20,
+          "expected": 9.253969947316736e-20,
+          "relative_tolerance": 2e-09,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Resonant zero-initial-velocity kinetic energy scales as t squared",
+          "actual": 3.999999999998497,
+          "expected": 4,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Detuned driven orbit returns to zero velocity at one beat period [m/s]",
+          "actual": 1.102552642750463e-08,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 2e-06,
+          "passed": true,
+          "evidence": {
+            "meaning": "Finite-time reversible single-particle exchange, not irreversible ensemble heating."
+          }
+        },
+        {
+          "name": "RMS voltage/current from real waveforms equal peak phasor magnitudes / sqrt(2)",
+          "actual": 2.220446049250313e-16,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 1e-12,
+          "passed": true
+        },
+        {
+          "name": "Complex-load real power: instantaneous VI average = peak and RMS phasor conventions [W]",
+          "passed": true,
+          "evidence": {
+            "waveform_average_W": 8823.52941176477,
+            "peak_phasor_power_W": 8823.529411764706,
+            "RMS_phasor_power_W": 8823.529411764704,
+            "RMS_times_power_factor_W": 8823.529411764703,
+            "power_factor": 0.8320502943378437,
+            "apparent_power_VA": 10604.562574894082
+          }
+        },
+        {
+          "name": "Lossless real-Z0 forward/reflected power budget, including no-absorption limits",
+          "passed": true,
+          "evidence": [
+            {
+              "case": "complex passive load",
+              "waveform_power_W": 8823.52941176471,
+              "traveling_wave_budget_W": 8823.529411764706
+            },
+            {
+              "case": "matched load",
+              "waveform_power_W": 9999.999999999995,
+              "traveling_wave_budget_W": 10000.0
+            },
+            {
+              "case": "short",
+              "waveform_power_W": 0.0,
+              "traveling_wave_budget_W": 0.0
+            },
+            {
+              "case": "open-circuit limit",
+              "waveform_power_W": 0.0,
+              "traveling_wave_budget_W": 0.0
+            },
+            {
+              "case": "pure reactive load",
+              "waveform_power_W": -4.1118255467154085e-12,
+              "traveling_wave_budget_W": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Load reconstructed from total V/I includes the reflected-current minus sign [ohm]",
+          "actual": 0.0,
+          "expected": 0,
+          "relative_tolerance": 1e-09,
+          "absolute_tolerance": 1e-12,
+          "passed": true,
+          "evidence": {
+            "Gamma_real": -0.17647058823529413,
+            "Gamma_imag": 0.29411764705882354,
+            "reflected_power_fraction": 0.11764705882352942,
+            "forward_W": 10000.0,
+            "reflected_W": 1176.4705882352941,
+            "accepted_W": 8823.529411764706
+          }
+        },
+        {
+          "name": "Standing-wave voltage extrema vs reflection-coefficient VSWR",
+          "actual": 2.044126914986101,
+          "expected": 2.0441269193127067,
+          "relative_tolerance": 1e-07,
+          "absolute_tolerance": 0.0,
+          "passed": true
+        },
+        {
+          "name": "Zero reflection does not determine plasma absorption: two explicit matched budgets",
+          "passed": true,
+          "evidence": [
+            {
+              "hardware_loss_W": 1000.0,
+              "plasma_absorbed_W": 9000.0,
+              "port_accepted_W": 10000.0,
+              "reflection_coefficient": 0.0
+            },
+            {
+              "hardware_loss_W": 10000.0,
+              "plasma_absorbed_W": 0.0,
+              "port_accepted_W": 10000.0,
+              "reflection_coefficient": 0.0
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+          "location": "2022 CODATA: elementary charge; proton, deuteron, triton, helion, alpha particle masses; nucleus/proton mass ratios",
+          "use": "Bare nuclear masses, not neutral-atom masses or spin gyromagnetic ratios."
+        },
+        {
+          "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf",
+          "location": "Hutchinson, Chapter 2, Eqs. 2.1, 2.7-2.10; section 2.8 oscillating E field",
+          "use": "Cartesian Lorentz signs, magnetic force does no work, forced gyro-motion. Circular transient solution derived by integrating factor here."
+        },
+        {
+          "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node97.html",
+          "location": "Electrostatic Waves, Eq. 7.117 orbit phase and Eq. 7.119 resonant denominator",
+          "use": "omega - k_parallel v_parallel - n Omega resonance; kinematic resonance alone does not establish EM heating efficiency."
+        },
+        {
+          "url": "https://space.physics.uiowa.edu/plasma-wave/polar/intro.html",
+          "location": "Introduction, paragraphs on characteristic frequencies and resonant wave-particle interactions",
+          "use": "Independent published-author source for f_c and Doppler resonance; energy-exchange direction depends on distribution."
+        },
+        {
+          "url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+          "location": "Power Transfer on a transmission line, voltage/current traveling waves, incident/reflected/load power and load reflection coefficient",
+          "use": "Lossless line, real positive reference impedance, peak phasors; reflected current has a minus sign."
+        },
+        {
+          "url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+          "location": "Electromagnetic Fields and Energy, section 14.6, Standing Wave Ratio, Eqs. 9-10",
+          "use": "Voltage envelope maximum/minimum and VSWR in terms of the reflection coefficient."
+        }
+      ],
+      "constants": {
+        "edition": "NIST 2022 CODATA",
+        "elementary_charge_C": 1.602176634e-19,
+        "isotopes": {
+          "H+ (proton)": {
+            "Z": 1,
+            "A": 1,
+            "mass_kg": 1.67262192595e-27
+          },
+          "D+ (deuteron)": {
+            "Z": 1,
+            "A": 2,
+            "mass_kg": 3.3435837768e-27
+          },
+          "T+ (triton)": {
+            "Z": 1,
+            "A": 3,
+            "mass_kg": 5.0073567512e-27
+          },
+          "He3++ (helion)": {
+            "Z": 2,
+            "A": 3,
+            "mass_kg": 5.0064127862e-27
+          },
+          "He4++ (alpha)": {
+            "Z": 2,
+            "A": 4,
+            "mass_kg": 6.644657345e-27
+          }
+        }
+      },
+      "frequency_table": [
+        {
+          "species": "H+ (proton)",
+          "mass_kg": 1.67262192595e-27,
+          "Z": 1,
+          "A": 1,
+          "f_MHz_per_T": 15.24518643761083
+        },
+        {
+          "species": "D+ (deuteron)",
+          "mass_kg": 3.3435837768e-27,
+          "Z": 1,
+          "A": 2,
+          "f_MHz_per_T": 7.626377803862852
+        },
+        {
+          "species": "T+ (triton)",
+          "mass_kg": 5.0073567512e-27,
+          "Z": 1,
+          "A": 3,
+          "f_MHz_per_T": 5.0923939251247825
+        },
+        {
+          "species": "He3++ (helion)",
+          "mass_kg": 5.0064127862e-27,
+          "Z": 2,
+          "A": 3,
+          "f_MHz_per_T": 10.186708203938649
+        },
+        {
+          "species": "He4++ (alpha)",
+          "mass_kg": 6.644657345e-27,
+          "Z": 2,
+          "A": 4,
+          "f_MHz_per_T": 7.675168718799734
+        }
+      ],
+      "conventions": {
+        "SI": "omega and Omega in rad/s; f in Hz; k_parallel in rad/m; all masses kg; B tesla",
+        "orbit": "B=B0 zhat; positive ion Omega=qB/m>0; w=vx+i vy; E=(E0 cos(omega t), -E0 sin(omega t)); v(0)=0",
+        "phasors": "Real field Re[phasor exp(-i omega t)]; stated voltage/current phasors are peak, RMS=peak/sqrt(2)",
+        "line": "Single propagating mode, lossless line and real positive Z0; powers referenced to the same plane"
+      },
+      "limitations": [
+        "Numerical tests cover the explicitly listed benchmarks, not every statement in the knowledge base.",
+        "Prescribed spatially uniform RF electric field and static B; nonrelativistic, collisionless test particle, no self-consistent fields or radiation.",
+        "Resonant t-squared growth is a finite-time ideal initial-value result, not an unlimited practical heating law.",
+        "B(R)=B0 R0/R is an assumed vacuum-toroidal magnitude approximation; Doppler layer roots do not include orbit width, poloidal field, equilibrium changes, or damping.",
+        "Port acceptance and circuit losses do not establish core deposition, minority heating, species partition, or device efficiency.",
+        "CODATA mass ratios are a consistency route, not statistically independent constants measurements."
+      ]
+    },
+    "supplemental_calculations": {
+      "power_tensor": {
+        "direct_real_field_cycle_average_W_m3": 3.7169999999999783,
+        "conductivity_Hermitian_W_m3": 3.7170000000000005,
+        "omega_epsilon_times_susceptibility_W_m3": 3.7170000000000005
+      },
+      "cold_polarization": {
+        "R": 1.7,
+        "L": 3.2,
+        "N_parallel_squared": 0.4,
+        "N_perp_squared": 1.7756097560975606,
+        "squared_ion_to_opposite_ratio": 0.2155612244897959,
+        "two_by_two_matrix_residual": 1.7763568394002505e-15
+      },
+      "quasilinear_energy_moment": {
+        "model": "constant diffusion in two perpendicular Cartesian velocity components, normalized 3D separable Maxwellian; integrate +-10 standard deviations",
+        "mass_kg": 1.67262192595e-27,
+        "number_density_m3": 1e+17,
+        "volume_m3": 20,
+        "D_m2_s3": 4000000000000.0,
+        "one_component_number_moment_s_1": 1.6215680491694385e-15,
+        "numerical_power_W": 26761.950815199874,
+        "integration_by_parts_expected_power_W": 26761.950815199998
+      },
+      "all_passed": true
+    },
+    "source_links": [
+      {
+        "url": "https://arxiv.org/abs/1309.4644",
+        "status": 200,
+        "final_url": "https://arxiv.org/abs/1309.4644",
+        "content_type": "text/html; charset=utf-8",
+        "label": "JET 原论文",
+        "title": "Design and operations of load-tolerant external conjugate-T matching system for the A2 ICRH antennas at JET",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1309.4644",
+        "status": 200,
+        "final_url": "https://arxiv.org/pdf/1309.4644",
+        "content_type": "application/pdf",
+        "label": "Monakhov 等，JET 外部 conjugate-T 系统，§2–4",
+        "content_access": "author manuscript opened,30pages",
+        "title": "Design and operations of load-tolerant external conjugate-T matching system for the A2 ICRH antennas at JET",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://doi.org/10.1016/j.nme.2018.12.025",
+        "status": 200,
+        "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S2352179118301236",
+        "content_type": "text/html;charset=UTF-8",
+        "label": "2019 年 ITER SOL 密度调控预测研究",
+        "title": "Scrape-off layer density tailoring with local gas puffing to maximize ICRF power coupling in ITER",
+        "content_access": "primary publication search abstract read; full publisher open unavailable",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node68.html",
+        "content_type": "text/html",
+        "label": "Fitzpatrick，§5.3 *Cold-Plasma Dielectric Permittivity*，式 5.31–5.39",
+        "title": "Cold-Plasma Dielectric Permittivity",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node69.html",
+        "content_type": "text/html",
+        "label": "§5.4 *Cold-Plasma Dispersion Relation*，式 5.40–5.55",
+        "title": "Cold-Plasma Dispersion Relation",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node70.html",
+        "content_type": "text/html",
+        "label": "Fitzpatrick，§5.5 *Wave Polarization*，式 5.56–5.60",
+        "title": "Wave Polarization",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node74.html",
+        "content_type": "text/html",
+        "label": "§5.9 *Parallel Wave Propagation*",
+        "title": "Parallel Wave Propagation",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node94.html",
+        "content_type": "text/html",
+        "label": "Fitzpatrick，§7.6 *Waves in Magnetized Plasmas*，式 7.68–7.74",
+        "title": "Waves in Magnetized Plasmas",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+        "status": 200,
+        "final_url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node95.html",
+        "content_type": "text/html",
+        "label": "Fitzpatrick，§7.7 *Parallel Wave Propagation*，式 7.98–7.101",
+        "title": "Parallel Wave Propagation",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://library.psfc.mit.edu/catalog/reports/2000/03ja/03ja024/03ja024_abs.html",
+        "label": "Lin 等，*Investigation of ICRF Mode Conversion at the Ion-ion Hybrid in Alcator C-Mod*，2003，MIT 作者摘要",
+        "author_retrieved_file_sha256": "f6cf41e842275a7da614c404d62d8b7ec21efe910745ada75b60316f7126ce6e",
+        "content_access": "official HTML retrieved by urllib and text read; web.open timed out; statements used only within abstract scope",
+        "title": "Investigation of ICRF Mode Conversion at the Ion-ion Hybrid in Alcator C-Mod",
+        "root_fetch_limitation": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://library.psfc.mit.edu/catalog/reports/2000/06rr/06rr008/abstract.php",
+        "label": "MIT PSFC，2006 年报告摘要，快离子电荷交换诊断及 AORSA/CQL3D 比较",
+        "content_access": "official search-index abstract read; direct abstract fetch timed out; DSpace metadata independently opened",
+        "title": "Experimental and Numerical Characterization of Ion-Cyclotron Heated Protons on the Alcator C-Mod Tokamak",
+        "root_fetch_limitation": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://library.psfc.mit.edu/catalog/reports/2010/17ja/17ja050/17ja050_full.pdf",
+        "label": "Lin 等，*ICRF mode conversion in three-ion species heating experiment and in flow drive experiment on the Alcator C-Mod tokamak*，2017，第 2 节",
+        "author_retrieved_file_sha256": "b81ef5698fd78dc5a131904edc59dcea27c2030f07c1612ca81db9360aaba8c3",
+        "content_access": "official PDF downloaded and extracted; p2 visually inspected; confirms n_parallel^2=S, FW conversion to IBW/ICW, double layers and wave diagnostics",
+        "title": "ICRF mode conversion in three-ion species heating experiment and in flow drive experiment on the Alcator C-Mod tokamak",
+        "root_fetch_limitation": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://meetings-archive.aps.org/dpp/2005/kp1/30/",
+        "status": 200,
+        "final_url": "https://meetings-archive.aps.org/dpp/2005/kp1/30/",
+        "content_type": "text/html",
+        "label": "Tang 等，2005 APS DPP：C-Mod 中性粒子分析仪与 CQL3D 合成诊断比较",
+        "title": "Experimental studies of C-Mod ICRF minority tails via a multi-channel compact neutral particle analyzer",
+        "content_access": "author conference abstract opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://meetings-archive.aps.org/dpp/2023/ki02/4/",
+        "status": 200,
+        "final_url": "https://meetings-archive.aps.org/dpp/2023/ki02/4/",
+        "content_type": "text/html",
+        "label": "作者研究摘要，2023 APS DPP：自洽 full-wave/Fokker–Planck 模型",
+        "title": "Simulating energetic ions and enhanced neutron rates from ion-cyclotron resonance heating with a new fast, self-consistent full-wave / Fokker-Planck model",
+        "content_access": "author conference abstract opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/",
+        "status": 200,
+        "final_url": "https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/",
+        "content_type": "text/html;charset=UTF-8",
+        "label": "Bobkov 等，First results with 3-strap ICRF antennas in ASDEX Upgrade，2016 年实验论文摘要",
+        "title": "First results with 3-strap ICRF antennas in ASDEX Upgrade",
+        "content_access": "institutional publication abstract opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://pure.mpg.de/rest/items/item_3541989_4/component/file_3547501/content",
+        "status": 200,
+        "final_url": "https://pure.mpg.de/rest/items/item_3541989_4/component/file_3547501/content",
+        "content_type": "application/pdf; charset=UTF-8",
+        "label": "Kazakov 等，*Progress With Applications of Three-Ion ICRF Scenarios for Fusion Research: A Review*，2023，PDF 第 1–2 页",
+        "author_retrieved_file_sha256": "c484afd7bbe465e0452735e9f36584f59e4659aacb7bfe59271ec2849f100f85",
+        "content_access": "12-page official author manuscript downloaded, extracted and relevant sections read; p2 visually inspected and p3 rendered",
+        "title": "Progress With Applications of Three-Ion ICRF Scenarios for Fusion Research: A Review",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://scipub.euro-fusion.org/archives/jet-archive/experiments-on-gas-puffing-to-enhance-icrf-antenna-coupling",
+        "status": 200,
+        "final_url": "https://scipub.euro-fusion.org/archives/jet-archive/experiments-on-gas-puffing-to-enhance-icrf-antenna-coupling",
+        "content_type": "text/html; charset=UTF-8",
+        "label": "EUROfusion，Experiments on Gas Puffing to Enhance ICRF Antenna Coupling",
+        "title": "Experiments on Gas Puffing to Enhance ICRF Antenna Coupling",
+        "content_access": "institutional publication record opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP05026.pdf",
+        "status": 200,
+        "final_url": "https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP05026.pdf",
+        "content_type": "application/pdf",
+        "label": "Mayoral 等，JET 反转少数离子与模式转换实验，§1 的碰撞慢化及电子/离子传能讨论",
+        "content_access": "institutional author manuscript PDF opened,25pages",
+        "title": "Hydrogen Plasmas with ICRF Inverted Minority Heating and Mode Conversion Regimes in the JET Tokamak",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://scipub.euro-fusion.org/wp-content/uploads/WPMST1CP16_14736_submitted.pdf",
+        "status": 200,
+        "final_url": "https://scipub.euro-fusion.org/wp-content/uploads/WPMST1CP16_14736_submitted.pdf",
+        "content_type": "application/pdf",
+        "label": "Bobkov 等，Progress in reducing ICRF-specific impurity release in ASDEX Upgrade and JET，作者公开稿",
+        "content_access": "institutional author manuscript opened",
+        "title": "Progress in reducing ICRF-specific impurity release in ASDEX Upgrade and JET",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+        "status": 200,
+        "final_url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+        "content_type": "text/html",
+        "label": "MIT，Electromagnetic Fields and Energy，第 14.6 节，传输线与反射系数",
+        "title": "Electromagnetic Fields and Energy §14.6 Reflection Coefficient Representation of Transmission Lines",
+        "content_access": "official textbook page opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://www.ipp.mpg.de/5436011/09_Plasma_Heating.pdf",
+        "label": "IPP 等离子体加热课程",
+        "content_access": "unavailable; root direct request401, subagent web fetch failed; no cache inspected",
+        "title": "Plasma Heating historical course entry",
+        "root_fetch_limitation": "HTTP Error 401: Unauthorized",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://www.iter.org/machine/supporting-systems/external-heating-systems",
+        "status": 200,
+        "final_url": "https://www.iter.org/machine/supporting-systems/external-heating-systems",
+        "content_type": "text/html; charset=UTF-8",
+        "label": "ITER 当前辅助加热介绍",
+        "title": "External heating systems",
+        "content_access": "official current body opened and independently read",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://www.iter.org/node/20687/how-pump-20-mw-power-1-gram-plasma",
+        "status": 200,
+        "final_url": "https://www.iter.org/node/20687/how-pump-20-mw-power-1-gram-plasma",
+        "content_type": "text/html; charset=UTF-8",
+        "label": "ITER，离子回旋系统工程链说明",
+        "title": "How to pump 20 MW of power into 1 gram of plasma",
+        "content_access": "official historical engineering page opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://www.iter.org/sites/default/files/media/2025-07/l-8_fukuyama.pdf",
+        "status": 200,
+        "final_url": "https://www.iter.org/sites/default/files/media/2025-07/l-8_fukuyama.pdf",
+        "content_type": "application/pdf",
+        "label": "Fukuyama，*Integrated Modeling for Heating and Current Drive*，2025，PDF 第 20–26 页",
+        "author_retrieved_file_sha256": "8b9d3de6dab44151e39e4f325790c6632d01082107f5ea99b37b985066b19685",
+        "content_access": "61-page official PDF downloaded and extracted; p24 visually inspected; p25-26 rendered; pedagogical derivations independently reconstructed",
+        "title": "Integrated Modeling for Heating and Current Drive",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://www.nature.com/articles/nphys4167",
+        "status": 200,
+        "final_url": "https://www.nature.com/articles/nphys4167?error=cookies_not_supported&code=aa07371d-8754-442c-84d3-13855d43e6aa",
+        "content_type": "text/html; charset=utf-8",
+        "label": "Kazakov 等，*Efficient generation of energetic ions in multi-ion plasmas by radio-frequency heating*，Nature Physics 13，973–978，2017，摘要及实验结论",
+        "title": "Efficient generation of energetic ions in multi-ion plasmas by radio-frequency heating",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+        "status": 200,
+        "final_url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+        "content_type": "text/html; charset=utf-8",
+        "label": "Ohio State Ximera，Power Transfer on a Transmission Line，峰值幅度下的入射、反射与净功率",
+        "title": "Power Transfer on a Transmission Line",
+        "content_access": "official OhioState course page opened",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      },
+      {
+        "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+        "label": "NIST 2022 基本物理常数表，proton / deuteron / triton / helion mass 条目",
+        "status": "verified_via_web_tool",
+        "evidence": "official table read live; bare nuclei used, not neutral atoms or spin gyromagnetic ratios",
+        "title": "Fundamental Physical Constants, 2022 CODATA adjustment",
+        "scope_note": "链接状态与内容核对分别记录；仅按正文及作者记录所列范围使用来源。"
+      }
+    ],
+    "root_integration_review": {
+      "scope": "Read all 17 entries and the final additions; independently reconstructed gyro-motion solution, cold wave matrix and polarization ratio, tensor power conventions and power-plane accounting; inspected Fukuyama PDF24–25 and source definitions. Verified author/cross-review hashes and preserved permanent tags.",
+      "result": "passed"
+    },
+    "browser_checks": {
+      "continuous_page": "17 entries, 144 MathJax nodes, no error nodes",
+      "desktop_width": 1365,
+      "sidebar_and_tool_links_font_px": 17,
+      "sidebar_title_font_px": 13,
+      "sidebar_numbers_and_note_font_px": 14,
+      "mobile_width": 390,
+      "mobile_navigation_font_px": 16,
+      "mobile_overflow": "at most 1 px rounding; no clipped prose or navigation; long display equations have horizontal scrolling",
+      "source_hash": "8f0ee5aa7c01350f981ca17e694b63825eafb8dcc30aa9bea8e6b748245ac1fb",
+      "search": {
+        "query": "三离子",
+        "top_result": "三离子方案的极化设计与实验边界",
+        "results": 2
+      },
+      "permanent_page": {
+        "tag": "MF000136",
+        "math_nodes": 13,
+        "math_errors": 0,
+        "review_badge": "资料与公式已复核（模型辅助） · 待专家审核",
+        "horizontal_overflow": false
+      }
+    },
+    "limitations": [
+      "Specified teaching calculations and source comparison, not proof of every statement or every parameter regime.",
+      "No actual full-wave/Fokker-Planck device run, hardware validation or external expert certification.",
+      "Legacy IPP lecture returns HTTP401 and is retained solely as a historical link, not evidence for new claims.",
+      "Some records were read at abstract level; per-source retrieval limits are retained, including MIT2006 and ITER2019."
+    ]
+  },
+  "current_site_math_render": {
+    "formulas": 922,
+    "result": "passed",
+    "errors": [],
+    "scope": "TeX syntax and MathJax conversion only; not correctness of physics"
+  }
 }

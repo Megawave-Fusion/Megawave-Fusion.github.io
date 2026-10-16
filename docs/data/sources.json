@@ -790,5 +790,167 @@
     "checked_on": "2026-10-16",
     "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
     "中文标题": "Princeton，Kunz：AST554 Lecture Notes，§IV.5，式 (IV.5.1)–(IV.5.4)，原文将介电函数记为 $D$"
+  },
+  {
+    "id": "ICRH-001",
+    "title": "Design and operations of load-tolerant external conjugate-T matching system for the A2 ICRH antennas at JET",
+    "url": "https://arxiv.org/abs/1309.4644",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：官方网页或作者原文的所引部分；不代表整篇审核。",
+    "中文标题": "JET 原论文"
+  },
+  {
+    "id": "ICRH-002",
+    "title": "Design and operations of load-tolerant external conjugate-T matching system for the A2 ICRH antennas at JET",
+    "url": "https://arxiv.org/pdf/1309.4644",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：author manuscript opened,30pages",
+    "中文标题": "Monakhov 等，JET 外部 conjugate-T 系统，§2–4"
+  },
+  {
+    "id": "ICRH-003",
+    "title": "Scrape-off layer density tailoring with local gas puffing to maximize ICRF power coupling in ITER",
+    "url": "https://doi.org/10.1016/j.nme.2018.12.025",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：primary publication search abstract read; full publisher open unavailable",
+    "中文标题": "2019 年 ITER SOL 密度调控预测研究"
+  },
+  {
+    "id": "ICRH-004",
+    "title": "Investigation of ICRF Mode Conversion at the Ion-ion Hybrid in Alcator C-Mod",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2000/03ja/03ja024/03ja024_abs.html",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official HTML retrieved by urllib and text read; web.open timed out; statements used only within abstract scope",
+    "中文标题": "Lin 等，*Investigation of ICRF Mode Conversion at the Ion-ion Hybrid in Alcator C-Mod*，2003，MIT 作者摘要"
+  },
+  {
+    "id": "ICRH-005",
+    "title": "Experimental and Numerical Characterization of Ion-Cyclotron Heated Protons on the Alcator C-Mod Tokamak",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2000/06rr/06rr008/abstract.php",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official search-index abstract read; direct abstract fetch timed out; DSpace metadata independently opened",
+    "中文标题": "MIT PSFC，2006 年报告摘要，快离子电荷交换诊断及 AORSA/CQL3D 比较"
+  },
+  {
+    "id": "ICRH-006",
+    "title": "ICRF mode conversion in three-ion species heating experiment and in flow drive experiment on the Alcator C-Mod tokamak",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2010/17ja/17ja050/17ja050_full.pdf",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official PDF downloaded and extracted; p2 visually inspected; confirms n_parallel^2=S, FW conversion to IBW/ICW, double layers and wave diagnostics",
+    "中文标题": "Lin 等，*ICRF mode conversion in three-ion species heating experiment and in flow drive experiment on the Alcator C-Mod tokamak*，2017，第 2 节"
+  },
+  {
+    "id": "ICRH-007",
+    "title": "Experimental studies of C-Mod ICRF minority tails via a multi-channel compact neutral particle analyzer",
+    "url": "https://meetings-archive.aps.org/dpp/2005/kp1/30/",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：author conference abstract opened",
+    "中文标题": "Tang 等，2005 APS DPP：C-Mod 中性粒子分析仪与 CQL3D 合成诊断比较"
+  },
+  {
+    "id": "ICRH-008",
+    "title": "Simulating energetic ions and enhanced neutron rates from ion-cyclotron resonance heating with a new fast, self-consistent full-wave / Fokker-Planck model",
+    "url": "https://meetings-archive.aps.org/dpp/2023/ki02/4/",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：author conference abstract opened",
+    "中文标题": "作者研究摘要，2023 APS DPP：自洽 full-wave/Fokker–Planck 模型"
+  },
+  {
+    "id": "ICRH-009",
+    "title": "First results with 3-strap ICRF antennas in ASDEX Upgrade",
+    "url": "https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：institutional publication abstract opened",
+    "中文标题": "Bobkov 等，First results with 3-strap ICRF antennas in ASDEX Upgrade，2016 年实验论文摘要"
+  },
+  {
+    "id": "ICRH-010",
+    "title": "Progress With Applications of Three-Ion ICRF Scenarios for Fusion Research: A Review",
+    "url": "https://pure.mpg.de/rest/items/item_3541989_4/component/file_3547501/content",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：12-page official author manuscript downloaded, extracted and relevant sections read; p2 visually inspected and p3 rendered",
+    "中文标题": "Kazakov 等，*Progress With Applications of Three-Ion ICRF Scenarios for Fusion Research: A Review*，2023，PDF 第 1–2 页"
+  },
+  {
+    "id": "ICRH-011",
+    "title": "Experiments on Gas Puffing to Enhance ICRF Antenna Coupling",
+    "url": "https://scipub.euro-fusion.org/archives/jet-archive/experiments-on-gas-puffing-to-enhance-icrf-antenna-coupling",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：institutional publication record opened",
+    "中文标题": "EUROfusion，Experiments on Gas Puffing to Enhance ICRF Antenna Coupling"
+  },
+  {
+    "id": "ICRH-012",
+    "title": "Hydrogen Plasmas with ICRF Inverted Minority Heating and Mode Conversion Regimes in the JET Tokamak",
+    "url": "https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP05026.pdf",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：institutional author manuscript PDF opened,25pages",
+    "中文标题": "Mayoral 等，JET 反转少数离子与模式转换实验，§1 的碰撞慢化及电子/离子传能讨论"
+  },
+  {
+    "id": "ICRH-013",
+    "title": "Progress in reducing ICRF-specific impurity release in ASDEX Upgrade and JET",
+    "url": "https://scipub.euro-fusion.org/wp-content/uploads/WPMST1CP16_14736_submitted.pdf",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：institutional author manuscript opened",
+    "中文标题": "Bobkov 等，Progress in reducing ICRF-specific impurity release in ASDEX Upgrade and JET，作者公开稿"
+  },
+  {
+    "id": "ICRH-014",
+    "title": "Electromagnetic Fields and Energy §14.6 Reflection Coefficient Representation of Transmission Lines",
+    "url": "https://web.mit.edu/6.013_book/www/chapter14/14.6.html",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official textbook page opened",
+    "中文标题": "MIT，Electromagnetic Fields and Energy，第 14.6 节，传输线与反射系数"
+  },
+  {
+    "id": "ICRH-015",
+    "title": "How to pump 20 MW of power into 1 gram of plasma",
+    "url": "https://www.iter.org/node/20687/how-pump-20-mw-power-1-gram-plasma",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official historical engineering page opened",
+    "中文标题": "ITER，离子回旋系统工程链说明"
+  },
+  {
+    "id": "ICRH-016",
+    "title": "Integrated Modeling for Heating and Current Drive",
+    "url": "https://www.iter.org/sites/default/files/media/2025-07/l-8_fukuyama.pdf",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：61-page official PDF downloaded and extracted; p24 visually inspected; p25-26 rendered; pedagogical derivations independently reconstructed",
+    "中文标题": "Fukuyama，*Integrated Modeling for Heating and Current Drive*，2025，PDF 第 20–26 页"
+  },
+  {
+    "id": "ICRH-017",
+    "title": "Efficient generation of energetic ions in multi-ion plasmas by radio-frequency heating",
+    "url": "https://www.nature.com/articles/nphys4167",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：官方网页或作者原文的所引部分；不代表整篇审核。",
+    "中文标题": "Kazakov 等，*Efficient generation of energetic ions in multi-ion plasmas by radio-frequency heating*，Nature Physics 13，973–978，2017，摘要及实验结论"
+  },
+  {
+    "id": "ICRH-018",
+    "title": "Power Transfer on a Transmission Line",
+    "url": "https://ximera.osu.edu/electromagnetics/electromagnetics/impedanceMatching/digInPoweronTL",
+    "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
+    "checked_on": "2026-10-16",
+    "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official OhioState course page opened",
+    "中文标题": "Ohio State Ximera，Power Transfer on a Transmission Line，峰值幅度下的入射、反射与净功率"
   }
 ]
