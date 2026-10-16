@@ -341,6 +341,120 @@
     "url": "/tag/MF000133/",
     "status": "draft"
   },
+  "MF000145": {
+    "title": "核反应道、质量亏损与产物能量",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000145/",
+    "status": "draft"
+  },
+  "MF000146": {
+    "title": "反应截面、反应率与速度分布平均",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000146/",
+    "status": "draft"
+  },
+  "MF000147": {
+    "title": "燃料配比、杂质稀释与剖面积分",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000147/",
+    "status": "draft"
+  },
+  "MF000148": {
+    "title": "热储能、功率平衡与约束时间",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000148/",
+    "status": "draft"
+  },
+  "MF000149": {
+    "title": "Lawson 条件、有限增益与三乘积",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000149/",
+    "status": "draft"
+  },
+  "MF000150": {
+    "title": "Alpha 自加热、燃烧等离子体与点火",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000150/",
+    "status": "draft"
+  },
+  "MF000151": {
+    "title": "辐射损失、有效电荷与原子过程",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000151/",
+    "status": "draft"
+  },
+  "MF000152": {
+    "title": "热稳定性、氦灰与燃烧反馈",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000152/",
+    "status": "draft"
+  },
+  "MF000153": {
+    "title": "从等离子体增益到净电输出",
+    "source": "基础原理/聚变反应与燃烧/README.md",
+    "url": "/tag/MF000153/",
+    "status": "draft"
+  },
+  "MF000154": {
+    "title": "守恒输运方程与有效扩散",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000154/",
+    "status": "draft"
+  },
+  "MF000155": {
+    "title": "经典输运、新经典输运与香蕉轨道",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000155/",
+    "status": "draft"
+  },
+  "MF000156": {
+    "title": "自举电流与双极输运",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000156/",
+    "status": "draft"
+  },
+  "MF000157": {
+    "title": "湍流、漂移波与回旋动理学",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000157/",
+    "status": "draft"
+  },
+  "MF000158": {
+    "title": "H 模、台基与边缘局域模",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000158/",
+    "status": "draft"
+  },
+  "MF000159": {
+    "title": "刮削层、平行导热与两点模型",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000159/",
+    "status": "draft"
+  },
+  "MF000160": {
+    "title": "鞘层、预鞘与 Bohm 判据",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000160/",
+    "status": "draft"
+  },
+  "MF000161": {
+    "title": "中性粒子、回收与脱靶",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000161/",
+    "status": "draft"
+  },
+  "MF000162": {
+    "title": "快粒子轨道、Alfvén 共振与损失",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000162/",
+    "status": "draft"
+  },
+  "MF000163": {
+    "title": "破裂、热淬灭与逃逸电子",
+    "source": "基础原理/输运与边界/README.md",
+    "url": "/tag/MF000163/",
+    "status": "draft"
+  },
   "MF000008": {
     "title": "托卡马克",
     "source": "装置路线/README.md",

@@ -9,7 +9,24 @@
     "基础原理/流体与磁流体力学/README.md": "0c72311ecf65931080cb0b00bc7f2b1e3bfe7a013db460061e4890003ba67af5",
     "基础原理/等离子体基本概念/README.md": "efd5999615edac986282da6e5f634c9b2e9e8672bcb25db47e1e8fc90972f7f5",
     "基础原理/等离子体波/README.md": "fb266a3314c5ff131a4d81c9be169d17bb799e1ea3275a6a43ca543de2c6d4ac",
-    "辅助加热/离子回旋加热/README.md": "8f0ee5aa7c01350f981ca17e694b63825eafb8dcc30aa9bea8e6b748245ac1fb"
+    "辅助加热/离子回旋加热/README.md": "8f0ee5aa7c01350f981ca17e694b63825eafb8dcc30aa9bea8e6b748245ac1fb",
+    "基础原理/README.md": "c72c935af30ac79ad25d1308dedac60e4634d09df12dd16fb1bccf83c44c0594",
+    "基础原理/聚变反应与燃烧/README.md": "24fc2c4bacbd27f289835b01df395a52273045ca9bbba58b02d43dd3fe037b4b",
+    "基础原理/输运与边界/README.md": "25e392f417e2519a07fa2c0caa7818bbae614385c1325d751666ebd9b10d79eb",
+    "装置路线/README.md": "a3468c21fa20c653ab7bc238a8ff8a431e14e28d8a47ee6866ab8cc2baf8b3e6",
+    "辅助加热/README.md": "2d73a2547a4062dabb84861ea7b7b587e52186038a6246214de011e9dcaea51b",
+    "辅助加热/电子回旋加热/README.md": "aee8cdd1fd4a42d3f6b679ac54e686077aee1d1bad1534f58f2175790c9319ff",
+    "辅助加热/中性束注入/README.md": "d2dcca5f5c5750676736d2b0bba409e85f5c9cc57f0f334fcdfeb872df0c7209",
+    "辅助加热/低杂波电流驱动/README.md": "fcf065cc953d87a1b4479960e3b1997c9400f6ed5266eac36f7a273705de5332",
+    "辅助加热/电子伯恩斯坦波加热/README.md": "315a02b89858ade455c5d929800a50b31a8497c039797aeed140805f1df7219d",
+    "辅助加热/螺旋波加热/README.md": "21c01e0ae431d5ca1684c20f9ae3d574cb5cd2b61208918bd2e2878bd51fd4cf",
+    "腔体材料/README.md": "9d0efda2de3f4c224845e17aac7fb3dba78841624d1c042e021a822d135c81da",
+    "诊断控制/README.md": "267cc4df272b61fc88dc5dc0b1f1ae5a9c89270a055821fa9749f20451ee33d7",
+    "仿真计算/README.md": "8c5ced90b28252bd11d739e165110225e8133c389b5771f50eddea570d250de9",
+    "工程系统/README.md": "b38c45cee54a7eaa126bf5a041ecbadc0175ac05a5e84a8d0368ec2acb1281a8",
+    "实验运行/README.md": "28d25520440701deb979498f4cd19ae4f9dc72ed338c504c12dbbe96b5269e86",
+    "项目产业/README.md": "f8f3eb8d4a452a4158f5c3ba579666277c5ae13d7f20c9f13da9e58d18bae742",
+    "文献资料/README.md": "642dfe01e9eae115c92ec3403f94a31318e6ecb172d78e3b2339f2f72f203ce0"
   },
   "new_entries": 50,
   "han_character_count": 24408,
@@ -2707,9 +2724,839 @@
     ]
   },
   "current_site_math_render": {
-    "formulas": 922,
+    "formulas": 1427,
     "result": "passed",
     "errors": [],
     "scope": "TeX syntax and MathJax conversion only; not correctness of physics"
+  },
+  "broad_expansion": {
+    "date": "2026-10-16",
+    "baseline_commit": "863f7cfa0fb9b71c506f0d1a1ae7501744c01a14",
+    "scope": "All 10 chapter overviews and existing outline pages expanded; two additional foundation topics. Selected primary-source checks and independent model-agent cross-review, not external expert certification.",
+    "changed_sections": [
+      {
+        "chapter": "foundations",
+        "slug": "foundations",
+        "source": "基础原理/README.md",
+        "han": 2610,
+        "before_han": 953,
+        "entries": 7,
+        "sha256": "c72c935af30ac79ad25d1308dedac60e4634d09df12dd16fb1bccf83c44c0594"
+      },
+      {
+        "chapter": "foundations",
+        "slug": "fusion-burning",
+        "source": "基础原理/聚变反应与燃烧/README.md",
+        "han": 3001,
+        "before_han": 0,
+        "entries": 9,
+        "sha256": "24fc2c4bacbd27f289835b01df395a52273045ca9bbba58b02d43dd3fe037b4b"
+      },
+      {
+        "chapter": "foundations",
+        "slug": "transport-boundary",
+        "source": "基础原理/输运与边界/README.md",
+        "han": 4121,
+        "before_han": 0,
+        "entries": 10,
+        "sha256": "25e392f417e2519a07fa2c0caa7818bbae614385c1325d751666ebd9b10d79eb"
+      },
+      {
+        "chapter": "devices",
+        "slug": "devices",
+        "source": "装置路线/README.md",
+        "han": 3495,
+        "before_han": 394,
+        "entries": 7,
+        "sha256": "a3468c21fa20c653ab7bc238a8ff8a431e14e28d8a47ee6866ab8cc2baf8b3e6"
+      },
+      {
+        "chapter": "heating",
+        "slug": "heating",
+        "source": "辅助加热/README.md",
+        "han": 1333,
+        "before_han": 245,
+        "entries": 1,
+        "sha256": "2d73a2547a4062dabb84861ea7b7b587e52186038a6246214de011e9dcaea51b"
+      },
+      {
+        "chapter": "heating",
+        "slug": "ecrh",
+        "source": "辅助加热/电子回旋加热/README.md",
+        "han": 2523,
+        "before_han": 532,
+        "entries": 6,
+        "sha256": "aee8cdd1fd4a42d3f6b679ac54e686077aee1d1bad1534f58f2175790c9319ff"
+      },
+      {
+        "chapter": "heating",
+        "slug": "nbi",
+        "source": "辅助加热/中性束注入/README.md",
+        "han": 2557,
+        "before_han": 535,
+        "entries": 6,
+        "sha256": "d2dcca5f5c5750676736d2b0bba409e85f5c9cc57f0f334fcdfeb872df0c7209"
+      },
+      {
+        "chapter": "heating",
+        "slug": "lhcd",
+        "source": "辅助加热/低杂波电流驱动/README.md",
+        "han": 2548,
+        "before_han": 527,
+        "entries": 6,
+        "sha256": "fcf065cc953d87a1b4479960e3b1997c9400f6ed5266eac36f7a273705de5332"
+      },
+      {
+        "chapter": "heating",
+        "slug": "ebw",
+        "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+        "han": 2530,
+        "before_han": 509,
+        "entries": 6,
+        "sha256": "315a02b89858ade455c5d929800a50b31a8497c039797aeed140805f1df7219d"
+      },
+      {
+        "chapter": "heating",
+        "slug": "helicon",
+        "source": "辅助加热/螺旋波加热/README.md",
+        "han": 2537,
+        "before_han": 503,
+        "entries": 6,
+        "sha256": "21c01e0ae431d5ca1684c20f9ae3d574cb5cd2b61208918bd2e2878bd51fd4cf"
+      },
+      {
+        "chapter": "materials",
+        "slug": "materials",
+        "source": "腔体材料/README.md",
+        "han": 3570,
+        "before_han": 378,
+        "entries": 7,
+        "sha256": "9d0efda2de3f4c224845e17aac7fb3dba78841624d1c042e021a822d135c81da"
+      },
+      {
+        "chapter": "diagnostics",
+        "slug": "diagnostics",
+        "source": "诊断控制/README.md",
+        "han": 2249,
+        "before_han": 201,
+        "entries": 4,
+        "sha256": "267cc4df272b61fc88dc5dc0b1f1ae5a9c89270a055821fa9749f20451ee33d7"
+      },
+      {
+        "chapter": "simulation",
+        "slug": "simulation",
+        "source": "仿真计算/README.md",
+        "han": 2309,
+        "before_han": 259,
+        "entries": 4,
+        "sha256": "8c5ced90b28252bd11d739e165110225e8133c389b5771f50eddea570d250de9"
+      },
+      {
+        "chapter": "engineering",
+        "slug": "engineering",
+        "source": "工程系统/README.md",
+        "han": 3650,
+        "before_han": 307,
+        "entries": 6,
+        "sha256": "b38c45cee54a7eaa126bf5a041ecbadc0175ac05a5e84a8d0368ec2acb1281a8"
+      },
+      {
+        "chapter": "experiments",
+        "slug": "experiments",
+        "source": "实验运行/README.md",
+        "han": 2225,
+        "before_han": 214,
+        "entries": 4,
+        "sha256": "28d25520440701deb979498f4cd19ae4f9dc72ed338c504c12dbbe96b5269e86"
+      },
+      {
+        "chapter": "industry",
+        "slug": "industry",
+        "source": "项目产业/README.md",
+        "han": 1764,
+        "before_han": 200,
+        "entries": 3,
+        "sha256": "f8f3eb8d4a452a4158f5c3ba579666277c5ae13d7f20c9f13da9e58d18bae742"
+      },
+      {
+        "chapter": "literature",
+        "slug": "literature",
+        "source": "文献资料/README.md",
+        "han": 2140,
+        "before_han": 701,
+        "entries": 4,
+        "sha256": "642dfe01e9eae115c92ec3403f94a31318e6ecb172d78e3b2339f2f72f203ce0"
+      }
+    ],
+    "rewritten_existing_sections": 15,
+    "new_sections": 2,
+    "new_permanent_tags": 19,
+    "preserved_permanent_tags": 144,
+    "current_tag_count": 163,
+    "current_section_count": 23,
+    "current_source_records": 213,
+    "new_source_records": 107,
+    "net_added_han_characters": 38704,
+    "current_content_han_characters": 78595,
+    "human_specialist_review": false,
+    "author_notes": {
+      "engineering": "# 装置、材料与工程内容核查记录\n\n核查日期：2026-10-16。责任范围为 `装置路线/README.md`、`腔体材料/README.md`、`工程系统/README.md`。这是一轮公开文献核对、量纲与教学算例自查及代理交叉审查，不称为专家审定，不代表任何装置或部件已通过工程验收。\n\n## 覆盖与结构\n\n| 页面 | 汉字数（不含拉丁字母及公式符号） | 保留的二级标题 | 本轮实质补充 |\n| --- | ---: | ---: | --- |\n| 装置路线 | 3495 | 7 | 托卡马克磁场与 q、有限伏秒与非感应电流、破裂；FRC 高 beta 与有限轨道；磁镜损失锥；仿星器旋转变换与三维优化；RFP、球马克、Z 箍缩、ICF 与 MIF；时间窗与增益边界 |\n| 腔体材料 | 3570 | 7 | 真空室载荷与屈曲、第一壁/包层/偏滤器分工；稳态热阻与瞬态扩散；W、CuCrZr、低活化钢的不同功能；dpa、氦、溅射、滞留、渗透；热物性与几何共同退化；连接和部件验证 |\n| 工程系统 | 3650 | 6 | 磁体储能、应力尺度与失超；电源功率；气负荷、抽速与流导；冷却与低温的热力学界限；D–T 燃烧、增殖、循环库存与衰变；屏蔽与遥操作；热到净电和全年收支 |\n\n所有原有二级标题及次序与 HEAD 完全一致，没有新增或删除二级 Tag。扩展使用三级标题；未修改全局来源索引、Tag 表或验证状态，也没有提交或发布。\n\n## 来源核查\n\n30 条实际使用的新来源见 `engineering-sources.json`，唯一 ID 为 `EXP-E-001` 至 `EXP-E-030`。记录中文题名、网址、正文适用范围、访问日及实际阅读深度。原论文、大学课程与 ITER、IPP、PPPL、Sandia、LLNL、NIST、IAEA 官方资料用于不同层次的证据，不把概览、摘要或项目目标冒充全文验证或实测。\n\n- 直接核对 Fitzpatrick 教材的 q 几何定义与磁镜推导；独立从 SI 公式复算例子。\n- FRC 的 PPPL 报告实际读摘要和引言，不把混合动理学模拟的稳定范围写成所有装置的实验保证。\n- W7-X 2016 论文实际读取 Results 磁面测量部分；2021 论文读取搜索服务返回的出版社摘要及 Main/Methods 相关段，直接 open 受到登录重定向。使用范围限于优化输运的定性证据，不声称完整独立复现。\n- LLNL 的 3.15 MJ / 2.05 MJ 对应 2022-12-05 的历史点火结果，只算靶增益，未宣称是访问日最新纪录或净电输出。MagLIF 使用 Sandia 原论文官方摘要，区分已做实验与未来模拟。\n- ITER 包层页面确认 2023 年决定将未来第一壁装甲从铍改为钨，正文避免重复旧版铍方案。偏滤器 10/20 MW/m²明确是 ITER 设计负荷，不能当作任意钨部件的通用上限。\n- IAEA 铜合金材料资料以 PDF 封面确认是 1994 年资料；即使搜索抓取日期较近，也未称为最新材料规格。Fe-W 薄膜结果没有外推成完整 EUROFER 部件寿命。\n- dpa 引用的 Gilbert 等论文为概念反应堆谱与辐照损伤建模；正文区分模型损伤、存留缺陷与实际寿命。\n- 曾考虑 Bernard 等 2019 年钨中氚滞留论文，发现另有 2020 年勘误而本轮不能读取修订内容，因此删去相应定量主张和引用。改用实际读取的 Ye 等 2019 年氘暴露论文摘要，只说明暴露路径差异，不外推为氚库存规律。\n- 真空公式实际核对 Seidel 的 Accelerator Vacuum 第 2 节，补读第 5 节；不引用无法读取的备用 CERN PDF。表述为“CERN 加速器学校讲义”，未误称作者是 CERN 职员。\n- NIST 半衰期资料实际读取摘要、表 4 和推荐值部分；4500±8 天为所读 2000 年评估值，没有包装成新测量。\n\n## 公式与算例复算\n\n下列全部是教学输入或对有日期的公开结果进行代数计算，均不是本库新实验数据。另一个代理独立计算的 29 个数值量保存在 `engineering-cross-numerics.json`，与正文舍入相符。\n\n| 检查项 | 独立计算结果 | 适用边界 |\n| --- | --- | --- |\n| 托卡马克圆截面近似 | Bθ=0.20 T，q=3.75 | 大长细比、圆截面、给定包围电流，不代替平衡重建 |\n| FRC 氘离子回旋半径 | 0.04086 m，若 a=0.2 m 则约 0.20a | E⊥=10 keV、B=0.5 T；局部磁零点处不沿用导心近似 |\n| 磁镜损失锥 | Rm=4 得半角 30°，两端锥占各向同性角分布 13.40% | 绝热、静磁场、无静电势差，不等于单位时间损失率 |\n| NIF 历史靶增益 | 3.15/2.05=1.5366 | 靶输入激光能量作分母，不是设施电增益 |\n| 非稳态能量约束时间 | 4 MJ/(10−2 MW)=0.50 s | 明确 dW/dt=2 MW；忽略储能变化会误算为 0.40 s |\n| 薄壁圆筒内压尺度 | 10 MPa | 内压膜应力近似不能验证真空外压屈曲 |\n| 靶板平均热流 | 5 MW/0.5 m²=10 MW/m² | 面平均值不是局部峰值 |\n| 假设平板与对流热阻 | 温差分别 300 K 与 100 K | 假设 k、h、厚度常数；不声称是钨部件验收参数 |\n| 假设溅射退蚀 | 1.667 nm/s，1000 s 为 1.667 µm | 总侵蚀估计，未减去再沉积或计入表面变化 |\n| 连接热膨胀失配 | 0.003=0.30% | 不是约束应力，需要结构及材料模型 |\n| 磁体储能及电感电压 | 200 MJ、1000 V | 单一固定电感，忽略耦合时适用 |\n| B=10 T 的磁压力尺度 | 39.79 MPa | 磁能密度尺度，不是线圈峰值应力 |\n| 真空有效抽速与压强 | 0.1667 m³/s、0.006 Pa | 给定分子流流导及稳定气负荷 |\n| 冷却水质量流率 | 11.90 kg/s | cp=4200 J/(kg·K)、温升 20 K、负荷 1 MW 的总能量平衡 |\n| 理想制冷下限 | 每 1 W 冷端热功率至少需 65.67 W 输入 | Tc=4.5 K、Th=300 K，可逆极限，不是 ITER 实际效率 |\n| 独立热量测量不确定度 | sqrt(2²+1²+3²)%=3.742% | 输入视为独立；相关误差不能直接这样合成 |\n| 1 GW D–T 反应率 | 3.5463×10²⁰ 次/s | 每次反应 17.6 MeV，明确聚变热功率 |\n| 氚燃烧质量 | 1.7767 mg/s，365 天满功率 56.03 kg | 每次反应消耗一个氚核；不是循环流量或实际供料程序 |\n| 氚衰变 | 一年约 5.5% | 4500 天半衰期，365/365.25 天年长差异不影响正文舍入 |\n| 电站教学收支 | 净输出 250 MW；70% 可用率时 1.533×10⁶ MWh/年 | 假设 1000 MW 可用热、40% 转换、150 MW 厂用电，并明确暂忽略停机耗电 |\n\n量纲还逐式检查了磁镜磁矩、旋转变换、Taylor 力自由参数、dpa 能谱积分、Fick 扩散、动态真空方程、氚库存方程和窄束衰减式。材料表格内避免包含未转义的公式竖线。\n\n## 交叉审查与改动\n\n`methods_expansion` 代理只读审查三页并独立复算数值，提出的以下实质表述问题均已修正：\n\n- 体积核热源积分的结果由“总核热量”改为“总核热功率”，补充再对时间积分才得到能量。\n- 单程燃烧比例按氚核数定义，注入率写为氚注入率；明确 D+T 总核数口径必须同步修改，避免因子二歧义。\n- 年度氚消耗从“按发电时序积分”改为“按聚变热功率时序积分”。\n- Carnot 制冷式统一写输入功率与冷端热功率，避免能量与功率符号混用。\n\n交叉审查的单独最终记录由审查代理提供；本文件不代替其独立结论。\n\n## 本地检查与未覆盖范围\n\n`git diff --check` 对三页通过；三页所有原有二级标题和顺序与 HEAD 一致；没有数字列表、旧式数学定界符或失效本地链接。机械检查保存于 `engineering-checks.json`。运行 `.venv/bin/python 工具/检查知识库.py` 通过，当时输出为 27 个 Markdown 文件、六套加热系统各一个主页面、106 条来源；该脚本本身只验证结构，不证明技术正确性。全站构建和浏览器数学渲染由主代理在合并全部扩写后统一完成。\n\n本轮未获得非公开材料数据库、部件原始试验报告、氚系统运营数据或独立专家签字，因此不提供通用材料寿命、屏蔽厚度、失超阈值、燃料操作规程或安全验收界限。所有项目数值已在正文标出目标、设计、历史实验、建模或教学假设的类别；未解决的装置具体设计问题保持为需要对应数据验证的内容，不编造答案。\n",
+      "heating": "# 辅助加热扩充自查（2026-10-16）\n\n## 编辑范围\n\n仅编辑辅助加热总览及 ECRH、NBI、LHCD、EBW、Helicon 五个 README。ICRH、全局 Tag/来源索引/审核记录未修改。原有 31 个二级标题及顺序全部保留，不新增二级标题；新解释使用三级标题。五个系统各六节均从列表模板扩为实质正文。所有文件没有数字列表。\n\n## 核验边界\n\n核验包含原始/机构资料读取、数学式对照、量纲检查、独立常数算例、现有标题和本地链接验证。不是专家审核，不是装置试验验收，没有复现外部论文的原始数据处理或数值代码。\n\n31 条实际使用或交叉核对的来源记录在 heating-sources.json。每项区分全文、章节、摘要和工程计划。下载的 PDF/HTML 与文本只在忽略目录 .build/content-expansion/heating-reference 中用于核对，不纳入发布正文，不把受版权全文上传仓库。\n\n## 关键物理修正与边界\n\n- ECRH：取电子正回旋频率 Ωe=eB/me，电子电荷为 -e。共振 ω-kparallel vparallel=sΩe/γ 与 Poli 原文式 (15) 对照；cold O 模截止只能按该模式/该频率解释。140 GHz、2.5 T 是二次谐波；170 GHz 基频冷共振约 6.073 T，不是说 ITER 轴上场必须为此值。ECCD 与加热区分，电流符号不按电子流方向误写。\n- 冷介电：R、L 使用 Ωe>0 的电子频率约定并忽略 EC 频段离子响应，N_X²=RL/S 的使用明确限于垂直冷传播；冷奇点不是可用的无限吸收。\n- NBI：分别区分中性化、等离子体电离、快离子轨道和慢化。单一停止系数是近似；高能多步电离与相对速度平均单列。慢化式含 2E/τse，τse 是速度松弛尺度，避免漏掉系数 2。瞬时离子份额与沿能量积分的累计份额分开。NBCD 包含电子屏蔽/回流，不把快离子流全当净驱动。\n- LHCD：局部可达性根号覆盖 1+ωpe²/Ωe²-ωpi²/ω²；并未把 ωpe/Ωe 项放进根号。明确单离子、冷、局部模型及非充分性。相速度决定最低共振总能量，Nparallel=2 时相对论为 79.05 keV，不能误用非相对论 63.9 keV 作为准确值。η=nR I/P 的量纲为 A/(W m²)。CFETR/FNSF 数字为设计预测，没有写成实测。\n- EBW：热 Bernstein 支不能在真空直接传播；O-X 与 X-B 两步分开，最佳 Nparallel²=Y/(1+Y)。Npol 为 B×grad n 方向分量，不是全部垂直分量。COX 只是单步功率转换，指数、局部 Ln 的绝对值、功率预算和角谱边界均核对。波动参数平均不等于平均转换效率。\n- Helicon：低温有界柱 whistler 源与高温环形很高离子谐波快波不同；不套 LH 慢波可达性。最新 arXiv 2609.12474v1 确认 2026 年已有 DIII-D 原理验证，故废弃“至今未实证”的过期概括。370 kW 工况下 rho<0.2 的 20±10 kA 是剖面重建与其它电流源相减，外围积分受数值振荡影响；不写总电流，不宣称已验证反应堆高效率离轴驱动。\n\n## 公式渲染对照\n\n使用 pypdf 提取原 PDF 后，又用 pypdfium2 渲染并实际查看以下页：\n\n- IAEA PDF 第 567 页（书页 544），慢化式 (5.8) 与瞬时离子份额。\n- EBW survey PDF 第 4 页，O-X 最佳角与指数式 (1)–(3)。\n- Poli PDF 第 5 页，相对论共振与动量空间椭圆。\n- CFETR PDF 第 4 页（书页 3），可达性式 (2) 与谱演化。\n\n对应图片保存在 heating-reference/*-formula.png。没有将提取乱码中的分数/根号直接复制到正文。\n\n## 独立算例\n\n全部结果由 Python 标准库 math、独立 SI 常数计算，见 heating-calculations.json。\n\n- e/(2πme)=27.9924898342 GHz/T；170 GHz 基频共振 B=6.073057488 T。\n- 140 GHz O 模截止密度 2.4312675113e20 m^-3；波长 0.0021413747 m。\n- 140 GHz、w0=20 mm，高斯束 Rayleigh 长 0.5868366061 m。\n- 氘质量取 3.344e-27 kg，100 keV/1 MeV 速度分别 3.09554e6/9.78897e6 m/s。\n- E=2Ec 时瞬时离子份额 0.261203875；光学厚 2 时直穿份额 exp(-2)=0.135335283。\n- Nparallel=2/3 的最低共振电子总动能分别为 79.0518128/30.9972841 keV。\n- O-X 算例 Y=0.5、k0Ln=10、delta Nparallel=0.1、Npol=0，C=0.624228434。\n- ne=2e19 m^-3、Te=4 keV、B=2 T，局部 beta_e=0.00805341815=0.805341815%。\n- LH 忽略离子项的 a+sqrt(1+a²)，a=0.5/1 得 1.61803399/2.41421356。\n\n## 引用与失效入口\n\n- 原 IPP 09_Plasma_Heating.pdf 本轮直连返回 401/访问受限，不作为已读全文证据；保留原入口并注明。\n- 原 Stuttgart Bernstein-wave 页面本轮返回 404；保留历史链接并注明，不支撑新结论。\n- 旧 GA DIII-D PDF 与 C-2U 摘要只是原有检索入口，本轮不宣称阅读全文。\n- MIT PSFC PDF 经 web 抽取会报 502，实际用 curl 从原站成功下载；Leppink 摘要亦直接下载确认。其网页显示的早期访问限制不用于推测今天实际全文开放情况。\n- STEP 和 Ding 资料只读取机构摘要；未声称阅读全文。PRL 仅核对论文记录，精确 Helicon 结果来自明确 v1。\n\n## 结构验证\n\n运行 .venv/bin/python 工具/检查知识库.py：通过，当时输出 27 个 Markdown、106 条来源，本地链接和目录通过。该命令本身不进行物理审核或外链检查。\n\n另以 Python 对比 HEAD 与本轮六文件的所有二级标题，完全相同；修正了编写中发现的两条错误跨页路径（实际基础物理归在 基础原理/，不是独立 等离子体物理/）。没有修改别的代理拥有的文件。\n\nengineering_expansion 已完成独立交叉审查，详见 heating-cross-review.md。按其反馈修正 EBW 最佳条件平方上标中的多余逗号，补充 Helicon 电子热能预算的热通量单位及省略项边界；修正后审查者已复读确认，无剩余实质问题。独立重算 20 个数值均与正文相符。\n\n最终五系统的中文字符数为 ECRH 2523、NBI 2557、LHCD 2548、EBW 2530、Helicon 2537；总览 1333。六页保留原有 31 个二级标题，无新增二级 Tag。来源合并后再次运行结构检查，输出 27 个 Markdown、213 条来源并通过。\n\n仍需主代理统一构建和浏览器渲染/数学排版检查；我未提交或发布。\n",
+      "methods": "# 方法、实验、产业与文献组复核\n\n核对日期：2026-10-16。范围：诊断控制、仿真计算、实验运行、项目产业、文献资料五个 README。完成的是作者自查和原始资料限定范围核对，不是领域专家签审；未提交或发布。\n\n## 覆盖\n\n五页从清单扩为正文，合计约 10687 个汉字（含标题，不含拉丁词等）。原有所有二级标题及顺序保留，无新增或删除 Tag 键。诊断补线积分、Thomson/ECE、光谱、磁测/中子/红外、协方差、延迟与独立保护。仿真补模型层级、FD/FV/PIC/GK、RF-FP与守恒、V&V/UQ及可复现。实验补假设/对照/区组、功率账本、计量、验收和故障复盘。产业补ITER/W7-X/JET三种性质不同的档案、Q/净电/TRL、供应链及专利证据边界。文献补实际可用学习入口、证据阅读范围及32项术语。\n\n## 来源\n\n31项公开primary来源实际用到正文，列在 methods-sources.json；正文URL集合与来源记录集合经脚本核对相等。官方文档、机构页面、课程讲义、原论文作者摘要分别注明。BOUT++ MMS和TORLH/CQL3D论文只读作者摘要，正文没有假装阅读全文或复现结果。没有调用当前排名、投资额或未经时间核对的设备容量。\n\nNRL公式手册目录/PDF、PPPL 2026诊断讲义PDF、PPPL ECE报告PDF、W7-X CXRS两个机构PDF出现403/连接问题，未把无法取得的全文作为正文依据。NRL条目已移除；ECE改用成功读取的PPPL 2016会议报告；CXRS非局域性改用IPP已成功读取的2014机构说明。未用第三方转载来补足阅读范围。\n\n## 公式与算例\n\n- 单程干涉相位按“等离子体减真空”的定义为负。从 N≈1−ωpe²/(2ω²)、k0=ω/c 独立化简，系数为 e²/(2ε0mcω)=r_e λ；与IPP式(28)幅值一致，符号约定相反。明确往返沿实际总光路积分，避免遗漏2。\n- 磁探针 V=−N dΦ/dt，Φ是单匝磁通；积分恢复磁通变化而非绝对初值。\n- y=f(x)一阶方差 J C Jᵀ 对照NIST A-3；保留相关性，标注非线性限制，未把A/B类与随机/系统一一对应。\n- 延迟相位从e^(−sτ)、s=i2πf得到−2πfτ；只说明延迟贡献，不给通用闭环带宽。\n- RF功率取非相对论动能矩；坐标、相对论动能、物种、空间范围和能量转移计数已说明。\n- Q(h)=Q*+Ch^p仅限渐近误差模型；强调速度域、波数域、时间和粒子统计独立收敛。\n- 热群体功率账本明确注入功率不等于热化功率，快粒子另算。5.0−4.0=1.0 MW，乘0.20 s为0.20 MJ，Python复算通过。\n- 量热教学输入0.50 kg/s × 4.18 kJ/(kg K) ×2.0 K =4.18 kW。标明定物性、忽略储热等假设，没有把cp写成全温压通用常数。\n- 独立N=25、s=0.20 kW →0.040 kW；与独立0.030 kW标准不确定度平方和开根为0.050 kW。Python复算通过。未给无依据覆盖概率。\n- JET 69MJ/约5s≈13.8MW仅为本库代数平均，标明非峰值、非Q、非净电。\n- 工程净电 Pgross,e−Precirc,e定义厂界；没有从科学Q推工程盈利或TRL。\n\n## 本地结构核对\n\n用项目实际Builder.render逐页渲染到内存，五页本地链接均能映射到注册站点路径。58个数学表达式均成为arithmatex节点，配对正常。原##清单完全相同，未发现数字列表。术语表只有纯文本，无裸竖线数学内容。结果存methods-checks.json。未在本组写全局核验状态、Tag、来源索引或生成站点，以免并行冲突；最终构建与浏览器显示由主任务完成。\n\n## 尚需保持的边界\n\n这些页面是可读的概念和方法正文，不能替代原始装置数据、现行项目验收规范、完整代码验收或具体专利法律意见。供应链能力评估与实验记录流程是本库方法建议，没有被包装成外部机构强制标准。资料核对日期不是论文发表日期，也不是专家审核日期。\n"
+    },
+    "independent_cross_reviews": {
+      "foundations": "# 基础原理组独立交叉复核\n\n核验日期：2026-10-16。复核者：辅助加热子任务；未参与本组三篇正文的编写。本报告记录模型辅助的资料、代数与数值复核，不代表领域专家签字或完整实验验证。\n\n## 范围与结论\n\n通读 `基础原理/README.md`、`基础原理/聚变反应与燃烧/README.md` 和 `基础原理/输运与边界/README.md` 共 26 个二级专题。重点复查反应率平均、Lawson 的辐射口径、鞘层、两点模型和新经典量级；另外检查教学数值、源的实际支持范围、单位与历史计划的表述。\n\n提出的两处定义澄清、两处直接来源补强和一处作者姓名修正均已由主任务完成，本复核者重新读取修后文字确认。当前未发现仍需阻止发布的实质公式、算例或来源错配问题。该结论限定于下列已读材料与检查范围，不宣称全站所有观点已经穷尽核验。\n\n## 已发现并复查关闭的问题\n\n- 脱靶预算原来只说“原子核计数”，容易把含电离、复合源汇的离子库存误解为全电荷态总核库存。修后明确 N 为等离子体离子库存，靶端和上游为离子流率，电离与复合分别产生和移除离子；另明确总核库存没有这两项净源汇。定义与方程相容。\n- 浮动壁电势公式除 Bohm 不等式外，还需要入口速度恰取声速。修后在推导前明确 `u_s=c_s`，不再隐含把所有超声入口也套同一电势落差。\n- 回旋动理学从六维相空间降至五维的原有两项引文主要支持湍流和尺度背景，缺少该结论的直接支持。已增引 Abel 等 2013 v4 的 Introduction，实际原文明确给出低频排序、回旋平均及 6D 到 5D。\n- 逃逸电子特征场段的 EPFL 科普页面不能充分支持 Dreicer 场与相对论临界场的精细区分。已增引实际读取的 Hesslow 等 2019 v2，§1–2 与式 (2) 后给出不同定义，并支持热尾、部分电离与辐射边界。EPFL 保留用于 TCV 实验研究范围。\n- MAST-U 原论文第一作者拼写由 Verhaeghe 修为 Verhaegh，与机构记录一致。\n\n## 独立公式与量纲复核\n\nMaxwell 反应率从相对速度概率密度 `4πv²[μ/(2πΘ)]^(3/2) exp[−μv²/(2Θ)]` 出发，乘 `σ(v)v` 后以 `E=μv²/2` 换元。得到正文的 `sqrt[8/(πμ)] Θ^(−3/2) ∫σ(E) E exp(−E/Θ)dE`，单位为 m³/s。它要求两群离子温度相同且无相对整体漂移。相同粒子反应率中的二分之一正确；D-D 分支必须分别计算。常截面人工基准的速度空间数值积分与解析平均速度结果相对误差约 1.2×10⁻¹³。\n\n纯 D-T、等温、等数密度条件下，热能密度为 `3nΘ`，alpha 加热密度为 `ηα n²<σv>Eα/4`。用总损失时间 `τtot=W/(Ptr+Prad)` 推得正文分子系数 12；有限增益时分母增加 `E_DT/Qp` 正确。Fitzpatrick 的此处约束时间本来就按全部损失定义，因而不应在该分母再扣一次辐射。Wurzel §III.4 则把辐射单列、使用输运时间；正文已经明确这两套约定。即便总损失表达式不显式出现轫致辐射系数，也没有取消辐射损失，不能把固定状态下的 τtot 任意独立增大。文章没有照搬旧资料的“尚未达到科学盈亏平衡”等历史现状判断。\n\n轫致辐射系数从 NRL 的 `1.69×10⁻³²`（密度 cm⁻³、体积功率 W/cm³、温度 eV）转换：两个密度各乘 10⁻⁶，功率体积单位乘 10⁶，得到 `1.69×10⁻³⁸`。`Zeff ne²` 的写法与多电荷态求和等价。充分电离、非相对论、光学薄和近似量子修正的限制已说明。\n\n新经典香蕉区量级可用俘获比例 `sqrt(ε)`、去俘获频率 `ν/ε` 和轨道步长 `qρ/sqrt(ε)` 独立相乘，得到 `χ~q²ρ²ν/ε^(3/2)`。由有效去俘获频率除以反弹频率得到正文 ν*；不是裸碰撞频率直接除以反弹频率。正文限定大环径比、近圆截面、低碰撞性与局域轨道，不把此量级推广到全部装置。热扩散与双极粒子扩散也没有混写。\n\n两点模型积分独立验证 `∫Θ^(5/2)dΘ=(2/7)Θ^(7/2)`；上游至靶端温度下降时正文热流为正。温度取 J 后 `κ0` 的单位 W m⁻¹ J⁻⁷ᐟ² 正确。Yunxing Ma 报告附录 C 式 (C.9)–(C.10) 与之相符，已渲染查看 PDF 第 194 页的原式，图片留在 `foundations-sol-formula.png`。正文的无源、恒截面、传导主导、局域碰撞等假设比笼统称“通用两点模型”更严格；没有把这条积分单独用作脱靶判据。\n\n鞘层以冷单价离子和 Boltzmann 电子推出 `u_s≥sqrt(Θe/mi)`；另取声速入口后，以电子单向通量乘势垒因子等于离子通量，得到正的浮动电势落差 `Θe/(2e) ln[mi/(2πme)]`。氘质量代入得到声速 21890.17 m/s、电势落差 31.851 V，正文 2.19×10⁴ m/s 与 31.9 V 正确。\n\n其余独立检查包括圆柱扩散解的边界通量等于体积源、E×B 涨落通量的正号及正弦相位依赖、MHD 的 `J·E=u·(J×B)+ηJ²` 矢量恒等式、热稳定性单变量线性化，以及净电预算。详见 `foundations-cross-numerics.json`；其中全部数值为教学检查，未被包装为实验成绩。\n\n## 实际读取的来源范围\n\n- [Fitzpatrick：Lawson Criterion](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node7.html)：读取整页式 (1.10)–(1.20) 与约束时间定义。\n- [Wurzel 与 Hsu，arXiv:2105.10954v3](https://arxiv.org/html/2105.10954v3)：实际读取变量表、§III.1–III.4 的反应率、增益和辐射/输运口径；不声称读完全部实验表。\n- [Fitzpatrick：Neoclassical Transport](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node41.html)：读取式 (2.271) 后的双极讨论、(2.284)–(2.301) 和随机游走解释。\n- [Fitzpatrick：Perpendicular Closure Scheme](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node42.html)：读取网页全文，本地缓存为 turbulence-source.txt；用于微不稳定性尺度及闭合背景。\n- [NRL Plasma Formulary 2016](https://suli.pppl.gov/2016/course/NRL_FORMULARY_16.pdf)：实际核对印刷页 58 式 (30) 的轫致辐射系数、密度和功率单位；附查输运闭合说明。没有声称全手册精读。\n- [MIT OCW 16.55 Lecture 17](https://ocw.mit.edu/courses/16-55-ionized-gases-fall-2014/69c9b98ec3496da071f8cdd7a1486ff7_MIT16_55F14_Lecture17.pdf)：实际读取 PDF 第 1–4 页及第 5 页起的式 (23)，尤其式 (12)–(14) 的 Bohm 临界取值与式 (19)–(23) 单向通量。\n- [Yunxing Ma 2012，MIT PSFC RR-12-8](https://library.psfc.mit.edu/catalog/reports/2010/12rr/12rr008/12rr008_full.pdf)：读取本次作者已下载的附录 C PDF 第 192–194 页，独立渲染第 194 页式 (C.10)。\n- [Wilson 2019](https://scientific-publications.ukaea.uk/wp-content/uploads/rsta.2017.0435.pdf)：实际读取 §2–4 的快粒子、输运与台基背景；没有把文中的历史规划或装置现状当作 2026 年事实。\n- [Abel 等，arXiv:1209.4782v4](https://arxiv.org/pdf/1209.4782)：实际读取 PDF 第 3 页 Introduction（返回版本日期 2013-12-02），核对低频、尺度分离、回旋平均及维数，不声称 113 页全文精读。\n- [Hesslow 等，arXiv:1910.00356v2](https://arxiv.org/html/1910.00356v2)：实际读取 §1–2、式 (2) 后的 ED/Ec 定义及图 1 说明；另外查看出版 PDF 的对应前 3 页。\n- [Dudson 等 SD1D 原论文作者摘要](https://scientific-publications.ukaea.uk/papers/the-role-of-particle-energy-and-momentum-losses-in-1d-simulations-of-divertor-detachment/) 与 [Verhaegh 等 MAST-U 原论文作者摘要](https://scientific-publications.ukaea.uk/papers/the-role-of-plasma-atom-and-molecule-interactions-on-power-particle-balance-during-detachment-on-the-mast-upgrade-super-x-divertor/)：均读取机构记录全文摘要；未声称读过对应论文全文，正文也已标摘要范围。\n- [EPFL TCV 研究页](https://www.epfl.ch/research/domains/swiss-plasma-center/tcv-disruptions-and-runaway-electrons/)：读取破裂、逃逸产生及缓解研究部分，用于机构实验方向，不用于替代精细阈值推导。\n\n所有网页本次实际联网读取；Ma 附录使用同一轮主任务已下载的原 PDF 并独立提取、渲染核对。全文/章节/摘要的读取范围分别记录。没有修改基础组三篇正文或全局索引；修正由正文作者完成后复读确认。\n\n## 最终整合的定点复核\n\n最终整合将燃烧页热储能方程中的 `P_aux,abs` 改为 `P_aux→th`，并明确它是实际转移给所选热群体的外部加热功率；NBI/RF 先产生快粒子时，需扣除快粒子储能增长和损失。本次仅针对该段再次读取正文并独立检查账本，结论正确。对单独快粒子库，`dW_f/dt=P_abs,f−P_f→th−P_f,loss` 给出 `P_f→th=P_abs,f−dW_f/dt−P_f,loss`；若还有直接热群体吸收，则与这项相加。储能变化必须保留正负号，关源后的慢化仍可贡献热输入。修后正文没有把原始吸收或出生功率重复算入热储能，且与既有 alpha 沉积项、NBI 页快粒子账本及本页热组分定义一致。它也不改变已有教学数值和准稳态 Lawson 推导。\n\n已更新 `foundations-cross-hashes.json` 的燃烧页 SHA-256；其他两页保持先前审查的哈希。没有修改正文。\n",
+      "engineering": "# 工程与装置组独立交叉复核\n\n日期：2026-10-16。复核者：methods_expansion 子代理，非原作者。范围：装置路线、腔体材料、工程系统三个 README 的正文、公式、算例、量纲和关键来源。三页全文已读，发现的问题先交作者修正，再读取修订版确认。此记录是独立模型辅助核对，不是领域专家认证，也不表示复现实验、复现数值模拟或完成工程验收。\n\n## 已发现并闭环的问题\n\n| 定位（修订后行） | 原问题 | 修正与复查 |\n| --- | --- | --- |\n| 腔体材料/README.md:21 | 体热源对体积积分被称作“总核热量”，其量纲实际是 W | 作者改为“总核热功率”，明确再对时间积分才得到能量；已读取确认 |\n| 工程系统/README.md:97 | 反应次数率除以“燃料燃烧比例”的计数口径不明，若按 D+T 总核数会缺少因子 2 | 作者明确以氚核数定义燃烧比例、氚注入率和每反应消耗一个氚核；已确认公式与计数一致 |\n| 工程系统/README.md:95 | 年燃烧量写成按“实际发电时序”积分，混淆聚变热功率和电功率 | 作者改为按实际聚变热功率时序积分；已确认，适用于并不发电的实验装置 |\n| 工程系统/README.md:68 | Carnot 式采用功的符号而例子采用 W 功率，容易误读 | 作者统一冷端热功率与输入功率记号，式子为 P_min=Qdot_c(Th/Tc−1)；已确认 |\n\n修订后未发现需要阻止合并的额外实质错误。以下结论限于已写的范围、明确假设及所读来源，不是对路线性能、材料寿命或设备安全的保证。\n\n## 公式、单位和边界逐组检查\n\n### 装置路线\n\n- 安培环路与圆截面安全因子：Bθ=μ0Ip/(2πr)、q=rBφ/(R0Bθ) 的量纲与代入结果正确；大环径比、局部近似及 Ip 为所包围电流已写明，不用于球形或强整形精确平衡。q=m/n 的模数约定与来源一致。\n- 线性电路与释放功率：V=L dI/dt+RI 单位 V；W/Δt 为平均功率而非局部热流；破裂缓解的设计性质已限定。\n- FRC：参考场 beta 无量纲；ρ=v⊥/Ω、Ω=ZeB/m 和 E⊥=mv⊥²/2 相容，10 keV 指定为垂直能量。参考场回旋半径并未被用来保证零场附近导引中心有效。\n- 磁镜：磁矩和动能守恒使用缓变、静态、无电势差条件；捕获不等式和损失锥半角正确。两个球冠的立体角比例 1−cosα 适用于初始方向各向同性，正文明确不是稳态损失率。\n- 旋转变换：在相同磁面角度和方向约定下 iota=1/q；有理磁面闭合例子与原论文相符。真空电子束磁面测绘与高温输运验证已分开。\n- Taylor 态：curl B=λB 中 λ 为逆长度；低压力理想化力自由状态边界明确。Z-pinch 场公式未冒充稳定性判据。\n- ICF：面密度为 kg/m²；到靶驱动能的靶增益与整厂能量收支分开；NIF 数值保留实验日期。MagLIF 的实验与预测分开。\n- 能量时间：指数衰减仅在无加热、固定损失系数的教学模型下成立；非稳态 tau_E=W/(Pheat−dW/dt) 的输入、储能口径和数值均正确。\n\n### 腔体材料\n\n- 薄壁圆筒 pr/t 为内压膜应力，不是外压屈曲公式，正文边界正确。热应变 αΔT 无量纲，J×B 为 N/m³。\n- 体积核热源的单位 W/m³、体积积分 W、时间积分 J 已经本次修正；表面热流与体热源不混用。\n- 平均 P/A 与峰值热流分开，ITER 10/20 MW/m² 明确为特定设计语境。\n- 常导热系数、无内热源稳态板的 q''d/k 与膜层 q''/h 都为 K；给定例子为 300 K 与 100 K。瞬态扩散尺度 sqrt(αth Δt) 为 m，不声称精确温度场。\n- dpa 的谱通量、损伤截面与时间/能量积分为无量纲；指定模型、阈能和截面库，未把 dpa 当永久缺陷比例。He/dpa 的谱与材料依赖保留。\n- 毛侵蚀 YΓ/n 为 m/s；忽略再沉积的条件和变化谱限制明确。Fick 通量为每面积每时间粒子数，滞留库存与渗透通量分开，氘实验未直接替代氚库存。\n- 厚度、导热率同减半的比例例子仅说明温差，不推出寿命不变；通量与注量单位正确。异种材料 ΔαΔT 为失配应变，未冒充接头应力或寿命。\n\n### 工程系统\n\n- 长螺线管场、线性单回路储能与电压、多回路互感二次型均满足单位；磁压力只是力的尺度。固定 L、Rd 的电流指数衰减与初始电压权衡正确。\n- 真空 Q=pS 为吞吐量而非电热功率；串联流导、有效抽速及等温定容气体收支相容。指数抽气模型保留恒负荷/抽速假设和非零终压。\n- 冷却质量流量/焓差热平衡、常 cp 近似、泵功 Δp Vdot/η 单位均为 W；局部沸腾、压降和储热限制明确。\n- Carnot 公式现在统一为功率，温度采用 K；65.7 W/W 是理想极限，不代表真实装置效率。\n- 热功率不确定度的一阶独立平方和结果正确，温差相关误差及模型偏差没有被隐去。\n- D–T 反应能、反应次数率、氚质量消耗和注入流率经修正后使用相同氚核基准；年度燃烧量使用聚变热功率。氚循环库存与燃烧消耗分开。\n- 氚库存方程按所指定系统边界守恒，内部回收不重复计入；TBR 与可回收可用氚/闭环自持分开。半衰期与一年衰变比例一致。\n- 窄束未碰撞通量指数使用逆长度宏观截面，明确不包含散射补入且不作屏蔽设计。净电收支统一电功率口径，年度电量含明确忽略停机用电条件。\n\n## 独立算例复算\n\n以 SI 单位独立计算 29 个输出，见 engineering-cross-numerics.json；全部与正文有效数字一致。覆盖 q、回旋半径、损失锥、ICF 靶增益、非稳态约束时间、应力/热流/板温差、侵蚀、失配应变、磁储能/电压/磁压、抽速与压强、冷却流量、Carnot 下限、误差传播、D–T 与氚质量收支、衰变和年度净电量。\n\n采用 e=1.602176634×10^−19 C、氘核质量约 3.3435837768×10^−27 kg、教学精度下 μ0≈4π×10^−7 H/m、正文的 mT≈5.01×10^−27 kg。数值复算核对算术和单位，不包含常数及输入的完整不确定度预算。\n\n## 关键来源独立读取范围\n\n- [ITER 包层](https://www.iter.org/machine/blanket)：实际重读功能、First wall panels 与 TBM 说明，核对 2023 年铍改钨的表述；没有把设计等同已运行装置结果。\n- [ITER 偏滤器](https://www.iter.org/machine/divertor)：实际重读 10/20 MW/m² 设计语境和 Divertor targets 原型资格试验段；只支撑所述装置条件。\n- [LLNL 点火诊断报道](https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot)：实际重读 2023-04-12 报道的 2022-12-05 实验数值与 One Key Measurement；核对到靶激光 2.05 MJ、聚变 3.15 MJ 和单次 D–T 约 17.6 MeV，未当最新纪录。\n- [NIST 氚半衰期评估](https://nvlpubs.nist.gov/nistpubs/jres/105/4/j54luc2.pdf)：实际读取摘要及 §8 推荐值，确认 4500±8 天中 8 天是标准不确定度；365 天衰变比例独立计算。\n- [Seidel，Accelerator Vacuum](https://arxiv.org/html/2105.07675v1)：实际读取 §2 的抽速、流导和气体收支，验证串联关系及其适用条件，不外推特定加速器运行要求。\n- [Fitzpatrick，Magnetic Mirrors](https://farside.ph.utexas.edu/teaching/plasma/Plasma/node22.html)：实际重读整页守恒、镜点和捕获条件；球冠比例独立推导。\n- [Gilbert 等原论文摘要](https://arxiv.org/abs/1311.5079)：本次独立复核读取作者摘要，核对中子损伤、嬗变、气体生成和谱依赖的定性用途。作者报告的 PDF §2–3 阅读不冒充本次独立全文复核。\n- [Ye 等原论文摘要](https://arxiv.org/abs/1909.06820)：实际读取作者摘要，核对不同氘载入条件和钨滞留/TDS 的定性比较；不将摘要当完整材料数据库。\n- [Pedersen 等，2016](https://www.nature.com/articles/ncomms13493)：本次直接打开受限，随后原站限定搜索返回了 Results 的 Hamiltonians and magnetic surfaces、Measuring the magnetic topology、Island chains and error fields 及 Discussion 正文；实际读取这些返回段，核对 iota 和无等离子体的电子束测绘范围。未声称另行下载 PDF 或复核原始数据。\n- [Beidler 等，2021](https://www.nature.com/articles/s41586-021-03687-w)：本次直接打开受限，随后原站限定搜索返回 Abstract、Main、Methods 部分正文；实际读取输运优化的证据、比较假设和剩余湍流贡献。正文仅采用定性结论，没有引入本次未复算的实验剖面或输运数值。\n- [Beidler 等 2021 出版社勘误](https://www.nature.com/articles/s41586-021-04023-y)：实际读取全部短勘误。更正图 3 的引用位置和作者姓名，不改变本库所用的定性输运优化结论。该来源仅用于本次审核，未追加正文断言。\n\n工程作者使用的完整 30 项来源及原作者阅读深度保留在 engineering-sources.json。本报告没有把上述关键来源抽查包装为对全部 30 项资料的全文独立复核。文中基础守恒与解析公式通过推导、量纲及数值检查；工程材料允许值、供应资质、实际运行参数未由本次审核提供。\n",
+      "heating": "# 辅助加热六页独立交叉核查\n\n核查者：engineering_expansion；日期：2026-10-16。作者明确冻结版本后，完整读取辅助加热总览及电子回旋、中性束、低杂波、电子伯恩斯坦波、螺旋波五个系统页面。仅作者修改正文，审查者未代改其页面。离子回旋页不在本次六页审查范围。\n\n结论：已发现的一处数学排版错误和一处能量方程边界说明不足均由作者修复，审查者已复读确认。当前未发现需要阻止合并的实质物理、算例或引用范围问题。此结论是公开证据与教学正文交叉核查，不是装置专家签字或对全部外部文献的独立复现。\n\n## 已提出并确认解决的问题\n\n| 页面 | 问题 | 作者修正及复核 |\n| --- | --- | --- |\n| 电子伯恩斯坦波 | 最佳转换条件平方上标误写为 `^{,2}` | 改为 `^{2}`，已与 Urban 等式 (1) 图片逐字核对 |\n| 螺旋波 | 电子能量简式称为“一般方程”，却未解释热流单位与省略的流动项 | 改称“电子热能预算可示意为”；明确 Te 以 J、传导热通量以 W/m²，并说明对流、压缩功、粒子源贡献须按边界补齐 |\n\n## 原公式、术语及来源对照\n\n| 核查对象 | 实际独立阅读的证据 | 核查结果 |\n| --- | --- | --- |\n| EC 共振与电流符号 | Poli 原论文已下载的提取文本第 2.2 节、式 (15)，并实际查看原 PDF 第 5 页渲染图；重新打开 Fitzpatrick 冷介电和色散网页 | 使用正 Ωe 与负电子电荷约定；多普勒项与相对论因子正确；冷垂直 O/X 分支及 R/L 正负号对应；未把冷奇点称为无限物理吸收 |\n| W7-X 的频率与传输例子 | 重新打开 IPP ECRH 官方正文第 113–119 行 | 140 GHz / 2.5 T 是二次谐波，约 60 m 铜镜链有来源；旧 OP1.2 数字没有被外推为当前纪录 |\n| NBI 慢化 | 实际查看 IAEA 教材书页 544 的原 PDF 渲染图，核对式 (5.8) 及瞬时离子份额说明 | 能量损失含 2E/τse，临界能量、速度排序、瞬时与累计份额区分正确 |\n| NBI 组分与 ITER 设计参数 | 重新打开 TRANSP 束输入文档、ITER NBTF 主体第 219–240 行 | 组分按粒子/电流/功率定义区分；16.5 MW、1 MeV、3600 s 保持设计需求语境，未称同时实测达到 |\n| LH 共振与可达性 | 读取 FNSF 原论文提取文本第 2.1 节；实际查看 CFETR 原 PDF 书页 3 的公式渲染图，并读相邻讨论 | 低杂频率式相符；可达性根号范围正确；慢快支合并与局部必要条件限定明确；发射谱与吸收谱分开 |\n| LH 效率 | FNSF 第 2.1 节与 CFETR 第 2 节、相邻设计场景文字 | nRI/P 的量纲为 A/(W·m²)，密度归一化及功率分母已声明；反应堆数值预测不冒充装置实验 |\n| O-X-B | 读取 Urban 原论文第 2.1 节提取正文，并实际查看原 PDF 第 4 页的式 (1)–(3) | 最佳 Nparallel²、Npol 方向、指数系数、k0Ln 无量纲均一致；O-X 一步不冒充整链效率；波束曲率、角谱及涨落限定有原文依据 |\n| EBW 实验与发射边界 | 读取 MAST 2003 年原文第 II–III 节与图 6 相邻段；2007 年会议论文 Proof-of-Principle 段与图 1–2 讨论 | 原文确实讨论模型与发射不一致、边缘高谐波吸收、UHR 参数衰变；正文未摘取最高转换数字作为普遍性能 |\n| Helicon 2026 结果 | 独立联网打开 arXiv:2609.12474v1，读取 Introduction、Power Deposition、Evidence of Current Drive、Calculation of the Driven Current Profile 和硬件/诊断段 | 日期及频段核对；370 kW 工况与约 20±10 kA 的限定口径正确，后者限于 rho<0.2；全截面积分的不确定性、三组加热对照及不完全吸收/效率退化不可区分均保留 |\n\n以上独立核查覆盖正文的关键公式和精确性能数字，并非重新全文审核来源清单全部 31 条。作者的工程新闻、摘要和历史入口已标明阅读深度及用途；访问失败的旧入口没有被用作本轮新结论的实读证据。没有发现把摘要声明扩为未经读取的精确实测结论的情况。\n\n## 数值与量纲\n\n另用 Python 标准库从 SI 常数和公式独立重算，不读取作者算例结果作为输入。作者提供的 15 个数值均在相对 10⁻⁷ 内吻合；差异仅来自常数末位，不影响正文舍入。额外检查 5 个正文算例；全部 20 个结果保存在 `heating-cross-numerics.json`。\n\n- EC：27.99249 GHz/T，170 GHz 基频冷共振 6.07306 T，140 GHz O 模截止 2.43127×10²⁰ m⁻³；20 mm 束腰 Rayleigh 长 0.58684 m。\n- NBI：100 keV 与 1 MeV 氘速度分别 3.09554×10⁶、9.78897×10⁶ m/s；2Ec 的瞬时离子份额 26.1204%；光学厚 2 的直穿比例 13.5335%。\n- LH/Helicon：Nparallel=2、3 对应最小电子相对论动能 79.0518、30.9973 keV；非相对论 Nparallel=2 为 63.8749 keV，正文正确说明两者差别。\n- EBW：Y=0.5 最佳平行折射率 0.57735；给定角度偏差例的 C_OX=0.624228；四个 0.8 相乘为 0.4096。\n- 其它：电子比压算例为 0.80534%；辅助加热 10 MW 示例最终吸收 2.52 MW；单程光学厚 1 吸收 63.2121%；LH 局部可达折射率算例 1.61803 与 2.41421。\n\n同时检查源功率、净耦合、目标吸收与最终热化的定义；快离子储能变化、功率密度/热通量和体积/截面积分没有混用。NBI 动量率 P·sqrt(2m/E) 的单位为 N，并另保留环向投影与力臂。教学例未被描述成真实设备验收值。\n\n## 结构和剩余范围\n\n作者修正后对六页运行 `git diff --check` 通过。独立比较 HEAD：全部 31 个原二级标题和次序保留；没有新增二级 Tag、数字列表或失效本地链接；美元数学定界符计数为偶数，平方上标笔误不再存在。结果见 `heating-cross-structure.json`。这类机械检查不等于浏览器数学渲染，后者仍由主代理在全站集成后验证。\n\n未重新运行各论文的射线、Fokker–Planck 或实验重建代码，没有原始放电数据或装置验收报告。不能据本轮检查将正文标为“专家审核通过”，也不能承诺所有未来工况下均适用。现有正文已清楚写出这些边界，无待修的实质问题。\n",
+      "methods": "# 方法与实验组独立交叉复核\n\n日期：2026-10-16；复核者：主代理（未参与该组五页首稿编写）。完整阅读诊断控制、仿真计算、实验运行、项目产业、文献资料五页所有条目，核对作者记录的来源范围；独立重推关键公式，并读取 NIST 附录 A、ITER CODAC、Gkeyll 官方模块说明、两篇 arXiv 作者摘要、UKAEA JET 公告、NASA TRL 与 WIPO FAQ 等关键来源。\n\n- 干涉相位：从 n_ref=sqrt(1-ωpe²/ω²) 展开，核对负号、单程光程及 reλ 系数；expansion_checks.py 以未展开折射率独立计算相位作比较。\n- TS/ECE/磁线圈/红外：检查有限测量体积、光学厚度、磁通变化初值及红外反演限制，未把信号直接等同目标物理量。\n- 不确定度：由 J C Jᵀ 重构相关项，核对独立均值标准误和标定误差合成；0.040/0.050 kW 算例重新计算。覆盖因子没有被无条件等同95%。\n- 延迟：频域 e^(-iωτ) 得相位 -2πfτ。正常控制与独立保护/安全系统的描述与 ITER 原文相符。\n- 计算：局域/全局、full-f/长波长、静电/电磁能力边界明确；Gkeyll 当前入口确实列明该陀螺动理模块为长波长静电。制造解验证没有被当作实验确认；TORLH/CQL3D 只引用摘要所支持的特定算例结论。\n- RF能量矩：确认非相对论动能、积分测度、物种与体积边界，内部碰撞传能没有重复计账。\n- 实验预算：5-4 MW持续0.20 s得到0.20 MJ；0.5 kg/s×4.18 kJ/(kg K)×2 K得到4.18 kW。放电脉长与τE未混用。\n- 历史结果：2024-02-08 JET公告为69 MJ约5 s，13.8 MW为近似时间平均；未声称2026纪录或净发电。ITER 500/50 MW是目标且不发电；W7-X概览未被用来证明最新性能。\n- 产业/文献：TRL技术对象与环境分开；专利可读不等于授权实施。原论文摘要与全文阅读边界保持可追溯。\n\n结论：本轮未发现需修正的实质问题。34项新独立计算中包括上述方法组关键教学算例；其余原理通过代数与来源审读。没有运行真实诊断反演、外部求解器或设施验收。复核是模型辅助交叉检查，不是外部领域专家审核，也不保证超出已述假设的工况。\n"
+    },
+    "reproducible_benchmarks": {
+      "date": "2026-10-16",
+      "count": 34,
+      "all_passed": true,
+      "scope": "Selected synthetic teaching benchmarks, not reactor validation or specialist certification",
+      "checks": [
+        {
+          "name": "relative-speed Maxwell normalization",
+          "actual": 1.0,
+          "expected": 1,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "fusion rate: speed integral vs energy integral",
+          "actual": 1.546469617611094,
+          "expected": 1.5464696176100905,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "constant-cross-section analytic benchmark",
+          "actual": 1.546469617611094,
+          "expected": 1.5464696176110975,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "unordered identical reacting pairs",
+          "actual": 19900,
+          "expected": 19900.0,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "fuel dilution at five percent helium/ne",
+          "actual": 0.81,
+          "expected": 0.81,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "cylindrical density-product integral",
+          "actual": 0.33333333333333337,
+          "expected": 0.3333333333333333,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "transient loss-based confinement time [s]",
+          "actual": 2.0,
+          "expected": 2,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-gain Lawson power balance Q=1",
+          "actual": 1634220.16668,
+          "expected": 1634220.16668,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-gain Lawson power balance Q=5",
+          "actual": 506287.81634400005,
+          "expected": 506287.81634400005,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-gain Lawson power balance Q=10",
+          "actual": 365296.272552,
+          "expected": 365296.27255200007,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "finite-gain Lawson power balance Q=1e+12",
+          "actual": 224304.72876140993,
+          "expected": 224304.72876140996,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "Q=10 approximate alpha heating fraction",
+          "actual": 0.6666666666666666,
+          "expected": 0.6666666666666666,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "bremsstrahlung cgs-to-SI [W/m3]",
+          "actual": 16900.0,
+          "expected": 16900,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "steady ash inventory [particles]",
+          "actual": 5e+19,
+          "expected": 5e+19,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "net electricity illustrative budget [MW]",
+          "actual": 30.0,
+          "expected": 30,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "net electricity lower heating efficiency [MW]",
+          "actual": -36.666666666666686,
+          "expected": -36.66666666666667,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "cylindrical boundary flux equals integrated source",
+          "actual": 69.72827726513975,
+          "expected": 69.72827726495616,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "turbulent cross-phase flux delta=0",
+          "actual": -1.5810900734291058e-18,
+          "expected": 0.0,
+          "rtol": 1e-08,
+          "atol": 1e-12,
+          "passed": true
+        },
+        {
+          "name": "turbulent cross-phase flux delta=0.523599",
+          "actual": 0.15521739130434786,
+          "expected": 0.1552173913043478,
+          "rtol": 1e-08,
+          "atol": 1e-12,
+          "passed": true
+        },
+        {
+          "name": "turbulent cross-phase flux delta=-1.5708",
+          "actual": -0.3104347826086957,
+          "expected": -0.31043478260869567,
+          "rtol": 1e-08,
+          "atol": 1e-12,
+          "passed": true
+        },
+        {
+          "name": "two-point model ODE vs integrated endpoint",
+          "actual": 1.5368523544529797,
+          "expected": 1.5368523544529802,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "two-point profile local heat flux at s=0.1",
+          "actual": 1.0000000000300282,
+          "expected": 1,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "two-point profile local heat flux at s=0.5",
+          "actual": 1.0000000000239122,
+          "expected": 1,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "two-point profile local heat flux at s=0.9",
+          "actual": 1.0000000001328184,
+          "expected": 1,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "D Bohm speed at Te=10 eV [m/s]",
+          "actual": 21890.167876065178,
+          "expected": 21900.0,
+          "rtol": 0.002,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "D floating wall potential drop [V]",
+          "actual": 31.851007324029204,
+          "expected": 31.9,
+          "rtol": 0.002,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "floating-wall current balance from integrated electrons",
+          "actual": 21890.167876065232,
+          "expected": 21890.167876065178,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "interferometer high-frequency phase and sign",
+          "actual": -1.098237169517973,
+          "expected": -1.0982364317182152,
+          "rtol": 1e-06,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "transient energy accumulation [MJ]",
+          "actual": 0.2,
+          "expected": 0.2,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "coolant calorimetry [kW]",
+          "actual": 4.18,
+          "expected": 4.18,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "standard error of independent mean [kW]",
+          "actual": 0.04,
+          "expected": 0.04,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "combined independent uncertainty [kW]",
+          "actual": 0.05,
+          "expected": 0.05,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "JET announced energy/time mean [MW]",
+          "actual": 13.8,
+          "expected": 13.8,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        },
+        {
+          "name": "covariance propagation vs independent-variable reconstruction",
+          "actual": 9.85,
+          "expected": 9.85,
+          "rtol": 1e-08,
+          "atol": 0,
+          "passed": true
+        }
+      ]
+    },
+    "additional_independent_calculations": {
+      "foundations": {
+        "check_type": "independent hand derivation plus standard-library numerical integration; teaching examples only",
+        "checked_on": "2026-10-16",
+        "Maxwell_constant_sigma": {
+          "mu": 1.2,
+          "theta": 4,
+          "sigma0": 0.02,
+          "integrated_vspace": 0.058269249631570465,
+          "analytic": 0.058269249631577556,
+          "relative_error": 1.2168044349891716e-13
+        },
+        "fuel_dilution_He_005": 0.81,
+        "profile_cylinder_factor": 0.3333333333333334,
+        "tau_total_s": 2.0,
+        "alpha_Q5": 0.5,
+        "alpha_Q10": 0.6666666666666666,
+        "brems_coeff_SI_per_sqrt_eV": 1.6900000000000001e-38,
+        "brems_example_W_m3": 16900.0,
+        "helium_inventory": 5e+19,
+        "net_power_eta05_MW": 30.0,
+        "net_power_eta03_MW": -36.666666666666686,
+        "sheath_D10eV_cs_m_s": 21890.167876065178,
+        "sheath_D10eV_drop_V": 31.851007324029204,
+        "turbulent_correlation_numeric": 1.5461224493704586,
+        "turbulent_correlation_analytic": 1.5461224493704584,
+        "two_point_upstream_normalized": 1.5368523544529802,
+        "two_point_power_identity": 1.0000000000000002,
+        "MHD_work_identity": "J·(−u×B+ηJ)=u·(J×B)+ηJ²",
+        "neoclassical_random_walk": "sqrt(eps)*(nu/eps)*(q*rho/sqrt(eps))²=q²*rho²*nu/eps^(3/2)"
+      },
+      "engineering": {
+        "Btheta_T": 0.2,
+        "q": 3.75,
+        "FRC_rho_m": 0.0408597684615241,
+        "losscone_deg": 29.999999999999996,
+        "losscone_fraction": 0.1339745962155614,
+        "ICF_target_gain": 1.5365853658536586,
+        "tau_E_s": 0.5,
+        "inner_cylinder_sigma_MPa": 10.0,
+        "heatflow_MWm2": 10.0,
+        "plate_deltaT_K": 300.0,
+        "film_deltaT_K": 100.0,
+        "erosion_nm_s": 1.6666666666666667,
+        "erosion_um_1000s": 1.6666666666666667,
+        "strain_mismatch": 0.003,
+        "magnet_energy_MJ": 200.0,
+        "magnet_voltage_V": 1000.0,
+        "magnetic_pressure_MPa": 39.78873577297384,
+        "Seff_m3_s": 0.16666666666666666,
+        "psteady_Pa": 0.006,
+        "cooling_mass_kg_s": 11.904761904761905,
+        "carnot_input_per_cold_W": 65.66666666666667,
+        "heatflow_uncertainty": 0.03741657386773942,
+        "DT_reactions_per_s": 3.5463119741254337e+20,
+        "tritium_burn_mg_s": 1.7767022990368422,
+        "tritium_burn_kg_year": 56.03008370242586,
+        "tritium_half_years": 12.320328542094456,
+        "tritium_decay_fraction_year": 0.054707094076156926,
+        "net_MW": 250.0,
+        "net_MWh_year": 1533000.0
+      },
+      "heating": {
+        "reviewed_on": "2026-10-16",
+        "values": {
+          "fce_GHz_per_T": 27.99248983422872,
+          "B_170GHz_fundamental_T": 6.073057488159807,
+          "O_cutoff_140GHz_m3": 2.431267512942547e+20,
+          "wavelength140_m": 0.0021413747,
+          "Rayleigh_20mm_m": 0.5868366061464709,
+          "NBI_v100keV_ms": 3095544.5621673153,
+          "NBI_v1MeV_ms": 9788971.414997408,
+          "NBI_instant_ion_at_2Ec": 0.2612038749637414,
+          "shine_tau2": 0.1353352832366127,
+          "LH_N2_keV": 79.0518127832469,
+          "Helicon_N3_keV": 30.99728412827013,
+          "OX_offset0p1": 0.6242284336485696,
+          "beta_ne2e19_Te4keV_B2": 0.008053418149004198,
+          "LH_acc_a0p5": 1.618033988749895,
+          "LH_acc_a1": 2.414213562373095,
+          "overview_absorbed_MW": 2.52,
+          "OX_optimal_N_Y05": 0.5773502691896257,
+          "OX_four_stage_0p8": 0.4096000000000001,
+          "absorption_tau1": 0.6321205588285577,
+          "LH_N2_nonrelativistic_keV": 63.87486883646914
+        },
+        "all_15_author_values_match_within_relative_1e-7": true,
+        "note": "独立从常数和公式重算；m_e/epsilon0采用现行推荐值近似，与作者常数差仅末位，不影响正文舍入。"
+      }
+    },
+    "browser_checks": {
+      "date": "2026-10-16",
+      "desktop": [
+        {
+          "entries": 7,
+          "errors": 0,
+          "math": 22,
+          "overflow": 0,
+          "title": "基础原理",
+          "url": "/sections/foundations/"
+        },
+        {
+          "entries": 9,
+          "errors": 0,
+          "math": 109,
+          "overflow": 0,
+          "title": "聚变反应与燃烧",
+          "url": "/sections/fusion-burning/"
+        },
+        {
+          "entries": 10,
+          "errors": 0,
+          "math": 72,
+          "overflow": 0,
+          "title": "输运与边界",
+          "url": "/sections/transport-boundary/"
+        },
+        {
+          "entries": 7,
+          "errors": 0,
+          "math": 64,
+          "overflow": 0,
+          "title": "装置路线",
+          "url": "/sections/devices/"
+        },
+        {
+          "entries": 1,
+          "errors": 0,
+          "math": 14,
+          "overflow": 0,
+          "title": "辅助加热与电流驱动",
+          "url": "/sections/heating/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 55,
+          "overflow": 0,
+          "title": "电子回旋加热（ECRH / ECCD）",
+          "url": "/sections/ecrh/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 38,
+          "overflow": 0,
+          "title": "中性束注入（NBI / NBCD）",
+          "url": "/sections/nbi/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 37,
+          "overflow": 0,
+          "title": "低杂波电流驱动（LHCD / LHH）",
+          "url": "/sections/lhcd/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 35,
+          "overflow": 0,
+          "title": "电子伯恩斯坦波加热（EBW）",
+          "url": "/sections/ebw/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 31,
+          "overflow": 0,
+          "title": "螺旋波加热（Helicon）",
+          "url": "/sections/helicon/"
+        },
+        {
+          "entries": 7,
+          "errors": 0,
+          "math": 57,
+          "overflow": 0,
+          "title": "腔体材料",
+          "url": "/sections/materials/"
+        },
+        {
+          "entries": 4,
+          "errors": 0,
+          "math": 15,
+          "overflow": 0,
+          "title": "诊断控制",
+          "url": "/sections/diagnostics/"
+        },
+        {
+          "entries": 4,
+          "errors": 0,
+          "math": 4,
+          "overflow": 0,
+          "title": "仿真计算",
+          "url": "/sections/simulation/"
+        },
+        {
+          "entries": 6,
+          "errors": 0,
+          "math": 69,
+          "overflow": 0,
+          "title": "工程系统",
+          "url": "/sections/engineering/"
+        },
+        {
+          "entries": 4,
+          "errors": 0,
+          "math": 23,
+          "overflow": 0,
+          "title": "实验运行",
+          "url": "/sections/experiments/"
+        },
+        {
+          "entries": 3,
+          "errors": 0,
+          "math": 13,
+          "overflow": 0,
+          "title": "项目产业",
+          "url": "/sections/industry/"
+        },
+        {
+          "entries": 4,
+          "errors": 0,
+          "math": 3,
+          "overflow": 0,
+          "title": "文献资料",
+          "url": "/sections/literature/"
+        }
+      ],
+      "mobile": [
+        {
+          "errors": 0,
+          "math": 109,
+          "overflow": 0,
+          "url": "/sections/fusion-burning/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 72,
+          "overflow": 0,
+          "url": "/sections/transport-boundary/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 64,
+          "overflow": 0,
+          "url": "/sections/devices/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 14,
+          "overflow": 0,
+          "url": "/sections/heating/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 55,
+          "overflow": 0,
+          "url": "/sections/ecrh/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 38,
+          "overflow": 0,
+          "url": "/sections/nbi/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 37,
+          "overflow": 0,
+          "url": "/sections/lhcd/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 35,
+          "overflow": 0,
+          "url": "/sections/ebw/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 31,
+          "overflow": 0,
+          "url": "/sections/helicon/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 57,
+          "overflow": 0,
+          "url": "/sections/materials/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 15,
+          "overflow": 0,
+          "url": "/sections/diagnostics/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 4,
+          "overflow": 0,
+          "url": "/sections/simulation/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 69,
+          "overflow": 0,
+          "url": "/sections/engineering/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 23,
+          "overflow": 0,
+          "url": "/sections/experiments/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 13,
+          "overflow": 0,
+          "url": "/sections/industry/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 3,
+          "overflow": 0,
+          "url": "/sections/literature/",
+          "viewport": 390
+        },
+        {
+          "errors": 0,
+          "math": 22,
+          "overflow": 0,
+          "url": "/sections/foundations/",
+          "viewport": 390
+        }
+      ]
+    },
+    "graph_checks": {
+      "root": 1,
+      "chapters": 10,
+      "sections": 23,
+      "tag_leaves": 163,
+      "total_nodes": 197,
+      "relations": 178,
+      "learning_paths": 6,
+      "browser_observed": "3D canvas rendered, burning path 8 Tag / 7 relations, 2D flow retained, MF000160 search and opening correct Tag body verified",
+      "old_tag_identity": "All 144 records byte-equivalent after JSON parsing"
+    },
+    "limitations": [
+      "Full manuscript read by separate model reviewers; independent source rereading focused on critical formulas and precise claims, not every external document in full.",
+      "Synthetic calculations check stated formulas and units; no reactor simulation, raw experimental reanalysis, or equipment acceptance performed.",
+      "Source metadata distinguishes full pages, selected sections, abstracts and access failures; dates of design goals and historical results retained."
+    ]
   }
 }
