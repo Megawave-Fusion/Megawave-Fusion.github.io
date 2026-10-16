@@ -1,0 +1,500 @@
+{
+  "MF000001": {
+    "title": "聚变反应与能量收支",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000001/",
+    "status": "draft"
+  },
+  "MF000002": {
+    "title": "约束与性能指标",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000002/",
+    "status": "draft"
+  },
+  "MF000003": {
+    "title": "平衡与 MHD 稳定性",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000003/",
+    "status": "draft"
+  },
+  "MF000004": {
+    "title": "等离子体波与波粒相互作用",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000004/",
+    "status": "draft"
+  },
+  "MF000005": {
+    "title": "输运、边界与快粒子",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000005/",
+    "status": "draft"
+  },
+  "MF000006": {
+    "title": "欧姆加热与自加热",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000006/",
+    "status": "draft"
+  },
+  "MF000007": {
+    "title": "参考资料",
+    "source": "基础原理/README.md",
+    "url": "/tag/MF000007/",
+    "status": "draft"
+  },
+  "MF000008": {
+    "title": "托卡马克",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000008/",
+    "status": "draft"
+  },
+  "MF000009": {
+    "title": "场反位形 FRC",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000009/",
+    "status": "draft"
+  },
+  "MF000010": {
+    "title": "磁镜",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000010/",
+    "status": "draft"
+  },
+  "MF000011": {
+    "title": "仿星器",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000011/",
+    "status": "draft"
+  },
+  "MF000012": {
+    "title": "其他路线",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000012/",
+    "status": "draft"
+  },
+  "MF000013": {
+    "title": "装置档案的记录内容",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000013/",
+    "status": "draft"
+  },
+  "MF000014": {
+    "title": "参考资料",
+    "source": "装置路线/README.md",
+    "url": "/tag/MF000014/",
+    "status": "draft"
+  },
+  "MF000015": {
+    "title": "系统间的接口与比较",
+    "source": "辅助加热/README.md",
+    "url": "/tag/MF000015/",
+    "status": "draft"
+  },
+  "MF000016": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000016/",
+    "status": "draft"
+  },
+  "MF000017": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000017/",
+    "status": "draft"
+  },
+  "MF000018": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000018/",
+    "status": "draft"
+  },
+  "MF000019": {
+    "title": "控制与保护",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000019/",
+    "status": "draft"
+  },
+  "MF000020": {
+    "title": "测试与验收",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000020/",
+    "status": "draft"
+  },
+  "MF000021": {
+    "title": "文献与案例",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000021/",
+    "status": "draft"
+  },
+  "MF000022": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000022/",
+    "status": "draft"
+  },
+  "MF000023": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000023/",
+    "status": "draft"
+  },
+  "MF000024": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000024/",
+    "status": "draft"
+  },
+  "MF000025": {
+    "title": "控制与保护",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000025/",
+    "status": "draft"
+  },
+  "MF000026": {
+    "title": "测试与验收",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000026/",
+    "status": "draft"
+  },
+  "MF000027": {
+    "title": "文献与案例",
+    "source": "辅助加热/电子回旋加热/README.md",
+    "url": "/tag/MF000027/",
+    "status": "draft"
+  },
+  "MF000028": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000028/",
+    "status": "draft"
+  },
+  "MF000029": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000029/",
+    "status": "draft"
+  },
+  "MF000030": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000030/",
+    "status": "draft"
+  },
+  "MF000031": {
+    "title": "控制与保护",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000031/",
+    "status": "draft"
+  },
+  "MF000032": {
+    "title": "测试与验收",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000032/",
+    "status": "draft"
+  },
+  "MF000033": {
+    "title": "文献与案例",
+    "source": "辅助加热/中性束注入/README.md",
+    "url": "/tag/MF000033/",
+    "status": "draft"
+  },
+  "MF000034": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000034/",
+    "status": "draft"
+  },
+  "MF000035": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000035/",
+    "status": "draft"
+  },
+  "MF000036": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000036/",
+    "status": "draft"
+  },
+  "MF000037": {
+    "title": "控制与保护",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000037/",
+    "status": "draft"
+  },
+  "MF000038": {
+    "title": "测试与验收",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000038/",
+    "status": "draft"
+  },
+  "MF000039": {
+    "title": "文献与案例",
+    "source": "辅助加热/低杂波电流驱动/README.md",
+    "url": "/tag/MF000039/",
+    "status": "draft"
+  },
+  "MF000040": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000040/",
+    "status": "draft"
+  },
+  "MF000041": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000041/",
+    "status": "draft"
+  },
+  "MF000042": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000042/",
+    "status": "draft"
+  },
+  "MF000043": {
+    "title": "控制与保护",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000043/",
+    "status": "draft"
+  },
+  "MF000044": {
+    "title": "测试与验收",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000044/",
+    "status": "draft"
+  },
+  "MF000045": {
+    "title": "文献与案例",
+    "source": "辅助加热/电子伯恩斯坦波加热/README.md",
+    "url": "/tag/MF000045/",
+    "status": "draft"
+  },
+  "MF000046": {
+    "title": "原理与适用条件",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000046/",
+    "status": "draft"
+  },
+  "MF000047": {
+    "title": "设备组成与接口",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000047/",
+    "status": "draft"
+  },
+  "MF000048": {
+    "title": "设计计算与仿真",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000048/",
+    "status": "draft"
+  },
+  "MF000049": {
+    "title": "控制与保护",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000049/",
+    "status": "draft"
+  },
+  "MF000050": {
+    "title": "测试与验收",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000050/",
+    "status": "draft"
+  },
+  "MF000051": {
+    "title": "文献与案例",
+    "source": "辅助加热/螺旋波加热/README.md",
+    "url": "/tag/MF000051/",
+    "status": "draft"
+  },
+  "MF000052": {
+    "title": "真空室与腔体结构",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000052/",
+    "status": "draft"
+  },
+  "MF000053": {
+    "title": "第一壁与包层",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000053/",
+    "status": "draft"
+  },
+  "MF000054": {
+    "title": "偏滤器与排热部件",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000054/",
+    "status": "draft"
+  },
+  "MF000055": {
+    "title": "材料数据与选型",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000055/",
+    "status": "draft"
+  },
+  "MF000056": {
+    "title": "等离子体与材料相互作用",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000056/",
+    "status": "draft"
+  },
+  "MF000057": {
+    "title": "制造、连接与检验",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000057/",
+    "status": "draft"
+  },
+  "MF000058": {
+    "title": "参考资料",
+    "source": "腔体材料/README.md",
+    "url": "/tag/MF000058/",
+    "status": "draft"
+  },
+  "MF000059": {
+    "title": "诊断方法",
+    "source": "诊断控制/README.md",
+    "url": "/tag/MF000059/",
+    "status": "draft"
+  },
+  "MF000060": {
+    "title": "标定与数据质量",
+    "source": "诊断控制/README.md",
+    "url": "/tag/MF000060/",
+    "status": "draft"
+  },
+  "MF000061": {
+    "title": "实时控制与联锁接口",
+    "source": "诊断控制/README.md",
+    "url": "/tag/MF000061/",
+    "status": "draft"
+  },
+  "MF000062": {
+    "title": "参考资料",
+    "source": "诊断控制/README.md",
+    "url": "/tag/MF000062/",
+    "status": "draft"
+  },
+  "MF000063": {
+    "title": "模型与求解器目录",
+    "source": "仿真计算/README.md",
+    "url": "/tag/MF000063/",
+    "status": "draft"
+  },
+  "MF000064": {
+    "title": "多物理耦合与数据接口",
+    "source": "仿真计算/README.md",
+    "url": "/tag/MF000064/",
+    "status": "draft"
+  },
+  "MF000065": {
+    "title": "验证、确认与不确定性",
+    "source": "仿真计算/README.md",
+    "url": "/tag/MF000065/",
+    "status": "draft"
+  },
+  "MF000066": {
+    "title": "可复现计算",
+    "source": "仿真计算/README.md",
+    "url": "/tag/MF000066/",
+    "status": "draft"
+  },
+  "MF000067": {
+    "title": "磁体与电源",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000067/",
+    "status": "draft"
+  },
+  "MF000068": {
+    "title": "真空与气体系统",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000068/",
+    "status": "draft"
+  },
+  "MF000069": {
+    "title": "冷却与低温",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000069/",
+    "status": "draft"
+  },
+  "MF000070": {
+    "title": "燃料、注入与循环",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000070/",
+    "status": "draft"
+  },
+  "MF000071": {
+    "title": "屏蔽、维护与运行保障",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000071/",
+    "status": "draft"
+  },
+  "MF000072": {
+    "title": "参考资料",
+    "source": "工程系统/README.md",
+    "url": "/tag/MF000072/",
+    "status": "draft"
+  },
+  "MF000073": {
+    "title": "试验计划与台架",
+    "source": "实验运行/README.md",
+    "url": "/tag/MF000073/",
+    "status": "draft"
+  },
+  "MF000074": {
+    "title": "放电与运行记录",
+    "source": "实验运行/README.md",
+    "url": "/tag/MF000074/",
+    "status": "draft"
+  },
+  "MF000075": {
+    "title": "验收与标定报告",
+    "source": "实验运行/README.md",
+    "url": "/tag/MF000075/",
+    "status": "draft"
+  },
+  "MF000076": {
+    "title": "故障与经验复盘",
+    "source": "实验运行/README.md",
+    "url": "/tag/MF000076/",
+    "status": "draft"
+  },
+  "MF000077": {
+    "title": "具体装置档案",
+    "source": "项目产业/README.md",
+    "url": "/tag/MF000077/",
+    "status": "draft"
+  },
+  "MF000078": {
+    "title": "机构、团队与供应链",
+    "source": "项目产业/README.md",
+    "url": "/tag/MF000078/",
+    "status": "draft"
+  },
+  "MF000079": {
+    "title": "专利、技术路线与成熟度",
+    "source": "项目产业/README.md",
+    "url": "/tag/MF000079/",
+    "status": "draft"
+  },
+  "MF000080": {
+    "title": "学习路径",
+    "source": "文献资料/README.md",
+    "url": "/tag/MF000080/",
+    "status": "draft"
+  },
+  "MF000081": {
+    "title": "论文、教材、课程与会议",
+    "source": "文献资料/README.md",
+    "url": "/tag/MF000081/",
+    "status": "draft"
+  },
+  "MF000082": {
+    "title": "术语表",
+    "source": "文献资料/README.md",
+    "url": "/tag/MF000082/",
+    "status": "draft"
+  },
+  "MF000083": {
+    "title": "参考来源",
+    "source": "文献资料/README.md",
+    "url": "/tag/MF000083/",
+    "status": "draft"
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>网站维护 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="网站维护 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/maintenance/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/maintenance/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=c8e2b5bf8c"><script type="module" src="/assets/site.mjs?v=0d0b11e2da"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>网站维护</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a></nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a><a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a></nav></details><h1>网站维护</h1><article class="prose"><p>在线站点：<a href="https://megawave-fusion.github.io/">Fusion Stacks</a>。源仓库：<a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">Megawave-Fusion.github.io</a>。</p>
+<h2 id="源文件与阅读结构">源文件与阅读结构</h2>
+<p>各中文目录的 <code>README.md</code> 是知识正文。<code>site/site.json</code> 登记章节和专题，<code>site/tags.json</code> 登记条目永久标签。每个专题的二级标题生成独立条目，正文也完整显示在专题连续阅读页。</p>
+<p>原仓库的 Git 历史随项目迁移，原有 18 份 Markdown 文档、来源记录和六套独立加热系统均保留。网站维护文档属于新增的站点说明。</p>
+<p>条目默认是草稿，不因构建或部署成功而自动变为“已审核”。编写规范见 <a href="/contributing/">编写与审核</a>。</p>
+<h2 id="本地构建">本地构建</h2>
+<p>使用 Python 3.10 或更新版本。首次准备环境：</p>
+<pre><code class="language-sh">python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+</code></pre>
+<p>MathJax 3.2.2 已随源码收录，不依赖外部 CDN。若从不含 vendor 的源包开始，可运行 <code>.venv/bin/python scripts/vendor_mathjax.py</code> 从官方 npm 包恢复。</p>
+<p>普通修改后：</p>
+<pre><code class="language-sh">.venv/bin/python 工具/检查知识库.py
+.venv/bin/python scripts/build.py
+.venv/bin/python scripts/check_site.py _site
+.venv/bin/python -m http.server 8000 --directory _site
+</code></pre>
+<p>浏览器访问 <code>http://localhost:8000/</code>。修改脚本后可运行 <code>node --test tests/search.test.mjs</code> 检查中文、缩写、标签和章节筛选。</p>
+<h2 id="永久标签">永久标签</h2>
+<p>新增二级标题时运行 <code>.venv/bin/python scripts/build.py --register-tags</code>，检查并提交 <code>site/tags.json</code> 的新增记录。标签如 <code>MF000001</code> 与章节显示编号分离。</p>
+<p>改标题或移动源文件时，先在登记表中修改对应键，保留原 <code>tag</code>。构建遇到消失的登记项会失败，防止旧链接被静默废弃。删除或合并条目前需安排旧标签的明确去向。</p>
+<h2 id="公式与引用">公式与引用</h2>
+<p>支持行内 LaTeX <code>$x^2+y^2$</code> 和独立行公式 <code>$$...$$</code>。示例：</p>
+<div class="arithmatex">\[
+\omega_c=\frac{|q|B}{m}.
+\]</div>
+<p>这只是数学排版示例。技术正文仍需注明物理假设、符号、单位和原始来源。</p>
+<p>每个专题和条目都提供永久链接、GitHub 源文编辑入口和 BibTeX 引用。参考文献沿用 <a href="/data/sources.json">来源索引</a>，原始核对日期不会在发布时自动更新。</p>
+<h2 id="发布到-github-pages">发布到 GitHub Pages</h2>
+<p>本地构建后发布预生成的 <code>docs/</code>，由 GitHub Pages 原生流程提供网站。没有定时任务，也不需要服务端数据库。</p>
+<p>先提交正文及构建代码，再运行：</p>
+<pre><code class="language-sh">.venv/bin/python scripts/publish.py
+</code></pre>
+<p>发布脚本要求干净的 <code>main</code> 分支，先快进同步，重建、检查全部内部链接后更新 <code>docs/</code>，使用普通提交和推送。发布回执 <code>edition.json</code> 记录实际构建所基于的提交与源文件校验值，随后存储网页的提交可能与它不同。</p>
+<h2 id="讨论与评论">讨论与评论</h2>
+<p>已使用 <a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions">GitHub Discussions</a>。条目的讨论标题包含永久标签，可以从正文进入对应讨论检索或新建页面。</p>
+<p>站内嵌入式评论尚未启用；如需 giscus，需先为组织安装并授权该 GitHub App，再配置仓库与分类标识。原生讨论入口无需这个额外应用。</p>
+<h2 id="验证范围与许可">验证范围与许可</h2>
+<p>自动检查包括源文档覆盖、永久标签、内部页面与片段链接、搜索索引、阅读顺序和发布回执。网页结构检查和公式排版不代表数学证明、物理模型或工程设计已通过审核。</p>
+<p>阅读组织参考 <a href="https://github.com/MingchenXia/Pome">Pome</a>。站点生成器和样式为本项目实现；未复制 Pome 的书稿或数学内容。自托管 MathJax 的许可证保存在 <code>vendor/mathjax/LICENSE</code>。知识正文沿用原有许可要求，本仓库不默认授予开源许可。</p>
+<p><a href="/about/">返回知识库</a></p></article></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></span></div></footer></body></html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>编写与审核 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="编写与审核 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/contributing/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/contributing/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=c8e2b5bf8c"><script type="module" src="/assets/site.mjs?v=0d0b11e2da"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>编写与审核</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a></nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
+<main id="main"><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/chapters/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/chapters/materials/"><span>04</span>腔体材料</a><a class="" href="/chapters/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/chapters/engineering/"><span>07</span>工程系统</a><a class="" href="/chapters/experiments/"><span>08</span>实验运行</a><a class="" href="/chapters/industry/"><span>09</span>项目产业</a><a class="" href="/chapters/literature/"><span>10</span>文献资料</a><a href="/contributing/">编写与审核</a><a href="/sources/">版本与来源</a></nav></details><h1>编写与审核</h1><article class="prose"><h2 id="组织方式">组织方式</h2>
+<p>目录使用中文，不加编号。一个类目或一个加热系统先维护一个主页面，资料放在相关章节中；避免为尚无内容的子类目提前拆文件。跨类目内容选择一个主归属，通过相对链接引用。</p>
+<h2 id="编写与审核">编写与审核</h2>
+<ul>
+<li>关键结论提供原论文、机构资料或可追溯内部报告，注明版本、日期与原文位置。</li>
+<li>数值包含单位、工况和误差；区分设计目标、仿真预测、实验测量与待验证假设。</li>
+<li>未完成内容标注“待补充”；只有实际完成领域审核后才标记“已审核”。</li>
+<li>文献更新时同时维护 <a href="/data/sources.json">来源索引</a>。网页访问日期与论文发表日期分别记录。</li>
+<li>仿真保存代码版本、输入、网格、时间步及守恒检查；实验保存标定、原始数据入口与不确定性。</li>
+</ul>
+<h2 id="通用记录信息">通用记录信息</h2>
+<p>标题、归属类目、装置、加热系统、标签、负责人、更新时间、来源和审核记录。</p>
+<p>审核状态：草稿、审核中、已审核、已归档。证据类型：资料摘要、解析计算、数值仿真、实验观测、工程测试、待验证假设。来源类型与审核状态分别记录。</p>
+<h2 id="记录模板">记录模板</h2>
+<p>按需要复制下面的字段到相应主题页面，不必为每份模板新建文件。</p>
+<h3 id="知识条目">知识条目</h3>
+<ul>
+<li>问题与结论：</li>
+<li>概念和定义：</li>
+<li>适用范围与假设：</li>
+<li>方法或证据：</li>
+<li>参数与单位：</li>
+<li>限制及相反证据：</li>
+<li>相关条目：</li>
+<li>来源与版本：</li>
+<li>审核记录：</li>
+</ul>
+<h3 id="论文笔记">论文笔记</h3>
+<ul>
+<li>作者、标题、年份、期刊和 DOI/URL：</li>
+<li>研究问题：</li>
+<li>研究对象与工况：</li>
+<li>方法及假设：</li>
+<li>主要结果与原文定位：</li>
+<li>不确定性与限制：</li>
+<li>对本团队的用途：</li>
+<li>可复现资料：</li>
+<li>相关条目：</li>
+</ul>
+<h3 id="装置档案">装置档案</h3>
+<ul>
+<li>名称、机构、路线与资料日期：</li>
+<li>状态及来源：</li>
+<li>几何、磁场和等离子体参数：</li>
+<li>各辅助加热系统独立配置：</li>
+<li>诊断与工程系统：</li>
+<li>设计目标：</li>
+<li>已实现结果及测量口径：</li>
+<li>模型/数据入口：</li>
+<li>证据缺口：</li>
+</ul>
+<h3 id="系统规格">系统规格</h3>
+<ul>
+<li>系统与装置：</li>
+<li>功能目标与需求来源：</li>
+<li>原理和适用工况：</li>
+<li>设备组成：</li>
+<li>功率链及测量平面：</li>
+<li>电气、射频/束线、真空、冷却及控制接口：</li>
+<li>设计计算及误差：</li>
+<li>控制保护与判据来源：</li>
+<li>测试验收：</li>
+<li>文献与案例：</li>
+<li>版本与审核：</li>
+</ul>
+<h3 id="实验记录">实验记录</h3>
+<ul>
+<li>实验/放电编号与时间：</li>
+<li>目标与预设判据：</li>
+<li>配置及版本：</li>
+<li>仪器和标定：</li>
+<li>操作及扫描参数：</li>
+<li>原始数据路径和校验值：</li>
+<li>处理方法：</li>
+<li>结果和不确定性：</li>
+<li>异常与替代解释：</li>
+<li>下一步和审核：</li>
+</ul>
+<h3 id="材料卡片">材料卡片</h3>
+<ul>
+<li>材料牌号与供应/批次：</li>
+<li>成分与加工态：</li>
+<li>目标部件和工况：</li>
+<li>物性表及单位：</li>
+<li>温度/辐照/表面条件：</li>
+<li>测试方法和不确定性：</li>
+<li>兼容性与连接工艺：</li>
+<li>失效与寿命证据：</li>
+<li>来源与版本：</li>
+</ul>
+<h2 id="文件与资料">文件与资料</h2>
+<p>Markdown 保存知识正文。较大的 CAD、波形、视频与原始数据存放在团队资料库，在正文记录位置、版本和校验值。根据已有使用权决定是否收录外部全文；本仓库不默认授予开源许可。</p>
+<h2 id="更新流程">更新流程</h2>
+<ul>
+<li>在相关页面补充内容，通过拉取请求说明变化、来源、验证范围及审核需求。</li>
+<li>提交前运行 <code>python3 工具/检查知识库.py</code>，检查目录结构与本地链接。</li>
+<li>本地结构检查不代替原始资料核验或技术评审。</li>
+</ul>
+<h2 id="后续补充重点">后续补充重点</h2>
+<ul>
+<li>离子回旋加热：补实际射频源、传输、匹配、天线与等离子体案例。</li>
+<li>电子回旋加热：补回旋管、传输、发射与沉积案例。</li>
+<li>中性束与低杂波：分别补结构图、参数和测量案例。</li>
+<li>伯恩斯坦波与螺旋波：补原始实验论文及适用范围。</li>
+<li>装置路线和材料：补有日期、版本、工况和来源的真实记录。</li>
+</ul>
+<p><a href="/about/">返回知识库</a></p></article></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></span></div></footer></body></html>
