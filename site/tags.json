@@ -663,5 +663,60 @@
     "tag": "MF000133",
     "status": "draft",
     "kind": "基础知识"
+  },
+  "辅助加热/离子回旋加热/README.md#电场做功与有限时间的单粒子共振": {
+    "tag": "MF000134",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#Doppler 位移、回旋谐波与共振层": {
+    "tag": "MF000135",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#冷介电张量与 ICRF 快波传播": {
+    "tag": "MF000136",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#圆偏振、离子旋向与基频耦合": {
+    "tag": "MF000137",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#少数离子基频加热": {
+    "tag": "MF000138",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#二次谐波与有限 Larmor 半径": {
+    "tag": "MF000139",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#离子—离子混杂层与模转换加热": {
+    "tag": "MF000140",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#三离子方案的极化设计与实验边界": {
+    "tag": "MF000141",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#从共振条件到可核验的吸收结论": {
+    "tag": "MF000142",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#波吸收、快离子分布与碰撞传能": {
+    "tag": "MF000143",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#RF 鞘层、近场与杂质释放": {
+    "tag": "MF000144",
+    "status": "draft",
+    "kind": "专题"
   }
 }
