@@ -7,7 +7,7 @@
     {
       "slug": "foundations",
       "title": "基础原理",
-      "description": "等离子体概念、粒子轨道、动理学与碰撞、波粒相互作用、流体与 MHD。",
+      "description": "等离子体、轨道、碰撞、波与 MHD，聚变燃烧、输运和边界排热。",
       "sections": [
         [
           "foundations",
@@ -32,6 +32,14 @@
         [
           "fluid-mhd",
           "基础原理/流体与磁流体力学/README.md"
+        ],
+        [
+          "fusion-burning",
+          "基础原理/聚变反应与燃烧/README.md"
+        ],
+        [
+          "transport-boundary",
+          "基础原理/输运与边界/README.md"
         ]
       ]
     },

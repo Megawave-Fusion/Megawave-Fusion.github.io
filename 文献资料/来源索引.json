@@ -6,7 +6,14 @@
     "scope": "辅助加热概览；装置参数须按具体版本引用",
     "checked_on": "2026-09-09",
     "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
-    "中文标题": "ITER 辅助加热系统"
+    "中文标题": "ITER 辅助加热系统",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "读取系统概述、NBI 与高频波原理段落。",
+        "evidence": "机构系统说明；正文不汇编漂移风险较高的最新总功率、工期或验收状态。"
+      }
+    ]
   },
   {
     "id": "IPP-CONFIG",
@@ -42,7 +49,14 @@
     "scope": "包层与第一壁工程入口；注意设计版本",
     "checked_on": "2026-09-09",
     "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
-    "中文标题": "ITER 包层"
+    "中文标题": "ITER 包层",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "腔体材料/README.md：第一壁与包层",
+        "evidence": "实际读取功能与 First wall panels，核对2023年由铍改钨的说明，区分屏蔽包层与试验增殖模块。"
+      }
+    ]
   },
   {
     "id": "ITER-DIAG",
@@ -51,7 +65,14 @@
     "scope": "诊断系统入口",
     "checked_on": "2026-09-09",
     "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
-    "中文标题": "ITER 诊断系统"
+    "中文标题": "ITER 诊断系统",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "官方页面正文各诊断分类；全文正文",
+        "evidence": "磁测量、中子、辐射计和光谱功能分类，未据此核实设备交付状态"
+      }
+    ]
   },
   {
     "id": "ITER-SYSTEMS",
@@ -69,7 +90,14 @@
     "scope": "燃料与循环子系统",
     "checked_on": "2026-09-09",
     "evidence": "官方网页或公开机构资料；仅核对入口及相关摘要",
-    "中文标题": "ITER 燃料系统"
+    "中文标题": "ITER 燃料系统",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "工程系统/README.md：燃料循环",
+        "evidence": "实际读取 Fuel cycle 和 Tritium Plant 段，区分气体/丸注入、未燃燃料回收；未采用页面全球库存等时效数字。"
+      }
+    ]
   },
   {
     "id": "IPP-HCD",
@@ -492,7 +520,14 @@
     "scope": "等离子体波；具体推导及原文位置见对应正文。",
     "checked_on": "2026-10-16",
     "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
-    "中文标题": "Fitzpatrick，§5.3，式 (5.16)–(5.19)"
+    "中文标题": "Fitzpatrick，§5.3，式 (5.16)–(5.19)",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "读取大学讲义本页的 R/L/S 介电分量定义。",
+        "evidence": "讲义；本页采用电子正回旋频率 Ωe，电子电荷为负，并在 EC 频段忽略离子项。"
+      }
+    ]
   },
   {
     "id": "PLASMA-044",
@@ -501,7 +536,14 @@
     "scope": "等离子体波；具体推导及原文位置见对应正文。",
     "checked_on": "2026-10-16",
     "evidence": "对应引用内容已作模型辅助核对；入口已联网核验。未声明整篇教材或论文全部审核。",
-    "中文标题": "Fitzpatrick，§5.4，式 (5.40)–(5.55)"
+    "中文标题": "Fitzpatrick，§5.4，式 (5.40)–(5.55)",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "读取大学官方讲义本页，式 (5.40)–(5.55)。",
+        "evidence": "大学讲义；冷、均匀、无碰撞模型与 O/X 垂直传播根；正文不把冷共振奇点解释为有限热吸收。"
+      }
+    ]
   },
   {
     "id": "PLASMA-045",
@@ -952,5 +994,975 @@
     "checked_on": "2026-10-16",
     "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：official OhioState course page opened",
     "中文标题": "Ohio State Ximera，Power Transfer on a Transmission Line，峰值幅度下的入射、反射与净功率"
+  },
+  {
+    "id": "EXP-F-001",
+    "title": "核聚变反应",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node6.html",
+    "scope": "全文：式1.1–1.9及反应率拟合表",
+    "checked_on": "2026-10-16",
+    "evidence": "D-T反应道、质心产物能量、热核反应率；正文未照搬单一拟合系数",
+    "中文标题": "核聚变反应"
+  },
+  {
+    "id": "EXP-F-002",
+    "title": "Lawson条件",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node7.html",
+    "scope": "全文：式1.10–1.20",
+    "checked_on": "2026-10-16",
+    "evidence": "等密度D-T储能、alpha输入与总损失约束时间；本库独立重推有限Q扩展",
+    "中文标题": "Lawson条件"
+  },
+  {
+    "id": "EXP-F-003",
+    "title": "Lawson、盈亏与增益综述",
+    "url": "https://arxiv.org/html/2105.10954v3",
+    "scope": "2021预印本v3：§III.1–III.5、III.7、IV.1指定段落",
+    "checked_on": "2026-10-16",
+    "evidence": "反应率、增益边界、工程净电、不同路线和剖面；不是当前性能纪录",
+    "中文标题": "Lawson、盈亏与增益综述"
+  },
+  {
+    "id": "EXP-F-004",
+    "title": "NRL等离子体公式手册2016",
+    "url": "https://suli.pppl.gov/2016/course/NRL_FORMULARY_16.pdf",
+    "scope": "指定页：印刷44–45热核反应表、印刷58式30轫致辐射；PPPL课程副本",
+    "checked_on": "2026-10-16",
+    "evidence": "核反应能量与cgs辐射系数；SI换算与算例独立复算，未称为最新版本",
+    "中文标题": "NRL等离子体公式手册2016"
+  },
+  {
+    "id": "EXP-F-005",
+    "title": "TRANSP组分输入",
+    "url": "https://transp.pppl.gov/nml/Composition.html",
+    "scope": "Plasma composition网页全文",
+    "checked_on": "2026-10-16",
+    "evidence": "背景组分、质量定义、准中性与粒子平衡；氦灰稀释为本库代数推导",
+    "中文标题": "TRANSP组分输入"
+  },
+  {
+    "id": "EXP-F-006",
+    "title": "TRANSP辐射输入",
+    "url": "https://transp.pppl.gov/nml/radiation.html",
+    "scope": "Radiated power网页全文",
+    "checked_on": "2026-10-16",
+    "evidence": "测量/计算辐射、轫致/线/回旋分项与壁反射；未运行TRANSP",
+    "中文标题": "TRANSP辐射输入"
+  },
+  {
+    "id": "EXP-F-007",
+    "title": "ITER燃烧等离子体说明",
+    "url": "https://www.iter.org/node/20687/what-burning-plasma",
+    "scope": "正文的能量分配、自加热与Alfvén损失段落",
+    "checked_on": "2026-10-16",
+    "evidence": "保留alpha损失，不照搬“磁约束绝不逸出”的简化表述",
+    "中文标题": "ITER燃烧等离子体说明"
+  },
+  {
+    "id": "EXP-F-008",
+    "title": "ITER聚变术语表",
+    "url": "https://www.iter.org/fusion-glossary",
+    "scope": "指定术语：Alpha Heating、Burning Plasma、相关增益词条",
+    "checked_on": "2026-10-16",
+    "evidence": "术语入口；正文将点火、燃烧和净电严格分开",
+    "中文标题": "ITER聚变术语表",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-16",
+        "scope": "通用名词和辅助加热、工程系统词条；指定词条",
+        "evidence": "术语入口而非严格定义唯一依据；未采用其中简化的burning plasma与confinement描述"
+      }
+    ]
+  },
+  {
+    "id": "EXP-F-009",
+    "title": "ITER研究计划2024",
+    "url": "https://www.iter.org/sites/default/files/media/2024-04/itr-24-005-ok1.pdf",
+    "scope": "ITR-24-005 §3.3.5、§3.3.5.1–2；印刷162–165页",
+    "checked_on": "2026-10-16",
+    "evidence": "快粒子约束、热稳定性、灰积累和控制时间尺度；系2024计划，未当作已实现结果",
+    "中文标题": "ITER研究计划2024"
+  },
+  {
+    "id": "EXP-F-010",
+    "title": "垂直输运闭合",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node42.html",
+    "scope": "全文，尤其式2.303–2.304及微湍流排序",
+    "checked_on": "2026-10-16",
+    "evidence": "通量闭合与微湍流尺度；圆柱和相位算例为独立构造",
+    "中文标题": "垂直输运闭合"
+  },
+  {
+    "id": "EXP-F-011",
+    "title": "俘获与通行粒子",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node27.html",
+    "scope": "俘获、反弹、去俘获及香蕉宽度段落",
+    "checked_on": "2026-10-16",
+    "evidence": "仅使用量级排序；没有照搬各投射角同概率的过度简化",
+    "中文标题": "俘获与通行粒子"
+  },
+  {
+    "id": "EXP-F-012",
+    "title": "新经典输运",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node41.html",
+    "scope": "全文文本，重点式2.271与2.284–2.286",
+    "checked_on": "2026-10-16",
+    "evidence": "轴对称内禀双极性、普通三维构型差异、香蕉区离子热输运量级",
+    "中文标题": "新经典输运"
+  },
+  {
+    "id": "EXP-F-013",
+    "title": "新经典撕裂模与自举电流",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node181.html",
+    "scope": "指定式14.198与有效条件、岛内自举贡献段落",
+    "checked_on": "2026-10-16",
+    "evidence": "梯度、俘获与自举电流、磁岛反馈；没有泛化低碰撞圆截面闭合",
+    "中文标题": "新经典撕裂模与自举电流"
+  },
+  {
+    "id": "EXP-F-014",
+    "title": "等离子体物理与聚变电站挑战",
+    "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/rsta.2017.0435.pdf",
+    "scope": "Wilson 2019，§3输运和§4台基指定段落",
+    "checked_on": "2026-10-16",
+    "evidence": "只用于湍流/剪切/多尺度反馈的机制，不引用过时项目时间表",
+    "中文标题": "等离子体物理与聚变电站挑战"
+  },
+  {
+    "id": "EXP-F-015",
+    "title": "台基与EPED课程",
+    "url": "https://www.iter.org/sites/default/files/education/snyder_iterschool15_r3.pdf",
+    "scope": "Snyder 2015 ITER School，PDF第1–10与15页",
+    "checked_on": "2026-10-16",
+    "evidence": "台基高度/宽度、Type-I ELM peeling–ballooning及模型范围；未复制具体图或经验系数",
+    "中文标题": "台基与EPED课程"
+  },
+  {
+    "id": "EXP-F-016",
+    "title": "SOL两点模型附录",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2010/12rr/12rr008/12rr008_full.pdf",
+    "scope": "Yunxing Ma, Study of H-mode Access Conditions on the Alcator C-Mod Tokamak, PSFC/RR-12-8, 2012；附录C印刷191–194页",
+    "checked_on": "2026-10-16",
+    "evidence": "导热式C.9与积分C.10；本库重新用J温度能量定义系数，补齐省略条件",
+    "中文标题": "SOL两点模型附录"
+  },
+  {
+    "id": "EXP-F-017",
+    "title": "MIT等离子体鞘层课程",
+    "url": "https://ocw.mit.edu/courses/16-55-ionized-gases-fall-2014/69c9b98ec3496da071f8cdd7a1486ff7_MIT16_55F14_Lecture17.pdf",
+    "scope": "2014 Lecture17，冷离子/Boltzmann电子假设及式12–14",
+    "checked_on": "2026-10-16",
+    "evidence": "Bohm判据；浮动壁势差由本库从单向电子通量独立推导并复算",
+    "中文标题": "MIT等离子体鞘层课程"
+  },
+  {
+    "id": "EXP-F-018",
+    "title": "SD1D脱靶研究",
+    "url": "https://scientific-publications.ukaea.uk/papers/the-role-of-particle-energy-and-momentum-losses-in-1d-simulations-of-divertor-detachment/",
+    "scope": "UKAEA作者摘要，仅摘要",
+    "checked_on": "2026-10-16",
+    "evidence": "功率、动量、粒子平衡耦合；未将某一模型重组通道推广到所有工况",
+    "中文标题": "SD1D脱靶研究"
+  },
+  {
+    "id": "EXP-F-019",
+    "title": "MAST-U分子过程与脱靶",
+    "url": "https://scientific-publications.ukaea.uk/papers/the-role-of-plasma-atom-and-molecule-interactions-on-power-particle-balance-during-detachment-on-the-mast-upgrade-super-x-divertor/",
+    "scope": "UKAEA作者摘要，仅摘要",
+    "checked_on": "2026-10-16",
+    "evidence": "原子/分子过程、功率与粒子平衡的实验范围，不摘录未读取的全文数字",
+    "中文标题": "MAST-U分子过程与脱靶"
+  },
+  {
+    "id": "EXP-F-020",
+    "title": "TCV破裂与逃逸电子研究",
+    "url": "https://www.epfl.ch/research/domains/swiss-plasma-center/tcv-disruptions-and-runaway-electrons/",
+    "scope": "EPFL页面正文：热/电流淬灭、逃逸形成和实验方法",
+    "checked_on": "2026-10-16",
+    "evidence": "用于机制与实验任务；未照搬Dreicer场为硬阈值的通俗表述",
+    "中文标题": "TCV破裂与逃逸电子研究"
+  },
+  {
+    "id": "EXP-E-001",
+    "title": "IPP：托卡马克磁场与电流驱动",
+    "url": "https://www.ipp.mpg.de/9778/tokamak",
+    "scope": "装置路线/README.md：托卡马克",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取正文磁场三部分、变压器有限磁通及射频维持电流段；不采用网页对路线领先性的泛化评价。",
+    "中文标题": "IPP：托卡马克磁场与电流驱动"
+  },
+  {
+    "id": "EXP-E-002",
+    "title": "Fitzpatrick：撕裂模共振层与安全因子",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node71.html",
+    "scope": "装置路线/README.md：托卡马克",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取 Reduction Process 式(4.35)-(4.40)，核对 q=m/n 有理面与极向/环向模数；圆柱 q 数值为本文独立教学推导。",
+    "中文标题": "Fitzpatrick：撕裂模共振层与安全因子"
+  },
+  {
+    "id": "EXP-E-003",
+    "title": "ITER：破裂缓解原理与设计",
+    "url": "https://www.iter.org/machine/supporting-systems/disruption-mitigation",
+    "scope": "装置路线/README.md：托卡马克",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取破裂热/机械后果及设计系统正文；仅叙述公开概念，不采用操作参数。",
+    "中文标题": "ITER：破裂缓解原理与设计"
+  },
+  {
+    "id": "EXP-E-004",
+    "title": "Belova 等：场反位形数值模拟进展（2006）",
+    "url": "https://bp-pub.pppl.gov/pub_report/2006/PPPL-4150.pdf",
+    "scope": "装置路线/README.md：场反位形 FRC",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取 PPPL-4150 PDF 摘要和 Introduction（PDF 第3-5页），核对高beta、有限轨道效应、倾斜/旋转模及模型依赖；未声称完整验证其模拟代码。",
+    "中文标题": "Belova 等：场反位形数值模拟进展（2006）"
+  },
+  {
+    "id": "EXP-E-005",
+    "title": "PPPL：普林斯顿场反位形研究",
+    "url": "https://www.pppl.gov/Princeton-Field-Reversed-Configuration",
+    "scope": "装置路线/README.md：场反位形 FRC",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取 Objective 正文，核对射频驱动电流与加热的特定 PFRC 方案。",
+    "中文标题": "PPPL：普林斯顿场反位形研究"
+  },
+  {
+    "id": "EXP-E-006",
+    "title": "Fitzpatrick：磁镜与损失锥",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/Plasma/node22.html",
+    "scope": "装置路线/README.md：磁镜",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取整段教学正文与式(2.83)-(2.90)，镜点与捕获不等式；本文单独推导镜比4时的损失锥比例。",
+    "中文标题": "Fitzpatrick：磁镜与损失锥"
+  },
+  {
+    "id": "EXP-E-007",
+    "title": "IPP：仿星器外部磁场与优化",
+    "url": "https://www.ipp.mpg.de/9792/stellarator",
+    "scope": "装置路线/README.md：仿星器",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取正文外部线圈、三维几何和优化段。",
+    "中文标题": "IPP：仿星器外部磁场与优化"
+  },
+  {
+    "id": "EXP-E-008",
+    "title": "Pedersen 等：W7-X 磁拓扑实验测量（2016）",
+    "url": "https://www.nature.com/articles/ncomms13493",
+    "scope": "装置路线/README.md：仿星器",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取原论文 Results 的 Hamiltonians and magnetic surfaces、Measuring the magnetic topology、岛链与误差场段；只使用旋转变换定义及真空磁面测量边界。",
+    "中文标题": "Pedersen 等：W7-X 磁拓扑实验测量（2016）"
+  },
+  {
+    "id": "EXP-E-009",
+    "title": "Beidler 等：W7-X 新经典能量输运降低的证据（2021）",
+    "url": "https://www.nature.com/articles/s41586-021-03687-w",
+    "scope": "装置路线/README.md：仿星器",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取搜索服务返回的出版社摘要、Main 与 Methods 相关段；直接 open 遭出版社登录重定向，未声称另行取得全文；仅使用优化输运的定性证据。",
+    "中文标题": "Beidler 等：W7-X 新经典能量输运降低的证据（2021）"
+  },
+  {
+    "id": "EXP-E-010",
+    "title": "PPPL 暑期课程：其他聚变构型（2025）",
+    "url": "https://suli.pppl.gov/2025/course/SY%20-%202025-06%20-%20PPPL%20SULI%20-%20Other%20Fusion%20Concepts.pdf",
+    "scope": "装置路线/README.md：其他路线",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取 PDF 的 Z-pinch、Magnetic mirrors、Spheromak、RFP 和 Spherical Tokamak 讲义页；忽略商业路线预测与未经展开的成本宣传。",
+    "中文标题": "PPPL 暑期课程：其他聚变构型（2025）"
+  },
+  {
+    "id": "EXP-E-011",
+    "title": "威斯康星等离子体实验室：MST 装置",
+    "url": "https://wippl.wisc.edu/madison-symmetric-torus/",
+    "scope": "装置路线/README.md：其他路线",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取机构装置页面，核对 RFP 与低q托卡马克实验构型；未引用跨年代性能排行榜。",
+    "中文标题": "威斯康星等离子体实验室：MST 装置"
+  },
+  {
+    "id": "EXP-E-012",
+    "title": "LLNL：NIF 点火实验的诊断证据（2023）",
+    "url": "https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot",
+    "scope": "装置路线/README.md：惯性约束；工程系统/README.md：燃料消耗",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取全文正文，重点2022-12-05的3.15MJ/2.05MJ和 One Key Measurement 的17.6MeV及中子诊断；该报道日期为2023-04-12，不当最新纪录。",
+    "中文标题": "LLNL：NIF 点火实验的诊断证据（2023）"
+  },
+  {
+    "id": "EXP-E-013",
+    "title": "Sandia：Z 装置磁惯性聚变综述摘要（2022）",
+    "url": "https://www.sandia.gov/research/publications/details/an-overview-of-magneto-inertial-fusion-on-the-z-machine-at-sandia-national-2022-04-01/",
+    "scope": "装置路线/README.md：磁惯性约束",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取国家实验室论文摘要和元数据（DOI 10.1088/1741-4326/ac2dbe），区分实验观察与未来更大电流的模拟展望；未声称阅读全文。",
+    "中文标题": "Sandia：Z 装置磁惯性聚变综述摘要（2022）"
+  },
+  {
+    "id": "EXP-E-014",
+    "title": "ITER：真空室功能与屏蔽",
+    "url": "https://www.iter.org/machine/vacuum-vessel",
+    "scope": "腔体材料/README.md：真空室与腔体结构",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取功能、in-wall shielding 和 thermal shielding 正文；未把装置尺寸当通用设计。",
+    "中文标题": "ITER：真空室功能与屏蔽"
+  },
+  {
+    "id": "EXP-E-016",
+    "title": "ITER：氚增殖与测试包层模块",
+    "url": "https://www.iter.org/machine/supporting-systems/tritium-breeding",
+    "scope": "腔体材料/README.md：包层；工程系统/README.md：增殖",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取全文正文，明确测试模块和未来大规模产氚/回收仍需研究；不写已实现燃料自持。",
+    "中文标题": "ITER：氚增殖与测试包层模块"
+  },
+  {
+    "id": "EXP-E-017",
+    "title": "ITER：偏滤器设计热流与原型测试",
+    "url": "https://www.iter.org/machine/divertor",
+    "scope": "腔体材料/README.md：偏滤器与制造",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取靶板功能、10/20 MW每平方米设计估计和 Divertor targets 资格试验段。",
+    "中文标题": "ITER：偏滤器设计热流与原型测试"
+  },
+  {
+    "id": "EXP-E-018",
+    "title": "IAEA：聚变材料数据汇编第五卷（1994）",
+    "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf",
+    "scope": "腔体材料/README.md：CuCrZr与连接",
+    "checked_on": "2026-10-16",
+    "evidence": "实际核对封面出版年1994和铜合金章（印刷页163-192），重点读取2.2-2.3热处理软化、蠕变疲劳；不使用其历史ITER设计值作为当前标准。",
+    "中文标题": "IAEA：聚变材料数据汇编第五卷（1994）"
+  },
+  {
+    "id": "EXP-E-019",
+    "title": "Ström 等：溅射及加热后的 Fe-W 模型薄膜",
+    "url": "https://scipub.euro-fusion.org/wp-content/uploads/WPPFCCP16_14829_submitted.pdf",
+    "scope": "腔体材料/README.md：材料与溅射",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取PDF摘要、Introduction和Measurements and results；封面题为Sputter-induced modification of Eurofer and Fe-W model films，内文题为MEIS and AFM analysis of FeW films modified by sputtering and heating。使用模型薄膜优先溅射机制，不外推为整机寿命。",
+    "中文标题": "Ström 等：溅射及加热后的 Fe-W 模型薄膜"
+  },
+  {
+    "id": "EXP-E-020",
+    "title": "Gilbert 等：中子损伤、嬗变与氦脆化（2013）",
+    "url": "https://arxiv.org/pdf/1311.5079",
+    "scope": "腔体材料/README.md：dpa与中子损伤",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取摘要、Introduction、§2输运/库存与§3损伤相关内容，核对谱和位置依赖；概念DEMO模型不是实测电站材料寿命。",
+    "中文标题": "Gilbert 等：中子损伤、嬗变与氦脆化（2013）"
+  },
+  {
+    "id": "EXP-E-021",
+    "title": "Ye 等：钨中氘等离子体与气体暴露的滞留比较（2019）",
+    "url": "https://arxiv.org/abs/1909.06820",
+    "scope": "腔体材料/README.md：滞留与渗透",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取作者摘要，核对TDS、暴露温度/条件差异与滞留/脱附差异；只使用定性结论，明确不能无修正外推至氚。",
+    "中文标题": "Ye 等：钨中氘等离子体与气体暴露的滞留比较（2019）"
+  },
+  {
+    "id": "EXP-E-022",
+    "title": "ITER：磁体与复合导体",
+    "url": "https://www.iter.org/machine/magnets",
+    "scope": "工程系统/README.md：磁体与电源",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取磁体系统和 cable-in-conduit conductor 段；储能/磁压公式与算例独立推导。",
+    "中文标题": "ITER：磁体与复合导体"
+  },
+  {
+    "id": "EXP-E-023",
+    "title": "ITER：低温系统与冷量分配",
+    "url": "https://www.iter.org/machine/supporting-systems/cryogenics",
+    "scope": "工程系统/README.md：磁体、低温",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取冷源、氦库存、多温度级与分配系统正文；Carnot下限为独立热力学教学计算，不代表ITER实际效率。",
+    "中文标题": "ITER：低温系统与冷量分配"
+  },
+  {
+    "id": "EXP-E-024",
+    "title": "ITER：连续与脉冲供电",
+    "url": "https://www.iter.org/machine/supporting-systems/power-supply",
+    "scope": "工程系统/README.md：磁体与电源",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取稳态/脉冲配电说明；未引用过时峰值作为未来电站收支。",
+    "中文标题": "ITER：连续与脉冲供电"
+  },
+  {
+    "id": "EXP-E-025",
+    "title": "Seidel：加速器真空基础（CERN 加速器学校，2021）",
+    "url": "https://arxiv.org/html/2105.07675v1",
+    "scope": "工程系统/README.md：真空与气体系统",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取HTML §2压强/气体方程/抽速/流导与§5.1-5.3泵和仪表；本文例子自行计算；不采用其特定加速器操作要求。",
+    "中文标题": "Seidel：加速器真空基础（CERN 加速器学校，2021）"
+  },
+  {
+    "id": "EXP-E-026",
+    "title": "ITER：真空系统与低温泵",
+    "url": "https://www.iter.org/machine/supporting-systems/vacuum-system",
+    "scope": "工程系统/README.md：真空与气体系统",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取泵组、吸附面与不同真空对象正文；不把抽空时间作为其他装置规定。",
+    "中文标题": "ITER：真空系统与低温泵"
+  },
+  {
+    "id": "EXP-E-027",
+    "title": "ITER：冷却水与最终排热",
+    "url": "https://www.iter.org/machine/supporting-systems/cooling-water",
+    "scope": "工程系统/README.md：冷却与热电收支",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取多回路、热量经最终排热系统排向环境说明；没有引用其排放法规数值为通用阈值。",
+    "中文标题": "ITER：冷却水与最终排热"
+  },
+  {
+    "id": "EXP-E-029",
+    "title": "NIST：氚半衰期的全面评估（2000）",
+    "url": "https://nvlpubs.nist.gov/nistpubs/jres/105/4/j54luc2.pdf",
+    "scope": "工程系统/README.md：氚衰变",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取原论文摘要、Table4及§8推荐值4500±8天，8天为标准不确定度；一年衰变比例独立计算。",
+    "中文标题": "NIST：氚半衰期的全面评估（2000）"
+  },
+  {
+    "id": "EXP-E-030",
+    "title": "ITER：遥操作与部件维护",
+    "url": "https://www.iter.org/machine/supporting-systems/remote-handling",
+    "scope": "工程系统/README.md：屏蔽与维护",
+    "checked_on": "2026-10-16",
+    "evidence": "实际读取遥操作功能、活化区域维护和四类系统正文；未生成作业规程。",
+    "中文标题": "ITER：遥操作与部件维护"
+  },
+  {
+    "id": "EXP-H-EC-POLI",
+    "title": "Fast evaluation of the current driven by electron cyclotron waves for reactor studies",
+    "中文标题": "反应堆研究中的电子回旋驱动电流快速评估",
+    "url": "https://pure.mpg.de/rest/items/item_3018972_4/component/file_3023894/content",
+    "scope": "下载原作者论文 PDF；阅读 §1、§2.1–2.2（PDF 页 1–6）、§3–4 相关段落；渲染检查 PDF 页 5 共振曲线/式 (16)–(20)。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始理论与模型论文；共振式 (15)、电流定义式 (3)、高能碰撞效率与吸收折衷；并未复现其 TORBEAM 数值结果。"
+  },
+  {
+    "id": "EXP-H-EC-W7X",
+    "title": "Microwave heating - ECRH",
+    "中文标题": "W7-X 微波加热机构介绍",
+    "url": "https://www.ipp.mpg.de/3871954/ECRH",
+    "scope": "读取正文全部：原理、OP1.2、140 GHz/2.5 T、约 60 m 准光学传输；不将旧项目功率视为最新性能。",
+    "checked_on": "2026-10-16",
+    "evidence": "机构介绍；核对 140 GHz 对应约 2.5 T 的二次谐波，独立常数计算纠正易混淆的基频说法。"
+  },
+  {
+    "id": "EXP-H-EC-TL",
+    "title": "Design phase ends",
+    "中文标题": "ITER 电子回旋传输线设计完成",
+    "url": "https://www.iter.org/node/20687/design-phase-ends",
+    "scope": "读取 2020-06-02 报道正文；使用波纹波导、对准/模转换及支撑结构内容。",
+    "checked_on": "2026-10-16",
+    "evidence": "工程报道；旧 20 MW 总功率不作为 2026 当前设计参数，结构内容按历史案例使用。"
+  },
+  {
+    "id": "EXP-H-EC-ANGLE",
+    "title": "Convention on the EC injection angles",
+    "中文标题": "TRANSP 电子回旋注入角约定",
+    "url": "https://transp.pppl.gov/nml/EC_angles.html",
+    "scope": "读取完整角度定义页面（THETECH、PHAIECH 与电流方向备注）。",
+    "checked_on": "2026-10-16",
+    "evidence": "官方软件文档；用于提醒坐标系和电子/常规电流符号转换。"
+  },
+  {
+    "id": "EXP-H-EC-STRAY",
+    "title": "Design of Stray Radiation Sensor for ITER ECE Diagnostic",
+    "中文标题": "ITER ECE 杂散辐射传感器设计",
+    "url": "https://indico.iter.org/event/2/contributions/805/",
+    "scope": "读取 2022-06-20 官方会议摘要；未下载其完整会议论文。",
+    "checked_on": "2026-10-16",
+    "evidence": "设计摘要；滤波器、快门、监测用途可确认，未把摘要中的 ADS 仿真性能作为已测结果。"
+  },
+  {
+    "id": "EXP-H-EC-HV",
+    "title": "Commissioning begins on EC power supply",
+    "中文标题": "ITER 电子回旋电源开始调试",
+    "url": "https://www.iter.org/node/20687/commissioning-begins-ec-power-supply",
+    "scope": "读取 2025-06-23 官方报道正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "工程调试报道；电源功能/保护验证与回旋管综合调试分阶段，不等同于等离子体系统验收。"
+  },
+  {
+    "id": "EXP-H-NBI-IPP",
+    "title": "Prinzip der Neutralinjektion",
+    "中文标题": "IPP 中性束注入原理",
+    "url": "https://www.ipp.mpg.de/3668214/nbi_principle",
+    "scope": "读取德文机构说明正文，含加速/中性化、快离子慢化、负离子路线。",
+    "checked_on": "2026-10-16",
+    "evidence": "机构解释；以机理为用途，不把文中历史典型能量范围当作最新装置列表。"
+  },
+  {
+    "id": "EXP-H-NBI-IAEA",
+    "title": "Fusion Physics, chapters 2 and 5",
+    "中文标题": "IAEA 聚变物理：中性束与快离子章节",
+    "url": "https://event.ipp-hgw.mpg.de/event/1032/contributions/1480/attachments/715/1166/IAEA%20-%20Fusion%20Physics.pdf",
+    "scope": "下载完整教材；实际重点阅读书页 147–148（§2.5.2.1）、535–545（§5.1.1–5.1.4）、550–555（§5.1.6–5.1.8）及周边说明；不是全书逐页审核。渲染核对 PDF 页 567/书页 544 慢化式。",
+    "checked_on": "2026-10-16",
+    "evidence": "教材；核对束衰减式 (5.6)、慢化式 (5.8)、瞬时/累计离子份额的区别、电子回流及模型验证边界。"
+  },
+  {
+    "id": "EXP-H-NBI-NBTF",
+    "title": "ITER Neutral Beam Test Facility",
+    "中文标题": "ITER 中性束试验设施",
+    "url": "https://www.iter.org/project/iter-neutral-beam-test-facility",
+    "scope": "读取主体设计任务、负离子技术、SPIDER/MITICA 定义，以及日期分明的工程进展；图库不逐张审查。",
+    "checked_on": "2026-10-16",
+    "evidence": "机构设计与进展；16.5 MW、1 MeV、3600 s 明确记为设计/需求语境，未声称全部已同时达到。"
+  },
+  {
+    "id": "EXP-H-NBI-ROTATION",
+    "title": "Plasma Rotation",
+    "中文标题": "托卡马克旋转与中性束动量注入",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node89.html",
+    "scope": "读取大学讲义完整本页，尤其束动量/能量比随束能变化及 shine-through。",
+    "checked_on": "2026-10-16",
+    "evidence": "讲义；正文动量公式由 E=mv²/2 与 P=粒子率×E 独立推导，扭矩还需方向和力臂。"
+  },
+  {
+    "id": "EXP-H-NBI-HV",
+    "title": "Neutral Beam Power Supply",
+    "中文标题": "ITER 中性束电源",
+    "url": "https://www.iter.org/project/construction-archives/neutral-beam-power-supply",
+    "scope": "读取系统结构与 1 MV/一小时需求说明；没有把施工照片当设备全性能验证。",
+    "checked_on": "2026-10-16",
+    "evidence": "工程机构页面；仅用于高压与系统接口解释。"
+  },
+  {
+    "id": "EXP-H-NBI-INPUT",
+    "title": "Neutral Beam inputs in TRANSP",
+    "中文标题": "TRANSP 中性束输入和能量组分",
+    "url": "https://transp.pppl.gov/nml/beams.html",
+    "scope": "读取完整官方输入文档：Composite UFILE、几何、full/half/third 能量标签。",
+    "checked_on": "2026-10-16",
+    "evidence": "官方软件文档；支撑分能量组分建模及单位/计量面辨别。"
+  },
+  {
+    "id": "EXP-H-NBI-KSTAR",
+    "title": "Commissioning Results of the KSTAR Neutral Beam System",
+    "中文标题": "KSTAR 中性束系统调试结果",
+    "url": "https://www-pub.iaea.org/mtcd/meetings/PDFplus/2010/cn180/cn180_papers/ftp_p6-16.pdf",
+    "scope": "读取 IAEA 2010 会议原论文摘要、§2–§6、PDF 页 8 图 9 及说明，§7 结论。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始实验/工程论文；只引 E/E2/E3 与 D+/D2+/D3+ 的光谱对应；不把 2010 规划当最新 KSTAR 配置。"
+  },
+  {
+    "id": "EXP-H-NBI-NUBEAM",
+    "title": "NUBEAM Abstract",
+    "中文标题": "NUBEAM 官方模型摘要",
+    "url": "https://w3.pppl.gov/ntcc/NUBEAM/abstract.html",
+    "scope": "读取官方完整摘要，交叉确认沉积、慢化、轨道、损失与 ADAS 激发处理。",
+    "checked_on": "2026-10-16",
+    "evidence": "官方模型说明；用于 NBI 模型交叉核对，未运行或验证本团队输入。"
+  },
+  {
+    "id": "EXP-H-LH-CFETR",
+    "title": "Scoping study of lower hybrid current drive for CFETR",
+    "中文标题": "CFETR 低杂波电流驱动参数研究",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2020/21ja/21ja016/21ja016_full.pdf",
+    "scope": "下载 MIT PSFC/JA-21-16；读取摘要、§1–2、式 (1)–(4)、§4 与结论；渲染核对 PDF 页 4/书页 3 的可达性根号范围。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始数值研究；所有 CFETR 场景为预测，不作为已运行实验；尤其区分发射和吸收处 Nparallel。"
+  },
+  {
+    "id": "EXP-H-LH-FNSF",
+    "title": "Heating and Current Drive Actuators Study for FNSF in the Ion Cyclotron and Lower Hybrid Range of Frequency",
+    "中文标题": "FNSF 离子回旋和低杂波执行器研究",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2010/17ja/17ja024/17ja024_full.pdf",
+    "scope": "下载 PDF；读取摘要、引言、§2.1（PDF 页 5，书页 4）及上下文。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始设计论文；核对低杂频率、朗道相速、可达性与 Nparallel^-2 效率尺度；未用其 2017 商业器件供应状态作当前事实。"
+  },
+  {
+    "id": "EXP-H-LH-DING",
+    "title": "Review of recent experimental and modeling advances in the understanding of lower hybrid current drive in ITER-relevant regimes",
+    "中文标题": "ITER 相关工况 LHCD 实验与建模进展",
+    "url": "https://research.chalmers.se/en/publication/528652",
+    "scope": "本轮只读取 2018 论文的机构摘要正文（页面行 7–12），未读全文。",
+    "checked_on": "2026-10-16",
+    "evidence": "机构收录的原论文摘要；仅概括边缘再循环、碰撞/参数不稳定性及需进一步验证的研究边界。"
+  },
+  {
+    "id": "EXP-H-LH-HFS",
+    "title": "Characterization of the DIII-D High-Field Side Scrape-Off Layer and Implications for High-Field Side Lower Hybrid Current Drive",
+    "中文标题": "DIII-D 高场侧刮削层对 LHCD 的影响",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2020/25rr/25rr013/abstract.php",
+    "scope": "读取官方索引提供的完整摘要；直接 web open 有 502，另以 curl 获取原站摘要页面。未读 252 页全文。",
+    "checked_on": "2026-10-16",
+    "evidence": "2025 学位论文摘要；只用于边缘密度测量与全波耦合研究，不宣称 HFS 当前驱动效率。"
+  },
+  {
+    "id": "EXP-H-LH-BAEK",
+    "title": "Detection of lower hybrid waves at the plasma edge of a diverted tokamak",
+    "中文标题": "偏滤器托卡马克边缘低杂波探测",
+    "url": "https://library.psfc.mit.edu/catalog/reports/2010/14rr/14rr001/14rr001_full.pdf",
+    "scope": "下载 205 页 PDF；实际读取摘要（PDF 页 4–5）、第 1 章研究动机与目录定位；非全篇审核。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始学位论文；硬 X 射线/边缘波证据和效率下降不能简化为单一密度阈值。"
+  },
+  {
+    "id": "EXP-H-EBW-WARM",
+    "title": "Perpendicular Wave Propagation",
+    "中文标题": "温等离子体垂直传播与 Bernstein 分支",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/node96.html",
+    "scope": "读取大学官方讲义本页，式 (7.102)–(7.105) 与图 7.9 说明。",
+    "checked_on": "2026-10-16",
+    "evidence": "大学讲义；有限回旋半径使 Bernstein 分支出现，冷 X 分支不包含完整热响应。"
+  },
+  {
+    "id": "EXP-H-EBW-SURVEY",
+    "title": "A survey of electron Bernstein wave heating and current drive potential for spherical tokamaks",
+    "中文标题": "球形托卡马克 EBW 加热与电流驱动研究",
+    "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/Published/NFVOL51p083050.pdf",
+    "scope": "下载 UKAEA 托管原论文；读取 §1–2、§2.1 转换公式与高斯束约定、相关建模限制。渲染核对 PDF 页 4 式 (1)–(3)。",
+    "checked_on": "2026-10-16",
+    "evidence": "2011 原始数值研究；核对最佳 Nparallel、COX 指数、k0Ln 无量纲、角谱/密度波动限制，不将数值预测写成装置实测。"
+  },
+  {
+    "id": "EXP-H-EBW-MAST",
+    "title": "Electron Bernstein wave-X–O mode conversion and electron cyclotron emission in MAST",
+    "中文标题": "MAST EBW-X-O 转换与电子回旋发射",
+    "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/Published/RSIVOL74p1437.pdf",
+    "scope": "下载并读取全文（4 页原文，PDF 含封面共 5 页），特别 §II–III 与图 6。",
+    "checked_on": "2026-10-16",
+    "evidence": "2003 原始实验/模型论文；发射亮度受到转换、温度、平衡与吸收位置影响；保留理论/实验差异。"
+  },
+  {
+    "id": "EXP-H-EBW-MAST-2007",
+    "title": "Electron Bernstein Wave Studies in MAST",
+    "中文标题": "MAST 电子伯恩斯坦波实验研究",
+    "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/Published/AIPCONFPROC933p323.pdf",
+    "scope": "下载论文并读取转换/加热实验段落、图 1–2 讨论；未逐项复核全部诊断实现。",
+    "checked_on": "2026-10-16",
+    "evidence": "2007 原始会议论文；区分 UHR 参数衰变与核心加热，保留边缘高谐波吸收限制。"
+  },
+  {
+    "id": "EXP-H-EBW-STEP",
+    "title": "Electron Bernstein Wave (EBW) current drive profiles and efficiency for STEP",
+    "中文标题": "STEP EBW 电流剖面与效率研究",
+    "url": "https://scientific-publications.ukaea.uk/papers/electron-bernstein-wave-ebw-current-drive-profiles-and-efficiency-for-step/",
+    "scope": "读取机构会议摘要完整正文；记录号 UKAEA-STEP-CP(23)05、会议为 2022 年。",
+    "checked_on": "2026-10-16",
+    "evidence": "仅摘要；用其描述 Doppler 位移和研究成熟度，不摘录效率预测为实验结果。"
+  },
+  {
+    "id": "EXP-H-HELICON-UCLA",
+    "title": "Helicons in Uniform Plasmas",
+    "中文标题": "均匀等离子体中的螺旋波",
+    "url": "https://www.physics.ucla.edu/plasma-exp/research/Helicons/index.html",
+    "scope": "读取 UCLA 实验室网页正文。",
+    "checked_on": "2026-10-16",
+    "evidence": "机构研究说明；低温有限半径柱中的 whistler/helicon、方位模、边界和阻尼复杂性。"
+  },
+  {
+    "id": "EXP-H-HELICON-2026",
+    "title": "First Experimental Evidence of Helicon Current Drive",
+    "中文标题": "首次螺旋波电流驱动实验证据",
+    "url": "https://arxiv.org/html/2609.12474v1",
+    "scope": "读取 2026-09-11 v1 全部正文、图 1–3 说明和 End Matter 的天线/诊断/模型说明；未重新处理原始放电数据。",
+    "checked_on": "2026-10-16",
+    "evidence": "原始实验预印本；476 MHz，分析工况 370 kW，rho<0.2 内 20±10 kA 来自诊断约束重建/源项相减；外围积分不可靠，未验证反应堆离轴效率。"
+  },
+  {
+    "id": "EXP-H-HELICON-PRL",
+    "title": "First Experimental Evidence of Helicon Current Drive - Physical Review Letters record",
+    "中文标题": "螺旋波电流驱动 PRL 论文记录",
+    "url": "https://journals.aps.org/prl/abstract/10.1103/mbn4-fd4v",
+    "scope": "读取期刊记录页面和摘要；accepted URL 重定向到 abstract。",
+    "checked_on": "2026-10-16",
+    "evidence": "用于核对论文身份；所有精确数值仍按 arXiv v1 定位，不混用版本。"
+  },
+  {
+    "id": "EXP-H-HELICON-COMMISSION",
+    "title": "2024 - RF Systems Commissioning",
+    "中文标题": "DIII-D 2024 射频系统调试计划",
+    "url": "https://d3dfusion.org/2024-23-59/",
+    "scope": "读取官方计划页 Purpose of Experiment 和 Experimental Approach。",
+    "checked_on": "2026-10-16",
+    "evidence": "实验计划不是结果；用于解释部件调试与核心加热/驱动验证的差别。"
+  },
+  {
+    "id": "EXP-M-001",
+    "title": "IPP 等离子体干涉实验讲义",
+    "url": "https://www.ipp.mpg.de/2882460/anleitung.pdf",
+    "scope": "PDF 第8-10页折射率与相位式(21)-(29)，第14-16页反演与Refraction；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "高频近似线积分密度、单程/双程路径与轴对称反演限制；正文相位符号取与讲义相反的明确约定",
+    "中文标题": "IPP 等离子体干涉实验讲义"
+  },
+  {
+    "id": "EXP-M-002",
+    "title": "PPPL 激光辅助等离子体诊断课程",
+    "url": "https://gss.pppl.gov/talks/LASER-AIDED-COURSE-2018v7.pdf",
+    "scope": "2018 Diallo；PDF 第19-20页干涉，第23-34、38-40页 Thomson；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "散射谱、电子温度和密度、集体/非集体区分；未移用图中实验数值",
+    "中文标题": "PPPL 激光辅助等离子体诊断课程"
+  },
+  {
+    "id": "EXP-M-003",
+    "title": "PPPL 回旋辐射与逃逸电子报告",
+    "url": "https://tsdw.pppl.gov/Talks/2016/Liu%20%281%29.pdf",
+    "scope": "2016-07-21；PDF 第7-9页与第15-18页；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "热平衡、光学厚度、非热电子贡献；不推广简化模型的定量结果",
+    "中文标题": "PPPL 回旋辐射与逃逸电子报告"
+  },
+  {
+    "id": "EXP-M-004",
+    "title": "MIT 磁诊断第一讲文字稿",
+    "url": "https://ocw.mit.edu/courses/22-67j-principles-of-plasma-diagnostics-fall-2023/12ZAvdzR_8MoYsiMQ4B8sJEHENBLL2eqS_transcript.pdf",
+    "scope": "2023课程；开头Faraday定律、磁探针积分、偏置与差分测量段；文字稿指定部分",
+    "checked_on": "2026-10-16",
+    "evidence": "磁通变化而非绝对直流磁场，积分偏置累积",
+    "中文标题": "MIT 磁诊断第一讲文字稿"
+  },
+  {
+    "id": "EXP-M-005",
+    "title": "NSTX 红外测量历史报告",
+    "url": "https://nstx.pppl.gov/nstxhome/DragNDrop/Science_Groups/boundary/TSGs/materials_pfcs/archive/2010/20100823_LLD_Fest/pppl_lld_mclean_23august2010.pdf",
+    "scope": "PDF 第16页Infrared measurements、第22-24页发射率与双色系统；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "表面发射率、反射和导热模型影响温度/热流反演；不引用性能数值",
+    "中文标题": "NSTX 红外测量历史报告"
+  },
+  {
+    "id": "EXP-M-007",
+    "title": "NIST 不确定性传播定律",
+    "url": "https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty",
+    "scope": "TN 1297 附录A，A-3到A-5；全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "一阶传播、协方差、独立观测均值标准不确定度",
+    "中文标题": "NIST 不确定性传播定律"
+  },
+  {
+    "id": "EXP-M-008",
+    "title": "NIST 扩展不确定度",
+    "url": "https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-6-expanded-uncertainty",
+    "scope": "TN 1297 第6节；全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "U=k uc与覆盖因子条件；网站注明不再更新，不作现行合规标准",
+    "中文标题": "NIST 扩展不确定度"
+  },
+  {
+    "id": "EXP-M-009",
+    "title": "ITER 控制系统架构",
+    "url": "https://www.iter.org/machine/supporting-systems/codac/architecture",
+    "scope": "Architecture正文；全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "CODAC、机器保护、人员和核安全独立；中央与plant I&C接口",
+    "中文标题": "ITER 控制系统架构"
+  },
+  {
+    "id": "EXP-M-010",
+    "title": "MIT 等离子体诊断课程资料目录",
+    "url": "https://ocw.mit.edu/courses/22-67j-principles-of-plasma-diagnostics-fall-2023/download/",
+    "scope": "2023课程Resources下载目录",
+    "checked_on": "2026-10-16",
+    "evidence": "仅确认视频/习题/讲授主题入口，未观看全部视频",
+    "中文标题": "MIT 等离子体诊断课程资料目录"
+  },
+  {
+    "id": "EXP-M-011",
+    "title": "PPPL 等离子体诊断课程纲要",
+    "url": "https://w3.pppl.gov/~hji/AST555/AST555.html",
+    "scope": "AST555 Spring 2026课程描述、讲授列表和参考书；全文纲要",
+    "checked_on": "2026-10-16",
+    "evidence": "仅确认诊断学习范围和文献入口，不引用其不可取得的新讲义",
+    "中文标题": "PPPL 等离子体诊断课程纲要"
+  },
+  {
+    "id": "EXP-M-012",
+    "title": "MIT 等离子体物理课程讲义目录",
+    "url": "https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/pages/lecture-notes/",
+    "scope": "2003课程章节目录：单粒子、碰撞、流体、MHD和波动",
+    "checked_on": "2026-10-16",
+    "evidence": "用于学习顺序和模型主题定位；未宣称全文重审",
+    "中文标题": "MIT 等离子体物理课程讲义目录"
+  },
+  {
+    "id": "EXP-M-013",
+    "title": "Gkeyll 官方文档",
+    "url": "https://gkeyll.readthedocs.io/en/latest/",
+    "scope": "入口中moments/vlasov/gyrokinetic模块说明；指定部分",
+    "checked_on": "2026-10-16",
+    "evidence": "仅据官方入口陈述long-wavelength full-f electrostatic continuum gyrokinetic；未运行代码",
+    "中文标题": "Gkeyll 官方文档"
+  },
+  {
+    "id": "EXP-M-014",
+    "title": "BOUT++ 框架说明",
+    "url": "https://bout-dev.readthedocs.io/en/stable/user_docs/introduction.html",
+    "scope": "5.2.0 stable Introduction；正文介绍",
+    "checked_on": "2026-10-16",
+    "evidence": "结构化曲线坐标有限差分/体积框架，物理方程由使用者定义",
+    "中文标题": "BOUT++ 框架说明"
+  },
+  {
+    "id": "EXP-M-015",
+    "title": "BOUT++ 物理模型说明",
+    "url": "https://bout-dev.readthedocs.io/en/latest/user_docs/physics_models.html",
+    "scope": "5.2.0 Physics models简介与示例段",
+    "checked_on": "2026-10-16",
+    "evidence": "示例包括blob、Hasegawa-Wakatani和可压缩流体；未验证外部代码能力",
+    "中文标题": "BOUT++ 物理模型说明"
+  },
+  {
+    "id": "EXP-M-016",
+    "title": "Smilei PIC 算法",
+    "url": "https://smileipic.github.io/Smilei/Understand/algorithms.html",
+    "scope": "5.1 Quasi-particles、Time and space discretization、PIC loop；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "宏粒子、Yee网格、推进、插值和沉积；不混用各求解器稳定条件",
+    "中文标题": "Smilei PIC 算法"
+  },
+  {
+    "id": "EXP-M-017",
+    "title": "全波与FP功率自洽原论文",
+    "url": "https://arxiv.org/abs/2207.09011",
+    "scope": "Frank等2022，v1作者摘要",
+    "checked_on": "2026-10-16",
+    "evidence": "仅引用TORLH-CQL3D功率自洽和特定C-Mod算例结论；未读取全文或复现",
+    "中文标题": "全波与FP功率自洽原论文"
+  },
+  {
+    "id": "EXP-M-018",
+    "title": "BOUT++制造解验证原论文",
+    "url": "https://arxiv.org/abs/1602.06747",
+    "scope": "Dudson等2016作者摘要",
+    "checked_on": "2026-10-16",
+    "evidence": "仅引用制造解及收敛阶验证方法；未独立重跑",
+    "中文标题": "BOUT++制造解验证原论文"
+  },
+  {
+    "id": "EXP-M-019",
+    "title": "BOUT++运行记录",
+    "url": "https://bout-dev.readthedocs.io/en/latest/user_docs/running_bout.html",
+    "scope": "5.2.0 Running BOUT++的输入与版本记录段",
+    "checked_on": "2026-10-16",
+    "evidence": "输出可记录核心Git版本、构建日期和源码干净状态",
+    "中文标题": "BOUT++运行记录"
+  },
+  {
+    "id": "EXP-M-020",
+    "title": "NIST 实验设计选择目录",
+    "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri3.htm",
+    "scope": "工程统计手册5.3目录",
+    "checked_on": "2026-10-16",
+    "evidence": "目标、变量、全因子和部分因子等设计选择入口；未套用具体统计设计",
+    "中文标题": "NIST 实验设计选择目录"
+  },
+  {
+    "id": "EXP-M-021",
+    "title": "NIST 随机区组设计",
+    "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+    "scope": "5.3.3.2全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "干扰因素、组内随机化和区组建模；应用于放电规划为本库方法建议",
+    "中文标题": "NIST 随机区组设计"
+  },
+  {
+    "id": "EXP-M-022",
+    "title": "ITER 装置科学与工程目标",
+    "url": "https://www.iter.org/fusion-energy/what-will-iter-do",
+    "scope": "官方目标页燃烧等离子体、500MW/50MW、非发电定位段",
+    "checked_on": "2026-10-16",
+    "evidence": "数值均标设计目标；不据目标页推断最新状态或纪录",
+    "中文标题": "ITER 装置科学与工程目标"
+  },
+  {
+    "id": "EXP-M-023",
+    "title": "IPP W7-X 概览",
+    "url": "https://www.ipp.mpg.de/w7x",
+    "scope": "官方概览正文",
+    "checked_on": "2026-10-16",
+    "evidence": "优化仿星器、模块化超导线圈、研究任务；长脉冲目标不当成已实现",
+    "中文标题": "IPP W7-X 概览"
+  },
+  {
+    "id": "EXP-M-024",
+    "title": "IPP 仿星器加热与优化",
+    "url": "https://www.ipp.mpg.de/ippcms/eng/for/bereiche/e3/index",
+    "scope": "部门正文中ECRH、NBI、ICRH与剖面诊断段",
+    "checked_on": "2026-10-16",
+    "evidence": "只确认系统类别与研究任务，不引用未按时间核查的容量",
+    "中文标题": "IPP 仿星器加热与优化"
+  },
+  {
+    "id": "EXP-M-025",
+    "title": "UKAEA JET DTE3 历史结果公告",
+    "url": "https://www.gov.uk/government/news/jets-final-tritium-experiments-yield-new-fusion-energy-record",
+    "scope": "2024-02-08官方公告全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "约5秒69MJ为历史机构公布结果；13.8MW为本库据近似时间的代数平均，不当作峰值",
+    "中文标题": "UKAEA JET DTE3 历史结果公告"
+  },
+  {
+    "id": "EXP-M-026",
+    "title": "NASA 技术成熟度等级",
+    "url": "https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/",
+    "scope": "2023-09-27九级TRL说明；全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "只说明成熟度框架；标出航天环境不自动等于聚变相关环境，不给公司打分",
+    "中文标题": "NASA 技术成熟度等级"
+  },
+  {
+    "id": "EXP-M-027",
+    "title": "WIPO 专利常见问题",
+    "url": "https://www.wipo.int/en/web/patents/faq_patents",
+    "scope": "Patents基本权利、地域性与Patent information；指定章节",
+    "checked_on": "2026-10-16",
+    "evidence": "公开信息、申请与授权、地域性；不进行具体专利法律状态判断",
+    "中文标题": "WIPO 专利常见问题"
+  },
+  {
+    "id": "EXP-M-028",
+    "title": "MIT 等离子体输运课程",
+    "url": "https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/",
+    "scope": "2003课程Course Description",
+    "checked_on": "2026-10-16",
+    "evidence": "只核对Fokker-Planck、经典/新经典输运等课程范围",
+    "中文标题": "MIT 等离子体输运课程"
+  },
+  {
+    "id": "EXP-M-029",
+    "title": "NIST TN1297 总目录",
+    "url": "https://www.nist.gov/pml/nist-technical-note-1297",
+    "scope": "官方目录与1994版入口",
+    "checked_on": "2026-10-16",
+    "evidence": "用于公开参考入口；具体内容由附录A及第6节支撑",
+    "中文标题": "NIST TN1297 总目录"
+  },
+  {
+    "id": "EXP-M-031",
+    "title": "IPP 氦输运诊断的非局域发射",
+    "url": "https://www.ipp.mpg.de/3825313/highlights2014?page=1",
+    "scope": "2014年度亮点Investigations of helium transport...全文正文",
+    "checked_on": "2026-10-16",
+    "evidence": "CXRS沿磁场运动形成plume，诊断非局域性；不采用历史实验数值",
+    "中文标题": "IPP 氦输运诊断的非局域发射"
+  },
+  {
+    "id": "EXP-F-021",
+    "title": "多尺度回旋动理学理论",
+    "url": "https://arxiv.org/pdf/1209.4782",
+    "scope": "Abel等，v4 (2013-12-02)，PDF第3页Introduction；独立交叉复核者实际读取",
+    "evidence": "低频、空间各向异性、回旋平均及六维至五维；仅引用该范围",
+    "checked_on": "2026-10-16",
+    "中文标题": "多尺度回旋动理学理论"
+  },
+  {
+    "id": "EXP-F-022",
+    "title": "Dreicer逃逸电子产生与部分电离",
+    "url": "https://arxiv.org/html/1910.00356v2",
+    "scope": "Hesslow等，§1–2、图1；独立交叉复核者实际读取",
+    "evidence": "ED与Ec的区分、种子机制、部分电离和辐射限制；未标记全文审核",
+    "checked_on": "2026-10-16",
+    "中文标题": "Dreicer逃逸电子产生与部分电离"
   }
 ]

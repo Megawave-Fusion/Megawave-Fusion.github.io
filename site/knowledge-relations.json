@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "所有永久条目均收录。箭头表示编者依据当前正文整理的建议先学关系，并非严格、唯一或完整的知识依赖；无箭头连线表示主题关联。未连线的条目仍可阅读，不能据此断定彼此无关。关系不改变正文审核状态，部分条目仍为提纲。",
+  "note": "所有永久条目均收录。箭头表示编者依据当前正文整理的建议先学关系，并非严格、唯一或完整的知识依赖；无箭头连线表示主题关联。未连线的条目仍可阅读，不能据此断定彼此无关。关系不改变正文审核状态，内容复核状态以各条目当前版本为准。",
   "edges": [
     {
       "source": "MF000084",
@@ -901,6 +901,174 @@
       "target": "MF000081",
       "type": "related",
       "reason": "来源入口与文献元数据归档共同保持证据的可追溯性。"
+    },
+    {
+      "source": "MF000084",
+      "target": "MF000145",
+      "type": "prerequisite",
+      "reason": "先统一能量单位，再核算核反应释放能与产物分配。"
+    },
+    {
+      "source": "MF000100",
+      "target": "MF000146",
+      "type": "prerequisite",
+      "reason": "反应率系数是对物种速度分布的双重平均。"
+    },
+    {
+      "source": "MF000145",
+      "target": "MF000146",
+      "type": "prerequisite",
+      "reason": "反应道和截面对应关系是计算各通道反应率的起点。"
+    },
+    {
+      "source": "MF000146",
+      "target": "MF000147",
+      "type": "prerequisite",
+      "reason": "已知反应率的密度乘积结构，才能讨论配比极值和剖面积分。"
+    },
+    {
+      "source": "MF000147",
+      "target": "MF000148",
+      "type": "prerequisite",
+      "reason": "先明确组成与空间平均，再定义同一热群体的储能和功率预算。"
+    },
+    {
+      "source": "MF000148",
+      "target": "MF000149",
+      "type": "prerequisite",
+      "reason": "Lawson条件由明确的热储能和损失约束时间推导。"
+    },
+    {
+      "source": "MF000149",
+      "target": "MF000150",
+      "type": "prerequisite",
+      "reason": "增益定义用于计算alpha自加热份额，并区分有限增益与点火。"
+    },
+    {
+      "source": "MF000150",
+      "target": "MF000152",
+      "type": "prerequisite",
+      "reason": "燃烧反馈需要区分alpha出生、慢化沉积和热氦灰库存。"
+    },
+    {
+      "source": "MF000152",
+      "target": "MF000153",
+      "type": "prerequisite",
+      "reason": "把维持燃烧所需的输入和反馈通道连接到电站总功率预算。"
+    },
+    {
+      "source": "MF000148",
+      "target": "MF000151",
+      "type": "prerequisite",
+      "reason": "辐射是热能账本中的独立通道，需避免与约束时间重复扣除。"
+    },
+    {
+      "source": "MF000151",
+      "target": "MF000152",
+      "type": "prerequisite",
+      "reason": "温度与组分改变辐射损失，因此影响热稳定与灰稀释反馈。"
+    },
+    {
+      "source": "MF000103",
+      "target": "MF000154",
+      "type": "prerequisite",
+      "reason": "连续性和能量矩给出径向输运必须满足的守恒方程。"
+    },
+    {
+      "source": "MF000154",
+      "target": "MF000155",
+      "type": "prerequisite",
+      "reason": "先有通量定义，再比较经典与新经典的闭合和有效域。"
+    },
+    {
+      "source": "MF000098",
+      "target": "MF000155",
+      "type": "prerequisite",
+      "reason": "磁镜俘获和漂移轨道帮助理解环形装置的香蕉粒子。"
+    },
+    {
+      "source": "MF000155",
+      "target": "MF000156",
+      "type": "prerequisite",
+      "reason": "俘获/通行轨道与碰撞交换是自举电流和新经典双极性的基础。"
+    },
+    {
+      "source": "MF000156",
+      "target": "MF000157",
+      "type": "prerequisite",
+      "reason": "在新经典碰撞基线之后讨论额外的涨落通量及其相位。"
+    },
+    {
+      "source": "MF000157",
+      "target": "MF000158",
+      "type": "prerequisite",
+      "reason": "湍流输运及剪切流为边缘输运屏障与台基提供背景。"
+    },
+    {
+      "source": "MF000158",
+      "target": "MF000159",
+      "type": "prerequisite",
+      "reason": "台基外侧的损失进入开放磁力线，连接核心与SOL排热。"
+    },
+    {
+      "source": "MF000159",
+      "target": "MF000160",
+      "type": "prerequisite",
+      "reason": "平行输运的靶端边界条件需要鞘层与离子入口条件。"
+    },
+    {
+      "source": "MF000087",
+      "target": "MF000160",
+      "type": "prerequisite",
+      "reason": "Debye屏蔽尺度和电荷分离是理解鞘层模型的基础。"
+    },
+    {
+      "source": "MF000160",
+      "target": "MF000161",
+      "type": "prerequisite",
+      "reason": "理解靶端通量后，再引入中性回收、反应及脱靶预算。"
+    },
+    {
+      "source": "MF000099",
+      "target": "MF000162",
+      "type": "prerequisite",
+      "reason": "快粒子损失分析要先检查导引中心与绝热轨道的适用范围。"
+    },
+    {
+      "source": "MF000119",
+      "target": "MF000162",
+      "type": "prerequisite",
+      "reason": "Alfvén分支与轨道共振共同决定快粒子模的作用条件。"
+    },
+    {
+      "source": "MF000150",
+      "target": "MF000162",
+      "type": "related",
+      "reason": "alpha自加热依赖快粒子约束与实际沉积。"
+    },
+    {
+      "source": "MF000151",
+      "target": "MF000161",
+      "type": "related",
+      "reason": "边界辐射和原子分子反应连接燃烧功率与脱靶排热。"
+    },
+    {
+      "source": "MF000152",
+      "target": "MF000161",
+      "type": "related",
+      "reason": "氦灰排出与边界回收、抽排有关。"
+    },
+    {
+      "source": "MF000158",
+      "target": "MF000163",
+      "type": "related",
+      "reason": "ELM与破裂都涉及瞬态负荷，但影响区域及能量通道不同。"
+    },
+    {
+      "source": "MF000156",
+      "target": "MF000163",
+      "type": "related",
+      "reason": "电流剖面和磁岛演化可影响托卡马克破裂风险。"
     }
   ],
   "paths": [
@@ -960,6 +1128,36 @@
         "MF000136",
         "MF000140",
         "MF000141"
+      ]
+    },
+    {
+      "id": "burning",
+      "title": "从核反应到燃烧与净电",
+      "description": "先核算反应率与热收支，再区分Lawson条件、自加热、燃烧反馈和工程净电。",
+      "nodes": [
+        "MF000145",
+        "MF000146",
+        "MF000147",
+        "MF000148",
+        "MF000149",
+        "MF000150",
+        "MF000152",
+        "MF000153"
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "从输运到边界排热",
+      "description": "由守恒和碰撞轨道进入湍流、台基，再学习SOL、鞘层及脱靶。",
+      "nodes": [
+        "MF000154",
+        "MF000155",
+        "MF000156",
+        "MF000157",
+        "MF000158",
+        "MF000159",
+        "MF000160",
+        "MF000161"
       ]
     }
   ]
