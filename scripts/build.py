@@ -112,9 +112,10 @@ class Builder:
             raise ValueError('Knowledge graph must contain exactly one node per permanent tag')
         self.search = []
         self.pages = []
-        self.sequence = [{'url': '/', 'title': CONFIG['title']}, {'url': '/contents/', 'title': '完整目录'}]
+        self.sequence = [{'url': '/', 'title': CONFIG['title']}]
         for chapter in self.chapters:
-            self.sequence.append(chapter)
+            if len(chapter['sections']) > 1:
+                self.sequence.append(chapter)
             for section in chapter['sections']:
                 self.sequence.append(section)
                 self.sequence.extend(section['entries'])
@@ -160,7 +161,7 @@ class Builder:
         return str(soup)
 
     def chapter_links(self, current=''):
-        return ''.join(f'<a class="{"active" if c["slug"] == current else ""}" href="{c["url"]}"><span>{c["number"]:02}</span>{ESC(c["title"])}</a>' for c in self.chapters)
+        return ''.join(f'<a class="{"active" if c["slug"] == current else ""}" href="{c["sections"][0]["url"] if len(c["sections"]) == 1 else c["url"]}"><span>{c["number"]:02}</span>{ESC(c["title"])}</a>' for c in self.chapters)
 
     def nav(self, url, bottom=False):
         indices = {p['url']: i for i, p in enumerate(self.sequence)}
@@ -185,18 +186,22 @@ class Builder:
         extra_assets = ''.join(f'<link rel="stylesheet" href="/assets/{name}?v={self.versions[name]}">' for name in styles)
         extra_assets += ''.join(f'<script type="module" src="/assets/{name}?v={self.versions[name]}"></script>' for name in modules)
         body_class = ' class="knowledge-tree-page"' if full_width else ''
-        layout_class = 'layout knowledge-tree-layout' if full_width else 'layout'
+        show_sidebar = chapter is not None and not full_width
+        layout_class = 'layout knowledge-tree-layout' if full_width else 'layout' if show_sidebar else 'layout layout-overview'
         main_class = ' class="knowledge-tree-main"' if full_width else ''
+        sidebar = f'<aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav></aside>' if show_sidebar else ''
+        mobile_nav = f'<details class="mobile-nav"><summary>切换章节</summary><nav>{self.chapter_links(current)}</nav></details>' if show_sidebar else ''
+        breadcrumb_html = f'<div class="breadcrumb"><div>{breadcrumb}</div></div>' if url != '/' else ''
         text = f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{ESC(title)} · Fusion Stacks</title><meta name="description" content="{ESC(description or '曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。')}">
 <meta name="theme-color" content="#123c54"><meta property="og:title" content="{ESC(title)} · Fusion Stacks"><meta property="og:description" content="{ESC(description or CONFIG['title'])}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="article">
 <link rel="canonical" href="{canonical}"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css}"><script type="module" src="/assets/site.mjs?v={js}"></script>{math_scripts}{extra_assets}</head>
-<body{body_class}><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a><a class="wide-link" href="{REPO}">GitHub ↗</a></nav></div>
+<body{body_class}><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div>{breadcrumb}</div></div><div class="{layout_class}"><aside class="sidebar"><div class="sidebar-title">Contents / 知识目录</div><nav aria-label="章节目录">{self.chapter_links(current)}</nav><div class="side-links"><a href="/contents/">完整目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">参考文献与来源</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a><a href="/about/">关于知识库</a></div><p class="side-note">从物理原理到工程实践。<br>条目保留假设、来源与审核状态。</p></aside>
-<main id="main"{main_class}><details class="mobile-nav"><summary>浏览章节与页面工具</summary><nav>{self.chapter_links(current)}<a href="/knowledge-tree/">知识树</a><a href="/contributing/">编写与审核</a><a href="/verification/">内容核验记录</a><a href="/sources/">版本与来源</a></nav></details>{self.nav(url) if reader else ''}{body}{self.nav(url,True) if reader else ''}</main></div>
-<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><span><a href="/about/">关于</a><a href="/contributing/">参与编写</a><a href="/sources/">来源与版本</a><a href="{REPO}">GitHub ↗</a></span></div></footer></body></html>'''
+{breadcrumb_html}<div class="{layout_class}">{sidebar}
+<main id="main"{main_class}>{mobile_nav}{body}{self.nav(url,True) if reader else ''}</main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="{REPO}">GitHub ↗</a></nav></div></footer></body></html>'''
         target = self.out / ('404.html' if url == '/404.html' else url.strip('/') + '/index.html' if url != '/' else 'index.html')
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text)
@@ -211,9 +216,8 @@ class Builder:
         key = tag or url.strip('/').replace('/', '-') or 'home'
         bib = f'@misc{{fusion-{key},\n  author = {{{{Megawave-Fusion}}}},\n  title = {{{title}}},\n  year = {{2026}},\n  url = {{{CONFIG["url"] + url}}},\n  note = {{Fusion Stacks; revision {self.revision[:12]}}}\n}}'
         search = REPO + '/discussions?discussions_q=' + quote('"' + (tag or title) + '"')
-        new = REPO + '/discussions/new?category=general&title=' + quote(f'[{tag or key}] {title}')
         edit = f'<a class="button" href="{REPO}/edit/main/{quote(source)}">编辑源文</a>' if source else ''
-        return f'''<div class="page-tools"><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button>{edit}<a class="button" href="{search}">查看本页讨论 ↗</a><a class="button" href="{new}">发起讨论 ↗</a></div><details><summary>引用本页 · BibTeX</summary><pre id="citation">{ESC(bib)}</pre><button type="button" data-copy="citation">复制引用</button></details></div>'''
+        return f'''<details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button>{edit}<a class="button" href="{search}">讨论本页 ↗</a></div><pre id="citation">{ESC(bib)}</pre><button type="button" data-copy="citation">复制引用</button></details>'''
 
     def index_record(self, title, url, text, **extra):
         plain = BeautifulSoup(text, 'html.parser').get_text(' ', strip=True)
@@ -222,11 +226,16 @@ class Builder:
     def contents(self, expanded=False):
         rows = []
         for chapter in self.chapters:
+            if len(chapter['sections']) == 1:
+                section = chapter['sections'][0]
+                teaser = ''.join(f'<li><a href="{e["url"]}">{ESC(e["title"])}</a></li>' for e in section['entries'])
+                rows.append(f'<article class="chapter-row chapter-single"><div class="chapter-summary"><span class="chapter-number">{chapter["number"]:02}</span><a class="chapter-name" href="{section["url"]}">{ESC(chapter["title"])}</a><span class="chapter-size">{len(section["entries"])} 条目</span></div><p class="chapter-description">{ESC(chapter["description"])}</p>{"<ul class=single-entries>" + teaser + "</ul>" if expanded else ""}</article>')
+                continue
             sections = []
             for section in chapter['sections']:
                 teaser = ' · '.join(f'<a href="{e["url"]}">{ESC(e["title"])}</a>' for e in section['entries'])
                 sections.append(f'<li><span class="subnumber">{section["number"]}</span><a href="{section["url"]}">{ESC(section["title"])}</a><span class="count">{len(section["entries"])} 条目</span>{"<div class=entry-teaser>"+teaser+"</div>" if expanded else ""}</li>')
-            rows.append(f'<details class="chapter-row" open><summary><span class="chapter-number">{chapter["number"]:02}</span><a class="chapter-name" href="{chapter["url"]}">{ESC(chapter["title"])}</a><span class="chapter-size">{len(chapter["sections"])} 节</span></summary><p class="chapter-description">{ESC(chapter["description"])}</p><ul class="section-list">{"".join(sections)}</ul></details>')
+            rows.append(f'<details class="chapter-row" {"open" if expanded else ""}><summary><span class="chapter-number">{chapter["number"]:02}</span><a class="chapter-name" href="{chapter["url"]}">{ESC(chapter["title"])}</a><span class="chapter-size">{len(chapter["sections"])} 专题</span></summary><p class="chapter-description">{ESC(chapter["description"])}</p><ul class="section-list">{"".join(sections)}</ul></details>')
         return '<div class="section-heading"><h2>知识目录</h2><div class="small-controls"><button type="button" data-expand="true">全部展开</button><button type="button" data-expand="false">全部收起</button></div></div><div class="chapter-list">' + ''.join(rows) + '</div>'
 
     def build(self):
@@ -242,15 +251,18 @@ class Builder:
         shutil.copytree(vendor, self.out / 'assets/mathjax')
         (self.out / '.nojekyll').touch()
         total = len(self.entries)
-        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a><a class="button" href="/contents/">完整目录</a><a class="button" href="/knowledge-tree/">探索知识树</a><a class="button" href="/references/">参考文献</a><a class="button" href="/contributing/">参与编写</a></div></section><p class="reading-note">已补充等离子体物理五个正文专题及离子回旋加热专题，含定义、推导、算例与适用条件。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
+        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a></div></section><p class="reading-note">覆盖基础物理、加热、装置、材料、诊断与工程。各条目包含原理、推导或方法实例，并就近列出参考文献。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
         self.page('/', CONFIG['title'], hero + self.contents(), reader=False)
-        self.page('/contents/', '完整目录', '<h1>完整目录</h1><p class="lead">按章节浏览，或直接进入带永久标签的知识条目。</p>' + self.contents(True))
+        self.page('/contents/', '完整目录', '<h1>完整目录</h1><p class="lead">按章节浏览，或直接进入带永久标签的知识条目。</p>' + self.contents(True), reader=False)
         for chapter in self.chapters:
             body = f'<p class="eyebrow">Chapter {chapter["number"]:02}</p><h1>{ESC(chapter["title"])}</h1><p>{ESC(chapter["description"])}</p>'
             for section in chapter['sections']:
-                body += f'<h2><span class="entry-number">{section["number"]}</span><a href="{section["url"]}">{ESC(section["title"])}</a></h2><ul>'
+                if len(chapter['sections']) == 1:
+                    body += f'<p><a class="button primary" href="{section["url"]}">连续阅读 →</a></p><ul>'
+                else:
+                    body += f'<h2><span class="entry-number">{section["number"]}</span><a href="{section["url"]}">{ESC(section["title"])}</a></h2><ul>'
                 body += ''.join(f'<li><a href="{e["url"]}">{ESC(e["title"])}</a> <span class="tag">{e["tag"]}</span></li>' for e in section['entries']) + '</ul>'
-            self.page(chapter['url'], chapter['title'], body, chapter)
+            self.page(chapter['url'], chapter['title'], body, chapter, reader=len(chapter['sections']) > 1)
         for section in self.sections:
             chapter = section['chapter']
             intro = self.render(section['intro'], section['source'])
@@ -258,20 +270,20 @@ class Builder:
             for entry in section['entries']:
                 content = self.render(entry['markdown'], entry['source'])
                 entry['html'] = content
-                blocks.append(f'<section class="entry-block" id="{entry["tag"]}"><div class="entry-heading"><h2><span class="entry-number">{entry["number"]}</span><a href="{entry["url"]}">{ESC(entry["title"])}</a></h2><a class="tag" href="{entry["url"]}">{entry["tag"]}</a></div><div class="prose">{content}</div><div class="entry-tools"><span>{self.status(entry)}</span><a href="{entry["url"]}">条目详情与引用 →</a></div></section>')
+                review = f'<span>{self.status(entry)}</span>' if self.status(entry) != self.status(section) else ''
+                blocks.append(f'<section class="entry-block" id="{entry["tag"]}"><div class="entry-heading"><h2><span class="entry-number">{entry["number"]}</span><a href="{entry["url"]}">{ESC(entry["title"])}</a></h2><a class="tag" href="{entry["url"]}">{entry["tag"]}</a></div><div class="prose">{content}</div><div class="entry-tools">{review}<a href="{entry["url"]}">条目详情与引用 →</a></div></section>')
                 self.index_record(entry['title'], entry['url'], content, tag=entry['tag'], kind='条目',
                                   chapter_slug=chapter['slug'], chapter_title=chapter['title'], section_title=section['title'],
                                   aliases=section['slug'])
-            toc = '<details class="page-toc" open><summary>本节内容</summary><ul>' + ''.join(f'<li><a href="#{e["tag"]}">{ESC(e["title"])}</a></li>' for e in section['entries']) + '</ul></details>'
+            toc = '<details class="page-toc"><summary>本节目录 · ' + str(len(section['entries'])) + ' 个条目</summary><ul>' + ''.join(f'<li><a href="#{e["tag"]}">{ESC(e["title"])}</a></li>' for e in section['entries']) + '</ul></details>' if len(section['entries']) > 1 else ''
             body = f'<p class="eyebrow">Section {section["number"]} · 连续阅读</p><h1>{ESC(section["title"])}</h1><div class="page-meta"><span>{len(section["entries"])} 个条目</span><span class="status">{self.status(section)}</span></div><div class="prose">{intro}</div>' + toc + ''.join(blocks) + self.tools(section['url'], section['title'], section['source'])
-            self.page(section['url'], section['title'], body, chapter, [(chapter['url'], chapter['title'])], math=True)
+            self.page(section['url'], section['title'], body, chapter, [(chapter['url'], chapter['title'])] if len(chapter['sections']) > 1 else [], math=True)
             self.index_record(section['title'], section['url'], intro, kind='专题', chapter_slug=chapter['slug'], chapter_title=chapter['title'], section_title=section['title'], aliases=section['slug'])
         for entry in self.entries:
             section, chapter = entry['section'], entry['section']['chapter']
-            siblings = [e for e in section['entries'] if e['tag'] != entry['tag']]
-            related = '<aside class="related"><h2>本节其他条目</h2><ul>' + ''.join(f'<li><a href="{e["url"]}">{ESC(e["title"])}</a></li>' for e in siblings) + '</ul></aside>' if siblings else ''
-            body = f'<p class="eyebrow">Entry {entry["number"]} · {ESC(entry["kind"])}</p><h1>{ESC(entry["title"])}</h1><div class="page-meta"><span class="tag">{entry["tag"]}</span><span class="status">{self.status(entry)}</span><a href="{section["url"]}#{entry["tag"]}">在连续正文中阅读</a></div><article class="prose">{entry["html"]}</article>' + related + self.tools(entry['url'], entry['title'], entry['source'], entry['tag'])
-            self.page(entry['url'], entry['title'], body, chapter, [(chapter['url'], chapter['title']), (section['url'], section['title'])], math=True)
+            body = f'<p class="eyebrow">Entry {entry["number"]} · {ESC(entry["kind"])}</p><h1>{ESC(entry["title"])}</h1><div class="page-meta"><span class="tag">{entry["tag"]}</span><span class="status">{self.status(entry)}</span><a href="{section["url"]}#{entry["tag"]}">在连续正文中阅读</a></div><article class="prose">{entry["html"]}</article>' + self.tools(entry['url'], entry['title'], entry['source'], entry['tag'])
+            crumbs = ([(chapter['url'], chapter['title'])] if len(chapter['sections']) > 1 else []) + [(section['url'], section['title'])]
+            self.page(entry['url'], entry['title'], body, chapter, crumbs, math=True)
         self.ancillary()
         json_write(self.out / 'search-index.json', self.search)
         json_write(self.out / 'tags.json', {e['tag']: {'title': e['title'], 'source': e['source'], 'url': e['url'], 'status': e['status']} for e in self.entries})
@@ -302,22 +314,27 @@ class Builder:
                           chapter_slug='', chapter_title='', section_title='知识树')
         for source, url, title in [('README.md','/about/','关于知识库'),('编写说明.md','/contributing/','编写与审核'),('网站维护.md','/maintenance/','网站维护'),('核验记录.md','/verification/','内容核验记录')]:
             text = re.sub(r'^# .+\n', '', (ROOT / source).read_text(), count=1)
+            if source == 'README.md':
+                text = text.split('\n## ', 1)[0]
             content = self.render(text, source)
+            if source == 'README.md':
+                content += '<p>从<a href="/contents/">完整目录</a>浏览正文，或通过<a href="/knowledge-tree/">知识树</a>探索条目关系。条目来源、推导和审核状态分别保存；<a href="/contributing/">编写规范</a>说明参与方式。</p>'
             self.page(url, title, '<h1>' + title + '</h1><article class="prose">' + content + '</article>', math=True, reader=False)
             self.index_record(title, url, content, kind='说明', chapter_slug='', chapter_title='', section_title='站点文档')
         options = ''.join(f'<option value="{c["slug"]}">{ESC(c["title"])}</option>' for c in self.chapters)
         body = f'''<h1>搜索知识库</h1><p>支持中文、英文缩写、正文关键词和永久标签。多个关键词以空格分隔。</p><div class="search-controls"><label for="chapter-filter">章节<select id="chapter-filter"><option value="">全部章节</option>{options}</select></label><label for="kind-filter">类型<select id="kind-filter"><option value="">全部类型</option><option>条目</option><option>专题</option><option>文献</option><option>说明</option></select></label></div><p id="search-status" class="search-status" role="status" aria-live="polite">正在载入搜索索引…</p><div id="search-results"></div><button type="button" id="show-more" hidden>显示更多结果</button><noscript><p class="noscript">全文搜索需要 JavaScript。仍可通过<a href="/contents/">完整目录</a>阅读所有内容。</p></noscript>'''
         self.page('/search/', '搜索知识库', body, reader=False)
-        body = f'<h1>参考文献与来源</h1><p>共 {len(self.references)} 条机构资料、课程和论文入口。来源核对日期及范围逐条记录；本次等离子体正文在各条目就近注明具体章节与公式位置。</p>'
+        body = f'<h1>参考文献与来源</h1><p>共 {len(self.references)} 条机构资料、课程和论文入口。来源核对日期及范围逐条记录；各条目就近注明所用文献的章节与公式位置。</p>'
         for ref in self.references:
             anchor = ref['id']
             title = ref.get('中文标题', ref['title'])
-            body += f'<article class="reference" id="{anchor}"><div class="ref-id">{anchor}</div><h2><a href="{ESC(ref["url"])}">{ESC(title)} ↗</a></h2><p>{ESC(ref["title"])}</p><p>{ESC(ref["scope"])}</p><small>入口核对：{ref["checked_on"]} · {ESC(ref["evidence"])}</small></article>'
+            original = f'<p>{ESC(ref["title"])}</p>' if title != ref['title'] else ''
+            body += f'<article class="reference" id="{anchor}"><div class="ref-id">{anchor}</div><h2><a href="{ESC(ref["url"])}">{ESC(title)} ↗</a></h2>{original}<p>{ESC(ref["scope"])}</p><small>入口核对：{ref["checked_on"]} · {ESC(ref["evidence"])}</small></article>'
             self.index_record(title, '/references/#' + anchor, ref['title'] + ' ' + ref['scope'], tag=anchor, kind='文献', chapter_slug='literature', chapter_title='文献资料', section_title='参考来源')
         self.page('/references/', '参考文献与来源', body, reader=False)
-        body = f'''<h1>讨论与勘误</h1><p>知识库的讨论保存在 GitHub Discussions。每个条目页面都有“查看本页讨论”和“发起讨论”入口，通过永久标签关联内容。</p><p>欢迎提出原理解释、文献补充、工程经验和勘误。请说明对应条目、适用条件、来源与证据。</p><div class="page-actions"><a class="button primary" href="{REPO}/discussions">进入讨论区 ↗</a><a class="button" href="{REPO}/issues/new">提交勘误 ↗</a></div><p class="reading-note">当前使用 GitHub 原生讨论入口；站内嵌入式评论尚未启用。发表讨论需要登录 GitHub。</p>'''
+        body = f'''<h1>讨论与勘误</h1><p>知识库的讨论保存在 GitHub Discussions。展开条目末尾的“引用与编辑”，可进入“讨论本页”，通过永久标签检索对应讨论。</p><p>欢迎提出原理解释、文献补充、工程经验和勘误。请说明对应条目、适用条件、来源与证据。</p><div class="page-actions"><a class="button primary" href="{REPO}/discussions">进入讨论区 ↗</a><a class="button" href="{REPO}/issues/new">提交勘误 ↗</a></div><p class="reading-note">当前使用 GitHub 原生讨论入口；站内嵌入式评论尚未启用。发表讨论需要登录 GitHub。</p>'''
         self.page('/comments/', '讨论与勘误', body, reader=False)
-        body = f'''<h1>版本与来源</h1><p>本阅读版包含 {len(self.sections)} 个专题、{len(self.entries)} 个永久条目和 {len(self.references)} 条来源记录。正文保留中文目录，由同一份源文件生成连续阅读页与条目页；原仓库历史完整保留。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>等离子体物理与离子回旋加热正文完成限定范围的模型辅助复核；领域专家审核仍待完成。<a href="/verification/">详见核验记录</a>。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/data/knowledge-graph.json">知识树节点、编者关系与学习路径</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li><li><a href="/data/verification.json">内容复核范围与源文校验值</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
+        body = f'''<h1>版本与来源</h1><p>本阅读版包含 {len(self.sections)} 个专题、{len(self.entries)} 个永久条目和 {len(self.references)} 条来源记录。正文保留中文目录，由同一份源文件生成连续阅读页与条目页；原仓库历史完整保留。</p><dl><dt>源仓库</dt><dd><a href="{REPO}">{CONFIG['repository']}</a></dd><dt>构建所基于的提交</dt><dd><a href="{REPO}/commit/{self.revision}"><code>{self.revision[:12]}</code></a></dd><dt>条目审核状态</dt><dd>模型辅助复核按正文版本保存，领域专家审核状态另行记录。<a href="/verification/">详见核验记录</a>。</dd></dl><h2>可追溯记录</h2><ul><li><a href="/edition.json">版本回执与源文件 SHA-256</a></li><li><a href="/tags.json">永久标签索引</a></li><li><a href="/data/knowledge-graph.json">知识树节点、编者关系与学习路径</a></li><li><a href="/navigation.json">完整阅读顺序</a></li><li><a href="/data/sources.json">结构化参考来源</a></li><li><a href="/data/verification.json">内容复核范围与源文校验值</a></li></ul><h2>构建与署名</h2><p>阅读组织参考 <a href="https://mingchenxia.github.io/Pome/">Pome</a> 与 <a href="https://stacks.math.columbia.edu/">Stacks Project</a> 的章节、标签和交叉引用方式。本站使用针对现有 Markdown 内容编写的静态生成器；保留未来接入 LaTeX/Gerby 的适配空间。</p><p>数学公式由自托管的 MathJax 3.2.2 渲染，<a href="/assets/mathjax/LICENSE">MathJax 许可证</a>随站点提供。网站发布不改变原知识正文的许可：本仓库不默认授予内容开源许可。</p>'''
         self.page('/sources/', '版本与来源', body, reader=False)
         self.page('/404.html', '页面未找到', '<h1>页面未找到</h1><p>可用关键词或永久标签查找条目，也可以返回完整目录。</p><a class="button" href="/contents/">浏览完整目录</a>', reader=False)
 

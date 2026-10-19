@@ -29,7 +29,7 @@
     "status": "draft",
     "kind": "专题"
   },
-  "基础原理/README.md#参考资料": {
+  "基础原理/README.md#温度约定与热能积分的文献换算": {
     "tag": "MF000007",
     "status": "draft",
     "kind": "专题"
@@ -64,192 +64,192 @@
     "status": "draft",
     "kind": "专题"
   },
-  "装置路线/README.md#参考资料": {
+  "装置路线/README.md#装置论文的阅读与证据定位": {
     "tag": "MF000014",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/README.md#系统间的接口与比较": {
+  "辅助加热/README.md#从功率链到粒子源与动态响应": {
     "tag": "MF000015",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#原理与适用条件": {
+  "辅助加热/离子回旋加热/README.md#离子共振与局域磁化条件": {
     "tag": "MF000016",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#设备组成与接口": {
+  "辅助加热/离子回旋加热/README.md#ICRF 功率链与电压电流应力": {
     "tag": "MF000017",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#设计计算与仿真": {
+  "辅助加热/离子回旋加热/README.md#天线加载与共轭 T 匹配": {
     "tag": "MF000018",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#控制与保护": {
+  "辅助加热/离子回旋加热/README.md#ELM 负载响应与快速撤功率": {
     "tag": "MF000019",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#测试与验收": {
+  "辅助加热/离子回旋加热/README.md#射频量热与等离子体沉积诊断": {
     "tag": "MF000020",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/离子回旋加热/README.md#文献与案例": {
+  "辅助加热/离子回旋加热/README.md#组分扫描怎样切换少数离子与模转换通道": {
     "tag": "MF000021",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#原理与适用条件": {
+  "辅助加热/电子回旋加热/README.md#电子回旋共振与 O/X 模传播": {
     "tag": "MF000022",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#设备组成与接口": {
+  "辅助加热/电子回旋加热/README.md#回旋管与毫米波传输光学": {
     "tag": "MF000023",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#设计计算与仿真": {
+  "辅助加热/电子回旋加热/README.md#EC 波束沉积与局部电流驱动": {
     "tag": "MF000024",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#控制与保护": {
+  "辅助加热/电子回旋加热/README.md#发射镜跟踪与高压储能保护": {
     "tag": "MF000025",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#测试与验收": {
+  "辅助加热/电子回旋加热/README.md#毫米波功率标定与电子热响应": {
     "tag": "MF000026",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子回旋加热/README.md#文献与案例": {
+  "辅助加热/电子回旋加热/README.md#吸收效率与沉积定位共同决定的 ECCD 电流": {
     "tag": "MF000027",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#原理与适用条件": {
+  "辅助加热/中性束注入/README.md#束停止、快离子慢化与电流": {
     "tag": "MF000028",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#设备组成与接口": {
+  "辅助加热/中性束注入/README.md#离子源、中性化器与束线接口": {
     "tag": "MF000029",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#设计计算与仿真": {
+  "辅助加热/中性束注入/README.md#束轨道与电子离子传能计算": {
     "tag": "MF000030",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#控制与保护": {
+  "辅助加热/中性束注入/README.md#直穿热负荷与注入许可": {
     "tag": "MF000031",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#测试与验收": {
+  "辅助加热/中性束注入/README.md#束斑量热与快离子诊断": {
     "tag": "MF000032",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/中性束注入/README.md#文献与案例": {
+  "辅助加热/中性束注入/README.md#分子束组分怎样改变穿透、加热与转矩": {
     "tag": "MF000033",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#原理与适用条件": {
+  "辅助加热/低杂波电流驱动/README.md#低杂慢波可达性与朗道共振": {
     "tag": "MF000034",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#设备组成与接口": {
+  "辅助加热/低杂波电流驱动/README.md#波导阵列与平行发射谱": {
     "tag": "MF000035",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#设计计算与仿真": {
+  "辅助加热/低杂波电流驱动/README.md#LH 沉积计算与电流效率": {
     "tag": "MF000036",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#控制与保护": {
+  "辅助加热/低杂波电流驱动/README.md#幅相控制与反射功率测量": {
     "tag": "MF000037",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#测试与验收": {
+  "辅助加热/低杂波电流驱动/README.md#环电压响应与非感应电流识别": {
     "tag": "MF000038",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/低杂波电流驱动/README.md#文献与案例": {
+  "辅助加热/低杂波电流驱动/README.md#高场侧注入如何兼顾可达性与沉积位置": {
     "tag": "MF000039",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#原理与适用条件": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#EBW 色散与 O-X-B 转换": {
     "tag": "MF000040",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#设备组成与接口": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#EBW 发射光学与边缘诊断": {
     "tag": "MF000041",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#设计计算与仿真": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#模式转换、传播与吸收预算": {
     "tag": "MF000042",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#控制与保护": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#转换窗口跟踪与杂散功率保护": {
     "tag": "MF000043",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#测试与验收": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#伯恩斯坦辐射与模式转换测量": {
     "tag": "MF000044",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/电子伯恩斯坦波加热/README.md#文献与案例": {
+  "辅助加热/电子伯恩斯坦波加热/README.md#边缘转换与外层谐波怎样决定核心加热": {
     "tag": "MF000045",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#原理与适用条件": {
+  "辅助加热/螺旋波加热/README.md#Whistler 分支与高温快波阻尼": {
     "tag": "MF000046",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#设备组成与接口": {
+  "辅助加热/螺旋波加热/README.md#行波阵列与定向功率耦合": {
     "tag": "MF000047",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#设计计算与仿真": {
+  "辅助加热/螺旋波加热/README.md#Helicon 传播计算与功率分配": {
     "tag": "MF000048",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#控制与保护": {
+  "辅助加热/螺旋波加热/README.md#阵列负载变化与快响应保护": {
     "tag": "MF000049",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#测试与验收": {
+  "辅助加热/螺旋波加热/README.md#电子热响应与残差电流重建": {
     "tag": "MF000050",
     "status": "draft",
     "kind": "专题"
   },
-  "辅助加热/螺旋波加热/README.md#文献与案例": {
+  "辅助加热/螺旋波加热/README.md#DIII-D 核心驱动电流与吸收份额": {
     "tag": "MF000051",
     "status": "draft",
     "kind": "专题"
@@ -284,7 +284,7 @@
     "status": "draft",
     "kind": "专题"
   },
-  "腔体材料/README.md#参考资料": {
+  "腔体材料/README.md#材料物性数据与状态追踪": {
     "tag": "MF000058",
     "status": "draft",
     "kind": "专题"
@@ -304,7 +304,7 @@
     "status": "draft",
     "kind": "专题"
   },
-  "诊断控制/README.md#参考资料": {
+  "诊断控制/README.md#诊断文献中的测量与误差链": {
     "tag": "MF000062",
     "status": "draft",
     "kind": "专题"
@@ -354,7 +354,7 @@
     "status": "draft",
     "kind": "专题"
   },
-  "工程系统/README.md#参考资料": {
+  "工程系统/README.md#工程规格的单位与边界核对": {
     "tag": "MF000072",
     "status": "draft",
     "kind": "专题"
@@ -494,7 +494,7 @@
     "status": "draft",
     "kind": "基础知识"
   },
-  "基础原理/动理学与碰撞/README.md#分布函数、速度矩与温度的含义": {
+  "基础原理/动理学与碰撞/README.md#非平衡分布的压力张量与热流": {
     "tag": "MF000100",
     "status": "draft",
     "kind": "基础知识"
@@ -504,7 +504,7 @@
     "status": "draft",
     "kind": "基础知识"
   },
-  "基础原理/动理学与碰撞/README.md#Maxwell 分布、各向同性与非平衡状态": {
+  "基础原理/动理学与碰撞/README.md#Maxwell 平衡、高能尾部与非平衡混合": {
     "tag": "MF000102",
     "status": "draft",
     "kind": "基础知识"
