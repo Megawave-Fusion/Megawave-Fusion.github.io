@@ -4,16 +4,12 @@
     "title": "曦融兆波 · 聚变知识库"
   },
   {
-    "url": "/contents/",
-    "title": "完整目录"
-  },
-  {
     "url": "/chapters/foundations/",
     "title": "基础原理"
   },
   {
     "url": "/sections/foundations/",
-    "title": "基础原理"
+    "title": "聚变物理总览"
   },
   {
     "url": "/tag/MF000001/",
@@ -41,7 +37,7 @@
   },
   {
     "url": "/tag/MF000007/",
-    "title": "参考资料"
+    "title": "温度约定与热能积分的文献换算"
   },
   {
     "url": "/sections/plasma-basics/",
@@ -121,7 +117,7 @@
   },
   {
     "url": "/tag/MF000100/",
-    "title": "分布函数、速度矩与温度的含义"
+    "title": "非平衡分布的压力张量与热流"
   },
   {
     "url": "/tag/MF000101/",
@@ -129,7 +125,7 @@
   },
   {
     "url": "/tag/MF000102/",
-    "title": "Maxwell 分布、各向同性与非平衡状态"
+    "title": "Maxwell 平衡、高能尾部与非平衡混合"
   },
   {
     "url": "/tag/MF000103/",
@@ -348,12 +344,8 @@
     "title": "破裂、热淬灭与逃逸电子"
   },
   {
-    "url": "/chapters/devices/",
-    "title": "装置路线"
-  },
-  {
     "url": "/sections/devices/",
-    "title": "装置路线"
+    "title": "聚变装置与约束构型"
   },
   {
     "url": "/tag/MF000008/",
@@ -381,7 +373,7 @@
   },
   {
     "url": "/tag/MF000014/",
-    "title": "参考资料"
+    "title": "装置论文的阅读与证据定位"
   },
   {
     "url": "/chapters/heating/",
@@ -389,11 +381,11 @@
   },
   {
     "url": "/sections/heating/",
-    "title": "辅助加热与电流驱动"
+    "title": "加热功率与电流驱动总览"
   },
   {
     "url": "/tag/MF000015/",
-    "title": "系统间的接口与比较"
+    "title": "从功率链到粒子源与动态响应"
   },
   {
     "url": "/sections/icrh/",
@@ -401,7 +393,7 @@
   },
   {
     "url": "/tag/MF000016/",
-    "title": "原理与适用条件"
+    "title": "离子共振与局域磁化条件"
   },
   {
     "url": "/tag/MF000134/",
@@ -445,11 +437,11 @@
   },
   {
     "url": "/tag/MF000017/",
-    "title": "设备组成与接口"
+    "title": "ICRF 功率链与电压电流应力"
   },
   {
     "url": "/tag/MF000018/",
-    "title": "设计计算与仿真"
+    "title": "天线加载与共轭 T 匹配"
   },
   {
     "url": "/tag/MF000144/",
@@ -457,15 +449,15 @@
   },
   {
     "url": "/tag/MF000019/",
-    "title": "控制与保护"
+    "title": "ELM 负载响应与快速撤功率"
   },
   {
     "url": "/tag/MF000020/",
-    "title": "测试与验收"
+    "title": "射频量热与等离子体沉积诊断"
   },
   {
     "url": "/tag/MF000021/",
-    "title": "文献与案例"
+    "title": "组分扫描怎样切换少数离子与模转换通道"
   },
   {
     "url": "/sections/ecrh/",
@@ -473,27 +465,27 @@
   },
   {
     "url": "/tag/MF000022/",
-    "title": "原理与适用条件"
+    "title": "电子回旋共振与 O/X 模传播"
   },
   {
     "url": "/tag/MF000023/",
-    "title": "设备组成与接口"
+    "title": "回旋管与毫米波传输光学"
   },
   {
     "url": "/tag/MF000024/",
-    "title": "设计计算与仿真"
+    "title": "EC 波束沉积与局部电流驱动"
   },
   {
     "url": "/tag/MF000025/",
-    "title": "控制与保护"
+    "title": "发射镜跟踪与高压储能保护"
   },
   {
     "url": "/tag/MF000026/",
-    "title": "测试与验收"
+    "title": "毫米波功率标定与电子热响应"
   },
   {
     "url": "/tag/MF000027/",
-    "title": "文献与案例"
+    "title": "吸收效率与沉积定位共同决定的 ECCD 电流"
   },
   {
     "url": "/sections/nbi/",
@@ -501,27 +493,27 @@
   },
   {
     "url": "/tag/MF000028/",
-    "title": "原理与适用条件"
+    "title": "束停止、快离子慢化与电流"
   },
   {
     "url": "/tag/MF000029/",
-    "title": "设备组成与接口"
+    "title": "离子源、中性化器与束线接口"
   },
   {
     "url": "/tag/MF000030/",
-    "title": "设计计算与仿真"
+    "title": "束轨道与电子离子传能计算"
   },
   {
     "url": "/tag/MF000031/",
-    "title": "控制与保护"
+    "title": "直穿热负荷与注入许可"
   },
   {
     "url": "/tag/MF000032/",
-    "title": "测试与验收"
+    "title": "束斑量热与快离子诊断"
   },
   {
     "url": "/tag/MF000033/",
-    "title": "文献与案例"
+    "title": "分子束组分怎样改变穿透、加热与转矩"
   },
   {
     "url": "/sections/lhcd/",
@@ -529,27 +521,27 @@
   },
   {
     "url": "/tag/MF000034/",
-    "title": "原理与适用条件"
+    "title": "低杂慢波可达性与朗道共振"
   },
   {
     "url": "/tag/MF000035/",
-    "title": "设备组成与接口"
+    "title": "波导阵列与平行发射谱"
   },
   {
     "url": "/tag/MF000036/",
-    "title": "设计计算与仿真"
+    "title": "LH 沉积计算与电流效率"
   },
   {
     "url": "/tag/MF000037/",
-    "title": "控制与保护"
+    "title": "幅相控制与反射功率测量"
   },
   {
     "url": "/tag/MF000038/",
-    "title": "测试与验收"
+    "title": "环电压响应与非感应电流识别"
   },
   {
     "url": "/tag/MF000039/",
-    "title": "文献与案例"
+    "title": "高场侧注入如何兼顾可达性与沉积位置"
   },
   {
     "url": "/sections/ebw/",
@@ -557,27 +549,27 @@
   },
   {
     "url": "/tag/MF000040/",
-    "title": "原理与适用条件"
+    "title": "EBW 色散与 O-X-B 转换"
   },
   {
     "url": "/tag/MF000041/",
-    "title": "设备组成与接口"
+    "title": "EBW 发射光学与边缘诊断"
   },
   {
     "url": "/tag/MF000042/",
-    "title": "设计计算与仿真"
+    "title": "模式转换、传播与吸收预算"
   },
   {
     "url": "/tag/MF000043/",
-    "title": "控制与保护"
+    "title": "转换窗口跟踪与杂散功率保护"
   },
   {
     "url": "/tag/MF000044/",
-    "title": "测试与验收"
+    "title": "伯恩斯坦辐射与模式转换测量"
   },
   {
     "url": "/tag/MF000045/",
-    "title": "文献与案例"
+    "title": "边缘转换与外层谐波怎样决定核心加热"
   },
   {
     "url": "/sections/helicon/",
@@ -585,35 +577,31 @@
   },
   {
     "url": "/tag/MF000046/",
-    "title": "原理与适用条件"
+    "title": "Whistler 分支与高温快波阻尼"
   },
   {
     "url": "/tag/MF000047/",
-    "title": "设备组成与接口"
+    "title": "行波阵列与定向功率耦合"
   },
   {
     "url": "/tag/MF000048/",
-    "title": "设计计算与仿真"
+    "title": "Helicon 传播计算与功率分配"
   },
   {
     "url": "/tag/MF000049/",
-    "title": "控制与保护"
+    "title": "阵列负载变化与快响应保护"
   },
   {
     "url": "/tag/MF000050/",
-    "title": "测试与验收"
+    "title": "电子热响应与残差电流重建"
   },
   {
     "url": "/tag/MF000051/",
-    "title": "文献与案例"
-  },
-  {
-    "url": "/chapters/materials/",
-    "title": "腔体材料"
+    "title": "DIII-D 核心驱动电流与吸收份额"
   },
   {
     "url": "/sections/materials/",
-    "title": "腔体材料"
+    "title": "面向等离子体的结构与材料"
   },
   {
     "url": "/tag/MF000052/",
@@ -641,15 +629,11 @@
   },
   {
     "url": "/tag/MF000058/",
-    "title": "参考资料"
-  },
-  {
-    "url": "/chapters/diagnostics/",
-    "title": "诊断控制"
+    "title": "材料物性数据与状态追踪"
   },
   {
     "url": "/sections/diagnostics/",
-    "title": "诊断控制"
+    "title": "等离子体测量与反馈方法"
   },
   {
     "url": "/tag/MF000059/",
@@ -665,15 +649,11 @@
   },
   {
     "url": "/tag/MF000062/",
-    "title": "参考资料"
-  },
-  {
-    "url": "/chapters/simulation/",
-    "title": "仿真计算"
+    "title": "诊断文献中的测量与误差链"
   },
   {
     "url": "/sections/simulation/",
-    "title": "仿真计算"
+    "title": "模型、求解与验证"
   },
   {
     "url": "/tag/MF000063/",
@@ -692,12 +672,8 @@
     "title": "可复现计算"
   },
   {
-    "url": "/chapters/engineering/",
-    "title": "工程系统"
-  },
-  {
     "url": "/sections/engineering/",
-    "title": "工程系统"
+    "title": "聚变装置的配套工程"
   },
   {
     "url": "/tag/MF000067/",
@@ -721,15 +697,11 @@
   },
   {
     "url": "/tag/MF000072/",
-    "title": "参考资料"
-  },
-  {
-    "url": "/chapters/experiments/",
-    "title": "实验运行"
+    "title": "工程规格的单位与边界核对"
   },
   {
     "url": "/sections/experiments/",
-    "title": "实验运行"
+    "title": "放电设计与实验分析"
   },
   {
     "url": "/tag/MF000073/",
@@ -748,12 +720,8 @@
     "title": "故障与经验复盘"
   },
   {
-    "url": "/chapters/industry/",
-    "title": "项目产业"
-  },
-  {
     "url": "/sections/industry/",
-    "title": "项目产业"
+    "title": "聚变项目与产业评估"
   },
   {
     "url": "/tag/MF000077/",
@@ -768,12 +736,8 @@
     "title": "专利、技术路线与成熟度"
   },
   {
-    "url": "/chapters/literature/",
-    "title": "文献资料"
-  },
-  {
     "url": "/sections/literature/",
-    "title": "文献资料"
+    "title": "学习路径与文献使用"
   },
   {
     "url": "/tag/MF000080/",

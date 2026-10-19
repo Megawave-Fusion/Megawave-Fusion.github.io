@@ -1964,5 +1964,183 @@
     "evidence": "ED与Ec的区分、种子机制、部分电离和辐射限制；未标记全文审核",
     "checked_on": "2026-10-16",
     "中文标题": "Dreicer逃逸电子产生与部分电离"
+  },
+  {
+    "id": "OVERVIEW-COLLISIONAL-PLASMA",
+    "title": "Richard Fitzpatrick — Dielectric constant of a collisional plasma",
+    "中文标题": "碰撞等离子体的介电响应与周期平均加热",
+    "url": "https://farside.ph.utexas.edu/teaching/em/lectures/node103.html",
+    "scope": "式 (1201)–(1209) 的阻尼运动、复电导率与周期平均功率；用于总览中的阻尼振子说明。",
+    "checked_on": "2026-10-19",
+    "evidence": "已读取公开讲义本页正文与公式编号，未扩展为全课程审核。"
+  },
+  {
+    "id": "OVERVIEW-BRAGINSKII",
+    "title": "Richard Fitzpatrick — Braginskii Equations",
+    "中文标题": "Braginskii 输运方程与欧姆加热",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/Plasma/node53.html",
+    "scope": "碰撞摩擦、电阻耗散及磁化输运的模型条件；用于欧姆加热总览。",
+    "checked_on": "2026-10-19",
+    "evidence": "已读取公开讲义本页的相关说明，未逐式审核全页。"
+  },
+  {
+    "id": "DEPTH-PLASMA-014",
+    "title": "Fitzpatrick — Rutherford Scattering Cross-Section",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma/lectures1/node36.html",
+    "scope": "全文，式 (3.65)–(3.70)：环带面积、立体角与微分截面；本轮独立角积分验证总截面。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际通过大学作者讲义网页读取所列公式及相关段落；新增教学模型、参数和推导由本轮完成，数值证据另存逐 Tag 检查。；2026-10-19 未重新读取该来源。",
+    "中文标题": "Rutherford 微分截面",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEPTH-FOUND-14",
+    "title": "Abel et al. — Multiscale Gyrokinetics for Rotating Tokamak Plasmas (2013 v4)",
+    "url": "https://arxiv.org/pdf/1209.4782v4",
+    "scope": "Abel等2013 v4，§3尺度排序和§5.1式(72)回旋平均定义；独立推导单Fourier模J0及级数。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取上述范围；独立推导与算例复算结果保存在本轮逐Tag记录。；2026-10-19 未重新读取该来源。",
+    "中文标题": "旋转托卡马克的多尺度回旋动理学（2013 v4）",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEPTH-FOUND-19",
+    "title": "Gorelenkov — Excitation of Alfven Modes by Energetic Particles in Magnetic Fusion (2012)",
+    "url": "https://bp-pub.pppl.gov/pub_report/2012/PPPL-4715.pdf",
+    "scope": "Gorelenkov，2012，§II.B，式(14)及相邻谐波交叉说明。原文式(13)与其m,m+1文字的索引不一致，本条用所定义k_parallel直接解得nq=m+1/2，并以频率式(14)校验。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取上述范围；独立推导与算例复算结果保存在本轮逐Tag记录。；2026-10-19 未重新读取该来源。",
+    "中文标题": "磁约束聚变中快粒子激发的Alfvén模",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-001",
+    "title": "Cylindrical Tokamak Equilibrium",
+    "url": "https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node50.html",
+    "scope": "正文式 (3.1)–(3.3)：场、电流与安全因子的定义。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际打开官方课程正文；本库抛物线电流剖面由面积积分自行推导。；2026-10-19 未重新读取该来源。",
+    "中文标题": "圆柱托卡马克平衡",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-H-SHEATH",
+    "title": "MIT 16.522，Lecture 9，式 (1)–(4) 的 Boltzmann 电子与壁通量",
+    "url": "https://www.ocw.mit.edu/courses/16-522-space-propulsion-spring-2015/0bd5cd04b2040f2324f3d6a78e8fb15b_MIT16_522S15_Lecture9.pdf",
+    "scope": "本轮联网读取四页讲义；从 Boltzmann 壁通量出发自行推导给定 RF 电压的周期平均。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：原始来源读取 + 教学推导与数值另行复算；2026-10-19 未重新读取该来源。",
+    "中文标题": "MIT 16.522，Lecture 9，式 (1)–(4) 的 Boltzmann 电子与壁通量",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-007",
+    "title": "Applied Mechanics of Solids, Chapter 3.2",
+    "url": "https://solidmechanics.org/Text/Chapter3_2/Chapter3_2.php",
+    "scope": "§3.2 的应力-应变关系、弹性与热应变分解及应变能。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际打开并阅读相关正文；用线膨胀系数推导弹簧约束杆与两杆兼容条件。；2026-10-19 未重新读取该来源。",
+    "中文标题": "固体力学的热弹性本构",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-008",
+    "title": "16.3 Steady-State One-Dimensional Conduction",
+    "url": "https://web.mit.edu/16.unified/www/FALL/thermodynamics/notes/node117.html",
+    "scope": "式 (16.9)–(16.20)：Fourier 热流、控制体守恒与平板边界。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取整节；体热源、瞬态半无限体与集中热容是本库在能量平衡上展开的教学推导。；2026-10-19 未重新读取该来源。",
+    "中文标题": "一维热传导的控制体推导",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-020",
+    "title": "MIT 16.30 Topic 3: Frequency response methods",
+    "url": "https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/ef34e49f4c79159fe0b1d8e1752bb8b5_MIT16_30F10_lec03.pdf",
+    "scope": "讲义页3–3/3–4复频响，3–9/3–10稳定性与相位裕度，后续Nyquist。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际打开完整PDF并读上述页；本库一阶环节加纯延迟由复频响独立算交越频率。；2026-10-19 未重新读取该来源。",
+    "中文标题": "频率响应、相位裕度与稳定性",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-021",
+    "title": "Clawpack Riemann Book: Advection",
+    "url": "https://www.clawpack.org/riemann_book/html/Advection.html",
+    "scope": "Conservation of mass、Advection、Riemann problem三节。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际阅读官方正文；迎风有限体积例由其守恒积分与信息方向构造。；2026-10-19 未重新读取该来源。",
+    "中文标题": "平流方程与守恒积分",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-023",
+    "title": "Verification of BOUT++ using the method of manufactured solutions",
+    "url": "https://arxiv.org/pdf/1602.06747",
+    "scope": "§2式(2)–(5)源项和边界制造；§4.3波动方程测试及图4；§4.4扩散测试。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取论文PDF相关章节，核对图4报告约1.97阶；本库正弦制造解及差分误差另行推导复算。；2026-10-19 未重新读取该来源。",
+    "中文标题": "BOUT++ 制造解验证",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-024",
+    "title": "Python hashlib documentation",
+    "url": "https://docs.python.org/3/library/hashlib.html",
+    "scope": "SHA-256方法、file_digest二进制文件摘要接口。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取官方文档对应接口段；用于解释配置字节身份。；2026-10-19 未重新读取该来源。",
+    "中文标题": "Python 文件散列文档",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-025",
+    "title": "NIST/SEMATECH 5.3.3.3.1 Two-level full factorial designs",
+    "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri3331.htm",
+    "scope": "标准顺序、设计矩阵与列正交性。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际阅读官方全文；本库2²四点响应为教学数据，用正交正规方程求主效应与交互。；2026-10-19 未重新读取该来源。",
+    "中文标题": "两水平全因子试验",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-027",
+    "title": "NIST/SEMATECH 4.4.3.1 Least Squares",
+    "url": "https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd431.htm",
+    "scope": "残差平方和、线性模型及回归系数公式。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际阅读官方推导；五点教学数据重新解正规方程并检查残差正交。；2026-10-19 未重新读取该来源。",
+    "中文标题": "最小二乘拟合",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-028",
+    "title": "NIST/SEMATECH 2.3.6.6 Calibration",
+    "url": "https://www.itl.nist.gov/div898/handbook/mpc/section3/mpc366.htm",
+    "scope": "线性校准 y=a+bx 与 x=(y-a)/b。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取官方说明及相关公式；误差条件在算例邻近陈述。；2026-10-19 未重新读取该来源。",
+    "中文标题": "标定曲线与逆运算",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-030",
+    "title": "NASA ESTO Technology Readiness Levels",
+    "url": "https://esto.nasa.gov/trl/",
+    "scope": "TRL4、5、6硬件描述、环境条件与退出证据栏。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际阅读官方表格，逐项对照冷却部件案例；未为真实项目评级。；2026-10-19 未重新读取该来源。",
+    "中文标题": "NASA 技术成熟度定义",
+    "recorded_on": "2026-10-19"
+  },
+  {
+    "id": "DEP-E-034",
+    "title": "Crossref REST API",
+    "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+    "scope": "REST API说明、Quick start及/works/{doi}端点。",
+    "checked_on": "2026-10-16",
+    "evidence": "补录本地 2026-10-16 编写记录：实际读取官方正文；用于文献身份与元数据追踪示例。；2026-10-19 未重新读取该来源。",
+    "中文标题": "Crossref 元数据检索接口",
+    "recorded_on": "2026-10-19"
   }
 ]

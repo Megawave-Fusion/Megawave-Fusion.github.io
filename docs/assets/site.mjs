@@ -1,7 +1,7 @@
 import {searchEntries, normalize} from './search-core.mjs';
 for (const button of document.querySelectorAll('[data-expand]')) {
   button.addEventListener('click', () => {
-    for (const row of document.querySelectorAll('.chapter-row')) row.open = button.dataset.expand === 'true';
+    for (const row of document.querySelectorAll('details.chapter-row')) row.open = button.dataset.expand === 'true';
   });
 }
 for (const button of document.querySelectorAll('[data-copy]')) {
