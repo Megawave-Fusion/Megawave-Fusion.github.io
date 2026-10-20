@@ -15,7 +15,7 @@ $$
 \end{aligned}
 $$
 
-反应式中数值的计算依据是总能量守恒：把每个粒子的能量拆成静能和动能，得 $\sum K_{\rm out}-\sum K_{\rm in}=(\sum m_{\rm in}-\sum m_{\rm out})c^2$。采用核质量表中同一计量约定的实测质量，低入射能量时右边即表列释放能；因此不同反应道的数值由各自质量差确定。若使用中性原子质量，先核对初末态电子数并按所需精度处理束缚能。
+总能量守恒给 $\sum K_{\rm out}-\sum K_{\rm in}=\Delta m\,c^2$。低入射能量时即表列释放能；使用同一核质量约定，若用原子质量则核对电子数与束缚能修正。
 
 这些是低入射能量下的近似释放能，每个 D-D 分支按自身产额与释放能分别计数。D-T 产物在质心系具有大小相等、方向相反的动量；非相对论近似 $E=p^2/(2m)$ 给出 $E_n/E_\alpha=m_\alpha/m_n\simeq4$，所以约 14.1 MeV 由中子携带、3.5 MeV 由带电 alpha 粒子携带。真实实验室能谱还受反应物热运动、束流和观测方向影响。[Fitzpatrick：Nuclear Fusion Reactions，式 (1.1)–(1.5)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node6.html)；[NRL Plasma Formulary 2016，印刷页 44–45 的反应表](https://suli.pppl.gov/2016/course/NRL_FORMULARY_16.pdf)。
 
@@ -45,7 +45,7 @@ $$
 \qquad v_r=\lvert\mathbf v_a-\mathbf v_b\rvert.
 $$
 
-这个双速度积分可以直接从碰撞计数构造：固定一个速度为 $\mathbf v_a$ 的粒子，短时间内它相对速度为 $\mathbf v_b$ 的靶群扫过体积 $\sigma(v_r)v_rdt$。乘以该靶群的密度 $n_bF_b\,d^3v_b$、再乘入射群数 $n_aF_a\,d^3v_a$，最后对速度求和并除以 $dt$，得到 $n_an_b\langle\sigma v\rangle$。对于相同组分，交换两个粒子的编号不会产生新的一对，故再除以二。
+固定入射粒子，短时相对扫掠体积为 $\sigma(v_r)v_rdt$；乘两群速度分辨密度并积分即得 $n_an_b\langle\sigma v\rangle$。相同粒子交换编号仍是同一对，故除以二。
 
 单位体积单位时间的反应数为 $R_{ab}=n_an_b\langle\sigma v\rangle_{ab}/(1+\delta_{ab})$，单位 $\mathrm{m^{-3}\,s^{-1}}$。相同粒子反应的二分之一避免把同一对粒子数两次；不同 D-D 分支还需各自的分支截面。对相同温度能量 $\Theta$、无相对整体漂移的 Maxwellian 组分，约化质量 $\mu=m_am_b/(m_a+m_b)$ 给出
 
@@ -99,7 +99,7 @@ $$
 
 ## 热储能、功率平衡与约束时间
 
-非相对论、各向同性热组分的储能为 $W_{\rm th}=\int\sum_s(3/2)n_s\Theta_s\,dV$。各向同性热储能的系数可由速度矩算出：在组分自身平均流速系中，令 $\mathbf c=\mathbf v-\mathbf u_s$，每个方向的二阶矩为 $m_s\langle c_j^2\rangle=\Theta_s$。把三个方向相加并乘 $n_s/2$，得到 $3n_s\Theta_s/2$；对体积及物种积分就得到 $W_{\rm th}$。
+非相对论、各向同性热组分满足 $m_s\langle c_j^2\rangle=\Theta_s$，$\mathbf c=\mathbf v-\mathbf u_s$。三方向求和并对物种、体积积分，得 $W_{\rm th}=\int\sum_s(3/2)n_s\Theta_s\,dV$。
 
 快离子非热能量、磁场能量和整体流动动能应单独列账。一个明确边界下的零维热平衡可写为
 
@@ -139,7 +139,7 @@ n\Theta\tau_{E,\rm tot}\geq
 \frac{12\Theta^2}{\eta_\alpha E_\alpha\langle\sigma v\rangle}.
 $$
 
-阈值的中间平衡是 $3n\Theta/\tau_{E,\rm tot}\leq\eta_\alpha n^2\langle\sigma v\rangle E_\alpha/4$：左边为按定义计算的损失功率密度，右边为反应次数率乘实际沉积的单次 alpha 能量。先约去一个 $n$，再乘 $4\tau_{E,\rm tot}/(\eta_\alpha E_\alpha\langle\sigma v\rangle)$，就得到第一个不等式；两侧再乘 $\Theta$ 得到三乘积。系数 12 由热能中的 3 和等数密度 D-T 的 $1/4$ 联合产生。
+中间平衡为 $3n\Theta/\tau_{E,\rm tot}\le\eta_\alpha n^2\langle\sigma v\rangle E_\alpha/4$。约去一个 $n$ 即得门槛，再乘 $\Theta$ 得三乘积；系数12来自热能系数3与 D-T 配比系数 $1/4$。
 
 这里三乘积用 $\Theta$ 的 J 单位；若改报 $\mathrm{keV\,s\,m^{-3}}$，须把温度能量转换为 keV。这个条件建立热平衡门槛；稳定性、排热和燃料循环分别由相应方程求解。[Fitzpatrick：Lawson Criterion，式 (1.15)–(1.20)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node7.html)。
 
@@ -161,13 +161,17 @@ n\tau_{E,\rm tr}=\frac{3\Theta}
 \qquad C_B=1.69\times10^{-38}.
 $$
 
-具体代入链为 $\Theta=15000(1.602176634\times10^{-19})=2.4033\times10^{-15}$ J、$E_\alpha=3.5\times10^6(1.602176634\times10^{-19})=5.6076\times10^{-13}$ J、$E_{DT}=2.8198\times10^{-12}$ J。因此聚变加热系数为 $\langle\sigma v\rangle(\eta_\alpha E_\alpha+E_{DT}/Q_p)/4=3.6529\times10^{-35}$ W·m³，轫致项为 $1.69\times10^{-38}\sqrt{15000}=2.0698\times10^{-36}$ W·m³；用 $3\Theta$ 除以两者之差，便得到下述 $n\tau_E$。
+本例 $\Theta=2.4033\times10^{-15}$ J、$E_\alpha=5.6076\times10^{-13}$ J、$E_{DT}=2.8198\times10^{-12}$ J。加热系数为 $3.6529\times10^{-35}$ W·m³，轫致项为 $2.0698\times10^{-36}$ W·m³；$3\Theta$ 除以两者之差，即得下述 $n\tau_E$。
 
 $C_B$ 的单位配套本页的 SI 密度与 eV 温度数值约定。分母正值表示辐射之后仍有功率可抵消输运。取 $\Theta=15\,\mathrm{keV}$、给定 $\langle\sigma v\rangle=2\times10^{-22}\,\mathrm{m^3s^{-1}}$、$\eta_\alpha=0.8$、$Q_p=10$，算得 $n\tau_{E,\rm tr}=2.09\times10^{20}\,\mathrm{s\,m^{-3}}$；相同输入、不显式扣辐射的总损失时间对应 $1.97\times10^{20}\,\mathrm{s\,m^{-3}}$。代回平衡可分别还原输运损失与辐射损失。
 
 辐射项和增益边界的原始推导见 [Wurzel 与 Hsu，§III 的功率平衡与 §IV.1.2 式 (30)](https://arxiv.org/html/2105.10954v3)。
 
 ## Alpha 自加热、燃烧等离子体与点火
+
+![按同一热输入边界比较稳态 alpha 份额与恒时标慢化响应](/assets/diagrams/basic-burning.svg)
+
+*按同一热输入边界比较稳态 alpha 份额与恒时标慢化响应。曲线与示意均按本条所列模型生成。*
 
 D-T 出生 alpha 功率约为 $P_{\alpha,\rm birth}=(3.5/17.6)P_{\rm fus}$。它先形成高能粒子分布，再通过碰撞向电子和离子传能，且可能因轨道或波粒作用损失；必须区分出生、存储、沉积和逸出。alpha 的约束与损失由完整轨道和波粒作用决定。[ITER：What is burning plasma?，alpha 加热及 Alfvén 波导致损失的说明](https://www.iter.org/node/20687/what-burning-plasma)。
 
@@ -206,13 +210,13 @@ Z_{\rm eff}\,n_e^2\sqrt{T_{e,\rm eV}}
 \qquad T_{e,\rm eV}=\frac{\Theta_e}{1\,\mathrm{eV}}.
 $$
 
-温度和组分标度可从非相对论热轫致谱看出。采用频率平均 Gaunt 修正的 Kramers 模型时，每单位光子能量 $\mathcal E$ 的辐射功率形如 $j_{\mathcal E}=A\,n_e\sum_i n_iZ_i^2\,\Theta_e^{-1/2}e^{-\mathcal E/\Theta_e}$，其中 $A$ 是该辐射模型的系数。对 $\mathcal E$ 积分，$\int_0^\infty e^{-\mathcal E/\Theta_e}d\mathcal E=\Theta_e$，故总功率正比于 $n_e\sum_i n_iZ_i^2\sqrt{\Theta_e}=Z_{\rm eff}n_e^2\sqrt{\Theta_e}$。上述 $Z_{\rm eff}$ 因而是把各离子独立辐射贡献合并后的定义。数值系数采用所引 NRL 辐射模型及其 Gaunt 近似：其密度用 cm⁻³、功率密度用 W/cm³ 时的系数 $1.69\times10^{-32}$，转换为 SI 要乘 $10^6$、并对两个密度各乘 $10^{-6}$，所以变为 $1.69\times10^{-38}$。温度的数值仍采用 eV，不能同时再换一次系数。
+热轫致谱 $j_{\mathcal E}\propto n_e\sum_i n_iZ_i^2\Theta_e^{-1/2}e^{-\mathcal E/\Theta_e}$ 对光子能量积分，给 $p_{\rm Br}\propto Z_{\rm eff}n_e^2\sqrt{\Theta_e}$。NRL 系数由 W/cm³、cm⁻³ 转为 SI 时，$1.69\times10^{-32}\times10^6(10^{-6})^2=1.69\times10^{-38}$；温度数值仍用 eV。
 
 其中 $n_e$ 的数值用 $\mathrm{m^{-3}}$。这是把 NRL 的 $\mathrm{cm^{-3}}$ 密度和 $\mathrm{W\,cm^{-3}}$ 功率转换后的系数；它包含近似的量子修正处理，适用于上述充分电离的非相对论条件。教学输入 $n_e=10^{20}\,\mathrm{m^{-3}}$、$T_{e,\rm eV}=10^4$、$Z_{\rm eff}=1$ 给出约 $1.69\times10^4\,\mathrm{W\,m^{-3}}$。[NRL Plasma Formulary 2016，印刷页 58，式 (30)](https://suli.pppl.gov/2016/course/NRL_FORMULARY_16.pdf)。
 
 边界和杂质通常还需束缚—束缚线辐射、复合辐射以及电离能量损失。有效辐射率常写为 $p_{{\rm rad},Z}=n_en_ZL_Z$，但 $L_Z$ 的单位、元素密度定义、密度依赖和电离态演化模型必须与原子数据库一致；快速输运、非平衡电离和光学厚条件需进一步求解电离态与辐射输运。电子回旋辐射还涉及自吸收和壁面反射，净损失按发射与再吸收之差计算。[TRANSP：Radiation，轫致、线及回旋辐射的分别处理](https://transp.pppl.gov/nml/radiation.html)。
 
-线辐射的有效系数同样从事件计数定义：若一次电子碰撞使第 $j$ 个能级跃迁并最终发出能量 $\mathcal E_j$，其贡献为 $n_en_{Z,j}\langle\sigma v\rangle_j\mathcal E_j$。对电离态、能级和辐射通道求和，把 $n_Z$ 提出后定义剩余系数为 $L_Z$，便得到 $p_{{\rm rad},Z}=n_en_ZL_Z$；具体 $L_Z$ 必须来自与这些占据率假设一致的原子模型。
+按电离态、能级和辐射通道求和：$p_{{\rm rad},Z}=n_e\sum_jn_{Z,j}\langle\sigma v\rangle_j\mathcal E_j\equiv n_en_ZL_Z$。$L_Z$ 必须匹配所用占据率与原子模型。
 
 核心杂质过多会稀释燃料并损害功率平衡；边缘适量辐射却可将集中靶板热流重新分配到较大区域。设计时联合控制核心杂质浓度、边缘辐射位置和靶板热流。
 
@@ -237,7 +241,12 @@ $$
 C_\Theta\frac{d\,\delta\Theta}{dt}=F'(\Theta_0)\delta\Theta.
 $$
 
-推导时先把完整能量方程写成 $C_\Theta(\Theta)\dot\Theta=F(\Theta)$。令 $\Theta=\Theta_0+\delta\Theta$，平衡点满足 $\dot\Theta_0=F(\Theta_0)=0$；Taylor 展开只保留扰动一次项，热容导数乘 $\delta\Theta\,\delta\dot\Theta$ 为二阶而略去。于是 $\delta\Theta(t)=\delta\Theta(0)\exp[F'(\Theta_0)t/C_\Theta(\Theta_0)]$，增长或衰减的符号才由所列导数决定。
+在平衡 $\dot\Theta_0=F(\Theta_0)=0$ 附近，热容导数只贡献二阶项，故
+
+$$
+\delta\Theta(t)=\delta\Theta(0)e^{\lambda t},\qquad
+\lambda=\frac{F^{\prime}(\Theta_0)}{C_\Theta(\Theta_0)}.
+$$
 
 $F'<0$ 时此单变量热扰动衰减，$F'>0$ 时增长。温度升高同时改变反应率、辐射、输运和快粒子沉积，增长率由这些项的总导数决定。密度、杂质、alpha 慢化、控制延迟等加入后应研究多变量系统，单一斜率只是局部教学判据。燃烧控制还受执行器功率和响应速度限制。[ITER 研究计划 ITR-24-005，§3.3.5.2 的自加热与热稳定性问题](https://www.iter.org/sites/default/files/media/2024-04/itr-24-005-ok1.pdf)。
 
@@ -255,7 +264,7 @@ $$
 
 置 $a=k\tau_h$，稳态满足 $4af^2-(4a+1)f+a=0$。用数值稳定的形式写物理解为 $f_*=2a/[4a+1+\sqrt{8a+1}]$。当 $a=0.10$，算得 $f_*=0.07295$，反应率比 $(1-2f_*)^2=0.7295$。若先固定反应率再算库存，会得到 $f=0.10$；联立后稀释降低了灰源。
 
-稳态二次方程用求根公式先给出 $f=[(4a+1)-\sqrt{8a+1}]/(8a)$；选择减号是因为 $a\to0$ 时灰浓度应趋于零，且燃料密度要求 $0\leq f<1/2$。分子分母同乘 $(4a+1)+\sqrt{8a+1}$，约去 $8a^2$，就得到上面的稳定数值形式。扰动增长率则是对右边 $k(1-2f)^2-f/\tau_h$ 关于 $f$ 求导，再代入平衡解。
+二次方程选取 $a\to0$ 时趋零且 $0\le f<1/2$ 的根：$f=[4a+1-\sqrt{8a+1}]/(8a)$。分子有理化得到稳定形式；对灰方程右侧关于 $f$ 求导便得扰动增长率。
 
 进一步线性化得到扰动增长率 $\lambda=-4k(1-2f_*)-1/\tau_h<0$。在这个固定温度模型里，灰扰动会衰减；若把温度作为第二变量，就需计算二维 Jacobian 的迹与行列式。灰、自加热及控制反馈的研究框架见 [ITER 研究计划，§3.3.5.2 与表19](https://www.iter.org/sites/default/files/media/2024-04/itr-24-005-ok1.pdf)。
 

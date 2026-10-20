@@ -1,6 +1,6 @@
 # 聚变物理总览
 
-从粒子运动到燃烧与排热，聚变物理需要在不同尺度间保持同一套单位、守恒关系和测量口径。本页组织七个专题；各专题给出定义、推导、教学算例、适用条件与来源。学习时先建立模型，再用无量纲参数判断它是否适用，最后与装置可观测量相连。
+本页按粒子、统计、波动、流体、燃烧和排热组织七个专题。各模型共用 SI、守恒边界与测量口径；先判断无量纲排序，再与可观测量比较。
 
 | 建议顺序 | 专题 | 核心问题 |
 | --- | --- | --- |
@@ -20,7 +20,7 @@
 
 对热核 D-T，反应数率密度为 $R=n_Dn_T\langle\sigma v\rangle$。这里 $\sigma$ 是截面，而 $\langle\sigma v\rangle$ 已对速度分布平均；两者单位不同，前者是面积，后者是体积/时间。总功率为 $P_{\rm fus}=\int R E_{DT}\,dV$，必须把密度和温度剖面留在积分内部。束流、非热分布和不同离子温度会改变平均，平均时应使用反应物各自的分布函数。[Fitzpatrick：Nuclear Fusion Reactions](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node6.html)。
 
-学习这一部分应能完成三项核算：核反应道与产物能量是否相符；燃料和杂质是否满足准中性；输入、储能变化、辐射与输运是否在同一边界内闭合。[聚变反应与燃烧](聚变反应与燃烧/README.md)给出相同粒子二分之一因子、配比极值、氦灰稀释和剖面积分的具体例子。
+核算反应道与产物能量、准中性组分以及同一边界内的输入—储能—损失。相同粒子计数、燃料配比、稀释与剖面积分见[聚变反应与燃烧](聚变反应与燃烧/README.md)。
 
 ### 从反应计数到脉冲能量
 
@@ -35,9 +35,18 @@ $$
 
 推导起点见 [Fitzpatrick，核反应式 (1.3)–(1.6)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node6.html)；数值为本条给定参数的计算。
 
-反应率的计数起点是：一个 D 核在短时间 $dt$ 内相对 T 群扫过体积 $\sigma(v_r)v_rdt$，乘靶密度，再对两者速度分布平均；单位体积的 D 核数再乘 $n_D$，便得 $R=n_Dn_T\langle\sigma v\rangle$。各位置的 $R\,dV$ 乘单次释放能并相加，才得到总功率积分。每次反应的释放能来自能量守恒 $E_{\rm in}=E_{\rm out}$，扣除初末态静能后为质量亏损乘 $c^2$。
+计数与能量守恒可合写为
+
+$$
+dN=n_Dn_T\langle\sigma v_r\rangle\,dV\,dt,\qquad
+P_{\rm fus}=\int R E_{DT}\,dV,\qquad Q_{\rm nuc}=\Delta m\,c^2.
+$$
 
 ## 约束与性能指标
+
+![恒定加热与固定损失时间下的热储能解析响应](/assets/diagrams/basic-overview.svg)
+
+*恒定加热与固定损失时间下的热储能解析响应。曲线与示意均按本条所列模型生成。*
 
 磁约束通过粒子轨道和集体平衡限制跨场损失；惯性约束在燃料迅速解体前利用短暂高密度产生足够反应；磁惯性路线则在压缩与磁化之间组合条件。三者分别采用相应的损失模型和约束指标。[装置路线](../装置路线/README.md)进一步说明磁拓扑、驱动和工程代价。
 
@@ -61,9 +70,9 @@ $$
 
 在静态、各向同性、忽略重力的单流体模型中，力平衡为 $\nabla p=\mathbf J\times\mathbf B$，并满足 $\nabla\cdot\mathbf B=0$ 与准静态 Ampère 定律。点乘磁场得到 $\mathbf B\cdot\nabla p=0$，所以压力沿磁力线不变；在适当嵌套磁面条件下可写为磁通函数。强流动、各向异性快粒子压强或三维磁岛会改变这一简化。
 
-静态平衡式来自单流体动量方程 $\rho(\partial_t+\mathbf u\cdot\nabla)\mathbf u=-\nabla p+\mathbf J\times\mathbf B$：令流速及其时间导数为零，便只剩压力梯度与磁力。点乘 $\mathbf B$ 时，叉积项严格为零。比压则是定义 $p/[B^2/(2\mu_0)]$，磁压来自磁能密度的建场积分；本页后面的平板算例将这一压力项直接积分。
+从 $\rho D_t\mathbf u=-\nabla p+\mathbf J\times\mathbf B$ 取静止极限，再点乘 $\mathbf B$，即得沿场压力恒定。比压定义为 $\beta=p/[B^2/(2\mu_0)]$。
 
-平衡只回答宏观力是否相抵；稳定性还要给定扰动及边界条件，研究其增长或衰减。理想能量原理中，满足约束的扰动若存在负势能变化，可指示该理想模型中的不稳定；电阻、碰撞、动理学共振和主动反馈属于不同的补充问题。微观涨落还可以在宏观形状基本不变时带走热量，因而输运需要独立分析。
+稳定性须另给扰动与边界：允许扰动若有负势能变化，可指示理想失稳。电阻、动理学共振和反馈需扩展模型；宏观平衡也不排除微观湍流输运。
 
 [流体与磁流体力学](流体与磁流体力学/README.md)逐项推导磁压力与张力、磁通冻结、Grad–Shafranov 磁通约定及电阻重联，并附原始课程和论文。阅读时应同时检查压力是否包含所有物种、磁场是局域值还是参考值、真空和壁的能量是否计入。无量纲 $\beta=2\mu_0p/B^2$ 是热压与磁压之比；稳定性上限由具体几何和剖面确定。
 
@@ -86,7 +95,7 @@ $$
 
 Landau 共振比较波相速度与粒子的平行速度；回旋共振还涉及粒子回旋相位，典型形式为 $\omega-k_\parallel v_\parallel-l\Omega_s=0$。本式中 $\Omega_s=q_sB/m_s$ 为带符号角频率，$l$ 为整数；采用正频率约定的系统页面会另行说明极化与谐波符号。共振条件只是相互作用条件，净吸收或增长还由分布梯度、极化和阻尼决定。
 
-共振条件可从沿粒子轨道的相位推出：取相互作用的第 $l$ 个回旋谐波相位为 $\psi=k_\parallel z+l\vartheta-\omega t$，在均匀局域场中 $\dot z=v_\parallel$、$\dot\vartheta=\Omega_s$，故 $\dot\psi=k_\parallel v_\parallel+l\Omega_s-\omega$。只有 $\dot\psi$ 接近零，粒子才持续看到近相同的波相位；令其为零得到所列条件，$l=0$ 即平行 Landau 共振。
+沿轨道相位 $\psi=k_\parallel z+l\vartheta-\omega t$ 满足 $\dot\psi=k_\parallel v_\parallel+l\Omega_s-\omega$；持续相互作用要求 $\dot\psi\simeq0$，$l=0$ 即 Landau 共振。
 
 [等离子体波](等离子体波/README.md)将 Langmuir、离子声、O/X、whistler 与 MHD 分支分开，并核对冷介电、功率与阻尼。[辅助加热](../辅助加热/README.md)再连接波传播、沉积、快粒子慢化和电流驱动。一个完整加热结论应说明发射功率、耦合功率、吸收对象与位置，而不只列发生器频率。
 
@@ -137,7 +146,7 @@ $$
 
 高温弱耦合 Maxwellian 等离子体的经典电阻率大致随 $T_e^{-3/2}$ 降低（还含有效电荷和 Coulomb 对数），所以给定电流密度下欧姆热会随温度升高减弱。这解释了进入高温工况为何需要辅助加热；低温部分电离阶段还要计入电子—中性粒子碰撞。[动理学与碰撞：经典热流与 Spitzer 电阻](动理学与碰撞/README.md)。
 
-电阻率的温度标度可从电子摩擦得到：弱场稳态动量平衡给出 $eE\simeq m_e\nu_{ei}u_d$，而电流幅值为 $J=n_eeu_d$，故 $\eta=m_e\nu_{ei}/(n_ee^2)$。弱耦合 Coulomb 小角散射积分给出 $\nu_{ei}\propto n_eZ_{\rm eff}\ln\Lambda\,\Theta_e^{-3/2}$，相除便有上述电阻率标度。自加热比值则由 $P_\alpha\simeq P_{\rm fus}/5$ 和 $P_{\rm ext}=P_{\rm fus}/Q_p$ 代入 $P_\alpha/(P_\alpha+P_{\rm ext})$，约去 $P_{\rm fus}$ 后得到 $Q_p/(Q_p+5)$。
+电子摩擦给 $eE\simeq m_e\nu_{ei}u_d$、$J=n_eeu_d$，故 $\eta=m_e\nu_{ei}/(n_ee^2)\propto Z_{\rm eff}\ln\Lambda\,\Theta_e^{-3/2}$。自加热份额由 $P_\alpha\simeq P_{\rm fus}/5$ 与 $P_{\rm ext}=P_{\rm fus}/Q_p$ 得 $f_\alpha\simeq Q_p/(Q_p+5)$。
 
 D-T 自加热由反应产生的 alpha 先形成快粒子分布，再向热背景传能。若近似全部沉积且外部热输入定义一致，自加热份额约为 $Q_p/(Q_p+5)$，所以主导自加热与完全不依赖外部热输入的点火不同。欧姆、射频/束流、alpha 沉积各自有功率通道；内部碰撞传能在物种之间转移，对全系统求和时相消。具体推导见[聚变反应与燃烧](聚变反应与燃烧/README.md)。
 
@@ -149,7 +158,7 @@ D-T 自加热由反应产生的 alpha 先形成快粒子分布，再向热背景
 
 ## 温度约定与热能积分的文献换算
 
-本页的模型细节与引用位置分布在七个专题中；下列入口用于建立总体阅读路径。课程资料用于基本定律，实验论文用于具体性能，装置计划只支持设计目标。每项资料的实际读取范围见[来源索引](../文献资料/来源索引.json)，后续复核应回到对应原文而非仅检查链接存在。
+七个专题就近给出推导与引用。课程支持基本定律，实验论文支持具体性能，装置计划支持设计目标；实际读取范围见[来源索引](../文献资料/来源索引.json)。
 
 - [Fitzpatrick：核聚变反应在线讲义](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node6.html)：从反应道与反应率进入能量预算；本站其他专题分别链接实际使用的粒子、流体、平衡和稳定性章节。
 - [NRL Plasma Formulary 2016（PPPL 课程存档）](https://suli.pppl.gov/2016/course/NRL_FORMULARY_16.pdf)：核对量纲、反应道和常用近似；使用前将原文的 cgs 和 eV 系数转换成所需单位。
@@ -166,7 +175,7 @@ w=\frac32(n_e\Theta_e+n_D\Theta_D+n_T\Theta_T)
 \xrightarrow{\Theta_s=\Theta,\ n_D+n_T=n_e}3n_e\Theta.
 $$
 
-其中每个组分的 $3n_s\Theta_s/2$ 来自随机动能积分：各向同性分布满足 $m_s\langle c_x^2\rangle=m_s\langle c_y^2\rangle=m_s\langle c_z^2\rangle=\Theta_s$，所以 $\int m_sc^2f_s\,d^3c/2=3n_s\Theta_s/2$。先对电子、D、T 相加，再使用准中性与同温条件，才可合并成 $3n_e\Theta$。
+在各组分共动系，$m_s\langle c_j^2\rangle=\Theta_s$，故 $\int m_sc^2f_s\,d^3c/2=3n_s\Theta_s/2$。先逐物种相加，再用准中性与同温条件合并。
 
 设文献参数为 $n_e=8\times10^{19}\,\mathrm{m^{-3}}$、共同温度 12 keV，则 $w=4.61\times10^5\,\mathrm{J\,m^{-3}}$。在 30 m³ 内储能为 13.84 MJ。阅读记录应写成“电子密度、各组分同温、均匀体积”三个明确条件，并把 $12\,\mathrm{keV}$ 转成 $1.92261\times10^{-15}\,\mathrm J$ 后代入。这样同一篇论文中的反应率、热储能和约束时间就能相互检查。
 

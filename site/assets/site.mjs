@@ -1,4 +1,22 @@
 import {searchEntries, normalize} from './search-core.mjs';
+const figureLinks = document.querySelectorAll('.figure-link');
+if (figureLinks.length && typeof HTMLDialogElement !== 'undefined') {
+  const viewer = document.createElement('dialog');viewer.className = 'figure-viewer';
+  const bar = document.createElement('div');bar.className = 'figure-viewer-bar';
+  const title = document.createElement('p');title.id = 'figure-viewer-title';
+  const close = document.createElement('button');close.type = 'button';close.textContent = '关闭图示 ×';
+  const viewport = document.createElement('div');viewport.className = 'figure-viewport';
+  const image = document.createElement('img');viewport.append(image);bar.append(title,close);
+  viewer.append(bar,viewport);viewer.setAttribute('aria-labelledby',title.id);document.body.append(viewer);
+  close.addEventListener('click',()=>viewer.close());
+  viewer.addEventListener('click',event=>{if(event.target===viewer)viewer.close();});
+  for (const link of figureLinks) link.addEventListener('click',event=>{
+    if(event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
+    event.preventDefault();
+    const source=link.querySelector('img');image.src=link.href;image.alt=source.alt;
+    title.textContent=source.alt;viewer.showModal();viewport.scrollTop=viewport.scrollLeft=0;
+  });
+}
 for (const button of document.querySelectorAll('[data-expand]')) {
   button.addEventListener('click', () => {
     for (const row of document.querySelectorAll('details.chapter-row')) row.open = button.dataset.expand === 'true';

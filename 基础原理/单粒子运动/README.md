@@ -1,6 +1,6 @@
 # 单粒子运动
 
-单粒子轨道是理解磁约束、漂移、磁镜和波粒共振的起点。本专题先把电磁场视为给定场，研究测试粒子；真实等离子体还必须由所有组分的电荷和电流自洽求场。除特别说明外，采用 SI、非相对论、无碰撞近似；$q$ 始终是带符号电荷，$e>0$ 是元电荷大小，$B=|\mathbf B|$，$\mathbf b=\mathbf B/B$。各漂移公式是满足尺度排序时的导引中心近似；完整轨道由 Lorentz 方程积分得到。
+先在给定场中研究试验粒子；完整等离子体再由各组分电荷、电流自洽求场。采用 SI、非相对论、无碰撞模型，$q$ 带符号、$e>0$、$B=|\mathbf B|$、$\mathbf b=\mathbf B/B$。漂移式另需导引中心排序。
 
 ## Lorentz 方程与磁场不做功
 
@@ -29,7 +29,7 @@ $$
 K_2-K_1=-q(\phi_2-\phi_1).
 $$
 
-这一步用到了沿轨道的链式法则：静态势满足 $d\phi/dt=\mathbf v\cdot\nabla\phi=-\mathbf E\cdot\mathbf v$，所以它恰好抵消 $dK/dt$。若仍采用 $\mathbf E=-\nabla\phi$ 而势显含时间，剩下的则是 $d(K+q\phi)/dt=q\partial_t\phi$，不能再套用静态能量常数。
+沿轨道求导：静态势有 $\dot\phi=\mathbf v\cdot\nabla\phi=-\mathbf E\cdot\mathbf v$，恰好抵消 $\dot K/q$；时变静电势则剩 $d(K+q\phi)/dt=q\partial_t\phi$。
 
 这里 $\phi$ 的单位是 V，$q\phi$ 的单位为 J。电子从低电势走向高电势时，$q=-e$ 使其势能下降、动能增加；单价正离子恰好相反。例如电子跨过 $+100\,\mathrm V$ 的电势增量，获得 $100\,\mathrm{eV}$ 动能。这个符号检查比凭“沿电场方向加速”口头记忆更可靠，因为电子受力与电场相反。[UT Austin：Magnetic Mirrors，式 (2.83)–(2.85)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node23.html)。
 
@@ -65,7 +65,7 @@ $$
 \Omega=\frac{qB}{m}.
 $$
 
-对第一式求导并代入第二式，得到 $\ddot v_x+\Omega^2v_x=0$；初值 $v_x(0)=v_\perp$、$\dot v_x(0)=0$ 固定余弦解，再由 $v_y=\dot v_x/\Omega$ 得正弦分量。位置积分给圆半径 $v_\perp/|\Omega|$，相位推进 $2\pi$ 给周期；以下轨道、半径和螺距均由这同一组解推出。
+联立分量得 $\ddot v_x+\Omega^2v_x=0$。初值确定余弦解与 $v_y=\dot v_x/\Omega$；位置积分给 $\rho=v_\perp/|\Omega|$，相位推进 $2\pi$ 给周期与螺距。
 
 带符号的 $\Omega$ 编码旋转方向，而 $\omega_c=|\Omega|$ 是正的回旋角频率。若初速度取 $v_x(0)=v_\perp$、$v_y(0)=0$，则 $v_x=v_\perp\cos\Omega t$、$v_y=-v_\perp\sin\Omega t$。因此在 $x$ 向右、$y$ 向上的图中，正粒子从 $+x$ 速度转向 $-y$，电子相反；给出坐标比不注明观察方向的“顺时针”说法更清楚。[MIT OCW：Motion of Charged Particles，§2.1，式 (2.8)–(2.11)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
 
@@ -102,6 +102,10 @@ $$
 
 ## 均匀电磁场中的 E×B 漂移与力漂移
 
+![正电荷在均匀静磁场与均匀交叉场中的解析垂直轨道](/assets/diagrams/basic-particle.svg)
+
+*正电荷在均匀静磁场与均匀交叉场中的解析垂直轨道。曲线与示意均按本条所列模型生成。*
+
 在均匀、静态且 $B\ne0$ 的场中，分解 $\mathbf E=\mathbf E_\perp+E_\parallel\mathbf b$。沿场运动满足 $m\dot v_\parallel=qE_\parallel$；垂直运动可写成回旋运动叠加匀速漂移
 
 $$
@@ -118,7 +122,7 @@ $$
 \mathbf v_F=\frac{\mathbf F\times\mathbf B}{qB^2}.
 $$
 
-具体求解是把平均力平衡右叉乘 $\mathbf B$：$\mathbf F_\perp\times\mathbf B+q(\mathbf v_F\times\mathbf B)\times\mathbf B=0$。利用 $\mathbf v_F\cdot\mathbf B=0$，第二项等于 $-qB^2\mathbf v_F$，便得到上式；若有平行力，它应进入平行加速方程，不能通过此式消去。
+平均力平衡 $\mathbf F_\perp+q\mathbf v_F\times\mathbf B=0$ 右叉乘 $\mathbf B$，用 $(\mathbf v_F\times\mathbf B)\times\mathbf B=-B^2\mathbf v_F$ 即得力漂移；平行力另入加速方程。
 
 把 $\mathbf F=q\mathbf E$ 代入便返回 $\mathbf v_E$；若 $\mathbf F$ 与电荷无关，例如重力 $m\mathbf g$，漂移就会随电荷符号改变方向。这个公式可由平均力平衡 $\mathbf F_\perp+q\mathbf v_F\times\mathbf B=0$ 导出；快速共振驱动应直接求时变轨道响应。[MIT OCW：Motion of Charged Particles，§2.2–§2.2.1，式 (2.14)–(2.23)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
 
@@ -137,7 +141,7 @@ y=\frac{v_E}{\Omega}\sin\Omega t-v_Et,\quad
 K=mv_E^2(1-\cos\Omega t)=qEx.
 $$
 
-圆周运动与沿 $-y$ 的匀速平移合成摆线。虽然释放时速度为零，导引中心已经以漂移速度移动，回旋速度恰好抵消其瞬时值；每个整周期回到相同电势。
+回旋叠加 $-y$ 匀速漂移形成摆线；从静止释放时，两种瞬时速度恰好抵消，整周期回到相同电势。
 
 **算例。** 给定氘离子、$E=2.00\times10^3\,\mathrm{V\,m^{-1}}$、$B=0.40\,\mathrm T$，有 $v_E=5000\,\mathrm{m\,s^{-1}}$、周期 $T_c=3.27810\times10^{-7}\,\mathrm s$。半周期时 $x=2v_E/\Omega=0.521725\,\mathrm{mm}$，动能为 $eEx=1.04345\,\mathrm{eV}$。一周期时 $x=0$、动能回零，$y=-v_ET_c=-1.63905\,\mathrm{mm}$。由终点位移除以周期得到 $-5000\,\mathrm{m\,s^{-1}}$，独立恢复漂移速度；对 $qEv_x$ 积分所得周期净功为零。[MIT 第 2 章 §2.2，均匀交叉场的变换与解](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
 
@@ -152,9 +156,9 @@ $$
 =\frac{K_\perp}{qB^2}\,\mathbf b\times\nabla B.
 $$
 
-$\nabla B$ 的单位是 $\mathrm{T\,m^{-1}}$，$\mu$ 的单位是 $\mathrm{J\,T^{-1}}$，结果是速度。三个表达式等价，尤其要保留最后两式中不同的 $B$ 次数。电子与正离子的方向相反；这与同向的 E×B 漂移形成可检验的区别。[UT Austin：Magnetic Drifts，式 (2.52)、(2.53)](https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html)；[MIT OCW：Motion of Charged Particles，§2.3，式 (2.36)、(2.37)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
+各式量纲均为速度；电子与正离子的 grad-B 漂移方向相反，比较等价形式时须保留对应的 $B$ 次数。 [UT Austin：Magnetic Drifts，式 (2.52)、(2.53)](https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html)；[MIT OCW：Motion of Charged Particles，§2.3，式 (2.36)、(2.37)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
 
-也可把回旋平均后的有效磁镜力写作 $\mathbf F_{\mu}=-\mu\nabla B$。它的垂直部分代入力漂移 $\mathbf F\times\mathbf B/(qB^2)$，恰好给出上式。这里的有效力是回旋平均描述中的量；它已包含完整回旋的平均作用。平行部分 $-\mu\nabla_\parallel B$ 则影响沿场运动。
+把回旋平均力 $\mathbf F=-\mu\nabla B$ 的垂直部分代入力漂移，可得 grad-B 项；平行分量 $-\mu\nabla_\parallel B$ 则改变沿场运动。
 
 令 $\mathbf B=B(x)\hat{\mathbf z}$、$dB/dx>0$，则 $\mathbf b\times\nabla B$ 指向 $+y$，正离子向 $+y$ 漂移，电子向 $-y$ 漂移。定义 $L_B=B/|\nabla_\perp B|$，漂移大小为
 
@@ -175,7 +179,7 @@ $$
 =-\frac{qG\rho v_\perp}{2}=-\frac{mv_\perp^2G}{2B_0}=-\mu G.
 $$
 
-于是平均横向力平衡要求 $qB_0v_{\nabla B,y}-\mu G=0$，得到 $v_{\nabla B,y}=\mu G/(qB_0)=K_\perp G/(qB_0^2)$。这个计算把漂移的方向与粒子在强、弱场半圈的受力差联系起来；$\langle\sin^2\Omega t\rangle=1/2$ 正是系数二的来源。
+平均横向力平衡 $qB_0v_{\nabla B,y}=\mu G$ 给 $v_{\nabla B,y}=K_\perp G/(qB_0^2)$；强弱场半圈的平均受力差由 $\langle\sin^2\Omega t\rangle=1/2$ 给出系数二。
 
 **算例。** 单价氘离子 $K_\perp=600\,\mathrm{eV}$，局部 $B_0=0.60\,\mathrm T$、$G=0.30\,\mathrm{T\,m^{-1}}$。用焦耳代入或约去 $e$，均得 $v_{\nabla B,y}=600\times0.30/0.60^2=500\,\mathrm{m\,s^{-1}}$，沿 $+y$。回旋半径为 $8.34047\,\mathrm{mm}$，所以 $\rho G/B_0=0.00417023$，满足局部展开条件。相同垂直能量的电子有相反漂移方向；由两者速度差可形成垂直电流。[Fitzpatrick，Guiding Center Motion，式 (2.42)–(2.51) 的回旋平均](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html)。
 
@@ -199,7 +203,7 @@ $$
 =\frac{v_\parallel^2}{\Omega}\,\mathbf b\times\boldsymbol\kappa.
 $$
 
-其来源可直接在实验室系写清：沿曲线运动时 $d(v_\parallel\mathbf b)/dt$ 的垂直部分是 $v_\parallel^2(\mathbf b\cdot\nabla)\mathbf b=v_\parallel^2\boldsymbol\kappa$，故最低阶需有 $q\mathbf v_\kappa\times\mathbf B=mv_\parallel^2\boldsymbol\kappa$。两边左叉乘 $\mathbf b$，用 $\mathbf b\times(\mathbf v_\kappa\times\mathbf B)=B\mathbf v_\kappa$，得到上式。曲率正交关系由 $\mathbf b\cdot\boldsymbol\kappa=(\mathbf b\cdot\nabla)(\mathbf b^2)/2=0$ 推出。
+曲线运动的垂直加速度为 $v_\parallel^2\boldsymbol\kappa$。由 $q\mathbf v_c\times\mathbf B=mv_\parallel^2\boldsymbol\kappa$ 左叉乘 $\mathbf b$ 求漂移；$\mathbf b\cdot\boldsymbol\kappa=0$ 来自 $\mathbf b\cdot\mathbf b=1$。
 
 由于 $v_\parallel$ 以平方出现，同一种电荷沿同一磁力线正向或反向运动时，其曲率漂移方向相同；改变电荷符号则反向。这是检查符号和理解往返轨道平均漂移的有用方法。[UT Austin：Magnetic Drifts，式 (2.54)–(2.56)](https://farside.ph.utexas.edu/teaching/plasma/lectures/node19.html)。
 
@@ -226,7 +230,7 @@ $$
 \mathbf v_{\rm mag}=\frac{K_\perp+2K_\parallel}{qBR}\mathbf e_z.
 $$
 
-平行速度的正负在平方后消失，因此沿环向正走和反走的同种粒子具有相同竖直磁漂移方向。两种漂移在该几何中相加，电荷符号决定上下分离；这也是纯环向场中需要引入额外磁场扭转的动力学原因。
+两种磁漂移在纯环向场中同向相加；$v_\parallel^2$ 使往返方向不改变漂移，电荷符号决定上下分离。额外场扭转用于平均这种分离。
 
 **算例。** 对单价正离子，取 $K_\perp=400\,\mathrm{eV}$、$K_\parallel=800\,\mathrm{eV}$、$B=1.20\,\mathrm T$、$R=1.50\,\mathrm m$。梯度漂移为 $222.222\,\mathrm{m\,s^{-1}}$，曲率漂移为 $888.889\,\mathrm{m\,s^{-1}}$，总和 $1111.11\,\mathrm{m\,s^{-1}}$ 沿 $+z$。保持这些局部参数 $20.0\,\mu\mathrm s$，导引中心升高 $2.22222\,\mathrm{cm}$。该位移直接由 $\int v_zdt$ 求得，可与完整环向场轨道的回旋平均比较。[MIT 第 2 章 §2.3–2.4，式 (2.40)–(2.48)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)。
 
@@ -242,7 +246,7 @@ $$
 
 $\mu$ 是正标量，单位 $\mathrm{J\,T^{-1}}$。若画成回旋电流环，其磁偶极矩矢量指向 $-\mathbf b$，即 $\boldsymbol\mu_{\mathrm{orb}}=-\mu\mathbf b$；标量 $\mu$ 与磁偶极矩矢量承担不同的记号作用。这里的 $v_\perp$ 是扣除慢漂移后的回旋速度，整体漂移动能在回旋能之外单独计算。[MIT OCW：Motion of Charged Particles，§2.6–§2.6.1，式 (2.85)–(2.97)，区分标量与电流环矢量](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/8ee3d6b6b57fa2c78ef138bb44713c33_chap2.pdf)；[UT Austin：Invariance of Magnetic Moment，式 (2.60)–(2.70)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node20.html)。
 
-标量大小也可由电流环求出：周期电流大小 $|I|=|q|/\tau_c$，面积为 $\pi\rho^2$，所以 $|I|\pi\rho^2=|q||\Omega|\rho^2/2=mv_\perp^2/(2B)$。正电荷沿负方位角回旋，负电荷沿正方位角回旋但电流反向，两者的偶极矩都指向 $-\mathbf b$。
+回旋电流 $I_g=|q||\Omega|/(2\pi)$ 与面积 $\pi\rho^2$ 给 $I_g\pi\rho^2=mv_\perp^2/(2B)=\mu$。正负电荷的电流方向均使偶极矩指向 $-\mathbf b$。
 
 为避免把磁矩守恒与镜力互相当作前提，可先从满足 $\nabla\cdot\mathbf B=0$ 的轴附近静磁场出发。令 $B_z=B(s)$，近轴径向场为 $B_r=-r\partial_sB/2$；零阶回旋有 $r=\rho$、$v_\phi=-\Omega\rho$。于是平行磁力的回旋平均是 $\langle F_s\rangle=-qv_\phi B_r=-mv_\perp^2\partial_sB/(2B)=-\mu\partial_sB$。结合磁场不做功，$\dot K_\perp=-\dot K_\parallel=\mu v_\parallel\partial_sB=\mu\dot B$，故 $d(K_\perp/B)/dt=0$ 至最低阶；一般缓变导引中心展开给出相同结果。时变均匀场的独立推导见下方感应电功。
 
@@ -252,7 +256,7 @@ $$
 m\frac{dv_\parallel}{dt}=-\mu\frac{\partial B}{\partial s}.
 $$
 
-这个等式由导引中心方程连续延拓至 $v_\parallel=0$ 的反射点。它表明粒子进入更强磁场时，平行动能减小而垂直动能增大；总动能仍不变。镜力对正负电荷都指向弱场方向，虽然相应的横向漂移方向会随电荷改变。
+镜力方程可连续延拓至 $v_\parallel=0$ 的反射点：进入强场时平行能转为垂直能，总动能不变；镜力对正负电荷都指向弱场。
 
 若粒子从 $B_0$ 进入 $2B_0$，并在途中保持磁矩，则 $K_\perp$ 增为原来的两倍；若其初始 $K_\parallel$ 不够提供这部分能量，粒子会先反射，不会真的到达 $2B_0$。例如 $K_{\perp0}=2\,\mathrm{keV}$、$K_{\parallel0}=1\,\mathrm{keV}$ 时，静磁场中的镜点满足 $B_m/B_0=(K_{\perp0}+K_{\parallel0})/K_{\perp0}=1.5$。这是一项仅由守恒量得到的判断，不需要先积分完整螺旋轨道。
 
@@ -357,17 +361,17 @@ J_b=\oint m v_\parallel\,ds
 \sqrt{2m[\mathcal E-\mu B(s)-q\phi(s)]}\,ds.
 $$
 
-被积根号来自上一条的能量守恒 $p_\parallel^2/(2m)=\mathcal E-\mu B-q\phi$，返回段与去程具有相同的正面积。作用量近似守恒还需独立的慢变论证：对一维周期 Hamilton 系统，$\partial J_b/\partial\mathcal E=\oint ds/v_\parallel=\tau_b$；缓慢参数 $a(t)$ 满足 $\partial_aJ_b=-\tau_b\langle\partial_aH\rangle$，而能量的周期平均变化为 $\langle\dot{\mathcal E}\rangle=\langle\partial_aH\rangle\dot a$。将两项代入 $\dot J_b=J_{b,\mathcal E}\dot{\mathcal E}+J_{b,a}\dot a$，最低阶恰好抵消。这要求参数在一周期内变化小，并远离周期发散的分界。
+根号来自沿场能量守恒；作用量的慢变性另用周期 Hamilton 系统证明：$\partial J/\partial E=\tau_b$、$\partial J/\partial a=-\tau_b\langle\partial H/\partial a\rangle$，与 $\dot E=\langle\partial H/\partial a\rangle\dot a$ 联立得 $\langle\dot J\rangle\simeq0$。须远离周期发散的俘获—通过分界。
 
 $J_b$ 的单位为 $\mathrm{J\,s}$；在闭合积分中，返回段的 $v_\parallel$ 与有向 $ds$ 同时反号，所以两段相加为正。这里采用慢漂移动能可忽略的静态轨道来定义瞬时往返积分；它在背景变化慢于往返周期 $\tau_b$ 时才可能近似守恒。仅仅 $\tau_{\mathrm{bg}}\gg\tau_c$ 足以支持回旋绝热，却不足以保证往返绝热。[UT Austin：Second Adiabatic Invariant，式 (2.115)–(2.118) 及往返时间条件](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node26.html)。
 
 若慢漂移还形成近似闭合的第三种周期轨道，且背景变化比漂移周期 $\tau_d$ 更慢，可进一步讨论第三绝热不变量；在相应排序下，它与漂移轨道所围磁通 $\Psi_d=\int\mathbf B\cdot d\mathbf S$ 成正比。第三不变量要求粒子漂移轨道近似闭合，需结合磁面几何和实际漂移共同判断。[UT Austin：Third Adiabatic Invariant，式 (2.119)、(2.120)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node27.html)。
 
-其磁通形式来自慢闭合轨道的正则作用量：正则动量含 $q\mathbf A$，导引中心最低阶的慢漂移闭合积分中，磁矢势贡献为 $q\oint\mathbf A\cdot d\boldsymbol\ell=q\int\mathbf B\cdot d\mathbf S=q\Psi_d$（Stokes 定理）。只有当其余正则动量贡献在所用排序下可忽略、且存在该慢周期时，才可把第三作用量写成磁通形式；慢变守恒依据与上述周期作用量相同。
+正则动量含 $q\mathbf A$，故慢闭合轨道上 $q\oint\mathbf A\cdot d\mathbf l=q\Phi$。仅当其他正则动量项可忽略、慢周期存在且背景变化更慢时，第三作用量才可写为磁通形式。
 
 因此常见的理想层次是 $\tau_c\ll\tau_b\ll\tau_d$，但每个守恒量都需要与背景变化时间单独比较。靠近俘获–通过分界时，往返周期可能很长，第二不变量可先失效，而第一不变量仍近似有效。类似地，回旋共振满足粒子沿轨道看到的扰动频率接近回旋频率，即使实验室中的某些背景量缓慢，也可能持续改变磁矩。
 
-**实际使用。** 选择全轨道、导引中心或回旋平均模型前，应列出粒子能量和 pitch angle 范围，再检查整个轨道上而非仅初始点处的尺度比。守恒量可用作数值误差诊断，但只有当物理假设允许它守恒时才有效；在有碰撞、显式加热或时变势的计算中强行“修正”能量为常数，会删掉真实物理。长期轨道计算同时跟踪共振、随机化与损失。
+**使用检查。** 给定能量和俯仰角范围，沿整条轨道检查尺度比。守恒量仅在相应假设成立时用于误差诊断；有碰撞、加热或时变势时，强制恒能会删去真实能量交换。长期计算还应跟踪共振、随机化和损失。
 
 ### 用反弹作用量求慢压缩后的平行能量
 

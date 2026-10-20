@@ -124,6 +124,7 @@ class Builder:
         self.versions = {name: digest(ROOT / 'site/assets' / name)[:10]
                          for name in ('site.css', 'site.mjs', 'math-config.js', 'knowledge-tree.css',
                                       'knowledge-3d.css', 'knowledge-tree.mjs')}
+        self.versions.update({name: digest(ROOT / 'site/assets' / name)[:10] for name in ('home.css', 'home.mjs')})
         self.graph_modules = {}
         module_versions = {}
         # Rewrite dependencies before hashing their importers, so changes in the
@@ -156,6 +157,20 @@ class Builder:
         for table in soup.find_all('table'):
             wrapper = soup.new_tag('div', attrs={'class': 'table-wrap', 'tabindex': '0', 'role': 'region', 'aria-label': '表格，可横向滚动'})
             table.wrap(wrapper)
+        for picture in soup.find_all('img', src=True):
+            if picture['src'].startswith('/assets/diagrams/'):
+                parent = picture.parent
+                if parent.name == 'p' and not parent.get_text(strip=True) and len(parent.find_all(recursive=False)) == 1:
+                    parent.unwrap()
+                picture['loading'] = 'lazy'
+                picture['decoding'] = 'async'
+                link = soup.new_tag('a', href=picture['src'], attrs={'class': 'figure-link', 'aria-label': '放大图示：' + picture.get('alt', '')})
+                picture.wrap(link)
+                figure = soup.new_tag('figure', attrs={'class': 'science-figure'})
+                link.wrap(figure)
+                hint = soup.new_tag('figcaption')
+                hint.string = '点击图示放大 · SVG 矢量图'
+                figure.append(hint)
         for heading in soup.find_all(['h2', 'h3', 'h4']):
             heading['id'] = heading.get('id') or heading.get_text().strip().lower().replace(' ', '-')
         return str(soup)
@@ -173,7 +188,7 @@ class Builder:
         link = lambda p, direction: f'<a class="{direction}" href="{p["url"]}"><small>{"← 上一页" if direction == "previous" else "下一页 →"}</small>{ESC(p["title"])}</a>' if p else ''
         return f'<nav class="reader-nav {"bottom" if bottom else ""}" aria-label="阅读顺序">{link(previous,"previous")}{link(following,"next")}</nav>'
 
-    def page(self, url, title, body, chapter=None, breadcrumbs=None, math=False, reader=True, description='', full_width=False, styles=(), modules=()):
+    def page(self, url, title, body, chapter=None, breadcrumbs=None, math=False, reader=True, description='', full_width=False, styles=(), modules=(), page_class=''):
         canonical = CONFIG['url'] + url
         current = chapter['slug'] if chapter else ''
         crumbs = [('/', '首页')] + (breadcrumbs or [])
@@ -185,7 +200,8 @@ class Builder:
         math_scripts = f'<script src="/assets/math-config.js?v={self.versions["math-config.js"]}"></script><script defer src="/assets/mathjax/tex-chtml.js"></script>' if math else ''
         extra_assets = ''.join(f'<link rel="stylesheet" href="/assets/{name}?v={self.versions[name]}">' for name in styles)
         extra_assets += ''.join(f'<script type="module" src="/assets/{name}?v={self.versions[name]}"></script>' for name in modules)
-        body_class = ' class="knowledge-tree-page"' if full_width else ''
+        body_classes = ' '.join(filter(None, ['knowledge-tree-page' if full_width else '', page_class]))
+        body_class = f' class="{ESC(body_classes)}"' if body_classes else ''
         show_sidebar = chapter is not None and not full_width
         layout_class = 'layout knowledge-tree-layout' if full_width else 'layout' if show_sidebar else 'layout layout-overview'
         main_class = ' class="knowledge-tree-main"' if full_width else ''
@@ -251,8 +267,13 @@ class Builder:
         shutil.copytree(vendor, self.out / 'assets/mathjax')
         (self.out / '.nojekyll').touch()
         total = len(self.entries)
-        hero = f'''<section class="hero"><img class="hero-mark" src="/assets/fusion.svg" alt="" width="82" height="82"><p class="eyebrow">Megawave-Fusion · Science, systems &amp; engineering</p><h1>聚变知识库</h1><p class="lead">聚变科学与工程的 Stacks Project。</p><div class="stats"><span><b>{total}</b>知识条目</span><span><b>{len(self.chapters)}</b>章节</span><span><b>{len(self.sections)}</b>专题</span><span><b>{len(self.references)}</b>参考来源</span></div><div class="hero-links"><a class="button primary" href="/sections/foundations/">开始阅读 →</a></div></section><p class="reading-note">覆盖基础物理、加热、装置、材料、诊断与工程。各条目包含原理、推导或方法实例，并就近列出参考文献。<a href="/verification/">查看资料、公式与算例核验记录</a>。</p>'''
-        self.page('/', CONFIG['title'], hero + self.contents(), reader=False)
+        try:
+            from .homepage import homepage
+        except ImportError:
+            from homepage import homepage
+        hero = homepage(self.chapters, self.sections, self.entries, self.references)
+        self.page('/', CONFIG['title'], hero + self.contents(), reader=False, math=True,
+                  page_class='home-page', styles=('home.css',), modules=('home.mjs',))
         self.page('/contents/', '完整目录', '<h1>完整目录</h1><p class="lead">按章节浏览，或直接进入带永久标签的知识条目。</p>' + self.contents(True), reader=False)
         for chapter in self.chapters:
             body = f'<p class="eyebrow">Chapter {chapter["number"]:02}</p><h1>{ESC(chapter["title"])}</h1><p>{ESC(chapter["description"])}</p>'

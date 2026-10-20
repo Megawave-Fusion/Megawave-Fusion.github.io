@@ -1504,7 +1504,10 @@
     "url": "https://event.ipp-hgw.mpg.de/event/1032/contributions/1480/attachments/715/1166/IAEA%20-%20Fusion%20Physics.pdf",
     "scope": "下载完整教材；实际重点阅读书页 147–148（§2.5.2.1）、535–545（§5.1.1–5.1.4）、550–555（§5.1.6–5.1.8）及周边说明；不是全书逐页审核。渲染核对 PDF 页 567/书页 544 慢化式。",
     "checked_on": "2026-10-16",
-    "evidence": "教材；核对束衰减式 (5.6)、慢化式 (5.8)、瞬时/累计离子份额的区别、电子回流及模型验证边界。"
+    "evidence": "教材；核对束衰减式 (5.6)、慢化式 (5.8)、瞬时/累计离子份额的区别、电子回流及模型验证边界。",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "EXP-H-NBI-NBTF",
@@ -1540,7 +1543,22 @@
     "url": "https://transp.pppl.gov/nml/beams.html",
     "scope": "读取完整官方输入文档：Composite UFILE、几何、full/half/third 能量标签。",
     "checked_on": "2026-10-16",
-    "evidence": "官方软件文档；支撑分能量组分建模及单位/计量面辨别。"
+    "evidence": "官方软件文档；支撑分能量组分建模及单位/计量面辨别。",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "注入几何、能量/功率、组份、电流份额、采样输入",
+        "evidence": "一手文档或作者原始论文。注入几何、能量/功率、组份、电流份额、采样输入。证据边界：只引用官方输入定义，不把某组开关视为已验证装置算例"
+      },
+      {
+        "checked_on": "2026-10-20",
+        "scope": "已在线读取全文98行；几何、时序、组份与marker字段。",
+        "evidence": "一手文档或作者原始论文。束源宽度/焦距/发散/切向半径输入；FFULL/FHALF标为current fraction；最小相空间字段R Z |v| pitch weight。证据边界：页面设备例子的默认值不移植其它机器。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
   },
   {
     "id": "EXP-H-NBI-KSTAR",
@@ -1564,7 +1582,15 @@
         "checked_on": "2026-10-20",
         "scope": "仿真计算/README.md：PPPL 官方模块摘要。",
         "evidence": "一手官方文档、开发者仓库或作者原始论文。NUBEAM 模拟中性束或聚变产生快离子的沉积、慢化与热化，包含碰撞、荷交换和轨道效应，并给出反应率。；官方明确 ADAS 原子数据通过许可和分发协议获得；数据库的获取条件与代码获取条件应区分。。证据边界：官方单独模块页证据未充分披露代码许可证；不推定开源。页面列举的历史实验验证不代表任意新装置参数均获验证。"
+      },
+      {
+        "checked_on": "2026-10-20",
+        "scope": "已在线读取全文31行；模型、ADAS和原论文链接。",
+        "evidence": "一手文档或作者原始论文。Monte Carlo deposition/slowing/thermalization；GC与FLR、CX、快热及快快反应；ADAS激发态选项非默认且数据按协议分发。证据边界：旧模型页不应当最新全功能表；简单MHD项不等于全自洽求解。"
       }
+    ],
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
     ]
   },
   {
@@ -1673,7 +1699,17 @@
     "url": "https://arxiv.org/html/2609.12474v1",
     "scope": "读取 2026-09-11 v1 全部正文、图 1–3 说明和 End Matter 的天线/诊断/模型说明；未重新处理原始放电数据。",
     "checked_on": "2026-10-16",
-    "evidence": "原始实验预印本；476 MHz，分析工况 370 kW，rho<0.2 内 20±10 kA 来自诊断约束重建/源项相减；外围积分不可靠，未验证反应堆离轴效率。"
+    "evidence": "原始实验预印本；476 MHz，分析工况 370 kW，rho<0.2 内 20±10 kA 来自诊断约束重建/源项相减；外围积分不可靠，未验证反应堆离轴效率。",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "已在线读取原作者HTML全文；Power Deposition、Evidence of Current Drive、Current Profile和End Matter。",
+        "evidence": "一手文档或作者原始论文。2026-09-11预印本报告DIII-D芯部加热及电流驱动证据；TRANSP+GENRAY并含热输运用于温度响应对比；rho<0.2实验20±10kA与GENRAY21kA，外层积分不确定。证据边界：明确预印本状态；不把L模原理验证说成反应堆高beta离轴工况已实现；全半径电流与多程吸收有局限。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
   },
   {
     "id": "EXP-H-HELICON-PRL",
@@ -1745,7 +1781,10 @@
     "scope": "TN 1297 附录A，A-3到A-5；全文正文",
     "checked_on": "2026-10-16",
     "evidence": "一阶传播、协方差、独立观测均值标准不确定度",
-    "中文标题": "NIST 不确定性传播定律"
+    "中文标题": "NIST 不确定性传播定律",
+    "used_in": [
+      "仿真计算/验证与不确定性/README.md"
+    ]
   },
   {
     "id": "EXP-M-008",
@@ -1790,7 +1829,10 @@
     "scope": "2003课程章节目录：单粒子、碰撞、流体、MHD和波动",
     "checked_on": "2026-10-16",
     "evidence": "用于学习顺序和模型主题定位；未宣称全文重审",
-    "中文标题": "MIT 等离子体物理课程讲义目录"
+    "中文标题": "MIT 等离子体物理课程讲义目录",
+    "used_in": [
+      "仿真计算/README.md"
+    ]
   },
   {
     "id": "EXP-M-013",
@@ -1806,6 +1848,9 @@
         "scope": "仿真计算/README.md：求解器模块说明，尤其 gyrokinetic 与 vlasov",
         "evidence": "一手官方文档、开发者仓库或作者原始论文。当前 gyrokinetic 模块是 full-f、长波极限、模态间断 Galerkin 连续分布网格求解器，耦合 gyrokinetic Poisson；支持 1x2v 至 3x2v 静电模型。；Vlasov-Maxwell / Vlasov-Poisson 是另一个模块。。证据边界：不要因框架存在 Vlasov-Maxwell 或历史电磁论文，便写成当前 gyrokinetic 模块默认完整电磁/任意 FLR。"
       }
+    ],
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
     ]
   },
   {
@@ -1815,7 +1860,10 @@
     "scope": "5.2.0 stable Introduction；正文介绍",
     "checked_on": "2026-10-16",
     "evidence": "结构化曲线坐标有限差分/体积框架，物理方程由使用者定义",
-    "中文标题": "BOUT++ 框架说明"
+    "中文标题": "BOUT++ 框架说明",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "EXP-M-015",
@@ -1824,7 +1872,10 @@
     "scope": "5.2.0 Physics models简介与示例段",
     "checked_on": "2026-10-16",
     "evidence": "示例包括blob、Hasegawa-Wakatani和可压缩流体；未验证外部代码能力",
-    "中文标题": "BOUT++ 物理模型说明"
+    "中文标题": "BOUT++ 物理模型说明",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "EXP-M-016",
@@ -1840,6 +1891,9 @@
         "scope": "仿真计算/README.md：Vlasov-Maxwell、宏粒子、网格与 PIC loop",
         "evidence": "一手官方文档、开发者仓库或作者原始论文。以宏粒子近似分布，沿轨迹推进粒子，网格上解 Maxwell 方程；基准算法使用 FDTD/Yee 网格。。证据边界：应报告粒子数、网格、时间步与数值噪声；保留完整快速电子/电磁尺度带来成本，不能与 gyrokinetic 约化的模拟时间直接比较。"
       }
+    ],
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
     ]
   },
   {
@@ -1849,7 +1903,10 @@
     "scope": "Frank等2022，v1作者摘要",
     "checked_on": "2026-10-16",
     "evidence": "仅引用TORLH-CQL3D功率自洽和特定C-Mod算例结论；未读取全文或复现",
-    "中文标题": "全波与FP功率自洽原论文"
+    "中文标题": "全波与FP功率自洽原论文",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "EXP-M-018",
@@ -1858,7 +1915,10 @@
     "scope": "Dudson等2016作者摘要",
     "checked_on": "2026-10-16",
     "evidence": "仅引用制造解及收敛阶验证方法；未独立重跑",
-    "中文标题": "BOUT++制造解验证原论文"
+    "中文标题": "BOUT++制造解验证原论文",
+    "used_in": [
+      "仿真计算/验证与不确定性/README.md"
+    ]
   },
   {
     "id": "EXP-M-019",
@@ -1867,7 +1927,10 @@
     "scope": "5.2.0 Running BOUT++的输入与版本记录段",
     "checked_on": "2026-10-16",
     "evidence": "输出可记录核心Git版本、构建日期和源码干净状态",
-    "中文标题": "BOUT++运行记录"
+    "中文标题": "BOUT++运行记录",
+    "used_in": [
+      "仿真计算/可复现与算力/README.md"
+    ]
   },
   {
     "id": "EXP-M-020",
@@ -2092,7 +2155,10 @@
     "checked_on": "2026-10-16",
     "evidence": "补录本地 2026-10-16 编写记录：实际阅读官方正文；迎风有限体积例由其守恒积分与信息方向构造。；2026-10-19 未重新读取该来源。",
     "中文标题": "平流方程与守恒积分",
-    "recorded_on": "2026-10-19"
+    "recorded_on": "2026-10-19",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "DEP-E-023",
@@ -2102,7 +2168,11 @@
     "checked_on": "2026-10-16",
     "evidence": "补录本地 2026-10-16 编写记录：实际读取论文PDF相关章节，核对图4报告约1.97阶；本库正弦制造解及差分误差另行推导复算。；2026-10-19 未重新读取该来源。",
     "中文标题": "BOUT++ 制造解验证",
-    "recorded_on": "2026-10-19"
+    "recorded_on": "2026-10-19",
+    "used_in": [
+      "仿真计算/验证与不确定性/README.md",
+      "仿真计算/可复现与算力/README.md"
+    ]
   },
   {
     "id": "DEP-E-024",
@@ -2112,7 +2182,10 @@
     "checked_on": "2026-10-16",
     "evidence": "补录本地 2026-10-16 编写记录：实际读取官方文档对应接口段；用于解释配置字节身份。；2026-10-19 未重新读取该来源。",
     "中文标题": "Python 文件散列文档",
-    "recorded_on": "2026-10-19"
+    "recorded_on": "2026-10-19",
+    "used_in": [
+      "仿真计算/可复现与算力/README.md"
+    ]
   },
   {
     "id": "DEP-E-025",
@@ -2170,7 +2243,10 @@
     "url": "https://ansys.synopsys.com/content/dam/legal/wla-july-29-2021.pdf",
     "scope": "仿真计算/README.md：官方许可索引与所链主软件许可协议。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Ansys 由其自有主软件许可协议及产品/订单相关条款授权。。证据边界：不声称 HFSS、Maxwell、Mechanical、Fluent 默认全部包含；许可应按版本与用户订单确认。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Ansys 由其自有主软件许可协议及产品/订单相关条款授权。。证据边界：不声称 HFSS、Maxwell、Mechanical、Fluent 默认全部包含；许可应按版本与用户订单确认。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-002",
@@ -2178,7 +2254,10 @@
     "url": "https://ansyshelp.ansys.com/public/Views/Secured/Electronics/v251/en/Subsystems/Mechanical/Content/Mechanical/Two-WayCoupling.htm",
     "scope": "仿真计算/README.md：官方耦合帮助页：支持源、损耗类型、反馈和收敛段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。HFSS 可向 Mechanical Thermal 提供导体表面与有损域体损耗；Maxwell 3D 也有对应表面/体损耗来源。；温度可反馈影响源模型的温度相关材料；双向迭代需要检查相邻步总损耗与温度是否稳定。。证据边界：支持清单与几何限制依版本而异；这不是热等离子体全波或电流驱动模型的证明。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。HFSS 可向 Mechanical Thermal 提供导体表面与有损域体损耗；Maxwell 3D 也有对应表面/体损耗来源。；温度可反馈影响源模型的温度相关材料；双向迭代需要检查相邻步总损耗与温度是否稳定。。证据边界：支持清单与几何限制依版本而异；这不是热等离子体全波或电流驱动模型的证明。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-003",
@@ -2186,7 +2265,10 @@
     "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v242/en/wb_sim/ds_thermal_stress.html",
     "scope": "仿真计算/README.md：官方热应力页：温度载荷传递、异网格映射、源与分析时间和映射核验段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。可将稳态/瞬态热分析温度传入结构分析；共网格或不同网格均可，后者需要映射与插值。；源温度的时刻和结构载荷施加时刻需明确；自动几何匹配后应检查传递摘要与映射。。证据边界：温度场映射不是结构结果正确性的充分条件；材料、约束、接触和加载时序仍决定应力。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。可将稳态/瞬态热分析温度传入结构分析；共网格或不同网格均可，后者需要映射与插值。；源温度的时刻和结构载荷施加时刻需明确；自动几何匹配后应检查传递摘要与映射。。证据边界：温度场映射不是结构结果正确性的充分条件；材料、约束、接触和加载时序仍决定应力。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-004",
@@ -2194,7 +2276,10 @@
     "url": "https://ansyshelp.ansys.com/public/views/secured/electronics/v261/en/subsystems/HFSS/Content/HFSS/PeakVersusRMSPhasors.htm",
     "scope": "仿真计算/README.md：官方说明全文；峰值/RMS 相量定义与功率约定。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。HFSS 频域场和 Fields Calculator 使用峰值相量；辐射功率是时间平均量。绝对场幅、功率与复 Poynting 向量关系必须使用匹配的相量约定。。证据边界：不同软件/输入类型约定应分别核对；不可把峰值相量与 RMS 相量的功率公式混用。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。HFSS 频域场和 Fields Calculator 使用峰值相量；辐射功率是时间平均量。绝对场幅、功率与复 Poynting 向量关系必须使用匹配的相量约定。。证据边界：不同软件/输入类型约定应分别核对；不可把峰值相量与 RMS 相量的功率公式混用。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-005",
@@ -2202,7 +2287,10 @@
     "url": "https://arxiv.org/abs/1708.01224",
     "scope": "仿真计算/README.md：摘要及元数据；准线性通量和与集成输运连接的说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。摘要及元数据；准线性通量和与集成输运连接的说明。证据边界：只引用模型定位；未将论文算例的性能数字推广到所有工况"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。摘要及元数据；准线性通量和与集成输运连接的说明。证据边界：只引用模型定位；未将论文算例的性能数字推广到所有工况",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-006",
@@ -2210,7 +2298,10 @@
     "url": "https://arxiv.org/abs/2105.01168",
     "scope": "仿真计算/README.md：摘要及元数据；教师模型、训练空间和集成建模的说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。摘要及元数据；教师模型、训练空间和集成建模的说明。证据边界：仅说明代理与教师的关系，不据此认定任意外推可靠"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。摘要及元数据；教师模型、训练空间和集成建模的说明。证据边界：仅说明代理与教师的关系，不据此认定任意外推可靠",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-007",
@@ -2218,7 +2309,10 @@
     "url": "https://arxiv.org/abs/2406.06718",
     "scope": "仿真计算/README.md：v4 摘要及元数据；四类耦合方程、JAX、代理与 RAPTOR 对照",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。v4 摘要及元数据；四类耦合方程、JAX、代理与 RAPTOR 对照。证据边界：未运行 TORAX；原论文验证范围不等于所有新模块均验证"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。v4 摘要及元数据；四类耦合方程、JAX、代理与 RAPTOR 对照。证据边界：未运行 TORAX；原论文验证范围不等于所有新模块均验证",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-008",
@@ -2226,7 +2320,10 @@
     "url": "https://arxiv.org/abs/2406.07781",
     "scope": "仿真计算/README.md：v2 摘要及元数据；收支、电流扩散、加热、预测与 IMAS 接口",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。v2 摘要及元数据；收支、电流扩散、加热、预测与 IMAS 接口。证据边界：只引用软件总体物理定位，具体模块以所用版本输入核对"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。v2 摘要及元数据；收支、电流扩散、加热、预测与 IMAS 接口。证据边界：只引用软件总体物理定位，具体模块以所用版本输入核对",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-009",
@@ -2234,7 +2331,10 @@
     "url": "https://arxiv.org/abs/2407.12432",
     "scope": "仿真计算/README.md：v5 元数据与摘要，第 8–24 行；未阅读全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。在一致 MAST-U 机器几何、导体电流与剖面输入下，比较 FreeGSNKE、Fiesta 与 magnetics-only EFIT++ 重建的磁通/形状量，提供复现数据/代码。。证据边界：摘要证据；仅说明这些 MAST-U 静态案例的比较，不能推出任意装置、动力学或所有剖面均已验证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。在一致 MAST-U 机器几何、导体电流与剖面输入下，比较 FreeGSNKE、Fiesta 与 magnetics-only EFIT++ 重建的磁通/形状量，提供复现数据/代码。。证据边界：摘要证据；仅说明这些 MAST-U 静态案例的比较，不能推出任意装置、动力学或所有剖面均已验证。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-010",
@@ -2242,7 +2342,10 @@
     "url": "https://ascot4fusion.github.io/ascot5/",
     "scope": "仿真计算/README.md：官方首页 Features 与 FAQ。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。ASCOT5 是 test-particle 轨道跟踪；支持三维 tokamak/stellarator 场、全回旋轨道或导心、三维壁模型及壁负荷。标记粒子不反馈修改背景。；BBNBI 从 NBI 几何生成出生剖面与 shinethrough，可为 ASCOT5 提供源；AFSI 计算聚变产物源。。证据边界：标记数、壁面三角形尺寸、采样及背景场均影响损失热斑，需收敛扫描；不能用一条轨道代表快离子分布或把损失分数直接当 W/m²。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。ASCOT5 是 test-particle 轨道跟踪；支持三维 tokamak/stellarator 场、全回旋轨道或导心、三维壁模型及壁负荷。标记粒子不反馈修改背景。；BBNBI 从 NBI 几何生成出生剖面与 shinethrough，可为 ASCOT5 提供源；AFSI 计算聚变产物源。。证据边界：标记数、壁面三角形尺寸、采样及背景场均影响损失热斑，需收敛扫描；不能用一条轨道代表快离子分布或把损失分数直接当 W/m²。",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-011",
@@ -2250,7 +2353,10 @@
     "url": "https://baltig.cnr.it/ectoplasm/gray",
     "scope": "仿真计算/README.md：官方 README；网页搜索提取和 GitLab API 原文读取。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GRAY 面向 tokamak 电子回旋波，以复 eikonal 的准光学束追踪描述高斯束传播及衍射，计算吸收和电流驱动。。证据边界：准光学束追踪有别于独立几何光学射线，也不等同于解析任意天线几何的完整三维 Maxwell 边值问题。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GRAY 面向 tokamak 电子回旋波，以复 eikonal 的准光学束追踪描述高斯束传播及衍射，计算吸收和电流驱动。。证据边界：准光学束追踪有别于独立几何光学射线，也不等同于解析任意天线几何的完整三维 Maxwell 边值问题。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-012",
@@ -2258,7 +2364,10 @@
     "url": "https://baltig.cnr.it/ectoplasm/gray/-/blob/master/LICENSE.md",
     "scope": "仿真计算/README.md：官方 GitLab API 读取 LICENSE.md 全文：https://baltig.cnr.it/api/v4/projects/178/repository/files/LICENSE.md/raw?ref=master。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。协议限定非商业研究用途；代码修改需按作者批准的方式处理；向第三方提供时须传递并遵守用户协议。；仓库公开可读取不代表 OSI 式开源授权，不能标成 GPL、MIT 或无条件自由修改。。证据边界：精简为获取条件摘要，不替代原协议；文中其他用途限制与引用要求仍适用。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。协议限定非商业研究用途；代码修改需按作者批准的方式处理；向第三方提供时须传递并遵守用户协议。；仓库公开可读取不代表 OSI 式开源授权，不能标成 GPL、MIT 或无条件自由修改。。证据边界：精简为获取条件摘要，不替代原协议；文中其他用途限制与引用要求仍适用。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-013",
@@ -2266,7 +2375,10 @@
     "url": "https://bitbucket.org/gyrokinetics/gs2/raw/master/LICENCE",
     "scope": "仿真计算/README.md：官方 Bitbucket 原始文件；web 解析失败，使用 Python urllib HTTP 读取返回 200，全文读过",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前 master LICENCE 为 MIT License，版权 2022 Gyrokinetics authors。。证据边界：记录的是该主仓库许可证，不替代子模块及第三方依赖许可。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前 master LICENCE 为 MIT License，版权 2022 Gyrokinetics authors。。证据边界：记录的是该主仓库许可证，不替代子模块及第三方依赖许可。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-014",
@@ -2274,7 +2386,10 @@
     "url": "https://bout-dev.readthedocs.io/en/latest/user_docs/introduction.html",
     "scope": "仿真计算/README.md：官方框架介绍与 License 段落",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。BOUT++ 是三维曲线坐标多块网格有限差分/有限体积等离子体流体框架；方程由具体模型定义。；许可证 LGPL-3.0-or-later。。证据边界：不能把框架名称当成一套固定 Braginskii/中性粒子/ELM 方程，也不能默认框架内所有模型已耦合。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。BOUT++ 是三维曲线坐标多块网格有限差分/有限体积等离子体流体框架；方程由具体模型定义。；许可证 LGPL-3.0-or-later。。证据边界：不能把框架名称当成一套固定 Braginskii/中性粒子/ELM 方程，也不能默认框架内所有模型已耦合。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-015",
@@ -2282,7 +2397,10 @@
     "url": "https://crppwww.epfl.ch/~sauter/raptor/",
     "scope": "仿真计算/README.md：官方页全文；快速径向输运定位、原始文献及转移/CLA 获取流程",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方页全文；快速径向输运定位、原始文献及转移/CLA 获取流程。证据边界：不把未来开源计划当成已经发布的标准开源许可；未测量实时耗时"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方页全文；快速径向输运定位、原始文献及转移/CLA 获取流程。证据边界：不把未来开源计划当成已经发布的标准开源许可；未测量实时耗时",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-016",
@@ -2290,7 +2408,10 @@
     "url": "https://desc-docs.readthedocs.io/en/stable/",
     "scope": "仿真计算/README.md：Quick Start、tutorial list、output；第 7–56 行；并读取 General theory 第 22–78 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。DESC 以伪谱离散与自动微分求解/优化三维 MHD 平衡；以实空间配置点的力平衡残差为求解目标。；其平衡表示假设嵌套磁面；输入压力、iota 或电流剖面、总环向磁通与边界。；有固定/自由边界、线圈优化教程；可从 VMEC 输入开始，原生输出 HDF5，并可保存 VMEC 格式。。证据边界：自由边界支持应以实际版本/教程为准；嵌套磁面表示不能直接表达磁岛/随机磁场。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。DESC 以伪谱离散与自动微分求解/优化三维 MHD 平衡；以实空间配置点的力平衡残差为求解目标。；其平衡表示假设嵌套磁面；输入压力、iota 或电流剖面、总环向磁通与边界。；有固定/自由边界、线圈优化教程；可从 VMEC 输入开始，原生输出 HDF5，并可保存 VMEC 格式。。证据边界：自由边界支持应以实际版本/教程为准；嵌套磁面表示不能直接表达磁岛/随机磁场。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-017",
@@ -2298,7 +2419,10 @@
     "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.heat/heat_ug_theory.07.088.html",
     "scope": "仿真计算/README.md：官方理论页全文。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。COMSOL Microwave Heating 需要 RF Module；电磁热耦合将域与边界的电阻损耗纳入热方程并共享温度变量。。证据边界：该通用耦合能力不证明内置 tokamak 热等离子体的非局域动理学电导率、RF sheath 或 Fokker–Planck 电流驱动；须明确用户模型和边界。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。COMSOL Microwave Heating 需要 RF Module；电磁热耦合将域与边界的电阻损耗纳入热方程并共享温度变量。。证据边界：该通用耦合能力不证明内置 tokamak 热等离子体的非局域动理学电导率、RF sheath 或 Fokker–Planck 电流驱动；须明确用户模型和边界。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-018",
@@ -2306,7 +2430,10 @@
     "url": "https://docs.openmc.org/en/stable/usersguide/beginners.html",
     "scope": "仿真计算/README.md：官方 What does OpenMC do 与基本模型输入段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。OpenMC 对中子、光子做 Monte Carlo 输运；模型需几何、材料核素和密度、采样参数及 tally。；输运统计量需明确请求并降低随机不确定度，不能由图形或代码名代替 tally 定义。。证据边界：不作为聚变专属验证、活化完整流程或通用多物理场结构求解的证据。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。OpenMC 对中子、光子做 Monte Carlo 输运；模型需几何、材料核素和密度、采样参数及 tally。；输运统计量需明确请求并降低随机不确定度，不能由图形或代码名代替 tally 定义。。证据边界：不作为聚变专属验证、活化完整流程或通用多物理场结构求解的证据。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-019",
@@ -2314,7 +2441,10 @@
     "url": "https://docs.openmc.org/en/stable/usersguide/data.html",
     "scope": "仿真计算/README.md：官方连续能截面、数据索引、温度、NJOY/ACE 转换和 chain file 段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。连续能输运需 cross_sections.xml 指向 HDF5 核数据；可用预处理库，也可从 ACE/ENDF 经相应流程转换。；活化/耗损还需衰变、产额与嬗变链数据；几何库不替代核数据库。。证据边界：核素覆盖、温度及热散射处理应按问题确认；代码开源不能推出所有外部数据库均无限制分发。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。连续能输运需 cross_sections.xml 指向 HDF5 核数据；可用预处理库，也可从 ACE/ENDF 经相应流程转换。；活化/耗损还需衰变、产额与嬗变链数据；几何库不替代核数据库。。证据边界：核素覆盖、温度及热散射处理应按问题确认；代码开源不能推出所有外部数据库均无限制分发。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-020",
@@ -2322,7 +2452,10 @@
     "url": "https://docs.openmc.org/en/stable/usersguide/tallies.html",
     "scope": "仿真计算/README.md：Scores、Heating 与 Normalization of Tally Results。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。OpenMC tally 以每源粒子归一：heating 为 eV/source，常规反应率为 reaction/source；体积分 flux 为 particle·cm/source。；固定源结果需乘实际源率；通量还需除以 tally 体积。加热换成 W 需乘源率与 eV 到 J 因子。。证据边界：须区分 heating 与将二次光子局域沉积的 heating-local；损伤能 tally 不自动等于 DPA。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。OpenMC tally 以每源粒子归一：heating 为 eV/source，常规反应率为 reaction/source；体积分 flux 为 particle·cm/source。；固定源结果需乘实际源率；通量还需除以 tally 体积。加热换成 W 需乘源率与 eV 到 J 因子。。证据边界：须区分 heating 与将二次光子局域沉积的 heating-local；损伤能 tally 不自动等于 DPA。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-021",
@@ -2330,7 +2463,10 @@
     "url": "https://doi.org/10.1017/S0022377823000272",
     "scope": "仿真计算/README.md：出版商全文 §2–5.4、§6 中 nested-surface 假设、比较指标和 W7-X/近轴比较段落",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文用共同的归一化力平衡残差比较 VMEC 与 DESC，并检查 Mercier 指标对平衡精度的敏感性。；所列案例中 DESC 在相同误差目标下表现较好，近轴导数处理是重要原因之一。；两者都假定嵌套磁面；不能通过该表示得到多磁轴磁岛。。证据边界：2023 论文具体案例、硬件、分辨率、实现版本下的结果；不能写成所有问题恒定快十倍或全面替代 VMEC。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文用共同的归一化力平衡残差比较 VMEC 与 DESC，并检查 Mercier 指标对平衡精度的敏感性。；所列案例中 DESC 在相同误差目标下表现较好，近轴导数处理是重要原因之一。；两者都假定嵌套磁面；不能通过该表示得到多磁轴磁岛。。证据边界：2023 论文具体案例、硬件、分辨率、实现版本下的结果；不能写成所有问题恒定快十倍或全面替代 VMEC。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-022",
@@ -2338,7 +2474,10 @@
     "url": "https://doi.org/10.1088/0741-3335/41/1/002",
     "scope": "仿真计算/README.md：出版社摘要与公开论文首页、模型概述；未逐式验证推导。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。TORIC 在轴对称环形几何中求 ICRF 有限 Larmor 半径全波方程，极向谱表示和径向三次有限元。；原论文模型包含模式转换、离子回旋吸收及电子 Landau/transit-time 阻尼。。证据边界：1999 年模型不能代表全部后续版本；“全波”不意味着消除了 FLR、线性响应、几何等近似。本次未核实 TORIC 本体发行许可。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。TORIC 在轴对称环形几何中求 ICRF 有限 Larmor 半径全波方程，极向谱表示和径向三次有限元。；原论文模型包含模式转换、离子回旋吸收及电子 Landau/transit-time 阻尼。。证据边界：1999 年模型不能代表全部后续版本；“全波”不意味着消除了 FLR、线性响应、几何等近似。本次未核实 TORIC 本体发行许可。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-023",
@@ -2346,7 +2485,10 @@
     "url": "https://efit-ai.gitlab.io/efit/license.html",
     "scope": "仿真计算/README.md：完整许可与 Users agreement；网页第 3–49 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方页面将源码标为 BSD 2-clause。；同页又要求用户协议：不得向第三方分发源码、研究/发表前联系开发者，并邮件提交机构、GitLab 用户名与用途申请访问。。证据边界：BSD 许可与附加协议文字存在表面张力；不自行裁断效力，也不标成无条件开放下载，应向团队核对目标发行版。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方页面将源码标为 BSD 2-clause。；同页又要求用户协议：不得向第三方分发源码、研究/发表前联系开发者，并邮件提交机构、GitLab 用户名与用途申请访问。。证据边界：BSD 许可与附加协议文字存在表面张力；不自行裁断效力，也不标成无条件开放下载，应向团队核对目标发行版。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-024",
@@ -2354,7 +2496,10 @@
     "url": "https://fusion.gat.com/THEORY/elite/",
     "scope": "仿真计算/README.md：完整官方页面 64 行，重点 Introduction、Code Verification Examples、第 8–20 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。ELITE 对托卡马克边缘输运垒做中高 n 理想 MHD 线性稳定性分析，解二维本征函数方程。；基本模型为不可压理想 MHD；页面描述压缩/环向旋转扩展；输出增长率、频率、模结构。；官方页列与 GATO、MARS、MISHKA 等的案例核对。。证据边界：官方页最后更新为 2006 年；未发现足以核验当前公开源码/标准许可的证据，获取与授权写“联系团队，许可未确认”；n 适用范围依模型与版本，不应将该页范围当硬性精度保证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。ELITE 对托卡马克边缘输运垒做中高 n 理想 MHD 线性稳定性分析，解二维本征函数方程。；基本模型为不可压理想 MHD；页面描述压缩/环向旋转扩展；输出增长率、频率、模结构。；官方页列与 GATO、MARS、MISHKA 等的案例核对。。证据边界：官方页最后更新为 2006 年；未发现足以核验当前公开源码/标准许可的证据，获取与授权写“联系团队，许可未确认”；n 适用范围依模型与版本，不应将该页范围当硬性精度保证。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-025",
@@ -2362,7 +2507,10 @@
     "url": "https://gafusion.github.io/OMFIT-source/modules/mod_EFIT.html",
     "scope": "仿真计算/README.md：Long Description、Typical workflows、Relevant publications；网页第 44–56、76–93、103–114 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。EFIT 在轴对称二维 Grad–Shafranov 平衡中用磁探针、磁通环、MSE 等测量约束电流密度；可做正问题或重建。；支持自由/固定边界；主要输出 g-file、a-file，重建还可有 NetCDF m-file。。证据边界：这是 OMFIT 模块说明，性能与设备接入取决于 EFIT 发行版及装置数据；没有把页面秒级描述当通用 benchmark。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。EFIT 在轴对称二维 Grad–Shafranov 平衡中用磁探针、磁通环、MSE 等测量约束电流密度；可做正问题或重建。；支持自由/固定边界；主要输出 g-file、a-file，重建还可有 NetCDF m-file。。证据边界：这是 OMFIT 模块说明，性能与设备接入取决于 EFIT 发行版及装置数据；没有把页面秒级描述当通用 benchmark。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-026",
@@ -2370,7 +2518,10 @@
     "url": "https://gafusion.github.io/doc/cgyro.html",
     "scope": "仿真计算/README.md：Brief description、repository license、参数表、FAQ 全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前官方称 CGYRO 为 global-spectral gyrokinetic code；是为碰撞、电磁、多尺度模拟设计的 Eulerian 求解器。；径向谱方法、碰撞算符、转动与径向剖面变化均有专门参数；公开 GACODE 仓库 Apache-2.0。。证据边界：不再写成只能局域 flux tube；global-spectral 与常规 real-space global 的算法/边界不同，不宣称完整 SOL。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前官方称 CGYRO 为 global-spectral gyrokinetic code；是为碰撞、电磁、多尺度模拟设计的 Eulerian 求解器。；径向谱方法、碰撞算符、转动与径向剖面变化均有专门参数；公开 GACODE 仓库 Apache-2.0。。证据边界：不再写成只能局域 flux tube；global-spectral 与常规 real-space global 的算法/边界不同，不宣称完整 SOL。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-027",
@@ -2378,7 +2529,10 @@
     "url": "https://gafusion.github.io/doc/tglf.html",
     "scope": "仿真计算/README.md：Overview、线性模与饱和规则、饱和模型参考文献表",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Overview、线性模与饱和规则、饱和模型参考文献表。证据边界：gyro-Landau-fluid 加准线性闭合；未采用官网对性能的概括作统一排名"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Overview、线性模与饱和规则、饱和模型参考文献表。证据边界：gyro-Landau-fluid 加准线性闭合；未采用官网对性能的概括作统一排名",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-028",
@@ -2386,7 +2540,10 @@
     "url": "https://gafusion.github.io/doc/tgyro/equations.html",
     "scope": "仿真计算/README.md：密度/能量/动量方程、CGS 单位表、通量与功率关系",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。密度/能量/动量方程、CGS 单位表、通量与功率关系。证据边界：正文稳态算例另列简化条件；未逐式背书网页的所有几何表达"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。密度/能量/动量方程、CGS 单位表、通量与功率关系。证据边界：正文稳态算例另列简化条件；未逐式背书网页的所有几何表达",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-029",
@@ -2394,7 +2551,10 @@
     "url": "https://gafusion.github.io/doc/tgyro/solver.html",
     "scope": "仿真计算/README.md：稳态问题定义、源积分、梯度—剖面关系、Newton 迭代与归一化",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。稳态问题定义、源积分、梯度—剖面关系、Newton 迭代与归一化。证据边界：明确稳态通量匹配，不将其当成整放电瞬态演化"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。稳态问题定义、源积分、梯度—剖面关系、Newton 迭代与归一化。证据边界：明确稳态通量匹配，不将其当成整放电瞬态演化",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-030",
@@ -2402,7 +2562,10 @@
     "url": "https://gafusion.github.io/doc/zreferences.html",
     "scope": "仿真计算/README.md：官方参考文献表 CDB25 与 CGYRO 相关条目",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方列 J. Candy, A. Dudkovskaia, E. A. Belli, Phys. Rev. E 111 L053201 (2025), DOI 10.1103/PhysRevE.111.L053201，作为全局方案文献。。证据边界：只核实书目与官网列出的方案归属，DOI 正文本轮无法读取；不要编造论文结果。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方列 J. Candy, A. Dudkovskaia, E. A. Belli, Phys. Rev. E 111 L053201 (2025), DOI 10.1103/PhysRevE.111.L053201，作为全局方案文献。。证据边界：只核实书目与官网列出的方案归属，DOI 正文本轮无法读取；不要编造论文结果。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-031",
@@ -2410,7 +2573,10 @@
     "url": "https://genecode.org/details.html",
     "scope": "仿真计算/README.md：官方功能页全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。固定五维相空间网格求解非线性陀螺动理学；提供局域与全局模式。；官方列明多动理学粒子种类、电磁涨落、碰撞、托卡马克/仿星器平衡接口与离子/电子尺度功能。。证据边界：功能总览不等于所有选项可同时启用；不能据此认定全装置燃烧预测或任意 SOL/鞘层能力。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。固定五维相空间网格求解非线性陀螺动理学；提供局域与全局模式。；官方列明多动理学粒子种类、电磁涨落、碰撞、托卡马克/仿星器平衡接口与离子/电子尺度功能。。证据边界：功能总览不等于所有选项可同时启用；不能据此认定全装置燃烧预测或任意 SOL/鞘层能力。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-032",
@@ -2418,7 +2584,10 @@
     "url": "https://github.com/BLAST-WarpX/warpx",
     "scope": "仿真计算/README.md：README Overview 与 Copyright Notice",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开仓库明确 SPDX 标识 BSD-3-Clause-LBNL。。证据边界：保留 LBNL 后缀；依赖与通知文件另行适用。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开仓库明确 SPDX 标识 BSD-3-Clause-LBNL。。证据边界：保留 LBNL 后缀；依赖与通知文件另行适用。",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-033",
@@ -2426,7 +2595,10 @@
     "url": "https://github.com/FusionComputingLab/freegsnke",
     "scope": "仿真计算/README.md：Capabilities、Feature roadmap、Installation、References、License",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Python 二维自由边界平衡演化代码，支持 static forward、static inverse、evolutive forward。；演化时将 Grad–Shafranov 平衡和主动/被动导体电路耦合，输入线圈电压与剖面参数，输出平衡、线圈/被动结构/等离子体总电流的时间变化。；当前 README 说明使用 FreeGS4E 作为平衡后端；current diffusion、transport coupling 仍列为 roadmap。；README 标注 LGPL v3，提供 pip 安装。。证据边界：动态平衡不是解析全三维破裂的完整 MHD；不要把 roadmap 写成已实现能力。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Python 二维自由边界平衡演化代码，支持 static forward、static inverse、evolutive forward。；演化时将 Grad–Shafranov 平衡和主动/被动导体电路耦合，输入线圈电压与剖面参数，输出平衡、线圈/被动结构/等离子体总电流的时间变化。；当前 README 说明使用 FreeGS4E 作为平衡后端；current diffusion、transport coupling 仍列为 roadmap。；README 标注 LGPL v3，提供 pip 安装。。证据边界：动态平衡不是解析全三维破裂的完整 MHD；不要把 roadmap 写成已实现能力。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-034",
@@ -2434,7 +2606,10 @@
     "url": "https://github.com/LLNL/UEDGE",
     "scope": "仿真计算/README.md：README Brief description、Method of solution、Release",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。UEDGE 为二维随时间等离子体与中性气体流体代码，含密度、流速、电子/离子温度、电势及气体密度方程。；沿场经典输运、跨场反常输运；有限体积与全隐式 Newton-Krylov，可找稳态或演化；LGPL-2.1。。证据边界：其流体中性模型与 EIRENE 的 Monte Carlo 动理学中性模型不同；不声称所有中性分布精细结构可解析。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。UEDGE 为二维随时间等离子体与中性气体流体代码，含密度、流速、电子/离子温度、电势及气体密度方程。；沿场经典输运、跨场反常输运；有限体积与全隐式 Newton-Krylov，可找稳态或演化；LGPL-2.1。。证据边界：其流体中性模型与 EIRENE 的 Monte Carlo 动理学中性模型不同；不声称所有中性分布精细结构可解析。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-035",
@@ -2442,7 +2617,18 @@
     "url": "https://github.com/ORNL-Fusion/aorsa",
     "scope": "仿真计算/README.md：官方 README Inputs、Outputs、Dependencies。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。示例输入含 geqdsk 平衡与 Fortran namelist；输出含 RF 场、功率沉积图和可选准线性系数。；依赖 MPI、ScaLAPACK/BLAS/BLACS、netCDF 等，耦合和构建成本应纳入选择。。证据边界：没有实施统一硬件、同一网格和误差要求的测速，不据此给出快慢排名。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。示例输入含 geqdsk 平衡与 Fortran namelist；输出含 RF 场、功率沉积图和可选准线性系数。；依赖 MPI、ScaLAPACK/BLAS/BLACS、netCDF 等，耦合和构建成本应纳入选择。。证据边界：没有实施统一硬件、同一网格和误差要求的测速，不据此给出快慢排名。",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "实际读取 README 的 Dependencies、Inputs、Outputs、license 及示例目录。",
+        "evidence": "一手文档或作者原始论文。官方公开源代码仓库标明 MIT license。；构建依赖 MPI、ScaLAPACK/BLAS/BLACS、NetCDF，输入含 G-EQDSK 与 aorsa2d.in。。证据边界：仅确认仓库公开及所列依赖；没有在本机编译或运行。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md",
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-036",
@@ -2450,7 +2636,10 @@
     "url": "https://github.com/ascot4fusion/ascot5",
     "scope": "仿真计算/README.md：官方 README Licence 段与 COPYING.LESSER 全文。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。项目 README 明确采用 LGPL；COPYING.LESSER 为 LGPL 第 3 版，并配套 GPL 第 3 版条款。。证据边界：不可误读 GitHub 的“LGPL、GPL 两个文件”展示为所有文件可任意任选两证；版本及第三方文件仍须看所下载分发。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。项目 README 明确采用 LGPL；COPYING.LESSER 为 LGPL 第 3 版，并配套 GPL 第 3 版条款。。证据边界：不可误读 GitHub 的“LGPL、GPL 两个文件”展示为所有文件可任意任选两证；版本及第三方文件仍须看所下载分发。",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-037",
@@ -2458,7 +2647,10 @@
     "url": "https://github.com/compxco/genray/blob/master/LICENSE",
     "scope": "仿真计算/README.md：官方仓库 LICENSE 的版权、授权头与 GPL 版本段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。明确按 GPL 第 3 版或以后版本发布。。证据边界：许可结论针对所读仓库分发；依赖库和外部数据另行核对。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。明确按 GPL 第 3 版或以后版本发布。。证据边界：许可结论针对所读仓库分发；依赖库和外部数据另行核对。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-038",
@@ -2466,7 +2658,10 @@
     "url": "https://github.com/epochpic/epoch",
     "scope": "仿真计算/README.md：官方仓库用途、1D/2D/3D 目录、许可与获取说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开的等离子体 PIC 软件，提供 1D/2D/3D 实现；主仓库 GPL-3.0。。证据边界：本轮没有充分读取其完整物理手册，因此仅作为第三个 PIC 代表，不细列所有模块。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开的等离子体 PIC 软件，提供 1D/2D/3D 实现；主仓库 GPL-3.0。。证据边界：本轮没有充分读取其完整物理手册，因此仅作为第三个 PIC 代表，不细列所有模块。",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-039",
@@ -2474,7 +2669,10 @@
     "url": "https://github.com/freegs-plasma/freegs/blob/master/LICENSE",
     "scope": "仿真计算/README.md：LICENSE 文件标题与 LGPL Version 3 正文，第 517–755 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。源码许可为 GNU LGPL version 3。。证据边界：仅核验该官方仓库；未扩展到同名 fork 与外部依赖。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。源码许可为 GNU LGPL version 3。。证据边界：仅核验该官方仓库；未扩展到同名 fork 与外部依赖。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-040",
@@ -2482,7 +2680,10 @@
     "url": "https://github.com/freegs-plasma/freegs/blob/master/README.md",
     "scope": "仿真计算/README.md：README 安装、例子、模块列表和 solver 说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Python 自由边界 Grad–Shafranov 求解器；给定线圈、压力/电流剖面和形状约束，可寻找稳态力平衡所需线圈电流。；使用多重网格椭圆求解器及 Picard 非线性迭代；例子覆盖固定边界、X 点、金属壁、GEQDSK 输入。；可从 PyPI 安装。。证据边界：README 明示仍在开发；不把稳态线圈求解等同动态控制、三维 MHD 或经验证的实验重建。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Python 自由边界 Grad–Shafranov 求解器；给定线圈、压力/电流剖面和形状约束，可寻找稳态力平衡所需线圈电流。；使用多重网格椭圆求解器及 Picard 非线性迭代；例子覆盖固定边界、X 点、金属壁、GEQDSK 输入。；可从 PyPI 安装。。证据边界：README 明示仍在开发；不把稳态线圈求解等同动态控制、三维 MHD 或经验证的实验重建。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-041",
@@ -2490,7 +2691,10 @@
     "url": "https://github.com/fusion-energy/paramak",
     "scope": "仿真计算/README.md：官方 README 概述。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Paramak 从参数生成聚变装置 CAD 几何，输出 CadQuery 对象，可导出 STEP/STL/BRep 并经相关工具转成 DAGMC h5m。；其目标是参数研究的几何生成，几何必须再配材料、源与核数据才构成中子学算例。。证据边界：参数化模型不是完整工程竣工模型，也不会自动补齐缺失结构、材料或制造公差。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Paramak 从参数生成聚变装置 CAD 几何，输出 CadQuery 对象，可导出 STEP/STL/BRep 并经相关工具转成 DAGMC h5m。；其目标是参数研究的几何生成，几何必须再配材料、源与核数据才构成中子学算例。。证据边界：参数化模型不是完整工程竣工模型，也不会自动补齐缺失结构、材料或制造公差。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-042",
@@ -2498,7 +2702,11 @@
     "url": "https://github.com/gafusion/gacode/blob/master/LICENSE",
     "scope": "仿真计算/README.md：官方仓库许可文件 Apache License 2.0",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方仓库许可文件 Apache License 2.0。证据边界：仅主体代码；外部数据、依赖和调用软件分别核对"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方仓库许可文件 Apache License 2.0。证据边界：仅主体代码；外部数据、依赖和调用软件分别核对",
+    "used_in": [
+      "仿真计算/芯部输运/README.md",
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-043",
@@ -2506,7 +2714,10 @@
     "url": "https://github.com/gkeyllorg/gkeyll",
     "scope": "仿真计算/README.md：官方仓库 README 与许可证标识",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开主仓库为 MIT；按 core / moments / vlasov / gyrokinetic / pkpm 模块组织。。证据边界：框架内不同物理模块需明确选择，不能把功能并集等同于单个算例模型。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开主仓库为 MIT；按 core / moments / vlasov / gyrokinetic / pkpm 模块组织。。证据边界：框架内不同物理模块需明确选择，不能把功能并集等同于单个算例模型。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-044",
@@ -2514,7 +2725,10 @@
     "url": "https://github.com/google-deepmind/torax/blob/main/LICENSE",
     "scope": "仿真计算/README.md：主体 Apache-2.0 与 data/third_party 的例外声明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。主体 Apache-2.0 与 data/third_party 的例外声明。证据边界：源码与样例平衡/第三方数据条件分别记录"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。主体 Apache-2.0 与 data/third_party 的例外声明。证据边界：源码与样例平衡/第三方数据条件分别记录",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-045",
@@ -2522,7 +2736,10 @@
     "url": "https://github.com/google-deepmind/torax/releases",
     "scope": "仿真计算/README.md：v1.4.3、v1.4.2、v1.2.0 发布记录中的接口与物理变更",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。v1.4.3、v1.4.2、v1.2.0 发布记录中的接口与物理变更。证据边界：仅说明版本差异；未将开发路线图或实验功能自动列为已确认"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。v1.4.3、v1.4.2、v1.2.0 发布记录中的接口与物理变更。证据边界：仅说明版本差异；未将开发路线图或实验功能自动列为已确认",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-046",
@@ -2530,7 +2747,10 @@
     "url": "https://github.com/iterorganization/JOREK",
     "scope": "仿真计算/README.md：Methods and models 第 39–57 行；另读官方 ITER 仓库 README About、License、Community Rules",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。三维非线性 extended MHD，极向 Bézier 有限元与环向 Fourier，包含主等离子体、SOL 和偏滤器 X 点几何。；有 reduced/full MHD、两流体、壁/线圈耦合、杂质、弹丸和粒子等选项，MPI+OpenMP。；ITER 官方公开仓库 README 明确 LGPLv3.0-or-later；同时列社区发表与贡献规则。。证据边界：不要沿用“只向联盟成员提供源码”的旧概述；官网旧 Wiki 仍受限，不表示公开代码仓库受同等限制；组件和第三方许可须分别核验。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。三维非线性 extended MHD，极向 Bézier 有限元与环向 Fourier，包含主等离子体、SOL 和偏滤器 X 点几何。；有 reduced/full MHD、两流体、壁/线圈耦合、杂质、弹丸和粒子等选项，MPI+OpenMP。；ITER 官方公开仓库 README 明确 LGPLv3.0-or-later；同时列社区发表与贡献规则。。证据边界：不要沿用“只向联盟成员提供源码”的旧概述；官网旧 Wiki 仍受限，不表示公开代码仓库受同等限制；组件和第三方许可须分别核验。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-047",
@@ -2538,7 +2758,10 @@
     "url": "https://github.com/iterorganization/SOLPS-ITER",
     "scope": "仿真计算/README.md：公开仓库 README、顶层许可证标识",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方公共仓库当前顶层 EUPL-1.1。。证据边界：整套含不同子模块许可，尤其 EIRENE 不可只按顶层许可理解。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方公共仓库当前顶层 EUPL-1.1。。证据边界：整套含不同子模块许可，尤其 EIRENE 不可只按顶层许可理解。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-048",
@@ -2546,7 +2769,10 @@
     "url": "https://github.com/svalinn/DAGMC",
     "scope": "仿真计算/README.md：官方 README 对作用与 Monte Carlo 代码集成的说明。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。DAGMC 提供在 CAD 几何上进行 Monte Carlo 辐射输运的几何能力，已集成 OpenMC、MCNP 等求解器。；它是几何接口/射线跟踪工具链的一环，仍需外部输运求解器、材料信息和核数据。。证据边界：不同宿主求解器有不同接入与构建要求；不能称作与 OpenMC/MCNP 并列的独立核物理求解器。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。DAGMC 提供在 CAD 几何上进行 Monte Carlo 辐射输运的几何能力，已集成 OpenMC、MCNP 等求解器。；它是几何接口/射线跟踪工具链的一环，仍需外部输运求解器、材料信息和核数据。。证据边界：不同宿主求解器有不同接入与构建要求；不能称作与 OpenMC/MCNP 并列的独立核物理求解器。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-049",
@@ -2554,7 +2780,10 @@
     "url": "https://gitlab.com/qualikiz-group/QuaLiKiz/-/blob/main/LICENSE",
     "scope": "仿真计算/README.md：CeCILL-C 授权声明及项目说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。CeCILL-C 授权声明及项目说明。证据边界：不自动覆盖 QLKNN 的代码、权重或训练数据"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。CeCILL-C 授权声明及项目说明。证据边界：不自动覆盖 QLKNN 的代码、权重或训练数据",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-050",
@@ -2562,7 +2791,10 @@
     "url": "https://gkeyll.readthedocs.io/en/latest/quickstart.html",
     "scope": "仿真计算/README.md：官方 gyrokinetic 算例的 full-f、long-wavelength、self-consistent sheath 示例；已打开全文并检索读取",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。示范长波（漂移动理学）极限的静电 full-f gyrokinetic 鞘层电势自洽形成；边界模型与源项在输入中明确。。证据边界：教学算例没有电离、复合和辐射项，不能由一个 sheath demo 宣称完整 reactor boundary 预测。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。示范长波（漂移动理学）极限的静电 full-f gyrokinetic 鞘层电势自洽形成；边界模型与源项在输入中明确。。证据边界：教学算例没有电离、复合和辐射项，不能由一个 sheath demo 宣称完整 reactor boundary 预测。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-051",
@@ -2570,7 +2802,10 @@
     "url": "https://gyrokinetics.gitlab.io/gs2/",
     "scope": "仿真计算/README.md：官方首页 Features / Get the code",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。求解磁化等离子体低频微稳定性与非线性湍流，使用沿场线坐标和局域 flux-tube 五维网格。；输出增长率、涨落谱及各物种粒子/动量/能量输运；官网提供公开 Bitbucket 获取方式。。证据边界：该页没有宣称完整全局边缘中性粒子/鞘层求解器；以其局域用途介绍。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。求解磁化等离子体低频微稳定性与非线性湍流，使用沿场线坐标和局域 flux-tube 五维网格。；输出增长率、涨落谱及各物种粒子/动量/能量输运；官网提供公开 Bitbucket 获取方式。。证据边界：该页没有宣称完整全局边缘中性粒子/鞘层求解器；以其局域用途介绍。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-052",
@@ -2578,7 +2813,10 @@
     "url": "https://hermes3.readthedocs.io/en/latest/",
     "scope": "仿真计算/README.md：官方 Introduction",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Hermes-3 是建立在 BOUT++ 上的边缘等离子体多物种模型，可选 1D/2D/3D 与稳态/非稳态/湍流用途。。证据边界：具体算例选了哪些组分和闭合必须检查输入，功能列表不保证所有组合。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Hermes-3 是建立在 BOUT++ 上的边缘等离子体多物种模型，可选 1D/2D/3D 与稳态/非稳态/湍流用途。。证据边界：具体算例选了哪些组分和闭合必须检查输入，功能列表不保证所有组合。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-053",
@@ -2586,7 +2824,10 @@
     "url": "https://hermes3.readthedocs.io/en/latest/equations.html",
     "scope": "仿真计算/README.md：官方 Neutral gas models 段落",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Hermes-3 提供中性流体模型；1D 中性输运与 2D/3D 中性组件/闭合存在区分。。证据边界：组件名、维度和选项会变；用于说明 BOUT++ 模型需要独立核查，不代替 EIRENE 动理学中性粒子。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Hermes-3 提供中性流体模型；1D 中性输运与 2D/3D 中性组件/闭合存在区分。。证据边界：组件名、维度和选项会变；用于说明 BOUT++ 模型需要独立核查，不代替 EIRENE 动理学中性粒子。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-054",
@@ -2594,7 +2835,10 @@
     "url": "https://imas-data-dictionary.readthedocs.io/en/latest/intro.html",
     "scope": "仿真计算/README.md：Data dictionary、Access layer、单位与坐标定义",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Data dictionary、Access layer、单位与坐标定义。证据边界：结构化数据标准不代替物理守恒和接口内容核验"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Data dictionary、Access layer、单位与坐标定义。证据边界：结构化数据标准不代替物理守恒和接口内容核验",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-055",
@@ -2602,7 +2846,10 @@
     "url": "https://imas-python.readthedocs.io/en/latest/validation.html",
     "scope": "仿真计算/README.md：时间模式、坐标维度、alternative coordinates 的检查范围",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。时间模式、坐标维度、alternative coordinates 的检查范围。证据边界：只说明框架检查，不将其等同物理 validation"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。时间模式、坐标维度、alternative coordinates 的检查范围。证据边界：只说明框架检查，不将其等同物理 validation",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-056",
@@ -2610,7 +2857,10 @@
     "url": "https://m3dc1.pppl.gov/M3DC1_License.pdf",
     "scope": "仿真计算/README.md：一页完整 PDF，全部 37 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。通过协议通常获得 Princeton University GitHub 仓库只读访问；不得转发源码或二进制。；须注明代码与参考文献，投稿前送团队，按请求提供修改；依赖 MPI、SCOREC、PETSc。。证据边界：定制用户协议，不能写成标准开源许可证；未承诺支持可用或获取申请必定通过。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。通过协议通常获得 Princeton University GitHub 仓库只读访问；不得转发源码或二进制。；须注明代码与参考文献，投稿前送团队，按请求提供修改；依赖 MPI、SCOREC、PETSc。。证据边界：定制用户协议，不能写成标准开源许可证；未承诺支持可用或获取申请必定通过。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-057",
@@ -2618,7 +2868,11 @@
     "url": "https://m3dc1.pppl.gov/Papers/artola_PP_21.pdf",
     "scope": "仿真计算/README.md：16 页 PDF，实际重点读 pp.1–6：摘要、§II、Table I、§III 参数和分辨率；其余结果未逐图核对",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。2021 三代码比较采用源自 NSTX 的平衡及简化矩形电阻壁，比较壁力和能量衰减等量。；该算例 JOREK 用 reduced MHD，M3D-C1/NIMROD 用 full MHD；M3D-C1 环向 Hermite 有限元，后二者中的 NIMROD/JOREK 环向 Fourier。；为降低计算成本，算例将等离子体电阻率设为 Spitzer 值的 10 倍，不能等同实验原参数的直接预测。。证据边界：代码间 verification benchmark；明确不同模型/边界与人为参数，不证明所有 disruption 场景精度或速度排名；最新版本能力不受 Table I 旧版本限制。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。2021 三代码比较采用源自 NSTX 的平衡及简化矩形电阻壁，比较壁力和能量衰减等量。；该算例 JOREK 用 reduced MHD，M3D-C1/NIMROD 用 full MHD；M3D-C1 环向 Hermite 有限元，后二者中的 NIMROD/JOREK 环向 Fourier。；为降低计算成本，算例将等离子体电阻率设为 Spitzer 值的 10 倍，不能等同实验原参数的直接预测。。证据边界：代码间 verification benchmark；明确不同模型/边界与人为参数，不证明所有 disruption 场景精度或速度排名；最新版本能力不受 Table I 旧版本限制。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md",
+      "仿真计算/验证与不确定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-058",
@@ -2626,7 +2880,10 @@
     "url": "https://m3dc1.pppl.gov/m3dc1_overview.html",
     "scope": "仿真计算/README.md：Introduction、Applications、Physical Model，第 4–40 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。求解单流体或双流体 extended MHD；包括密度、速度、总压、电子压、广义 Ohm 定律和磁场演化。；高阶 C1 连续有限元、非结构网格、隐式/半隐式时间推进；应用包括 VDE、ELM、锯齿及外加三维磁场响应。。证据边界：具体物理项和壁模型取决于配置；MHD 流体近似不能自动解析所有微观动理学。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。求解单流体或双流体 extended MHD；包括密度、速度、总压、电子压、广义 Ohm 定律和磁场演化。；高阶 C1 连续有限元、非结构网格、隐式/半隐式时间推进；应用包括 VDE、ELM、锯齿及外加三维磁场响应。。证据边界：具体物理项和壁模型取决于配置；MHD 流体近似不能自动解析所有微观动理学。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-059",
@@ -2634,7 +2891,10 @@
     "url": "https://mcnp.lanl.gov/how_to_get_the_mcnp_code.html",
     "scope": "仿真计算/README.md：官方获取页面全文。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。MCNP 由 RSICC 向全球用户分发，官方明确其受美国出口管制及 DOE 规则约束。；分发包包含可执行程序、文档、验证问题、工具以及 ACE 格式核数据；源码包与可执行包的获取条件有区别。。证据边界：不是 MIT/GPL 式开源软件；具体用户资格和当前发行获取条件应由发行方确认，不把公开手册当授权。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。MCNP 由 RSICC 向全球用户分发，官方明确其受美国出口管制及 DOE 规则约束。；分发包包含可执行程序、文档、验证问题、工具以及 ACE 格式核数据；源码包与可执行包的获取条件有区别。。证据边界：不是 MIT/GPL 式开源软件；具体用户资格和当前发行获取条件应由发行方确认，不把公开手册当授权。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-060",
@@ -2642,7 +2902,10 @@
     "url": "https://mooseframework.inl.gov/modules/electromagnetics/index.html",
     "scope": "仿真计算/README.md：官方 Features、Benchmarks 与 Multiphysics Coupling Cases。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。MOOSE 电磁模块提供 Maxwell/Helmholtz 波问题与跨物理耦合构件；页面明确当前波仿真以 1D/2D 为主，3D 在开发。；框架/模块提供开发与验证基础，不是把任意聚变 RF/热/结构模型装好即用的统一产品。。证据边界：截至核验日页面仍写 3D 开发中；不要因框架总体支持三维就宣称该电磁模块所有三维波能力已成熟。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。MOOSE 电磁模块提供 Maxwell/Helmholtz 波问题与跨物理耦合构件；页面明确当前波仿真以 1D/2D 为主，3D 在开发。；框架/模块提供开发与验证基础，不是把任意聚变 RF/热/结构模型装好即用的统一产品。。证据边界：截至核验日页面仍写 3D 开发中；不要因框架总体支持三维就宣称该电磁模块所有三维波能力已成熟。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-061",
@@ -2650,7 +2913,10 @@
     "url": "https://nimrodteam.org/",
     "scope": "仿真计算/README.md：完整 15 行主页，重点第 5–12 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。全三维 extended MHD：两维谱有限元、第三维 Fourier；隐式/半隐式时间离散。；官网列 drift-kinetic closure、少数高能粒子/逃逸电子粒子及连续模型、原子反应分裂积分；应用跨托卡马克、仿星器、球马克、RFP/FRC 等。。证据边界：这些是代码可选模型能力，未说明所有模块可同时启用；不把全部官网能力套到某一旧论文版本。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。全三维 extended MHD：两维谱有限元、第三维 Fourier；隐式/半隐式时间离散。；官网列 drift-kinetic closure、少数高能粒子/逃逸电子粒子及连续模型、原子反应分裂积分；应用跨托卡马克、仿星器、球马克、RFP/FRC 等。。证据边界：这些是代码可选模型能力，未说明所有模块可同时启用；不把全部官网能力套到某一旧论文版本。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-062",
@@ -2658,7 +2924,10 @@
     "url": "https://nimrodteam.org/code_access/",
     "scope": "仿真计算/README.md：Code Access 全页 16 行；实际读取 Agreement PDF 全 26 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。通过与团队开展合作并提交协议获取源码；官网说明对外国研究者的代码访问须遵从美国出口控制。；EULA 禁止第三方再分发，要求论文注明代码、投稿时送团队，并按请求提供足以复现的输入与修改。。证据边界：定制 EULA，不是可自由再分发的标准开源许可；公开的 nimrod-aai 基础设施不能代替完整 NIMROD 主代码许可。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。通过与团队开展合作并提交协议获取源码；官网说明对外国研究者的代码访问须遵从美国出口控制。；EULA 禁止第三方再分发，要求论文注明代码、投稿时送团队，并按请求提供足以复现的输入与修改。。证据边界：定制 EULA，不是可自由再分发的标准开源许可；公开的 nimrod-aai 基础设施不能代替完整 NIMROD 主代码许可。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-063",
@@ -2666,7 +2935,10 @@
     "url": "https://nstx.pppl.gov/DragNDrop/Science_Groups/core/TSGs/energetic_particles/archive/2011/RF%20Conference%202011/Abstracts/Contributed%20Abstracts/Poster%20Session%20A/A49_Jaeger_E_.pdf",
     "scope": "仿真计算/README.md：作者 2011 年会议摘要全文，一页。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。AORSA 谱波求解保留所有阶的离子 Larmor 半径与波长比；这不消除对 Larmor 半径与平衡梯度尺度比的近似。；作者讨论非均匀平衡的一级电导率修正及其能量守恒意义。。证据边界：只支持方法边界解释，不支持当前版本整体性能排名；具体电导率选项须按发行版确认。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。AORSA 谱波求解保留所有阶的离子 Larmor 半径与波长比；这不消除对 Larmor 半径与平衡梯度尺度比的近似。；作者讨论非均匀平衡的一级电导率修正及其能量守恒意义。。证据边界：只支持方法边界解释，不支持当前版本整体性能排名；具体电导率选项须按发行版确认。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-064",
@@ -2674,7 +2946,10 @@
     "url": "https://omfit.io/install.html",
     "scope": "仿真计算/README.md：源码申请、用户协议和外部程序不随本体提供的说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。源码申请、用户协议和外部程序不随本体提供的说明。证据边界：不从模块列表推断已获底层求解器、装置数据或许可证"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。源码申请、用户协议和外部程序不随本体提供的说明。证据边界：不从模块列表推断已获底层求解器、装置数据或许可证",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-065",
@@ -2682,7 +2957,10 @@
     "url": "https://princetonuniversity.github.io/STELLOPT/VMEC.html",
     "scope": "仿真计算/README.md：Theory、boundary、Input、Output；第 5–108、149–180 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。在环形几何中以能量变分/迭代求三维理想 MHD 力平衡；角向 Fourier 展开，径向离散。；固定边界由外磁面给定；自由边界需要外线圈真空场，MAKEGRID/mgrid 是一种标准输入路径。；输出 wout、jxbout、mercier、threed1；wout 储存几何 Fourier 系数与径向剖面，可为文本或 NetCDF。。证据边界：该页包含历史接口说明，实际 I/O 以选定版本为准；迭代松弛参数不是物理演化时间。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。在环形几何中以能量变分/迭代求三维理想 MHD 力平衡；角向 Fourier 展开，径向离散。；固定边界由外磁面给定；自由边界需要外线圈真空场，MAKEGRID/mgrid 是一种标准输入路径。；输出 wout、jxbout、mercier、threed1；wout 储存几何 Fourier 系数与径向剖面，可为文本或 NetCDF。。证据边界：该页包含历史接口说明，实际 I/O 以选定版本为准；迭代松弛参数不是物理演化时间。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-066",
@@ -2690,7 +2968,10 @@
     "url": "https://raw.githubusercontent.com/FusionComputingLab/freegsnke/main/LICENSE",
     "scope": "仿真计算/README.md：完整 147 行 LGPL v3 许可，重点第 0–15 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GNU LGPL version 3。。证据边界：仅代码主体；装置 UDA 数据访问需另行权限。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GNU LGPL version 3。。证据边界：仅代码主体；装置 UDA 数据访问需另行权限。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-067",
@@ -2698,7 +2979,10 @@
     "url": "https://raw.githubusercontent.com/ORNL-Fusion/aorsa/master/LICENSE",
     "scope": "仿真计算/README.md：官方许可证全文。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方 ORNL-Fusion/aorsa 仓库 LICENSE 为 MIT。。证据边界：不替代依赖库许可。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方 ORNL-Fusion/aorsa 仓库 LICENSE 为 MIT。。证据边界：不替代依赖库许可。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-068",
@@ -2706,7 +2990,10 @@
     "url": "https://raw.githubusercontent.com/PlasmaControl/DESC/master/LICENSE",
     "scope": "仿真计算/README.md：完整 18 行 MIT 许可",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。DESC 主仓库采用 MIT license。。证据边界：仅主体代码许可；外部物理包与运行依赖需分别查看。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。DESC 主仓库采用 MIT license。。证据边界：仅主体代码许可；外部物理包与运行依赖需分别查看。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-069",
@@ -2714,7 +3001,10 @@
     "url": "https://raw.githubusercontent.com/compxco/cql3d/master/LICENSE",
     "scope": "仿真计算/README.md：官方 LICENSE 开头授权段及对应 GPL 版本。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。CQL3D 仓库授权为 GPL 第 3 版或以后版本。。证据边界：第三方模块和数据库须分别核对。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。CQL3D 仓库授权为 GPL 第 3 版或以后版本。。证据边界：第三方模块和数据库须分别核对。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-070",
@@ -2722,7 +3012,10 @@
     "url": "https://raw.githubusercontent.com/fusion-energy/paramak/main/LICENSE",
     "scope": "仿真计算/README.md：官方许可证全文，网页与原始文本请求。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Paramak 官方仓库许可证为 MIT。。证据边界：不自动覆盖 CadQuery、几何内核或转换链条所有依赖。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Paramak 官方仓库许可证为 MIT。。证据边界：不自动覆盖 CadQuery、几何内核或转换链条所有依赖。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-071",
@@ -2730,7 +3023,10 @@
     "url": "https://raw.githubusercontent.com/hiddenSymmetries/VMEC2000/master/LICENSE",
     "scope": "仿真计算/README.md：README Overview、Compiling；仓库第 214–275 行；另实际读取 raw LICENSE 全 17 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。该 VMEC2000 仓库提供独立构建与 Python 扩展；编译说明要求 MPI、并行 HDF5、NetCDF 和 BLAS/LAPACK 等。；该仓库 LICENSE 是 MIT 文本（Copyright 2021 Simsopt Development Team）。。证据边界：MIT 结论仅指 hiddenSymmetries/VMEC2000 这一发行版；不能自动套到 STELLOPT 内所有软件或 VMEC 所有 fork。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。该 VMEC2000 仓库提供独立构建与 Python 扩展；编译说明要求 MPI、并行 HDF5、NetCDF 和 BLAS/LAPACK 等。；该仓库 LICENSE 是 MIT 文本（Copyright 2021 Simsopt Development Team）。。证据边界：MIT 结论仅指 hiddenSymmetries/VMEC2000 这一发行版；不能自动套到 STELLOPT 内所有软件或 VMEC 所有 fork。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-072",
@@ -2738,7 +3034,10 @@
     "url": "https://raw.githubusercontent.com/hiddenSymmetries/simsopt/master/LICENSE",
     "scope": "仿真计算/README.md：完整 19 行 MIT 许可",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。SIMSOPT 主仓库采用 MIT license。。证据边界：不自动覆盖外接 VMEC、SPEC 或其他独立物理代码。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。SIMSOPT 主仓库采用 MIT license。。证据边界：不自动覆盖外接 VMEC、SPEC 或其他独立物理代码。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-073",
@@ -2746,7 +3045,10 @@
     "url": "https://raw.githubusercontent.com/idaholab/moose/master/LICENSE",
     "scope": "仿真计算/README.md：官方许可证全文开头版本与框架源码许可标记。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。MOOSE 框架采用 LGPL 第 2.1 版许可。。证据边界：具体 MOOSE 应用、依赖和外部材料数据库可能另有许可与获取条件。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。MOOSE 框架采用 LGPL 第 2.1 版许可。。证据边界：具体 MOOSE 应用、依赖和外部材料数据库可能另有许可与获取条件。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-074",
@@ -2754,7 +3056,10 @@
     "url": "https://raw.githubusercontent.com/openmc-dev/openmc/develop/LICENSE",
     "scope": "仿真计算/README.md：官方 LICENSE 全文。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。所读 OpenMC 官方仓库采用 MIT 许可证。。证据边界：不授权由第三方分别管理的核数据库。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。所读 OpenMC 官方仓库采用 MIT 许可证。。证据边界：不授权由第三方分别管理的核数据库。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-075",
@@ -2762,7 +3067,10 @@
     "url": "https://raw.githubusercontent.com/svalinn/DAGMC/develop/LICENSE.txt",
     "scope": "仿真计算/README.md：官方许可文本总则与例外目录段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。DAGMC 主体采用 Simplified BSD，许可证明确 pyne/ 与 tally/lapack/ 等例外目录另列条款。。证据边界：不将整个依赖链一律归类 BSD；CAD 前处理工具也可能有自身许可证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。DAGMC 主体采用 Simplified BSD，许可证明确 pyne/ 与 tally/lapack/ 等例外目录另列条款。。证据边界：不将整个依赖链一律归类 BSD；CAD 前处理工具也可能有自身许可证。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-076",
@@ -2770,7 +3078,10 @@
     "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/MILITELLO_ASP_2022_NUCL-_FUSION_62_126033.PDF",
     "scope": "仿真计算/README.md：论文模型假设部分：JETTO/SANCO 与 EDGE2D/EIRENE 连接和原子过程",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文模型假设部分：JETTO/SANCO 与 EDGE2D/EIRENE 连接和原子过程。证据边界：只用于软件架构和接口定位；未复核全文所有 ITER 预测与参数"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文模型假设部分：JETTO/SANCO 与 EDGE2D/EIRENE 连接和原子过程。证据边界：只用于软件架构和接口定位；未复核全文所有 ITER 预测与参数",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-077",
@@ -2778,7 +3089,10 @@
     "url": "https://scientific-publications.ukaea.uk/wp-content/uploads/UKAEA-CCFE-CP2525.PDF",
     "scope": "仿真计算/README.md：公开作者稿中的 JINTRAC 使用许可致谢",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开作者稿中的 JINTRAC 使用许可致谢。证据边界：仅支持按协议使用的事实；不能由论文开放许可推断代码开放"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。公开作者稿中的 JINTRAC 使用许可致谢。证据边界：仅支持按协议使用的事实；不能由论文开放许可推断代码开放",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-078",
@@ -2786,7 +3100,10 @@
     "url": "https://simsopt.readthedocs.io/latest/mhd.html",
     "scope": "仿真计算/README.md：README 第 227–258 行；MHD 文档第 9–25、34–58 行",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。SIMSOPT 是仿星器优化框架，提供表面/线圈几何、Biot–Savart 磁场、目标函数和优化变量组织。；VMEC/SPEC 是可连接且须另装的物理求解器；传统接口求导可能用有限差分。；SPEC 的多区域松弛 MHD 表示可含磁岛/磁混沌，适合补查嵌套磁面模型的限制。。证据边界：不能把优化框架当作独立 MHD 方程求解器；部分 Fortran wrapper 有 singleton 内存限制；未在本任务研究 SPEC 的安装/许可，正文只作路径说明。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。SIMSOPT 是仿星器优化框架，提供表面/线圈几何、Biot–Savart 磁场、目标函数和优化变量组织。；VMEC/SPEC 是可连接且须另装的物理求解器；传统接口求导可能用有限差分。；SPEC 的多区域松弛 MHD 表示可含磁岛/磁混沌，适合补查嵌套磁面模型的限制。。证据边界：不能把优化框架当作独立 MHD 方程求解器；部分 Fortran wrapper 有 singleton 内存限制；未在本任务研究 SPEC 的安装/许可，正文只作路径说明。",
+    "used_in": [
+      "仿真计算/平衡与磁场优化/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-079",
@@ -2794,7 +3111,10 @@
     "url": "https://smileipic.github.io/Smilei/",
     "scope": "仿真计算/README.md：官方首页功能定位",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Smilei 是通用 PIC，官方应用范围从相对论激光-等离子体到天体等离子体。。证据边界：此定位不支持把它直接列为托卡马克整放电长期预测代码。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Smilei 是通用 PIC，官方应用范围从相对论激光-等离子体到天体等离子体。。证据边界：此定位不支持把它直接列为托卡马克整放电长期预测代码。",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-080",
@@ -2802,7 +3122,10 @@
     "url": "https://smileipic.github.io/Smilei/Overview/licence.html",
     "scope": "仿真计算/README.md：官方许可证摘录",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方明确使用 CeCILL-B 软件许可证。。证据边界：不要照抄该页将 CeCILL-B 泛称 GPL 的简述；精确名称 CeCILL-B。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。官方明确使用 CeCILL-B 软件许可证。。证据边界：不要照抄该页将 CeCILL-B 泛称 GPL 的简述；精确名称 CeCILL-B。",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-081",
@@ -2810,7 +3133,10 @@
     "url": "https://soledge3x.onrender.com/",
     "scope": "仿真计算/README.md：官方主页全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。FR-FCM 团队开发边缘湍流、回收及壁相互作用软件；官方说明代码在 CEA GitLab、按需申请。。证据边界：未找到公开软件许可证正文，因此不填标准开源许可；论文开放获取不等于代码开源。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。FR-FCM 团队开发边缘湍流、回收及壁相互作用软件；官方说明代码在 CEA GitLab、按需申请。。证据边界：未找到公开软件许可证正文，因此不填标准开源许可；论文开放获取不等于代码开源。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-082",
@@ -2818,7 +3144,10 @@
     "url": "https://soledge3x.onrender.com/features/fluid_description/",
     "scope": "仿真计算/README.md：官方方程页全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。漂移序流体模型求解质量、平行动量、能量和电流平衡；该文档模型为静电、固定磁场。；跨场有效扩散/热扩散可用于 transport 模式，不能把每次计算都称为自洽三维湍流。。证据边界：页面最后更新 2025-03-11；不否认研究分支电磁扩展，只不泛化其验证/发布范围。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。漂移序流体模型求解质量、平行动量、能量和电流平衡；该文档模型为静电、固定磁场。；跨场有效扩散/热扩散可用于 transport 模式，不能把每次计算都称为自洽三维湍流。。证据边界：页面最后更新 2025-03-11；不否认研究分支电磁扩展，只不泛化其验证/发布范围。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-083",
@@ -2826,7 +3155,10 @@
     "url": "https://soledge3x.onrender.com/features/neutrals/",
     "scope": "仿真计算/README.md：官方简化中性流体及 EIRENE 耦合全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。可用简单扩散中性模型，或经 STYX 接口耦合 EIRENE；后者返回粒子、动量、能量体源并处理分子/原子反应。。证据边界：简化扩散中性模型用于粗略源汇；不与 Monte Carlo 中性分布等精度。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。可用简单扩散中性模型，或经 STYX 接口耦合 EIRENE；后者返回粒子、动量、能量体源并处理分子/原子反应。。证据边界：简化扩散中性模型用于粗略源汇；不与 Monte Carlo 中性分布等精度。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-084",
@@ -2834,7 +3166,10 @@
     "url": "https://solps-tutorials.readthedocs.io/",
     "scope": "仿真计算/README.md：Brief introduction to SOLPS-ITER；文档源码托管 ITER Organization",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。SOLPS-ITER 由 B2.5、EIRENE 与网格工具构成，标准用途为托卡马克边缘二维轴对称等离子体、中性粒子、壁面耦合。。证据边界：二维轴对称平均输运不是直接解析三维湍流。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。SOLPS-ITER 由 B2.5、EIRENE 与网格工具构成，标准用途为托卡马克边缘二维轴对称等离子体、中性粒子、壁面耦合。。证据边界：二维轴对称平均输运不是直接解析三维湍流。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-085",
@@ -2842,7 +3177,10 @@
     "url": "https://solps-tutorials.readthedocs.io/feature_blog/Diffusion_coefficients/",
     "scope": "仿真计算/README.md：径向反常输运、Dn/chie/chii 段落",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。SOLPS-ITER 以用户给定径向粒子与热扩散系数表示反常输运，不自行从微湍流算出径向输运。。证据边界：算例预测依赖 Dn、χe、χi 和边界/原子过程模型；稳态收敛不保证输运闭合正确。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。SOLPS-ITER 以用户给定径向粒子与热扩散系数表示反常输运，不自行从微湍流算出径向输运。。证据边界：算例预测依赖 Dn、χe、χi 和边界/原子过程模型；稳态收敛不保证输运闭合正确。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-086",
@@ -2850,7 +3188,10 @@
     "url": "https://solps-tutorials.readthedocs.io/installing/solps-iter-codebase/",
     "scope": "仿真计算/README.md：Get access to SOLPS-ITER",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前教程说明源码已公开于 ITER Organization GitHub，同时要求用户确认 EIRENE 注册/许可。。证据边界：该教程与 ITER 公告对公开日期有出入；正文无需声称具体开放月份。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。当前教程说明源码已公开于 ITER Organization GitHub，同时要求用户确认 EIRENE 注册/许可。。证据边界：该教程与 ITER 公告对公开日期有出入；正文无需声称具体开放月份。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-087",
@@ -2858,7 +3199,10 @@
     "url": "https://spcgit.epfl.ch/luke/tutorial.html",
     "scope": "仿真计算/README.md：官方教程 Introduction 与 Getting Started、equil/wave 数据段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。教程中的 LUKE 求线性化、相对论、弹跳平均的电子 Fokker–Planck 方程，维度为一空间维加两动量维，主要服务电流驱动。；教程使用 MATLAB，可接受平衡、波、电场和输运相关输入，支持交互或脚本运行。。证据边界：本次未读到可明确归类的软件发行许可证，不能以教程公开推断 GPL/MIT；后续离子扩展不由这份旧教程证明。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。教程中的 LUKE 求线性化、相对论、弹跳平均的电子 Fokker–Planck 方程，维度为一空间维加两动量维，主要服务电流驱动。；教程使用 MATLAB，可接受平衡、波、电场和输运相关输入，支持交互或脚本运行。。证据边界：本次未读到可明确归类的软件发行许可证，不能以教程公开推断 GPL/MIT；后续离子扩展不由这份旧教程证明。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-088",
@@ -2866,7 +3210,10 @@
     "url": "https://sun.ps.uci.edu/gtc/",
     "scope": "仿真计算/README.md：官方主页全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GTC 与 GTC-X 在官网发布源码，使用 BSD 3-clause 许可证。。证据边界：主页没有给出每项求解模型；许可和能力分别查证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GTC 与 GTC-X 在官网发布源码，使用 BSD 3-clause 许可证。。证据边界：主页没有给出每项求解模型；许可和能力分别查证。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-089",
@@ -2874,7 +3221,10 @@
     "url": "https://sun.ps.uci.edu/people/zlin/bib/wong24.pdf",
     "scope": "仿真计算/README.md：2024 作者论文 PDF，II GTC formulations（web 搜索摘录并打开 PDF）",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GTC 用 gyrokinetic PIC 处理热/快离子、漂移动理学电子，并有流体-动理学电子混合及约化模型。；论文说明可演化 full-f 与 δf；该研究自身只做线性微扰算例。。证据边界：不能把一篇线性 TAE 算例视为所有开关、边界与非线性物理的验证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GTC 用 gyrokinetic PIC 处理热/快离子、漂移动理学电子，并有流体-动理学电子混合及约化模型。；论文说明可演化 full-f 与 δf；该研究自身只做线性微扰算例。。证据边界：不能把一篇线性 TAE 算例视为所有开关、边界与非线性物理的验证。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-090",
@@ -2882,7 +3232,10 @@
     "url": "https://torax.readthedocs.io/en/v1.4.3/physics_models.html",
     "scope": "仿真计算/README.md：磁几何与时变几何、输运、源、台基、边缘和旋转相关说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。磁几何与时变几何、输运、源、台基、边缘和旋转相关说明。证据边界：记录版本；不把外部源、给定几何或代理自动等同在线自洽全物理"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。磁几何与时变几何、输运、源、台基、边缘和旋转相关说明。证据边界：记录版本；不把外部源、给定几何或代理自动等同在线自洽全物理",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-091",
@@ -2890,7 +3243,10 @@
     "url": "https://transp.pppl.gov/files/LicenseAgreement.pdf",
     "scope": "仿真计算/README.md：三页协议，研究授权、分发、修改与发表、商业使用及保密条款",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。三页协议，研究授权、分发、修改与发表、商业使用及保密条款。证据边界：报告官方获取条件，未据首页 Open 字样归类为标准开源许可"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。三页协议，研究授权、分发、修改与发表、商业使用及保密条款。证据边界：报告官方获取条件，未据首页 Open 字样归类为标准开源许可",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-092",
@@ -2898,7 +3254,10 @@
     "url": "https://transp.pppl.gov/releases.html",
     "scope": "仿真计算/README.md：版本表、使用须签许可与源代码贡献申请说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。版本表、使用须签许可与源代码贡献申请说明。证据边界：页面部分更新时间/旧 IMAS 授权文字可能滞后；正文只引用 TRANSP 自身签约要求"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。版本表、使用须签许可与源代码贡献申请说明。证据边界：页面部分更新时间/旧 IMAS 授权文字可能滞后；正文只引用 TRANSP 自身签约要求",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-093",
@@ -2906,7 +3265,10 @@
     "url": "https://w3.pppl.gov/~hammett/work/2009/Astra_ocr.pdf",
     "scope": "仿真计算/README.md：原报告封面、目录、Introduction 与 Overview（书页 6–14）",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。原报告封面、目录、Introduction 与 Overview（书页 6–14）。证据边界：仅引用框架与 1.5D 定义；旧系统要求和旧分发说明不作为当前发行版条件"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。原报告封面、目录、Introduction 与 Overview（书页 6–14）。证据边界：仅引用框架与 1.5D 定义；旧系统要求和旧分发说明不作为当前发行版条件",
+    "used_in": [
+      "仿真计算/芯部输运/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-094",
@@ -2914,7 +3276,10 @@
     "url": "https://w3.pppl.gov/~pshare/help/body_nubeam_hlp.html",
     "scope": "仿真计算/README.md：Introduction、A_Note_on_Units、I/O、独立驱动接口段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。此指南的模型是轴对称 tokamak、嵌套磁面中快离子经典 Monte Carlo 导心演化；在给定时段内对固定背景做源与慢化步，再交回背景等离子体模型。；Plasma State/Xplasma 剖面接口主要用 MKS，但温度与平均能量剖面用 keV；不经过这些接口的标量须逐项查单位。。证据边界：旧指南有历史选项和版本差别，不能当作最新版本所有能力与单位统一性的保证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。此指南的模型是轴对称 tokamak、嵌套磁面中快离子经典 Monte Carlo 导心演化；在给定时段内对固定背景做源与慢化步，再交回背景等离子体模型。；Plasma State/Xplasma 剖面接口主要用 MKS，但温度与平均能量剖面用 keV；不经过这些接口的标量须逐项查单位。。证据边界：旧指南有历史选项和版本差别，不能当作最新版本所有能力与单位统一性的保证。",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-095",
@@ -2922,7 +3287,10 @@
     "url": "https://warpx.readthedocs.io/en/latest/",
     "scope": "仿真计算/README.md：官方首页求解器/网格/物理/数值方法列表",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。通用 PIC，提供 Maxwell、Poisson、Ampere-Ohm 等不同场求解路径；有显式/隐式、网格加密及多种几何和多物理功能。。证据边界：应按版本与算法选项核查；有 fusion reaction 模块不等于可预测托卡马克整放电/燃烧等离子体输运。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。通用 PIC，提供 Maxwell、Poisson、Ampere-Ohm 等不同场求解路径；有显式/隐式、网格加密及多种几何和多物理功能。。证据边界：应按版本与算法选项核查；有 fusion reaction 模块不等于可预测托卡马克整放电/燃烧等离子体输运。",
+    "used_in": [
+      "仿真计算/离散与粒子方法/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-096",
@@ -2930,7 +3298,10 @@
     "url": "https://www-internal.psfc.mit.edu/~jwright/Publications/jcw_icnsp_submittedpaper/node2.html",
     "scope": "仿真计算/README.md：作者在 MIT PSFC 的物理模型说明页。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。TORIC 的 full-wave 指在等离子体和天线存在时解 Maxwell 方程，仍在固定频率线性响应与 FLR 模型下工作。。证据边界：作者历史说明页；不能作为当前发行版功能或许可证明。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。TORIC 的 full-wave 指在等离子体和天线存在时解 Maxwell 方程，仍在固定频率线性响应与 FLR 模型下工作。。证据边界：作者历史说明页；不能作为当前发行版功能或许可证明。",
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-097",
@@ -2938,7 +3309,27 @@
     "url": "https://www.compxco.com/cql3d.html",
     "scope": "仿真计算/README.md：官方页面 Short Description、Purpose、Algorithms 与 Coupled Diagnostics。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。CQL3D 求相对论、弹跳平均的碰撞/准线性 Fokker–Planck 方程；常见维度是两动量维加一径向维，极向变化通过 bounce average 处理。；它从射线或全波结果取得 RF 数据，求非 Maxwellian 电子和多种离子分布、加热与电流驱动；可联接 NFREYA、AORSA、TORIC-LH 等。。证据边界：不同模式对径向输运、轨道宽度与分布假设不同；不能将页面中简化的忽略径向漂移描述套用所有后续 FOW 选项。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。CQL3D 求相对论、弹跳平均的碰撞/准线性 Fokker–Planck 方程；常见维度是两动量维加一径向维，极向变化通过 bounce average 处理。；它从射线或全波结果取得 RF 数据，求非 Maxwellian 电子和多种离子分布、加热与电流驱动；可联接 NFREYA、AORSA、TORIC-LH 等。。证据边界：不同模式对径向输运、轨道宽度与分布假设不同；不能将页面中简化的忽略径向漂移描述套用所有后续 FOW 选项。",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "实际读取官方页面 Short Description、Purpose/Function/Special Features；页面标示更新日期 2026-06-17。",
+        "evidence": "一手文档或作者原始论文。CQL3D 是相对论、反弹平均的碰撞/准线性 FP 求解器，含 RF、束源、环向电场及规定径向扩散。；空间为一维径向、动量为二维；官方所述模型忽略径向漂移，可选同时求解电场。；可接 LH/FW/EC/EBW 射线或全波数据。。证据边界：具体公开分支和耦合选项须核对；不能将规定径向扩散视为自洽湍流输运。"
+      },
+      {
+        "checked_on": "2026-10-20",
+        "scope": "在线读取全文（104行）；主要使用Description、Purpose与Algorithms。",
+        "evidence": "一手文档或作者原始论文。反弹平均相对论Fokker–Planck；2动量+径向与隐式极向变化；碰撞、RF/中性束源、电场与给定径向输运；与射线能量输运迭代。证据边界：网页含基础假设与后续有限轨宽选项，正文不把基础忽略径向漂移当成所有模式永恒限制。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md",
+      "仿真计算/离子回旋加热模拟/README.md",
+      "仿真计算/电子回旋加热模拟/README.md",
+      "仿真计算/低杂波电流驱动模拟/README.md",
+      "仿真计算/电子伯恩斯坦波模拟/README.md",
+      "仿真计算/螺旋波模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-098",
@@ -2946,7 +3337,26 @@
     "url": "https://www.compxco.com/genray.html",
     "scope": "仿真计算/README.md：官方项目页 Short Description、Purpose、Basic Algorithms 全段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GENRAY 在几何光学近似下沿射线求电磁波传播和吸收，包含 EC、LH、ICRF 对应色散关系选项；项目页的线性电流驱动以 Maxwellian 分布为基础。；射线信息可传给 CQL3D 构造准线性扩散系数；非热分布下的 ECE/EBW 也可沿 WKB 射线求辐射输运。。证据边界：不能由“通用”推出所有波、所有几何与任意参数均已验证；其近似不是通用三维全波天线模型。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GENRAY 在几何光学近似下沿射线求电磁波传播和吸收，包含 EC、LH、ICRF 对应色散关系选项；项目页的线性电流驱动以 Maxwellian 分布为基础。；射线信息可传给 CQL3D 构造准线性扩散系数；非热分布下的 ECE/EBW 也可沿 WKB 射线求辐射输运。。证据边界：不能由“通用”推出所有波、所有几何与任意参数均已验证；其近似不是通用三维全波天线模型。",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "实际读取官方页面 Purpose/Function、Basic Algorithms、Key Results 和出版物列表。",
+        "evidence": "一手文档或作者原始论文。GENRAY 提供几何光学传播、吸收与 CQL3D 准线性扩散接口。；官方页面明确列出 GENRAY–CQL3D 的 EBWCD 及 ECE/EBW 发射计算。。证据边界：官网概述对不同模块说明不等于每种组合均经同等验证；具体输入仍需对应版本。"
+      },
+      {
+        "checked_on": "2026-10-20",
+        "scope": "已在线读取全文（63行）；Purpose/Algorithms/Documentation。",
+        "evidence": "一手文档或作者原始论文。几何光学射线追踪及多个色散关系；RF信息可耦合CQL3D准线性扩散；磁场可由样条表或空间函数给出。证据边界：通用几何能力不等同每个接口都自动支持全部几何；无运行性能对比。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/射频波与分布函数/README.md",
+      "仿真计算/电子回旋加热模拟/README.md",
+      "仿真计算/低杂波电流驱动模拟/README.md",
+      "仿真计算/电子伯恩斯坦波模拟/README.md",
+      "仿真计算/螺旋波模拟/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-099",
@@ -2954,7 +3364,10 @@
     "url": "https://www.comsol.com/documentation/6.3.0.290/COMSOL_SoftwareLicenseAgreement.pdf",
     "scope": "仿真计算/README.md：官方 SLA 的版本、使用授权与许可类型定义段。",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。COMSOL 依自有软件许可协议授权，包含不同用户/网络许可类型；RF 与其他模块可用性应按实际授权组合确认。。证据边界：不是开源许可；不推定学术折扣、云运行、再分发或特定模块自动包含。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。COMSOL 依自有软件许可协议授权，包含不同用户/网络许可类型；RF 与其他模块可用性应按实际授权组合确认。。证据边界：不是开源许可；不推定学术折扣、云运行、再分发或特定模块自动包含。",
+    "used_in": [
+      "仿真计算/中子学与热结构/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-100",
@@ -2962,7 +3375,10 @@
     "url": "https://www.eirene.de/cgi-bin/eirene/write_temp.cgi?temp_dat=Download/download",
     "scope": "仿真计算/README.md：官方源文件下载与许可全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。EIRENE 下载页给出 CC BY-NC-ND 4.0 与专门 EIRENE Public Licence（EPL）选择；使用者至少受其一约束。。证据边界：EPL 此处指 EIRENE Public Licence，不是 Eclipse Public License；不能写成普通宽松开源。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。EIRENE 下载页给出 CC BY-NC-ND 4.0 与专门 EIRENE Public Licence（EPL）选择；使用者至少受其一约束。。证据边界：EPL 此处指 EIRENE Public Licence，不是 Eclipse Public License；不能写成普通宽松开源。",
+    "used_in": [
+      "仿真计算/边缘与偏滤器/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-101",
@@ -2970,7 +3386,10 @@
     "url": "https://www.epfl.ch/research/domains/swiss-plasma-center/wp-content/uploads/2018/10/Sauter_COCOS_Tokamak_Coordinate_Conventions.pdf",
     "scope": "仿真计算/README.md：论文摘要及坐标、磁通尺度/符号与输入输出转换相关说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文摘要及坐标、磁通尺度/符号与输入输出转换相关说明。证据边界：只引用坐标规范及接口风险，未把 COCOS 工具本体归类为自由开源"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。论文摘要及坐标、磁通尺度/符号与输入输出转换相关说明。证据边界：只引用坐标规范及接口风险，未把 COCOS 工具本体归类为自由开源",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-102",
@@ -2978,7 +3397,10 @@
     "url": "https://www.genecode.org/PAPERS_2/JPCS_012011.pdf",
     "scope": "仿真计算/README.md：原始论文 PDF 第 1–4 页，尤其模型与 local/global 说明",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。GENE 的此经典 formulation 是 Eulerian δf：把分布拆成背景与小扰动。；局域 flux tube 在径向窄区域取平衡量与梯度；全局保留径向温度、密度和几何变化并处理边界。。证据边界：2010 原始方案用于解释概念，不能代替 2026 所有分支的完整功能手册；global 不等于 full-f。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。GENE 的此经典 formulation 是 Eulerian δf：把分布拆成背景与小扰动。；局域 flux tube 在径向窄区域取平衡量与梯度；全局保留径向温度、密度和几何变化并处理边界。。证据边界：2010 原始方案用于解释概念，不能代替 2026 所有分支的完整功能手册；global 不等于 full-f。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-103",
@@ -2986,7 +3408,10 @@
     "url": "https://www.genecode.org/license.html",
     "scope": "仿真计算/README.md：官方 GENE 3.0 获取页与用户协议全文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。学术研究、评估和测试需个人申请获取源码。；未经开发团队事先书面同意，不可向第三方再分发代码或修改版本；非学术机构需商议专门协议。。证据边界：页面虽用 freely available / open science 描述，不能简化为标准开源许可证；以当前协议为准。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。学术研究、评估和测试需个人申请获取源码。；未经开发团队事先书面同意，不可向第三方再分发代码或修改版本；非学术机构需商议专门协议。。证据边界：页面虽用 freely available / open science 描述，不能简化为标准开源许可证；以当前协议为准。",
+    "used_in": [
+      "仿真计算/陀螺动理学/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-104",
@@ -2994,7 +3419,10 @@
     "url": "https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source",
     "scope": "仿真计算/README.md：ITER 官方 2025-12-08 公告正文",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。ITER 宣布 IMAS 基础设施和多种物理代码公开，包括 SOLPS-ITER、B2.5 和 EIRENE。。证据边界：这是发布公告，不取代各子模块独立许可证。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。ITER 宣布 IMAS 基础设施和多种物理代码公开，包括 SOLPS-ITER、B2.5 和 EIRENE。。证据边界：这是发布公告，不取代各子模块独立许可证。",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-105",
@@ -3002,7 +3430,10 @@
     "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35c.htm",
     "scope": "仿真计算/README.md：网页全文：等间隔采样、自相关定义及相关数据的处理背景",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。网页全文：等间隔采样、自相关定义及相关数据的处理背景。证据边界：正文有效样本数公式为平稳过程协方差和的推导，几何相关数值为教学例"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。网页全文：等间隔采样、自相关定义及相关数据的处理背景。证据边界：正文有效样本数公式为平稳过程协方差和的推导，几何相关数值为教学例",
+    "used_in": [
+      "仿真计算/验证与不确定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-106",
@@ -3010,7 +3441,10 @@
     "url": "https://www.jorek.eu/",
     "scope": "仿真计算/README.md：Methods and models 第 39–57 行；另读官方 ITER 仓库 README About、License、Community Rules",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。三维非线性 extended MHD，极向 Bézier 有限元与环向 Fourier，包含主等离子体、SOL 和偏滤器 X 点几何。；有 reduced/full MHD、两流体、壁/线圈耦合、杂质、弹丸和粒子等选项，MPI+OpenMP。；ITER 官方公开仓库 README 明确 LGPLv3.0-or-later；同时列社区发表与贡献规则。。证据边界：不要沿用“只向联盟成员提供源码”的旧概述；官网旧 Wiki 仍受限，不表示公开代码仓库受同等限制；组件和第三方许可须分别核验。"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。三维非线性 extended MHD，极向 Bézier 有限元与环向 Fourier，包含主等离子体、SOL 和偏滤器 X 点几何。；有 reduced/full MHD、两流体、壁/线圈耦合、杂质、弹丸和粒子等选项，MPI+OpenMP。；ITER 官方公开仓库 README 明确 LGPLv3.0-or-later；同时列社区发表与贡献规则。。证据边界：不要沿用“只向联盟成员提供源码”的旧概述；官网旧 Wiki 仍受限，不表示公开代码仓库受同等限制；组件和第三方许可须分别核验。",
+    "used_in": [
+      "仿真计算/磁流体稳定性/README.md"
+    ]
   },
   {
     "id": "SIM-SOFTWARE-107",
@@ -3018,6 +3452,403 @@
     "url": "https://www.omfit.io/modules/mod_STEP.html",
     "scope": "仿真计算/README.md：Long Description、Typical workflows、OMAS 与迭代历史",
     "checked_on": "2026-10-20",
-    "evidence": "一手官方文档、开发者仓库或作者原始论文。Long Description、Typical workflows、OMAS 与迭代历史。证据边界：只引用工作流定位，不把模块名称当作底层程序已安装或获得许可"
+    "evidence": "一手官方文档、开发者仓库或作者原始论文。Long Description、Typical workflows、OMAS 与迭代历史。证据边界：只引用工作流定位，不把模块名称当作底层程序已安装或获得许可",
+    "used_in": [
+      "仿真计算/多物理耦合/README.md",
+      "仿真计算/可复现与算力/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-001",
+    "title": "FIDASIM — Neutral Beam and Halo",
+    "url": "https://d3denergetic.github.io/FIDASIM/master/page/02_physics/04_neutrals.html",
+    "checked_on": "2026-10-20",
+    "scope": "束坐标、孔径、能量组份、current fractions 与总粒子流公式",
+    "evidence": "一手文档或作者原始论文。束坐标、孔径、能量组份、current fractions 与总粒子流公式。证据边界：教学比例由公式独立代入；不导入文档示例作为真实实验数据",
+    "additional_checks": [
+      {
+        "checked_on": "2026-10-20",
+        "scope": "已在线读取全文150行；坐标、孔径、能量组份、collisional radiative衰减、DCX和halo。",
+        "evidence": "一手文档或作者原始论文。三维束坐标与随机源面轨迹；总粒子流按电流组份加权平均能量换算；DCX及递归halo中性分布。证据边界：它是合成诊断中性模型文档，不是全装置快离子慢化替代模型。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-002",
+    "title": "ASCOT5 — Input generation",
+    "url": "https://ascot4fusion.github.io/ascot5/inputgen.html",
+    "checked_on": "2026-10-20",
+    "scope": "三维场、MHD、原子反应、NBI 与 marker 输入",
+    "evidence": "一手文档或作者原始论文。三维场、MHD、原子反应、NBI 与 marker 输入。证据边界：MHD 输入不包含粒子向模式的反馈；实际选项依版本",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-003",
+    "title": "Pankin et al. — The tokamak Monte Carlo fast ion module NUBEAM (2004)",
+    "url": "https://transp.jetdata.eu/docs/Webpages/files/NUBEAM.pdf",
+    "checked_on": "2026-10-20",
+    "scope": "作者原论文沉积模型 §3、反应率与后续慢化说明",
+    "evidence": "一手文档或作者原始论文。作者原论文沉积模型 §3、反应率与后续慢化说明。证据边界：用于模型与反应率背景，不据旧论文推断新发行版所有选项",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-004",
+    "title": "FIDASIM — User Guide",
+    "url": "https://d3denergetic.github.io/FIDASIM/page/index.html",
+    "checked_on": "2026-10-20",
+    "scope": "Introduction 与 Capabilities：FIDA、NPA、束与 halo、权函数",
+    "evidence": "一手文档或作者原始论文。Introduction 与 Capabilities：FIDA、NPA、束与 halo、权函数。证据边界：未安装运行；不把前向诊断等同唯一反演",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-005",
+    "title": "FIDASIM — PREFIDA Inputs",
+    "url": "https://d3denergetic.github.io/FIDASIM/page/03_technical/01_prefida_inputs.html",
+    "checked_on": "2026-10-20",
+    "scope": "MC 设置、束能量组份、分布、场与诊断几何单位",
+    "evidence": "一手文档或作者原始论文。MC 设置、束能量组份、分布、场与诊断几何单位。证据边界：只引用字段与统计控制；具体有效性取决于实际背景与观测配置",
+    "used_in": [
+      "仿真计算/中性束注入模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-006",
+    "title": "JAX — Asynchronous dispatch",
+    "url": "https://docs.jax.dev/en/latest/async_dispatch.html",
+    "checked_on": "2026-10-20",
+    "scope": "异步设备计算与 block_until_ready 计时讨论",
+    "evidence": "一手文档或作者原始论文。异步设备计算与 block_until_ready 计时讨论。证据边界：只支持同步计时方法，不做性能排名",
+    "used_in": [
+      "仿真计算/可复现与算力/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-007",
+    "title": "Brambilla 1999 — Numerical simulation of ion cyclotron waves in tokamak plasmas",
+    "url": "https://users.euro-fusion.org/expert/transp/Webpages/files/TORIC.pdf",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取原文 PDF 摘要、§1–2、功率平衡章节定位；核对 FLR 近似和径向有限元/极向谱离散。",
+    "evidence": "一手文档或作者原始论文。TORIC 为轴对称环形几何的 ICRF 热全波求解器，采用 FLR 展开，含基频/二次谐波离子吸收及电子 Landau/TTMP。；径向三次有限元与极向 Fourier 谱；ORA 以等效功率汇替代短波 IBW。。证据边界：1999 原始模型描述，不能直接据此断言所有后续版本接口或所支持分布。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-008",
+    "title": "Lee et al. 2017 — Quasilinear diffusion coefficients in a finite Larmor radius expansion for ion cyclotron heated plasmas",
+    "url": "https://arxiv.org/pdf/1704.07283",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取 PDF 摘要及 §I 的模型推导范围、TORIC-CQL3D 接口和有限轨道宽限制，定位 §IV–V。",
+    "evidence": "一手文档或作者原始论文。波介电响应与准线性扩散需使用相容 FLR 近似。；TORIC-CQL3D 将波场与反弹平均分布迭代；小 Larmor 半径展开与 AORSA 的全阶模型不同。。证据边界：本文的 K-E 扩散保留局部/零轨道宽假设；ITER 示例为模拟。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-009",
+    "title": "Lau et al. 2015 — Using AORSA to simulate helicon waves in DIII-D",
+    "url": "https://www.ornl.gov/publication/using-aorsa-simulate-helicon-waves-diii-d",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取 ORNL 作者官方出版页面摘要。",
+    "evidence": "一手文档或作者原始论文。AORSA 的动理学响应不依赖小 Larmor 半径展开，可处理高阶回旋谐波。；论文在特定高单程电子吸收工况比较 GENRAY 与 AORSA，并研究 SOL 效应。。证据边界：会议论文摘要；本文不将特定 helicon 工况比较外推为 ICRH 软件性能排行。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-010",
+    "title": "Tierens et al. 2019 — Validation of the ICRF antenna coupling code RAPLICASOL against TOPICA and experiments",
+    "url": "https://iris.polito.it/handle/11583/2748872",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取作者机构存档摘要及 DOI；全文入口未可用。",
+    "evidence": "一手文档或作者原始论文。RAPLICASOL 与 TOPICA 在 AUG 双带和 WEST-like 四带几何上比较反射、耦合电阻、矩阵及匹配。；保持同一几何是得到相符结果的前提。。证据边界：仅摘要级支持，不引用未读的全文数值误差或资源比。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-011",
+    "title": "Maquet et al. 2023 — ANSYS HFSS as a new numerical tool to study wave propagation inside anisotropic magnetized plasmas in the ICRF",
+    "url": "https://arxiv.org/html/2309.14015v1",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取全文 HTML §1–3 与软件比较、冷张量实现、时间约定和吸收边界说明。",
+    "evidence": "一手文档或作者原始论文。HFSS 研究通过自定义各向异性导电张量实现冷磁化等离子体，并比较 ANTITER 与 WEST 天线数据。；TOPICA 包含真实 3D 天线与该文所述 1D 热等离子体；RAPLICASOL 基于 COMSOL、冷张量与 PML。；通用电磁求解器时间约定及张量转坐标须显式处理。。证据边界：仅该研究中的实现与验证；鞘、慢波共振等拓展在论文中有不同完成程度，不能统一写为原生可用功能。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-012",
+    "title": "Choi et al. — Comparison of the Monte Carlo ion cyclotron heating model with the full-wave linear absorption model",
+    "url": "https://www.ornl.gov/publication/comparison-monte-carlo-ion-cyclotron-heating-model-full-wave-linear-absorption-model",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取 ORNL 官方作者摘要。",
+    "evidence": "一手文档或作者原始论文。ORBIT-RF 与 AORSA 的比较通过规定 Maxwellian 波场和约束初始轨道验证线性吸收。；有限轨道与非 Maxwellian 效应需要自洽耦合。。证据边界：摘要未给完整参数和误差，不引用具体装置定量结果。",
+    "used_in": [
+      "仿真计算/离子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-013",
+    "title": "Smirnov and Harvey — The GENRAY Ray Tracing Code, CompX-2000-01 Ver. 2",
+    "url": "https://www.compxco.com/Genray_manual.pdf",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取官方手册封面、概述、目录及 §7 发射坐标、O-X-B、§11 数值方法定位；封面版本日期为 2003-03-17。",
+    "evidence": "一手文档或作者原始论文。GENRAY 在几何光学下处理多种波模，可选冷、非相对论热和相对论电子色散。；输入平衡与剖面以及 grill 谱；局部平行折射率必须投影到总磁场。；O-X-B 场景有专门初始化/转换处理。。证据边界：手册年代早，参数和选项需对应代码版本；射线转换算法不是一般有限束全波解。",
+    "used_in": [
+      "仿真计算/低杂波电流驱动模拟/README.md",
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-014",
+    "title": "Hillairet et al. 2010 — ALOHA: an Advanced LOwer Hybrid Antenna coupling code",
+    "url": "https://doi.org/10.1088/0029-5515/50/12/125010",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取出版商检索返回的原论文完整摘要和版本元数据；直接 DOI 打开失败。",
+    "evidence": "一手文档或作者原始论文。ALOHA 对冷非均匀等离子体 LH 耦合采用二维慢/快波模型，可与真实天线全波或多结模式匹配模型结合。；两层 SOL 密度模型及 Tore Supra 天线比较见摘要。。证据边界：仅摘要级证据，不提供运行时、许可、精确误差或当前下载状态。",
+    "used_in": [
+      "仿真计算/低杂波电流驱动模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-015",
+    "title": "Frank et al. 2022 — Verifying raytracing/Fokker-Planck LHCD predictions with self-consistent full-wave/Fokker-Planck simulations",
+    "url": "https://arxiv.org/html/2207.09011v1",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取全文 HTML §1、§2、§2.1 及结论定位；核对非 Maxwellian 迭代与功率归一化。",
+    "evidence": "一手文档或作者原始论文。TORLH 以极向谱和径向三次有限元求 LH 极限波场，与 CQL3D 迭代非 Maxwellian 平行介电响应。；该文改进扩散、查表和边界/收敛以实现功率一致。；C-Mod 研究中的衍射修正不足以单独解释实验与模型差异。。证据边界：工况限定于文中 C-Mod 算例；不外推为全波永无必要。",
+    "used_in": [
+      "仿真计算/低杂波电流驱动模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-016",
+    "title": "Yang et al. 2014 — Modelling of the EAST LHCD experiment using GENRAY/CQL3D and TORLH/CQL3D",
+    "url": "https://dspace.mit.edu/entities/publication/a37c1647-d856-4e4c-9ab2-a608f2022d4c",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取 MIT 作者存档摘要和期刊/DOI 信息。",
+    "evidence": "一手文档或作者原始论文。研究分别检查环形几何导致的平行波数变化、快电子径向扩散、实际 SOL 碰撞损失与欧姆贡献。；比较 Maxwellian 和准线性阻尼下 GENRAY 与 TORLH。。证据边界：摘要级证据，不将参数化损失写成第一性原理唯一解释。",
+    "used_in": [
+      "仿真计算/低杂波电流驱动模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-017",
+    "title": "OMFIT — CQL3D module documentation",
+    "url": "https://omfit.io/modules/mod_CQL3D.html",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取模块说明、典型工作流及输出诊断。",
+    "evidence": "一手文档或作者原始论文。模块可将 GENRAY 输出准备成 CQL3D 输入、执行 TORAY/GENRAY 相关流程并检查沉积、电流和收敛。。证据边界：这是工作流文档，不是新物理模型或独立求解器验证。",
+    "used_in": [
+      "仿真计算/低杂波电流驱动模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-018",
+    "title": "Köhn et al. 2011 — Full-wave modeling of the O-X mode conversion in the Pegasus Toroidal Experiment",
+    "url": "https://arxiv.org/abs/1104.0743",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取作者论文摘要、v2 版本和期刊 DOI。",
+    "evidence": "一手文档或作者原始论文。二维全波扫描表明天线前密度剖面形状显著影响 O-X 转换。。证据边界：未读取全文误差表，不使用具体位移容忍数值作为普适结论。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-019",
+    "title": "Urban et al. 2011 — A survey of electron Bernstein wave heating and current drive potential for spherical tokamaks",
+    "url": "https://arxiv.org/pdf/1103.4484",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取 PDF §2.1–2.4 的有限束转换、EBW 热色散、AMR-LUKE 接口以及 §4 电流方向讨论。",
+    "evidence": "一手文档或作者原始论文。有限束角谱需要加权转换；EBW 通常 k_perp rho_e 约为 1。；AMR 热射线与相对论反弹平均 LUKE 联合求吸收与电流；平行折射率演化可改变电流方向判断。。证据边界：该论文是给定平衡上的方案模拟；其简化边缘传播和准静电假设应随具体算例核对。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-020",
+    "title": "Khan et al. 2016 — Kinetic Full Wave Analysis of Electron Cyclotron Wave Mode Conversion in Tokamak Plasmas",
+    "url": "https://www.jstage.jst.go.jp/article/pfr/11/0/11_2403070/_article/-char/en",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取原期刊摘要、作者和 DOI。",
+    "evidence": "一手文档或作者原始论文。TASK/W1 的一维有限元动理学全波以积分介电张量保留 FLR，研究 O-X-B 与回旋谐波吸收。。证据边界：一维研究，不能写成成熟三维装置级 EBW 全波能力。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-021",
+    "title": "Arefiev et al. 2016/2017 — Kinetic simulations of X-B and O-X-B mode conversion and its deterioration at high input power",
+    "url": "https://arxiv.org/abs/1612.07860",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取作者摘要及期刊 DOI；前序 EPOCH 线性工作摘要同时核查。",
+    "evidence": "一手文档或作者原始论文。一维/二维全动理学 PIC 在高幅度条件出现离子动力学参与的 X 波向 EBW 与 LH 波的参量散射。。证据边界：非线性机制和阈值依赖所模拟参数；本文不据摘要给装置功率上限。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-022",
+    "title": "University of Stuttgart IGVP — Bernstein-wave experiments",
+    "url": "https://www.igvp.uni-stuttgart.de/en/research/Plasma-and-Surfacetechnology/plasma-dynamics-and-diagnostics/projects/bernstein-wave/",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取大学团队的 O-X-B 实验/全波介绍。",
+    "evidence": "一手文档或作者原始论文。团队以 IPF-FDMC 展示 O-X-B 几何和转换，强调入射波矢相对磁场角度及上杂层。。证据边界：项目展示页未完整说明该示例的热响应实现，不能仅凭图像断言冷模型一般能解析 X-B。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-023",
+    "title": "Urban et al. 2009 — Coupled Ray-Tracing and Fokker-Planck EBW Modeling for Spherical Tokamaks",
+    "url": "https://digitalcommons.odu.edu/ece_fac_pubs/48/",
+    "checked_on": "2026-10-20",
+    "scope": "实际读取作者机构存档摘要、会议和 DOI 10.1063/1.3273793。",
+    "evidence": "一手文档或作者原始论文。AMR 与 LUKE 耦合用于 EBW 加热、电流驱动及发射，扫描频率、天线位置和方向。。证据边界：摘要级支持，不据此给定效率、稳健性或整个启动放电预测。",
+    "used_in": [
+      "仿真计算/电子伯恩斯坦波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-024",
+    "title": "TRANSP — EC input parameters",
+    "url": "https://transp.pppl.gov/nml/EC_input.html",
+    "checked_on": "2026-10-20",
+    "scope": "已在线读取全文（32行）；共同EC输入、发射位置/角度/单位/O模比例。",
+    "evidence": "一手文档或作者原始论文。逐回旋管输入功率、频率与发射几何；发射点cm、角度degree；RFMODECH为O模功率份额。证据边界：这是TRANSP接口定义，不能推广为所有代码单位和符号；不引用网页默认设备上限。",
+    "used_in": [
+      "仿真计算/电子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-025",
+    "title": "TRANSP — TORAY-GA",
+    "url": "https://transp.pppl.gov/nml/EC_toray.html",
+    "checked_on": "2026-10-20",
+    "scope": "已在线读取全文（24行）；算法概述和束宽/发散接口。",
+    "evidence": "一手文档或作者原始论文。TORAY-GA为托卡马克EC射线计算；TRANSP版本包含Lin-Liu伴随方案与碰撞率修正；半功率发散半角和波束横纵比为独立输入。证据边界：限此集成版本；不等同独立TORAY各分支。",
+    "used_in": [
+      "仿真计算/电子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-026",
+    "title": "Farina 2007 — A Quasi-Optical Beam-Tracing Code for Electron Cyclotron Absorption and Current Drive: GRAY",
+    "url": "https://iris.cnr.it/handle/20.500.14243/43173",
+    "checked_on": "2026-10-20",
+    "scope": "已读取作者机构记录与摘要（全文未附）；同内容另在ANS出版者页核对。",
+    "evidence": "一手文档或作者原始论文。一般托卡马克平衡的像散高斯束；复程函/耦合射线描述保留衍射；相对论吸收与新经典电流响应。证据边界：仅摘要支持；不声称最新发行、许可证、可获取源码或具体输入格式。",
+    "used_in": [
+      "仿真计算/电子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-027",
+    "title": "Marushchenko, Turkin, Maassberg 2014 — Ray-tracing code TRAVIS for ECR heating, EC current drive and ECE diagnostic",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0010465513003032",
+    "checked_on": "2026-10-20",
+    "scope": "在线读取出版者提供的摘要、Introduction及各节摘录；MPG全文端点403未作为已读全文。",
+    "evidence": "一手文档或作者原始论文。任意三维磁平衡，适于托卡马克与仿星器；弱相对论射线与全相对论吸收/电流/发射率区分；伴随电流算法含平行动量守恒。证据边界：不推断模式转换、最新发行或商业/开源状态；不把论文算例当通用误差界。",
+    "used_in": [
+      "仿真计算/电子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-028",
+    "title": "Köhn et al. — The deteriorating effect of plasma density fluctuations on microwave beam quality",
+    "url": "https://eprints.whiterose.ac.uk/id/eprint/145691/1/1805.09594v1.pdf",
+    "checked_on": "2026-10-20",
+    "scope": "已在线读取接受稿全文；§2 数值方法、§3 参数扫描、§4 模拟实验对比。",
+    "evidence": "一手文档或作者原始论文。IPF-FDMC全波与WKBeam波动动理学模型；相同涨落统计与集合平均是代码比较条件；Born近似适用性需与全波基准比较。证据边界：不把文中展宽倍率或Born误差控制参数推广到所有机器；此稿标arXiv2018、库记录发表2019。",
+    "used_in": [
+      "仿真计算/电子回旋加热模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-029",
+    "title": "UCLA Low Temperature Plasma Technology Laboratory — Research",
+    "url": "https://www.seas.ucla.edu/ltptl/research.htm",
+    "checked_on": "2026-10-20",
+    "scope": "搜索工具返回作者官方研究页完整相关段落；直接open超时，保留此访问限制。",
+    "evidence": "一手文档或作者原始论文。HELIC用于径向梯度、碰撞、TG模与天线耦合研究。证据边界：只引用官方研究页支持的功能；未执行旧Windows程序或核对本机安装。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-030",
+    "title": "Chang et al. 2012 — Wave modelling in a cylindrical non-uniform helicon discharge",
+    "url": "https://arxiv.org/html/1205.3540v1",
+    "checked_on": "2026-10-20",
+    "scope": "已在线读取HTML全文，重点Abstract、§II实验、§III模型/边界与§V碰撞校准。",
+    "evidence": "一手文档或作者原始论文。MAGPIE非均匀柱状源采用冷介电Maxwell求解；波幅与相位用于实验对比；有效碰撞增强和天线半径调整属于明确校准因素。证据边界：不把该算例拟合参数当通用常数；固定密度波场计算不等于自洽电离预测。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-031",
+    "title": "High-Power Helicon System Commissioning and Initial Results",
+    "url": "https://www.osti.gov/servlets/purl/1996568",
+    "checked_on": "2026-10-20",
+    "scope": "搜索工具返回作者报告天线结构与诊断段落；直接PDF open曾502。",
+    "evidence": "一手文档或作者原始论文。DIII-D梳状行波天线476MHz，目标谱峰n_parallel约3；模块互耦传播且设计可由两端馈电；拾取环和Langmuir探针约束阵列功率与近天线密度。证据边界：只作硬件设计与诊断依据，不作为2026最新运行功率；没据搜索日期推论文日期。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-032",
+    "title": "Lau et al. — AORSA full wave calculations of helicon waves in DIII-D and ITER",
+    "url": "https://fusion.gat.com/pubs-ext/NuclFus/A28568abs.pdf",
+    "checked_on": "2026-10-20",
+    "scope": "已在线读取原作者一页摘要PDF全文。",
+    "evidence": "一手文档或作者原始论文。AORSA与GENRAY在所述无SOL案例的电流位置和幅值一致；包括SOL后另一模可传播并造成额外损失。证据边界：仅摘要；10–20%损失为特定计算案例，正文不作通用损失率。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-033",
+    "title": "Kim et al. 2024 — Full-wave simulations on helicon and parasitic excitation of slow waves near the edge plasma",
+    "url": "https://doi.org/10.34770/g03g-qd76",
+    "checked_on": "2026-10-20",
+    "scope": "读取Princeton作者数据集的搜索返回题录和Description；DOI直接open未成功。",
+    "evidence": "一手文档或作者原始论文。使用Petra-M模拟DIII-D快helicon与慢支；研究法拉第屏方向失配及SOL电子密度。证据边界：不声称已阅读全文；二维性质由研究摘要/出版物摘要交叉核对，不引用通用阈值。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-034",
+    "title": "Zhou et al. 2026 — Three Dimensional Multiphysics Modelling of Helicon Wave Heating and Antenna Plasma Coupling for Boundary Density Control in Toroidal Fusion Plasmas",
+    "url": "https://arxiv.org/abs/2602.19472",
+    "checked_on": "2026-10-20",
+    "scope": "读取作者arXiv摘要与提交记录；HTML全文端点失败。",
+    "evidence": "一手文档或作者原始论文。THEMIS三维热介电波传播与功率沉积模型；Helimak、天线及窗口位置的比较研究。证据边界：预印本且本轮仅摘要；不把边界密度控制当作高温芯部电流驱动已验证。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "SIM-PROCESS-035",
+    "title": "Chang et al. 2018 — Coupling of RF Antennas to Large Volume Helicon Plasma",
+    "url": "https://arxiv.org/abs/1811.12077",
+    "checked_on": "2026-10-20",
+    "scope": "读取原作者摘要、参数范围与提交记录。",
+    "evidence": "一手文档或作者原始论文。固定无限长0.5m直径圆柱模型中比较四类天线；天线耦合对频率和密度径向形状敏感。证据边界：仅摘要；不重复排序为普适规律，也不推断许可。",
+    "used_in": [
+      "仿真计算/螺旋波模拟/README.md"
+    ]
   }
 ]

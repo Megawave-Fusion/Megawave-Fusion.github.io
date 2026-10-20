@@ -28,7 +28,12 @@ def main():
                 for chapter in config['chapters'] for _, source in chapter['sections']
                 for heading in re.findall(r'^## (.+)$', (ROOT / source).read_text(), re.M)}
     assert headings == set(tags), 'Current headings differ from the permanent Tag registry'
-    assert {r['tag'] for r in tags.values()} == {f'MF{i:06d}' for i in range(1, 164)}, 'Permanent identities changed'
+    identifiers = [record['tag'] for record in tags.values()]
+    assert all(isinstance(tag, str) and re.fullmatch(r'MF\d{6}', tag)
+               for tag in identifiers), 'Invalid permanent Tag format'
+    assert len(set(identifiers)) == len(identifiers), 'Duplicate permanent Tag'
+    assert {f'MF{i:06d}' for i in range(1, 164)} <= set(identifiers), 'Existing permanent identities disappeared'
+    assert set(identifiers) == {f'MF{i:06d}' for i in range(1, len(tags) + 1)}, 'Permanent Tag numbering is not continuous'
     for key, record in tags.items():
         source, heading = key.split('#', 1)
         chunk = body((ROOT / source).read_text(), heading)
@@ -41,7 +46,7 @@ def main():
         print(f'{len(tags)} Tag entries cover the current headings, developed subsections and indexed sources; independent review pending')
         return
     rows = update['tags']
-    assert len(rows) == len(tags) == 163, 'Expected one review record for each existing Tag'
+    assert len(rows) == len(tags), 'Expected one review record for each existing Tag'
     assert len({r['tag'] for r in rows}) == len(rows), 'Duplicate Tag record'
     assert {r['key'] for r in rows} == set(tags), 'Coverage differs from the permanent Tag registry'
     for row in rows:

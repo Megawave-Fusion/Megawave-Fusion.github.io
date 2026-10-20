@@ -18,7 +18,9 @@ for 文件 in 文档:
     for 目标 in re.findall(r'\[[^\]]*\]\(([^)]+)\)', 正文):
         if 目标.startswith(('http:', 'https:', 'mailto:', '#')):
             continue
-        路径 = (文件.parent / unquote(目标.split('#')[0].split('?')[0])).resolve()
+        本地目标 = unquote(目标.split('#')[0].split('?')[0])
+        路径 = ((根目录 / 'site' / 本地目标.lstrip('/')) if 本地目标.startswith('/assets/')
+                else (文件.parent / 本地目标)).resolve()
         if not 路径.is_relative_to(根目录) or not 路径.exists():
             错误.append(f'{相对路径}：链接不存在 {目标}')
         引用.add(路径)

@@ -1,8 +1,12 @@
 # 聚变装置与约束构型
 
-不同聚变路线解决的是同一个问题：在足够高的反应率下，让燃料保留足够长时间，并将粒子、热量和中子送往能够承受它们的部件。区别首先在磁拓扑、压力与约束时间，其次才是装置外形。这里介绍基本原理和证据边界，不把某次高温、长脉冲或中子产生直接称为发电成功。内容经来源与解析算例检查，仍为知识整理稿；资料访问日期为 2026-10-16。
+聚变路线按磁拓扑、压力、约束时间和载荷通道比较。高温、长脉冲或中子产生各有测量边界；净发电另需厂级收支。本页是原理与证据整理稿，资料访问日期为 2026-10-16。
 
 ## 托卡马克
+
+![解析电流剖面的安全因子与静态磁镜的初始方向损失锥](/assets/diagrams/basic-devices.svg)
+
+*解析电流剖面的安全因子与静态磁镜的初始方向损失锥。曲线与示意均按本条所列模型生成。*
 
 ### 螺旋磁场与安全因子
 
@@ -17,9 +21,14 @@ $$
 
 $r,R_0$ 为小半径与主半径，单位 m；磁场单位 T；$I_p(r)$ 是所包围的电流，单位 A。式子来自磁力线几何和安培环路定律，强整形和球形托卡马克则需采用相应几何的平衡模型。举一个解析教学例：取 $r=0.5\,\mathrm m,R_0=2\,\mathrm m,B_\phi=3\,\mathrm T,I_p(r)=0.5\,\mathrm{MA}$，得到 $B_\theta=0.20\,\mathrm T,q\simeq3.75$。这里 $q$ 描述磁力线螺距。撕裂模对 $q=m/n$ 的有理磁面敏感，判断稳定性还要看电流、压力、剪切、旋转与壁面条件。[Fitzpatrick，撕裂模讲义，式 (4.35)–(4.40)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node71.html)。
 
-磁力线几何的具体步骤是 $r\,d\theta/(R_0\,d\phi)=B_\theta/B_\phi$。近似各系数沿圆周不变时，极向增加 $2\pi$ 对应环向增加 $2\pi rB_\phi/(R_0B_\theta)$，除以 $2\pi$ 就得到 $q$。圆形安培回路另给出 $2\pi rB_\theta=\mu_0I_p(r)$；本例先代入 $(4\pi\times10^{-7})(0.5\times10^6)/(2\pi\times0.5)=0.20$ T，再算 $0.5\times3/(2\times0.20)=3.75$。扰动相位若为 $m\theta-n\phi$，沿磁力线保持不变要求 $m-nq=0$，这就是有理面条件的来源。
+近圆磁面的几何关系 $r\,d\theta/(R_0d\phi)=B_\theta/B_\phi$ 给出 $q$；安培环路 $2\pi rB_\theta=\mu_0I_p(r)$ 给出极向场。扰动相位 $m\theta-n\phi$ 沿场不变时，$m-nq=0$。
 
-电路关系也来自磁通与电功：固定电感下磁通链为 $\Psi=LI$，电源需克服 Faraday 感应电压 $d\Psi/dt$ 及 Ohm 压降 $RI$，相加即得 $V=L\,dI/dt+RI$。释放能量的平均功率则由 $W=\int_0^{\Delta t}P\,dt$ 除以时长得到 $W/\Delta t$；环径比 $A=R_0/a$ 是几何定义。
+固定电感的磁通链、电路和平均功率满足
+
+$$
+\Psi=LI,\quad V=\dot\Psi+RI=L\dot I+RI,\qquad
+\overline P=\Delta W/\Delta t,\quad A=R_0/a.
+$$
 
 ### 电流维持、稳态和破裂
 
@@ -58,7 +67,7 @@ $$
 
 $p$ 用 Pa，$\beta$ 无量纲。必须写清体平均范围和 $B_{\rm ref}$：磁场反转附近可能有磁零点，把局部 $p/B^2$ 的大值直接称为整机高效率没有意义。高 $\beta$ 表示相对于参考磁场的压力较大，并不直接给出能量约束时间或聚变增益。
 
-这里的比压是定义：用体平均粒子压强除以参考磁压 $B_{\rm ref}^2/(2\mu_0)$，便得到上式；磁压可由建场功密度 $\int_0^B(B'/\mu_0)dB'$ 积分得到。轨道尺度则从垂直 Lorentz 方程 $m_iv_\perp^2/\rho_i=|Z_ie|v_\perp B$ 求得 $\rho_i=m_iv_\perp/(|Z_ie|B)$；再定义正回旋角频率，就是下文的速度除以频率。
+磁压为 $\int_0^B B\,dB/\mu_0=B^2/(2\mu_0)$。由 Lorentz 力平衡 $mv_\perp^2/\rho=|q|v_\perp B$，得 $\rho=v_\perp/|\Omega|$；局部磁化还要求 $\rho/a\ll1$。
 
 FRC 的离子轨道可与装置尺度可比。定义 $\rho_i=v_\perp/\Omega_i$、$\Omega_i=Z_ieB/m_i$，则 $\rho_i/a\ll1$ 才有利于局部导引中心近似。教学例取氘离子垂直动能 $10\,\mathrm{keV}$、参考场 $0.5\,\mathrm T$，由 $v_\perp=\sqrt{2E_\perp/m_D}$ 得 $\rho_D\approx0.041\,\mathrm m$；若 $a=0.20\,\mathrm m$，比值约 0.20，有限轨道宽度需要纳入分析，靠近磁零点时更须完整轨道处理。
 
@@ -91,7 +100,7 @@ $$
 
 接近平行或反平行方向的两个锥区称为损失锥。若 $R_m=4$，半角为 $30^\circ$。对于中部初始速度方向各向同性的粒子，两端损失锥占总立体角的比例为 $1-\cos\alpha_{\rm lc}\approx13.4\%$。这个数只描述该理想瞬间的几何比例；稳态损失率还由散射与供源共同确定：碰撞会持续向损失锥散射粒子，电势差会改变逃逸条件，分布各向异性也可能驱动不稳定性。
 
-反射条件的代数是：中部 $\mu B_{\min}=E\sin^2\alpha$，反射点平行动能为零，故 $B_{\rm turn}=E/\mu=B_{\min}/\sin^2\alpha$。要求反射点在镜喉最大场以内便得到捕获条件，等号给出临界损失锥。单个锥的立体角为 $2\pi\int_0^{\alpha_{\rm lc}}\sin\alpha\,d\alpha=2\pi(1-\cos\alpha_{\rm lc})$；两个锥再除以全空间 $4\pi$，才得到所报粒子比例。磁矩的回旋平均推导见[单粒子运动](../基础原理/单粒子运动/README.md)；这里在磁化、慢变化轨道上使用该不变量。
+由 $\mu B_{\min}=E\sin^2\alpha$、镜点 $\mu B_{\rm turn}=E$，得 $B_{\rm turn}=B_{\min}/\sin^2\alpha$。两锥立体角除以 $4\pi$ 给 $f_{\rm lc}=1-\cos\alpha_{\rm lc}$；这里只用磁化、慢变轨道的不变量。 [单粒子运动](../基础原理/单粒子运动/README.md)。
 
 镜装置的工程特点是端部可用于加热、排气与能量收集，但端损失同时成为核心约束问题。镜比与约束时间的关系取决于工况：低碰撞与气体动力学工况、端部膨胀区和电子约束的机制不同。评价磁镜结果应将中心温度、径向剖面、端损失功率与注入束能量分开，分别报告高能束分布与热化背景温度。相关的碰撞与分布函数见[动理学与碰撞](../基础原理/动理学与碰撞/README.md)。
 
@@ -138,7 +147,7 @@ $$
 
 反场箍缩 RFP 的环向与极向场可处于相近量级，环向场在边缘反号。球马克同时包含等离子体自身产生的环向和极向场，其紧凑环形磁拓扑不依赖穿过中心孔的常规环向场线圈；这与主要为极向场的 FRC 有本质区别。两者涉及电流维持、自组织和磁重联。低压力的理想化 Taylor 松弛态满足 $\nabla\times\mathbf B=\lambda\mathbf B$，$\lambda$ 的单位为 $\mathrm{m^{-1}}$，于是 $\mathbf J\times\mathbf B=0$。有限压力下，压力梯度需一并进入力平衡。[PPPL 暑期课程《Other Fusion Concepts》2025，Spheromak / Reversed Field Pinch 页](https://suli.pppl.gov/2025/course/SY%20-%202025-06%20-%20PPPL%20SULI%20-%20Other%20Fusion%20Concepts.pdf)。
 
-Taylor 方程来自带约束的能量极小化。取固定闭合导体边界、$\mathbf B\cdot\mathbf n=0$，令 $\mathbf B=\nabla\times\mathbf A$，磁能为 $W_B=\int B^2/(2\mu_0)dV$、磁螺度为 $K=\int\mathbf A\cdot\mathbf B\,dV$。假定松弛时磁能耗散而总磁螺度近似保持，对 $W_B-\lambda K/(2\mu_0)$ 作变分；边界项为零时，$\delta W_B=\int(\nabla\times\mathbf B)\cdot\delta\mathbf A\,dV/\mu_0$、$\delta K=2\int\mathbf B\cdot\delta\mathbf A\,dV$。任意允许的 $\delta\mathbf A$ 都使变分为零，要求 $\nabla\times\mathbf B=\lambda\mathbf B$；用安培定律即得电流平行磁场。长直柱外部的场同样由安培回路 $2\pi rB_\theta=\mu_0I$ 得到。
+固定闭合导体边界、$\mathbf B\cdot\mathbf n=0$，令 $W_B=\int B^2/(2\mu_0)dV$、$K=\int\mathbf A\cdot\mathbf B\,dV$。忽略边界项，约束变分 $\delta[W_B-\lambda K/(2\mu_0)]=\mu_0^{-1}\int(\nabla\times\mathbf B-\lambda\mathbf B)\cdot\delta\mathbf A\,dV=0$，即得 Taylor 方程。其假设是松弛时总磁螺度近似保持。
 
 Z-pinch 由轴向电流产生周向磁场并压缩等离子体；长直柱外部近似 $B_\theta=\mu_0I/(2\pi r)$。这个场产生箍缩磁压力。箍缩、扭曲等 MHD 模可能限制寿命，剪切流等稳定方案必须由有诊断与误差的实验检验。RFP 则可通过磁涨落、温度和电流剖面测量研究自组织与输运，MST 是相应实验平台。[Wisconsin Plasma Physics Laboratory，MST 装置说明](https://wippl.wisc.edu/madison-symmetric-torus/)。
 
@@ -152,7 +161,7 @@ Z-pinch 由轴向电流产生周向磁场并压缩等离子体；长直柱外部
 
 约束路线的“长”与“短”必须相对于过程本身。假设一个系统的能量损失时间为 $\tau_E$，在没有加热、损失系数不变的教学模型里有 $dW/dt=-W/\tau_E$，故 $W(t)=W(0)e^{-t/\tau_E}$。维持十个 $\tau_E$ 的高温状态意味着持续补偿损失，粒子与能量仍通过输运持续交换；短脉冲惯性系统则利用膨胀前的一小段时间完成足够反应，比较时可将持续时间相对各自的损失或膨胀时间归一化。
 
-诊断也必须区分热核反应与束靶反应。高能束与较冷背景燃料同样可以产生中子，因此看到中子只能首先证明发生了相应核反应；由产额反推热温度，还需要分布函数、密度体积、反应截面与反应机制的证据。对脉冲路线，应同时检查中子能谱、产额各向异性、时间宽度及背景扣除；对磁约束，则应检查快离子对反应率和储能的贡献。NIF 的诊断文章与 Sandia 的 MagLIF 综述都把诊断和模型解释作为结果的一部分，连接可观测量与物理解释。[LLNL：点火实验诊断](https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot)；[Sandia：MagLIF 综述摘要](https://www.sandia.gov/research/publications/details/an-overview-of-magneto-inertial-fusion-on-the-z-machine-at-sandia-national-2022-04-01/)。
+中子也可由高能束与冷背景反应产生。反推热温度须约束分布、密度体积和反应机制；脉冲路线检查中子能谱、各向异性、时间宽度与背景扣除，磁约束还应核算快离子对反应率和储能的贡献。 [LLNL：点火实验诊断](https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot)；[Sandia：MagLIF 综述摘要](https://www.sandia.gov/research/publications/details/an-overview-of-magneto-inertial-fusion-on-the-z-machine-at-sandia-national-2022-04-01/)。
 
 ### 用理想压缩尺度连接惯性与磁惯性方案
 
@@ -170,7 +179,7 @@ $$
 
 一份可比较的档案至少对应同一放电或同一时间窗，使温度、密度与时长属于同一组状态。核心字段包括燃料组成、磁场位置、几何、电流、温度诊断、密度平均方式、吸收功率、脉冲时间、误差和原论文位置。测量值、重建值、模型外推和设计目标要分栏。$nT\tau_E$ 也须指明粒子种类与平均方式；不同路线的靶增益、等离子体增益和净电功率不应放在同一列直接排序。厂级能量边界见[工程系统](../工程系统/README.md)。
 
-如果档案给出 $Q=P_{\rm fusion}/P_{\rm aux}$，还应确认 $P_{\rm aux}$ 是射频源输出、天线/束口功率，还是等离子体实际吸收功率；分母口径不同会直接改变数值。对加热关闭后的余辉，采用时窗能量账报告整段输入与产出的能量以及初始储能。温度由谱线展宽、散射或其他方法反演时，应同时保留仪器响应与分布模型。这些要求让不同路线有共同的证据语言，同时保留各自的物理特点。
+增益分母须区分源输出、天线/束口和实际吸收功率。余辉用整段时窗能量账并计入初始储能；温度反演同时保留仪器响应与分布模型。
 
 ### 从一条功率曲线建立可复算档案
 
@@ -181,7 +190,7 @@ E_{\rm fus}=\sum_k\frac{P_{k+1}+P_k}{2}(t_{k+1}-t_k)
 =1+2.5+2.5+1=7.0\ {\rm MJ}.
 $$
 
-因此该两秒窗口的平均聚变功率为 3.5 MW，峰值为 6 MW。若同一窗口外部加热保持 10 MW，则输入加热能量为 20 MJ，积分增益为 0.35。档案应把这三个量并列放在“峰值—窗口平均—窗口积分”栏，并把时间轴、计量面和原始波形版本连接起来。这样读者可以重新积分，也能检查不同文章是否采用相同窗口。实际资料阅读可参照 [LLNL 对历史点火实验的诊断说明：产额、入射激光能量与诊断不确定性段](https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot)，按其给出的能量测量对象建立字段。
+两秒窗口内平均聚变功率3.5 MW、峰值6 MW。若外部加热恒为10 MW，则输入20 MJ、积分增益0.35。将峰值、窗口平均与窗口积分并列，并记录时间轴、计量面和原始波形版本。 [LLNL 对历史点火实验的诊断说明：产额、入射激光能量与诊断不确定性段](https://lmf.llnl.gov/news/diagnostics-were-crucial-to-llnls-historic-ignition-shot)。
 
 ## 装置论文的阅读与证据定位
 
@@ -195,6 +204,6 @@ $$
 
 以 [Pedersen 等 2016 年 W7-X 磁拓扑论文](https://www.nature.com/articles/ncomms13493)为例，可以按正文位置形成连续的阅读卡。“定义卡”摘录 Results 中旋转变换的约定：极向圈数除以环向圈数；将 $\iota=5/6$ 改写为六圈环向对应五圈极向。“方法卡”定位 Measuring the magnetic topology：电子束沿场运动，荧光探杆与相机把多次交点记录为截面。“结果卡”再定位图 4 与 Adjustment of iota：这里显示的是 5/6 岛链以及其径向位置。
 
-三张卡对应定义、可观察量和数据解释，互相有明确连接。复核时从图中六个岛瓣反查极向模数 $m=6$，再按 $\iota=n/m$ 得 $n=5$；随后检查作者如何使用磁剪切与岛宽估计共振误差场。将这些位置和符号约定写入笔记，后续引用就能直接落在指定段落或图号。装置加热、输运与稳态性能另有各自的观测量和论文，可以沿同一阅读方法继续建立资料卡。
+由六个岛瓣取 $m=6$，按 $\iota=n/m$ 得 $n=5$，再核对作者的磁剪切、岛宽与误差场估计。笔记记录符号约定、正文位置和图号；加热、输运及稳态性能另以各自观测量核验。
 
 [辅助加热系统](../辅助加热/README.md) · [编写说明](../编写说明.md) · [返回知识库](../README.md)

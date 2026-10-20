@@ -1,6 +1,6 @@
 # 动理学与碰撞
 
-动理学以速度分布描述粒子群，碰撞理论解释分布、动量和能量怎样弛豫。本专题采用非相对论、非简并、弱耦合等离子体为默认对象；涉及边界、强耦合、原子过程或快粒子时另行注明限制。各条公式均用 SI 制。温度 $T_s$ 以 K 表示，另记热能 $\theta_s=k_{\mathrm B}T_s$，单位 J；当报出 $T_{s,\mathrm{eV}}$ 时，含义是 $\theta_s=T_{s,\mathrm{eV}}\times1.602176634\times10^{-19}\,\mathrm J$。$e>0$ 是元电荷，物种电荷写成 $q_s$。
+采用 SI、非相对论、非简并、弱耦合模型；边界、原子过程和快粒子另述。$T_s$ 用 K，$\theta_s=k_BT_s$ 用 J；eV 数值乘 $e$ 后代入 SI。$e>0$，组分电荷记 $q_s$。
 
 ## 非平衡分布的压力张量与热流
 
@@ -18,7 +18,15 @@ $\mathbf c_s\mathbf c_s$ 表示二阶张量，$\mathbf P_s$ 的单位是 Pa，$\
 
 例如，两束对向粒子可以满足 $\mathbf u_s=0$，却在束流方向有很大的 $P_{s,\parallel}$。把它们替换成相同 $n_s,T_s$ 的 Maxwell 分布，会抹去双峰结构及其可能激发的波。诊断也只测量一定速度、方向或能量范围内的响应，因此“拟合温度”应注明所用谱线、拟合分布与仪器响应。各物种分别使用自己的 $\mathbf u_s$；若改用混合物质心速度，扩散动能会进入相应矩，应同时转换所有速度矩。
 
-取 $\mathbf v=\mathbf u_s+\mathbf c_s$ 并展开平方，交叉项的积分为零，因此实验室系动能密度严格分解成 $m_sn_su_s^2/2+3p_s/2$。这给数据处理提供了简单核对：若速度分布整体平移，内部温度应保持不变，整体动能则增加。若程序对 $v^2$ 直接平均后称其为温度，就会把旋转、束流或平行流的能量误算成热能。
+在各物种共动系，$\int\mathbf c_sf_s\,d^3v=0$，故
+
+$$
+\frac{m_s}{2}\int v^2f_s\,d^3v
+=\frac12m_sn_su_s^2+\frac{m_s}{2}\int c_s^2f_s\,d^3v
+=\frac12m_sn_su_s^2+\frac32p_s.
+$$
+
+直接把实验室系 $v^2$ 平均称为温度会混入整体流动。
 
 来源：[Fitzpatrick，Moments of Distribution Function，式 (4.5)–(4.18)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html)。上述束流例子是由中心矩定义直接得到的说明。
 
@@ -92,7 +100,7 @@ f_{Ms}=n_s\left(\frac{m_s}{2\pi\theta_s}\right)^{3/2}
 \exp\!\left[-\frac{m_s|\mathbf v-\mathbf u_s|^2}{2\theta_s}\right].
 $$
 
-高斯形式可由碰撞平衡的熵极值推得：固定每物种粒子数、所有物种总动量与总动能，对 $-\sum_s\int f_s\ln f_s\,d^3v$ 作带约束变分，得到 $\ln f_s=A_s+\boldsymbol\beta\cdot m_s\mathbf v-\gamma m_sv^2/2$。把速度平方配方，令共同流速 $\mathbf u=\boldsymbol\beta/\gamma$、共同温度能量 $\theta=1/\gamma$，再用三个高斯积分归一化，就得到上式的平衡特例。局地单物种模型允许各自的 $\mathbf u_s,\theta_s$，但只有共同流速、共同温度才满足全物种碰撞平衡。
+固定粒子数、总动量和总动能，极大化 $-\sum_s\int f_s\ln f_s\,d^3v$，得 $\ln f_s=A_s+\boldsymbol\beta\cdot m_s\mathbf v-\gamma m_sv^2/2$。配方、归一化即为共同 $\mathbf u=\boldsymbol\beta/\gamma$、$\theta=1/\gamma$ 的 Maxwell 平衡；各物种不同温度的局地 Maxwellian 仍可交换热量。
 
 指数必须无量纲，因此这里放入的是以 J 计的 $\theta_s$。在该物种共动系中，三个速度分量独立且方差均为 $\theta_s/m_s$，从而 $\mathbf P_s=n_s\theta_s\mathbf I$、$\mathbf h_s=0$。零热流来自关于 $\mathbf c_s$ 的奇函数积分；它不排除实验室系存在由流动携带的能量通量。采用 $v_{ts}=\sqrt{2\theta_s/m_s}$ 时，指数是 $-c_s^2/v_{ts}^2$；若采用一维标准差 $\sqrt{\theta_s/m_s}$ 作为“热速度”，所有相关系数都要一致调整。
 
@@ -106,7 +114,7 @@ $$
 
 对应标量温度满足 $3\theta_s=\theta_{s,\parallel}+2\theta_{s,\perp}$。这只是陀螺对称模型；若存在明显回旋相位依赖，还需非陀螺压强分量。
 
-自碰撞可以使每个物种趋向自身 Maxwell 分布，而电子、离子之间的共同温度建立得更慢。各自近 Maxwell 化的电子与离子仍可具有不同温度。对无源、均匀、封闭的弹性碰撞体系，所有相互碰撞物种的共同流速、共同温度 Maxwell 分布才是完整碰撞平衡。若 $n_s,\mathbf u_s,T_s$ 随空间变化，碰撞项在局地可能很小，输运项仍可产生非 Maxwell 修正；局地平衡不等同于整个动力学方程的稳态解。
+自碰撞热化与电子—离子同温是不同时间尺度。无源、均匀、封闭弹性碰撞体系的最终平衡要求共同流速和温度；有空间梯度时，输运仍可生成非 Maxwell 修正。
 
 一个具体反例是相同密度的冷、热组分混合。它们具有同一平均流速时，混合物的标量热能等于两者热能的平均值，但高能尾部仍由较热组分主导。聚变反应率、电流驱动响应和高能损失涉及特定速度权重；这些量还取决于分布在有关能量范围内的形状。报告“已热化”时，应说明检查的是各向同性、低阶矩还是整个分布。
 
@@ -188,7 +196,7 @@ $\int mc_ic_jf\,d^3v=P_{ij}$，内能中的压缩功是 $-\mathsf P:\nabla\mathb
 
 ## 矩层级、闭合、平均自由程与 Knudsen 数
 
-上述矩方程在其假设范围内是动力学方程的结果，但只求 $n_s,\mathbf u_s,p_s$ 仍不封闭：动量方程需要完整压强张量，内能方程需要热流；继续推导压强张量方程又会出现三阶矩。所谓闭合，是用额外物理假设把高阶矩或碰撞矩表达成已保留变量。直接令热流为零、指定绝热指数、使用 Fourier 热传导，都是不同闭合，分别对应不同的能量输运假设。
+矩层级逐阶耦合：$n,\mathbf u,p$ 的演化还需压力张量与热流，再高阶仍出现新矩。零热流、绝热指数及 Fourier 导热是不同闭合，须分别说明其物理排序。
 
 对应某一种弛豫频率 $\nu_s$，可定义碰撞平均自由程的估计
 
@@ -203,7 +211,7 @@ $$
 
 例如下面定义的单电荷电子—离子参考频率，在 $n_e=10^{20}\,\mathrm{m^{-3}}$、$T_{e,\mathrm{eV}}=1000$、指定 $\ln\Lambda=15$ 时约为 $1.38\times10^5\,\mathrm{s^{-1}}$。用 $v_{te}=\sqrt{2\theta_e/m_e}\simeq1.88\times10^7\,\mathrm{m\,s^{-1}}$，估得 $v_{te}/\nu_{ei}\simeq136\,\mathrm m$。该教学算例采用同一速度和频率约定，说明米级平行梯度仍需与平均自由程比较。高能尾部的有效自由程还可更长，计算热流应覆盖对能量通量有贡献的速度范围。
 
-闭合误差与求解误差也应分开。把空间网格加密后，数值结果可能已经收敛到指定流体方程的解，但该解仍可能因非局地热流而偏离动力学结果。验证时应先检查所用小参数，再检查网格、时间步和边界；不同闭合的适用性由其物理排序及对照数据判断，离散残差反映各自方程的求解误差。
+网格收敛只保证接近指定闭合方程的解。先检验自由程、频率和边界排序，再分开评估闭合偏差与数值残差。
 
 来源：[Fitzpatrick，Fluid Closure](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node52.html)；[Braginskii Equations，闭合小参数及式 (4.70)–(4.73)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node54.html)。示例数值由本页所列 SI 公式计算。
 
@@ -228,7 +236,7 @@ $$
 b_{90}=\frac{|q_sq_{s'}|}{4\pi\varepsilon_0\mu u^2}.
 $$
 
-具体轨道链为：记势能常数 $a=q_sq_{s'}/(4\pi\varepsilon_0)$，无穷远相对能量 $E_r=\mu u^2/2$、角动量 $\ell=\mu ub$。中心力方程对 $y=1/r$ 化为 Binet 方程 $y''+y=-\mu a/\ell^2$（撇号为轨道方位角导数），其双曲线偏心率为 $\mathcal e=\sqrt{1+2E_r\ell^2/(\mu a^2)}=\sqrt{1+(b/b_{90})^2}$。在入射、出射无穷远处取 $y=0$，两渐近线给 $\sin(\chi/2)=1/\mathcal e$，于是 $\tan(\chi/2)=b_{90}/b$。正碰排斥时角动量为零，$E_r=a/r_{\min}$ 单独给 $r_{\min}=2b_{90}$。
+令 $a=q_sq_{s^{\prime}}/(4\pi\varepsilon_0)$、$E_r=\mu u^2/2$、$\ell=\mu ub$。Binet 方程 $y^{\prime\prime}+y=-\mu a/\ell^2$ 给双曲线偏心率 $\mathcal e=\sqrt{1+(b/b_{90})^2}$；渐近线满足 $\sin(\chi/2)=1/\mathcal e$，即得散射角。排斥正碰另由 $E_r=a/r_{\min}$ 给 $r_{\min}=2b_{90}$。
 
 $b_{90}$ 的单位是 m，是相对速度发生 $90^\circ$ 偏转对应的冲量参数；它不等同于所有轨道的最近距离。对排斥势的正碰，最近距离是 $2b_{90}$。当 $b\gg b_{90}$ 时，$\chi\simeq2b_{90}/b$ 很小。异号电荷的轨道弯曲方向改变，但散射角大小由绝对电荷乘积确定。
 
@@ -242,7 +250,7 @@ $$
 
 这给出 $n_{s'}u^{-3}\ln\Lambda$ 的速度标度；不同速度矩对应的精确系数由完整碰撞积分给出。推导中假定独立、随机、小角偏转；大累计角通过角扩散方程描述。对质量相近的两物种，还必须区分相对速度偏转和各自实验室速度变化。
 
-每个对数冲量参数区间贡献相近，远距离的小偏转虽然弱，却因遭遇数多而累积占优。这也是“大角散射很少”与“碰撞能改变分布”能够同时成立的原因。上述直线轨道近似还要求一次主导遭遇的持续时间内回旋弯曲可以忽略；极强磁化导致屏蔽尺度上的轨道明显弯曲时，需要重新检查碰撞核，碰撞核应包含主导遭遇过程中轨道弯曲的影响。
+每个对数 $b$ 区间贡献相近：远距离作用虽弱，遭遇数却多。直线碰撞轨道还要求一次主导遭遇内回旋弯曲可忽略；极强磁化下须重新检查轨道与碰撞核。
 
 还可用 $b_{90}\propto u^{-2}$ 检查速度标度：把相对速度增大一倍，特定偏转角对应的面积尺度变为原来的十六分之一，而单位时间穿过的长度只增加一倍，因此散射率的量级减为原来的八分之一。这里保持背景密度与 Coulomb 对数不变，仅用于理解高速极限；把它外推到速度低于背景热速度的区域，会遗漏背景粒子的运动。
 
@@ -289,7 +297,7 @@ $$
 
 其中第二项是按约化 de Broglie 长度定义的量级，某些约定含额外的 $1/2$。这些常数改变对数内的有限项，若要报出精确碰撞系数，必须统一采用同一来源的完整定义。电子简并、Pauli 阻塞和强耦合状态分别需要相应量子统计或相关理论。
 
-量子长度的来源是相对动量 $p=\mu u$ 与波数 $k=p/\hbar$：若冲量参数接近 $k^{-1}=\hbar/(\mu u)$，波包衍射使经典精确轨道的描述不再适用。因此短程下限选经典强偏转尺度和量子分辨尺度中较大者；这个主对数匹配本身不决定对数内的有限常数。屏蔽长度则由静态密度响应 $\delta n_s=-n_sq_s\phi/\theta_s$ 代入 Poisson 方程得到，推导见[等离子体基本概念](../等离子体基本概念/README.md)的 Debye 屏蔽条目。
+相对动量 $p=\mu u$ 给量子长度 $\hbar/(\mu u)$。主对数下限取它与经典强偏转尺度中较大者，不能据此确定有限常数。屏蔽上限由可响应组分的密度响应和 Poisson 方程求得。 [等离子体基本概念](../等离子体基本概念/README.md)。
 
 需要 $b_{\max}\gg b_{\min}$、通常还要求 $\ln\Lambda\gg1$，才能把主对数贡献作为受控近似。若算出 $\ln\Lambda$ 接近零或为负，应该首先判断模型和参数是否越出适用范围，并改用适合相应相关强度的描述。许多手册中“常数减去对数”的经验公式默认密度单位为 $\mathrm{cm^{-3}}$、温度单位为 eV；把 SI 密度直接代入会造成很大偏差。本页保留带量纲的基本尺度，避免省略这些单位约定。
 
@@ -348,7 +356,7 @@ $$
 
 比较文献中的系数时，应先核对热速度定义、$\nu$ 对应的弛豫对象、是否对 Maxwell 分布平均、离子电荷数及 Coulomb 对数。只比较名称“electron collision frequency”可能把不同问题的答案错误地并在一起。
 
-实际建模还应区分特征频率和实际净交换：两个物种已经共流时，即使 $\nu_{ss'}^{(u)}$ 很大，$\mathbf R_{ss'}$ 仍为零；两物种同温时，热交换系数可以非零而净热交换为零。频率衡量对偏离平衡的响应速度；实际动量或能量交换率还需乘相应偏离量。输入参数表最好同时记录所乘的流速差、温差或分布梯度。
+频率是偏离平衡后的响应系数：已共流时净摩擦仍为零，已同温时净热交换仍为零。记录频率时，同时记录流速差、温差或相应分布梯度。
 
 来源：[Fitzpatrick，Collision Times，定义 (3.184)、显式式 (3.188)、(3.190)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node43.html)；[MIT 22.611J，Collisions in Plasmas，§3.3.5、§3.4.5](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/5617c594de835f49cd769a58ba156ce2_chap3.pdf)。本文的反向频率关系由动量守恒单独推得。
 
@@ -368,6 +376,10 @@ $\ell=0$ 是角积分粒子数，保持；$\ell=1$ 对应平均平行速度，�
 
 ## 电子—离子温度交换为什么较慢
 
+![无外源、固定交换系数的电子—离子双温弛豫](/assets/diagrams/basic-kinetic.svg)
+
+*无外源、固定交换系数的电子—离子双温弛豫。曲线与示意均按本条所列模型生成。*
+
 电子撞上很重的离子时，运动方向可以明显变化，速率却只发生很小改变。极限 $m_i\to\infty$ 中，静止离子产生的 Coulomb 场只改变电子轨道方向，不向离子传递有限动能。有限质量修正带来约 $m_e/m_i$ 的热交换尺度，因此电子—离子温度交换比电子偏转慢一个与质量比有关的尺度。
 
 考虑单电荷等离子体，$n_e=n_i=n$，两物种近 Maxwell 分布、平均相对漂移可忽略，且 $\theta_e/m_e\gg\theta_i/m_i$。用上一条的 $\nu_{ei}^{(u)}$ 约定，离子获得的热功率密度在该质量比近似下为
@@ -385,7 +397,7 @@ Q_i=\frac{4\sqrt{2\pi}\,n_en_i e^4\ln\Lambda}
 (\theta_e-\theta_i).
 $$
 
-此处按单电荷、给定共同 Coulomb 对数作热平均；取 $n_e=n_i=n$、$\theta_e/m_e\gg\theta_i/m_i$，与上一条 $\nu_{ei}^{(u)}$ 比较正好给 $3(m_e/m_i)n\nu_{ei}^{(u)}$。因此热交换的质量比因子来自有限离子反冲，而温差和热平均决定净传热方向与系数。
+以上热平均采用单电荷、共同 Coulomb 对数；取 $n_e=n_i=n$、$\theta_e/m_e\gg\theta_i/m_i$，系数化为 $3(m_e/m_i)n\nu_{ei}^{(u)}$。质量比来自离子反冲，温差决定净传热方向。
 
 $Q_i$ 单位为 $\mathrm{W\,m^{-3}}$；当 $T_e>T_i$ 时离子被加热，符号正确。这个反对称关系适用于此处忽略相对漂移的热交换。若存在相对漂移，摩擦耗散还会增加随机热能，必须按总能量预算补上，两种内能源的和包含摩擦产生的热。
 
@@ -402,7 +414,7 @@ $$
 
 电子加热向离子传递的份额由温差、交换时间与损失共同确定。评估聚变燃料升温，应比较电子—离子交换、外部加热、辐射和约束损失的时间尺度；电子内部热化与电子—离子温度平衡对应不同时间尺度。本条给出的是热 Maxwell 背景间的交换，不用于任意高能离子或电子束的慢化分配。
 
-上述均匀双温模型还有两个简单的不变量检验。在无外部输入时，$\theta_e+\theta_i$ 保持常数；温差则总朝零减小。因此相同粒子数的两物种最终达到初始热能温度的算术平均。若计算得到共同温度高于两者初值的较大者，或温差自行增大，就应首先检查源项符号、热容和单位，使离散交换保持总热能守恒。
+无源等密度模型保持 $\theta_e+\theta_i$，并使差温趋零，因此共同温度为初始两温的算术平均。这两项是交换模块的守恒与符号检查。
 
 来源：[Fitzpatrick，Unmagnetized Limit，式 (4.82)、(4.86)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html)；[MIT 22.611J，Collisions in Plasmas，§3.5.4 Energy Equilibration](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/5617c594de835f49cd769a58ba156ce2_chap3.pdf)。两个不同衰减率由本条能量方程相减得到。
 
@@ -430,7 +442,7 @@ C[f]=-\frac{\partial}{\partial v_i}(A_i f)
 +\frac12\frac{\partial^2}{\partial v_i\partial v_j}(D_{ij}f),
 $$
 
-这是小增量展开的结果：在粗粒化时间 $\Delta t$ 内，用转移概率把增益写为 $\int P(\Delta\mathbf v\mid\mathbf v-\Delta\mathbf v)f(\mathbf v-\Delta\mathbf v)d^3\Delta v$，减去从 $\mathbf v$ 出发的损失。把增益对 $\Delta\mathbf v$ Taylor 展开，零阶与损失相消，一阶为 $-\partial_{v_i}(A_if)$，二阶为 $\tfrac12\partial_{v_i}\partial_{v_j}(D_{ij}f)$。截断要求大增量的高阶矩在该排序下可忽略，不能用于由少量大角事件主导的过程。
+粗粒化转移积分对 $\Delta\mathbf v$ 展开：零阶与损失项抵消，一阶给 $-\partial_{v_i}(A_if)$，二阶给 $\tfrac12\partial_{v_i}\partial_{v_j}(D_{ij}f)$。截断要求更高增量矩可忽略；少量大角事件主导时不适用。
 
 其中采用重复指标求和，$A_i=\langle\Delta v_i\rangle/\Delta t$、$D_{ij}=\langle\Delta v_i\Delta v_j\rangle/\Delta t$ 是相对于微观相关时间足够长、相对于宏观弛豫时间足够短的粗粒化系数。$A_i$ 单位为 $\mathrm{m\,s^{-2}}$，$D_{ij}$ 单位为 $\mathrm{m^2\,s^{-3}}$；扩散张量应为半正定。只保留扩散而删掉与背景热平衡相容的漂移，通常不会得到正确 Maxwell 平衡。
 
@@ -457,7 +469,7 @@ $$
 
 守恒的核心是 $U_{ij}w_j=0$：核只作用在相对速度的横向方向。速度积分分部并交换粒子标签，可检验每个物种粒子数守恒，以及一对物种的总动量、总动能守恒。共同流速、共同温度 Maxwell 分布代入括号后，其速度导数组合与 $\mathbf w$ 成正比，因此被 $\mathbf U$ 消去。这是无需求解方程就能完成的平衡核对。
 
-更明确地，令 $\mathbf g_s=\nabla_v\ln f_s/m_s$、$G_{ss'}=m_s^2K_{ss'}=m_{s'}^2K_{s's}$，则成对碰撞通量含 $f_sf_{s'}\mathsf U(\mathbf g_s-\mathbf g_{s'})$。数目矩是速度散度的边界项；动量矩在交换 $s,\mathbf v\leftrightarrow s',\mathbf v'$ 后相消；能量矩成对相加后正比于 $\mathbf w\cdot\mathsf U(\mathbf g_s-\mathbf g_{s'})=0$。Maxwellian 则有 $\mathbf g_s=-(\mathbf v-\mathbf u)/\theta$，因此差为 $-\mathbf w/\theta$，给零碰撞通量。
+令 $\mathbf g_s=\nabla_v\ln f_s/m_s$、$G_{ss^{\prime}}=m_s^2K_{ss^{\prime}}=m_{s^{\prime}}^2K_{s^{\prime} s}$。交换物种标签后，成对动量矩相消，能量矩含 $\mathbf w\cdot\mathsf U=0$；共同 Maxwellian 又有 $\mathbf g_s-\mathbf g_{s^{\prime}}=-\mathbf w/\theta$，故碰撞通量为零。
 
 完整算子还满足适当边界条件下的 H 定理，即碰撞使熵不减。数值实现应分别检查粒子数、成对动量、成对能量、分布非负性及 Maxwell 平衡残差。只演化试验粒子而固定背景，试验物种自身会失去动量和能量；守恒必须包括背景收到的份额，或在线性化模型中保留补偿性的场粒子项。离散算子的守恒性质应由上述速度矩积分直接核查。
 
@@ -472,7 +484,7 @@ $$
 
 不等号来自 $\mathbf a\cdot\mathsf U\cdot\mathbf a=[a^2-(\mathbf a\cdot\widehat{\mathbf w})^2]/w\ge0$；物理熵是 $-k_BH$ 加常数。这里要求正分布、对称的成对对数及零边界通量，正是守恒推导所用的条件。
 
-这里的熵单调性是碰撞贡献或封闭系统的整体陈述。若计算区域有粒子流出、外部束流注入或能量抽取，区域内的熵还含边界通量与源项，熵变化需按碰撞产生、边界流出与外源分别核算。类似地，速度域截断会形成未计入的粒子与能量通量；验证不守恒时，应先区分碰撞离散误差与截断边界损失，逐项列出预算。
+熵单调性指碰撞贡献或封闭系统整体。开放域需另列源和边界熵流；速度域截断也会流失粒子与能量，应与碰撞离散误差分别核算。
 
 来源：[Fitzpatrick，Landau Collision Operator，式 (3.87)–(3.94)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node37.html)；[Collisional Conservation Laws](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node34.html)；[MIT 22.616，Collisions and Transport Theory II，Collision Operator: Summary](https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/3277350d3d1b252bad754cdf65dcf6da_collisionstrans2.pdf)。
 
@@ -531,7 +543,7 @@ $$
 
 这些四阶、六阶矩可由三个独立高斯的偶数矩逐项相乘得到。真实 Spitzer–Härm 系数采用速度相关的库仑算子；这个常 $\tau$ 模型保留了从分布修正到热流的计算链。
 
-具体地，一维高斯分部积分给 $\langle v_x^{2r}\rangle=(2r-1)!!(\theta/m)^r$。记 $s^2=\theta/m$，则 $\langle v_x^2v^2\rangle=(3+1+1)s^4=5s^4$，$\langle v_x^2v^4\rangle=(15+3+3+6+6+2)s^6=35s^6$。热流的括号为 $[m(35s^6)/(2\theta)-(5/2)(5s^4)]=5s^4$，再乘 $-mn\tau\partial_x\theta/(2\theta)$，便得系数 $5/2$。同样的四阶矩使 $\int v_xf_1d^3v=0$，与无平均流假设一致。
+一维高斯偶数矩 $\langle v_x^{2r}\rangle=(2r-1)!!(\theta/m)^r$ 给出四阶系数5、六阶系数35；代入热流积分即得 $5/2$，同一四阶矩保证 $\int v_xf_1d^3v=0$。
 
 **算例。** 电子 $n=10^{18}\,\mathrm{m^{-3}}$、$\theta=20.0\,\mathrm{eV}$、$\tau=0.100\,\mu\mathrm s$，给定梯度 $2.00\,\mathrm{eV\,m^{-1}}$。把两处 eV 各乘一次 $e$，得 $h_x=-2.81794\times10^5\,\mathrm{W\,m^{-2}}$，沿降温方向。梯度长度为 $10\,\mathrm m$；用 $\sqrt{2\theta/m_e}\tau\approx0.265\,\mathrm m$，Knudsen 数约为 $0.0265$，与一阶局地展开相容。[Kunz，§VIII.1 的 BGK 算子](https://www.astro.princeton.edu/~kunz/Site/AST554/AST554_Kunz_Lecture_Notes.pdf)；[Fitzpatrick，Unmagnetized Limit，热流本构与输运系数](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node55.html)。
 
@@ -543,9 +555,9 @@ Debye 屏蔽由许多粒子的响应形成，使用屏蔽截断的 Landau 模型
 
 集体响应使大冲量参数贡献收敛；短程大角散射仍需与近碰撞描述匹配。经典 Balescu–Lenard 采用弱耦合、稳定背景与相应轨道假设。主对数极限下，它与适当截断的 Landau 描述相容。若要求对数之外的精度，则必须同时处理屏蔽、近碰撞和相应近似的匹配。
 
-尤其应区分“集体屏蔽”“二粒子相关”“真正的三体过程”。屏蔽云的多粒子响应进入二粒子相关闭合中的介电函数；三粒子同时近距离相遇属于另一种相关或反应过程。真正的三体反应、复合或不可约三粒子相关，需要相应反应通道、守恒关系和统计假设，由这些物理过程来识别其阶数。
+集体屏蔽进入二粒子相关闭合的介电函数；真正三体反应或不可约三粒子相关则需另给反应通道、守恒律与统计假设，不能按“参与屏蔽粒子多”归为三体碰撞。
 
-在聚变知识整理中，遇到声称存在新碰撞项的模型，至少应说明它从哪个相关层级导出、减去了哪些已有二体和集体贡献、在哪个参数极限变小，以及是否保持粒子数、动量和能量预算。没有这些信息时，可将其列为待核实模型，而不宜直接并入标准 Landau 理论。
+新增碰撞项须交代相关层级、已扣除的二体/集体贡献、退化极限及粒子数—动量—能量守恒；未明确时列为待核实模型。
 
 来源：[Fitzpatrick，Collision Operator，平均与涨落相关](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node31.html)；[MIT 22.616，Collisions and Transport Theory I，Debye cutoff 后关于 Balescu–Lenard 的讨论](https://ocw.mit.edu/courses/22-616-plasma-transport-theory-fall-2003/923ea57a2611e1f05af813f1919354eb_collisionstrans1.pdf)。
 

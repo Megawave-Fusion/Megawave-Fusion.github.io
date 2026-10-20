@@ -4,6 +4,10 @@
 
 ## 守恒输运方程与有效扩散
 
+![固定边界下，常系数扩散的基模与第二模具有不同衰减率](/assets/diagrams/basic-transport.svg)
+
+*固定边界下，常系数扩散的基模与第二模具有不同衰减率。曲线与示意均按本条所列模型生成。*
+
 粒子守恒的基本形式为 $\partial_t n+\nabla\cdot\boldsymbol\Gamma=S$，其中 $\boldsymbol\Gamma$ 单位 $\mathrm{m^{-2}s^{-1}}$，净源 $S$ 单位 $\mathrm{m^{-3}s^{-1}}$。沿嵌套磁面平均，并选有长度量纲的径向坐标 $r$，可写
 
 $$
@@ -14,7 +18,7 @@ V'=\frac{dV}{dr},\quad
 \Gamma_r=-D\frac{\partial n}{\partial r}+V_p n.
 $$
 
-先在厚度 $dr$ 的薄磁壳内积分粒子守恒：壳体积为 $V'dr$，净径向流出为 $\partial_r(V'\Gamma_r)dr$；除以壳体积便得到上式的散度结构。这里 $n,S,\Gamma_r$ 取与该磁面体积测度一致的平均。扩散加夹带是局域线性闭合：将通量对密度梯度与密度展开，梯度项的负系数定义为 $D$，零梯度剩余通量除以 $n$ 定义为 $V_p$。热流关系同样是近局域平衡的线性导热闭合，以 $n\chi$ 定义温度能量梯度的响应系数；守恒律本身不决定这些输运系数。
+薄磁壳体积为 $V^{\prime} dr$，净流出为 $\partial_r(V^{\prime}\Gamma_r)dr$，相除即得磁面散度。扩散加夹带是局域线性闭合；守恒律不决定 $D,V_p,\chi$，平均与度量须一致。
 
 $D$ 单位 $\mathrm{m^2s^{-1}}$，夹带速度 $V_p$ 单位 $\mathrm{m\,s^{-1}}$；此处规定向外为正。换用无量纲磁通坐标时，梯度与通量中的度量必须同步转换。热流常近似为 $q_r=-n\chi\,\partial_r\Theta$；这只是导热项，完整能量通量还包括粒子携带的焓、流动能和其他通道。[Fitzpatrick：Perpendicular Closure Scheme，式 (2.303)–(2.304)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node42.html)。
 
@@ -22,7 +26,7 @@ $D$ 单位 $\mathrm{m^2s^{-1}}$，夹带速度 $V_p$ 单位 $\mathrm{m\,s^{-1}}$
 
 教学验证：长圆柱中取恒定 $D$、均匀源 $S_0$、轴上正则且边界密度固定为 $n_a$。稳态解析解是 $n=n_a+S_0(a^2-r^2)/(4D)$，因此 $\Gamma_r=S_0r/2$。长度 $L$ 的边界粒子流 $2\pi aL\Gamma_r(a)=S_0\pi a^2L$ 恰好等于全体积源；遗漏圆柱散度中的 $1/r$ 会破坏这个预算。这个解析解可用作圆柱输运程序的基准。
 
-圆柱算例的求解步骤是 $(1/r)d(r\Gamma_r)/dr=S_0$。从轴积分，轴上正则性消去积分常数，故 $r\Gamma_r=S_0r^2/2$。再用 $\Gamma_r=-D\,dn/dr$，得到 $dn/dr=-S_0r/(2D)$；从 $r$ 积到边缘 $a$ 并代入 $n(a)=n_a$，便得到所列抛物线密度。
+由轴上正则性，$d(r\Gamma_r)/dr=S_0r\Rightarrow\Gamma_r=S_0r/2$；再积分 $dn/dr=-S_0r/(2D)$ 并用 $n(a)=n_a$，即得抛物线剖面。
 
 ### 由瞬态衰减测扩散系数
 
@@ -50,7 +54,7 @@ $$
 
 香蕉区离子热扩散常具有 $\chi_i\sim q^2\rho_i^2\nu_{ii}/\epsilon^{3/2}$ 的量级，其系数随碰撞闭合和几何改变。若算得轨道宽度接近剖面尺度，局域展开就不自洽。新经典理论提供碰撞基线，实际总通量还可能受湍流、三维磁场与中性粒子影响。[Fitzpatrick：Neoclassical Transport，式 (2.284)–(2.286)](https://farside.ph.utexas.edu/teaching/plasma1/Fusionhtml/node41.html)。
 
-这些新经典量级可以按轨道与随机游走逐步估计。大环径比场强相对变化为 $O(\epsilon)$，磁镜条件使被俘获粒子的平行速率为 $v_\parallel\sim v_{ti}\sqrt\epsilon$，俘获方向占比为 $f_t\sim\sqrt\epsilon$。平行连接长度为 $qR$，故反弹时间为 $qR/(v_{ti}\sqrt\epsilon)$；曲率/梯度径向漂移量级为 $v_{ti}\rho_i/R$，乘反弹时间便得到 $\Delta_b$。俯仰角扩散系数尺度为 $\nu_{ii}$，跨越宽度 $O(\sqrt\epsilon)$ 的俘获域需时间 $\epsilon/\nu_{ii}$，因此去俘获率为 $\nu_{ii}/\epsilon$；它除以反弹频率就是 $\nu_*$。最后用“俘获比例×步长平方×去俘获率”得 $\chi_i\sim\sqrt\epsilon(q^2\rho_i^2/\epsilon)(\nu_{ii}/\epsilon)$，即所列香蕉区标度。常直场的 $D_\perp\sim\rho^2\nu$ 则是每次散射移动一个回旋半径、等待约 $1/\nu$ 的同类随机游走估计。
+大环径比下 $f_t\sim\sqrt\epsilon$、$v_\parallel\sim v_{ti}\sqrt\epsilon$，反弹时间约 $qR/(v_{ti}\sqrt\epsilon)$；乘径向漂移 $v_{ti}\rho_i/R$ 得香蕉宽度。俯仰扩散越过宽度 $\sqrt\epsilon$ 需 $\epsilon/\nu_{ii}$，故去俘获率 $\nu_{ii}/\epsilon$。于是 $\chi_i\sim f_t\Delta_b^2\nu_{ii}/\epsilon\sim q^2\rho_i^2\nu_{ii}/\epsilon^{3/2}$；除以反弹频率得 $\nu_*$。
 
 ### 速度自相关如何产生横向扩散
 
@@ -129,7 +133,7 @@ ELM 瞬态损失能量 $\Delta W_{\rm ELM}$、频率 $f_{\rm ELM}$ 与平均功�
 
 在大环径比圆截面模型中，常以 $\alpha=-(2\mu_0Rq^2/B^2)dp/dr$ 表示无量纲压力梯度。若台基近似线性，$dp/dr=-\Delta p/\Delta r$，代入得 $\alpha=2\mu_0Rq^2\Delta p/(B^2\Delta r)$。取 $R=3\,\mathrm m,q=4,B=2.5\,\mathrm T,\Delta p=8\,\mathrm{kPa},\Delta r=0.04\,\mathrm m$，得 $\alpha=3.86$；在相同高度下将宽度加倍，$\alpha$ 减半。具体稳定边界随磁剪切、电流与形状变化。压力梯度和边缘电流的联合驱动见 [Snyder，ITER School 2015，第15页](https://www.iter.org/sites/default/files/education/snyder_iterschool15_r3.pdf)。
 
-这里 $\alpha$ 是所采用平衡模型的归一化定义：压力梯度力的曲率尺度为 $|dp/dr|/R$，弯曲磁力线的张力尺度为 $B^2/(\mu_0q^2R^2)$，两者的比值再乘惯用因子 2，即 $2\mu_0Rq^2|dp/dr|/B^2$。这说明其几何和量纲来源，临界值仍需稳定性方程。对于近线性的台基，积分 $\Delta p=-\int(dp/dr)dr$ 给出梯度与宽度关系。重复事件的平均功率则是总能量 $N_{\rm ELM}\Delta W$ 除以观察时长，使用 $f_{\rm ELM}=N_{\rm ELM}/\Delta t$ 得到 $f_{\rm ELM}\Delta W$。
+$\alpha$ 由压力曲率力 $|p^{\prime}|/R$ 与张力 $B^2/(\mu_0q^2R^2)$ 的比值乘惯用因子2定义；临界值须解稳定性方程。线性台基有 $\Delta p\simeq|p^{\prime}|\Delta r$，重复 ELM 的平均功率为 $f_{\rm ELM}\Delta W$。
 
 另设每次 ELM 向指定靶区沉积20 kJ、频率50 Hz，则时间平均功率为1 MW。若每次在0.5 ms内均匀沉积到0.20 m²，脉冲期面热流为200 MW/m²。两个数通过占空比 $f\Delta t=0.025$ 相连：脉冲热流乘占空比是该区域的时间平均5 MW/m²。材料热响应需要使用脉冲的时间和空间分布。
 
@@ -146,7 +150,7 @@ q_\parallel=-\kappa_0\Theta_e^{5/2}\frac{d\Theta_e}{ds},
 =\frac{7q_\parallel L_\parallel}{2\kappa_0}.
 $$
 
-先由无源稳态能量守恒得到 $dq_\parallel/ds=0$，再分离变量：$\Theta_e^{5/2}d\Theta_e=-(q_\parallel/\kappa_0)ds$。从上游积分到靶端，左边是 $(2/7)(\Theta_t^{7/2}-\Theta_u^{7/2})$，移项便得到两点式。$5/2$ 的导热标度来自热通量估计 $n_ev_{te}\lambda_e\,\nabla\Theta_e$：$v_{te}\propto\Theta_e^{1/2}$、Coulomb 自由程 $\lambda_e\propto\Theta_e^2/n_e$，相乘消去密度；其具体系数由碰撞闭合计算。
+恒面积无源稳态给 $dq_\parallel/ds=0$。分离变量并积分 $\int\Theta^{5/2}d\Theta=(2/7)\Theta^{7/2}$，即得两点式。标度来自 $n_ev_{te}\lambda_e\propto n_e\Theta_e^{1/2}(\Theta_e^2/n_e)=\Theta_e^{5/2}$，系数由碰撞闭合给出。
 
 第二式直接由第一式积分得到。此处温度能量用 J，因此 $\kappa_0$ 的单位为 $\mathrm{W\,m^{-1}\,J^{-7/2}}$；若输入 eV 或 K，系数必须转换。脱靶计算在此导热关系上联立靶端鞘层、压力、对流、辐射、电离和动量方程，并加入磁通膨胀。[MIT PSFC：Yunxing Ma 2012 学位论文，附录 C 式 (C.9)–(C.10)](https://library.psfc.mit.edu/catalog/reports/2010/12rr/12rr008/12rr008_full.pdf)。
 
@@ -185,7 +189,7 @@ $$
 \phi_s-\phi_w=\frac{\Theta_e}{2e}\ln\frac{m_i}{2\pi m_e}.
 $$
 
-电子通量的中间积分为 $\Gamma_e=n_s\int_{v_c}^\infty v[m_e/(2\pi\Theta_e)]^{1/2}e^{-m_ev^2/(2\Theta_e)}dv$，其中势垒阈速满足 $m_ev_c^2/2=e(\phi_s-\phi_w)$。令积分变量为 $m_ev^2/(2\Theta_e)$，便得到单向通量乘指数抑制因子。再令它等于 $n_s\sqrt{\Theta_e/m_i}$，约去密度和温度平方根，取对数后就是所列浮动势降。
+势垒阈速满足 $m_ev_c^2/2=e(\phi_s-\phi_w)$。积分单向 Maxwellian 通量得 $\Gamma_e=n_s\sqrt{\Theta_e/(2\pi m_e)}e^{-e(\phi_s-\phi_w)/\Theta_e}$；令其等于 $n_sc_s$，取对数即得所列浮动势降。
 
 对氘、$\Theta_e=10\,\mathrm{eV}$，算得 $c_s\simeq2.19\times10^4\,\mathrm{m\,s^{-1}}$、电势落差约 31.9 V。此结果对应浮动平面吸收壁；外加偏压通过边界电势另行输入。倾斜磁场还会引入磁预鞘；射频电势整流则需时变模型，与[ICRH 射频鞘层](../../辅助加热/离子回旋加热/README.md)相接。
 
@@ -207,7 +211,7 @@ $$
 
 脱靶通常指靶端等离子体从高温、强附着状态进入冷却并降低靶负荷的运行状态。诊断联合跟踪靶温度、离子通量 rollover（随上游条件变化先增后降）、抽排和核心性能，以重建功率、动量和粒子平衡。
 
-可用控制体积写 $\dot N_{\rm target}=\dot N_{\rm upstream}+\dot N_{\rm ion}-\dot N_{\rm rec}-dN/dt$，这里 $N$ 是控制体积内的等离子体离子库存，target/upstream 是离子流率，ion/rec 分别为电离生成及复合移除离子的速率；各项按离子所含原子核数统一计量，旁向通量存在时还应补项。若改统计包含中性态的全部原子核库存，电离/复合只在电荷态之间转移，在总核数预算中相消。靶离子流减少可能来自电离源功率不足、净复合、动量损失改变流动等共同作用，不宜把所有脱靶归因于单一复合过程。[Dudson 等：SD1D 的粒子、能量与动量损失研究，作者摘要](https://scientific-publications.ukaea.uk/papers/the-role-of-particle-energy-and-momentum-losses-in-1d-simulations-of-divertor-detachment/)。
+以离子所含原子核数计数，控制体满足 $\dot N_{\rm target}=\dot N_{\rm upstream}+\dot N_{\rm ion}-\dot N_{\rm rec}-dN/dt$；$N$ 只含等离子体离子，旁向通量另加。若连中性态一起计数，电离/复合项相消。脱靶须联合检查电离功率、复合和动量损失，不能只归因于复合。 [Dudson 等：SD1D 的粒子、能量与动量损失研究，作者摘要](https://scientific-publications.ukaea.uk/papers/the-role-of-particle-energy-and-momentum-losses-in-1d-simulations-of-divertor-detachment/)。
 
 分子辅助复合/解离在部分低温高密度条件中可成为重要通道。MAST-U Super-X 的原始研究结合谱学与功率/粒子预算讨论了这些过程；其具体结论必须保留装置、气体和模型条件，不可直接给所有偏滤器套同一阈值。[Verhaegh 等：MAST-U 等离子体—原子—分子相互作用研究，作者摘要](https://scientific-publications.ukaea.uk/papers/the-role-of-plasma-atom-and-molecule-interactions-on-power-particle-balance-during-detachment-on-the-mast-upgrade-super-x-divertor/)。
 
@@ -228,9 +232,9 @@ $$
 
 NBI、ICRH 和聚变 alpha 产生的快粒子往往不满足热背景的 Maxwell 分布。其回旋半径、轨道宽度和慢化时间可能明显大于热粒子尺度；有限轨道、磁场波纹、磁岛和磁扰动会产生再分布或损失。必须分别报告受约束快粒子能量、对热背景的沉积和到壁面的逃逸功率。
 
-局域剪切 Alfvén 波频率近似为 $\omega\simeq k_\parallel v_A$，$v_A=B/\sqrt{\mu_0\rho}$。Alfvén 关系来自均匀磁场中的两条线性方程：横向动量满足 $\rho\partial_t\mathbf u_\perp=(B/\mu_0)\partial_\parallel\delta\mathbf B_\perp$，理想感应方程满足 $\partial_t\delta\mathbf B_\perp=B\partial_\parallel\mathbf u_\perp$。对前式再取时间导数并代入后式，得 $\partial_t^2\mathbf u_\perp=[B^2/(\mu_0\rho)]\partial_\parallel^2\mathbf u_\perp$；代入平面波便有 $\omega^2=k_\parallel^2v_A^2$。
+局域剪切 Alfvén 波满足 $\omega^2=k_\parallel^2v_A^2$，$v_A=B/\sqrt{\mu_0\rho}$。均匀场中，对横向动量式再求时间导数并代入理想感应式，便得 $\partial_t^2\mathbf u_\perp=v_A^2\partial_\parallel^2\mathbf u_\perp$。
 
-在环形几何中，粒子与模的共振可以通过环向运动和反弹/通行运动的谐波组合表达，例如 $\omega-n\omega_\varphi-l\omega_b=0$；整数 $n,l$ 与频率须采用同一角坐标和符号约定。将轨道作用的 Fourier 相位写为 $\psi=n\varphi+l\vartheta_b-\omega t$，其中 $\vartheta_b$ 为反弹/通行相位，沿未扰动轨道求导得到 $\dot\psi=n\omega_\varphi+l\omega_b-\omega$。持续相互作用要求这相位近似不变，令导数为零便得到上述共振关系。
+环形轨道相位 $\psi=n\varphi+l\vartheta_b-\omega t$ 满足 $\dot\psi=n\omega_\varphi+l\omega_b-\omega$。持续相互作用要求 $\dot\psi\simeq0$；整数、角坐标和频率符号须一致。
 
 满足轨道共振后，再由驱动与阻尼确定模式增长率。
 
@@ -272,7 +276,7 @@ E_c=\frac{n_ee^3\ln\Lambda}{4\pi\varepsilon_0^2m_ec^2},\qquad
 E_D=\frac{m_ec^2}{\Theta_e}E_c.
 $$
 
-这两个特征场是电力与 Coulomb 摩擦的平衡尺度。充分电离弱耦合模型的高速电子摩擦幅值为 $F_{\rm drag}\simeq n_ee^4\ln\Lambda/(4\pi\varepsilon_0^2m_ev^2)$，其 $v^{-2}$ 和 Coulomb 对数来自小角散射动量交换的冲量参数积分，详见[动理学与碰撞](../动理学与碰撞/README.md)。在高能相对论极限取最低摩擦尺度对应 $v\simeq c$，并令 $eE_c=F_{\rm drag}$，得到上式；以本页约定的热能尺度 $v^2=\Theta_e/m_e$ 替换，便得到 $E_D/E_c=m_ec^2/\Theta_e$。$E_D$ 是拖曳特征尺度，完整热分布的产生率仍需碰撞动力学，不能把这一步替换当作完整逃逸率计算。
+充分电离弱耦合模型中，$F_{\rm drag}\simeq n_ee^4\ln\Lambda/(4\pi\varepsilon_0^2m_ev^2)$。取 $v\simeq c$、令 $eE_c=F_{\rm drag}$ 得高能临界场；取 $v^2=\Theta_e/m_e$ 得 $E_D/E_c=m_ec^2/\Theta_e$。后者只是热拖曳特征尺度，完整逃逸率仍需碰撞动理学。 [动理学与碰撞](../动理学与碰撞/README.md)。
 
 取 $n_e=10^{20}\,\mathrm{m^{-3}},\ln\Lambda=15,\Theta_e=10\,\mathrm{eV}$，得到 $E_c=0.0765\,\mathrm{V/m}$、$E_D=3.91\times10^3\,\mathrm{V/m}$。本例 $E_c<E_\phi<E_D$，表明高能电子的持续加速条件和热电子整体的拖曳尺度相距很大；逃逸产生率还需分布动力学。两种场的定义及部分电离修正见 [Hesslow 等，2019，§1–2](https://arxiv.org/html/1910.00356v2)。
 

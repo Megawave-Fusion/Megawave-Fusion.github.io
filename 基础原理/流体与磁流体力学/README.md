@@ -18,7 +18,7 @@ $$
 
 对两种动量方程相加，组分间碰撞动量交换抵消。再忽略小的电荷分离力、相对漂移动量通量以及黏性，采用标量总压力 $p=p_e+p_i$，得到 $\rho D_t\mathbf u=-\nabla p+\mathbf J\times\mathbf B$。如果快粒子压力、各向异性应力或多组分漂移显著，就应把相应张量及耦合保留下来。
 
-中间的守恒形式是 $\partial_t(\rho\mathbf u)+\nabla\cdot\sum_sm_sn_s\mathbf u_s\mathbf u_s=-\nabla\cdot(\mathbf P_e+\mathbf P_i)+\rho_c\mathbf E+\mathbf J\times\mathbf B$，其中电力、电流来自逐物种电磁力求和。用下方质心分解，动量通量恰好为 $\rho\mathbf u\mathbf u+n\mu_r\mathbf w\mathbf w$，$\mathbf w=\mathbf u_i-\mathbf u_e$、$\mu_r=m_im_e/(m_i+m_e)$。舍去相对通量、净电荷力并用总质量连续性，才化成所列单流体对流方程；这些是约化假设，不能仅靠准中性自动删除。
+两流体求和给 $\partial_t(\rho\mathbf u)+\nabla\cdot\sum_sm_sn_s\mathbf u_s\mathbf u_s=-\nabla\cdot\sum_s\mathbf P_s+\rho_c\mathbf E+\mathbf J\times\mathbf B$。质心分解使通量成为 $\rho\mathbf u\mathbf u+n\mu_r\mathbf w\mathbf w$；舍去相对漂移通量、净电荷力并采用标量压力，才得到单流体方程。
 
 这里 $D_t=\partial_t+\mathbf u\cdot\nabla$。常见 MHD 尺度检查包括 $\omega\ll |\Omega_i|$、$k_\perp\rho_i\ll1$、$kd_i\ll1$，其中 $d_i=c/\omega_{pi}$；这些是针对所研究运动的排序，不足以单独证明压力闭合正确。特别是弱碰撞聚变等离子体的平行热流，可能需要动理学闭合。
 
@@ -69,7 +69,7 @@ $$
 
 单原子、非相对论、三维各向同性的绝热理想气体取 $\gamma=5/3$。最后一式结合连续性方程等价于 $D_tp=-\gamma p\nabla\cdot\mathbf u$：压缩使压力升高。若存在源项或明显热流，必须改用能量方程，将加热与热流作为相应源项。
 
-各式的来源分别为：质量方程是各组分数目方程乘质量求和；动量方程是上一条的两流体求和；理想欧姆定律是下条广义欧姆定律在 Hall、压力、惯性和电阻电场均可忽略时的最低阶关系；将其代入 Faraday 定律即得感应方程，$\nabla\cdot\partial_t\mathbf B=0$ 保持初始无散度约束。压力闭合来自内能密度 $w_{\rm th}=p/(\gamma-1)$ 与无热源第一定律 $D_tw_{\rm th}=-(w_{\rm th}+p)\nabla\cdot\mathbf u$；对三维平动 $w_{\rm th}=3p/2$，故 $\gamma=5/3$。安培关系则是 Maxwell 方程在位移电流较小排序下的近似。
+质量与动量式由两流体求和；理想欧姆定律代入 Faraday 定律给感应式并保持 $\nabla\cdot\mathbf B=0$。无热源第一定律与 $w_{\rm th}=3p/2$ 给 $\gamma=5/3$；安培式还采用位移电流可忽略排序。
 
 这里忽略了位移电流，适用于非相对论、低频的宏观运动；特别要求相关传播速度远小于 $c$。模型仍允许非零电场 $\mathbf E=-\mathbf u\times\mathbf B$。理想导电使随流系电场为零，实验室系则保留运动电场。
 
@@ -112,7 +112,7 @@ $$
 +\frac{\mathbf R_e}{en}.
 $$
 
-出发式为 $m_en(\partial_t+\mathbf u_e\cdot\nabla)\mathbf u_e=-en(\mathbf E+\mathbf u_e\times\mathbf B)-\nabla\cdot\mathbf P_e+\mathbf R_e$。两边除以 $-en$，再用 $\mathbf u_e=\mathbf u_i-\mathbf J/(en)$，把 $\mathbf u_e\times\mathbf B$ 移到左边，就逐项得到上式的符号。简化碰撞模型给 $\mathbf R_e=-m_en\nu_{ei}(\mathbf u_e-\mathbf u_i)=m_e\nu_{ei}\mathbf J/e$，所以 $\eta=m_e\nu_{ei}/(ne^2)$，即 $\mathbf R_e/(en)=\eta\mathbf J$。
+把电子动量方程除以 $-en$，再代入 $\mathbf u_e=\mathbf u_i-\mathbf J/(en)$，即可逐项核对符号。简化摩擦 $\mathbf R_e=-m_en\nu_{ei}(\mathbf u_e-\mathbf u_i)$ 给 $\eta=m_e\nu_{ei}/(ne^2)$。
 
 这是以离子速度写出的形式；若改成质心速度并把惯性改写成 $\partial_t\mathbf J$，还会产生对流与密度项，不应只抄一个时间导数。用简化各向同性摩擦 $\mathbf R_e=en\eta\mathbf J$，且 $\mathbf P_e=p_e\mathbf I$，右边分别为 Hall、电子压力、电子惯性和电阻项。真实磁化输运还可能有张量电阻、热力等贡献。
 
@@ -153,7 +153,7 @@ $$
 +\frac{(\mathbf B\cdot\nabla)\mathbf B}{\mu_0}.
 $$
 
-具体恒等式是 $[(\nabla\times\mathbf B)\times\mathbf B]_i=B_j\partial_jB_i-B_j\partial_iB_j$，后一项为 $-\partial_i(B^2/2)$；再除以 $\mu_0$ 即得上式。将 $\mathbf B=B\mathbf b$ 代入张力项，得到 $(\mathbf B\cdot\nabla)\mathbf B=B(\partial_\parallel B)\mathbf b+B^2\boldsymbol\kappa$；取垂直投影就消去第一项，给出下式。$\beta$ 则按热压力与磁压力之比定义为 $p/[B^2/(2\mu_0)]$。
+由 $[(\nabla\times\mathbf B)\times\mathbf B]_i=B_j\partial_jB_i-\partial_i(B^2/2)$ 分出磁压与张力；再令 $\mathbf B=B\mathbf b$ 并取垂直投影，张力为 $B^2\boldsymbol\kappa/\mu_0$。
 
 第一项与磁场强度梯度有关，第二项包含弯曲磁场的张力。取 $\mathbf b=\mathbf B/B$、曲率 $\boldsymbol\kappa=(\mathbf b\cdot\nabla)\mathbf b$，垂直分量是
 
@@ -194,6 +194,10 @@ $$
 
 ## 磁通冻结的精确含义
 
+![理想各向异性形变中，面积缩小与磁场增强保持物质回路磁通](/assets/diagrams/basic-mhd.svg)
+
+*理想各向异性形变中，面积缩小与磁场增强保持物质回路磁通。曲线与示意均按本条所列模型生成。*
+
 令闭合曲线 $C(t)$ 随局部流体速度 $\mathbf u$ 移动，$S(t)$ 为以它为边界的曲面。法拉第定律与运动曲面的输运公式给出
 
 $$
@@ -210,7 +214,7 @@ D_t\left(\frac{\mathbf B}{\rho}\right)
 =\left(\frac{\mathbf B}{\rho}\cdot\nabla\right)\mathbf u.
 $$
 
-中间代数为 $D_t\mathbf B=(\mathbf B\cdot\nabla)\mathbf u-\mathbf B\nabla\cdot\mathbf u$，而质量方程给 $D_t\rho=-\rho\nabla\cdot\mathbf u$。对商 $\mathbf B/\rho$ 求导时，两项中的压缩贡献恰好抵消。运动曲面公式中的边界项则来自回路扫过的窄带面积；将固定曲面的 $\partial_t\mathbf B=-\nabla\times\mathbf E$ 与该扫掠磁通合并，并用 Stokes 定理，得到上方含 $\mathbf E+\mathbf u\times\mathbf B$ 的环流。
+展开感应式得 $D_t\mathbf B=(\mathbf B\cdot\nabla)\mathbf u-\mathbf B\nabla\cdot\mathbf u$；用 $D_t\rho=-\rho\nabla\cdot\mathbf u$ 消去商导数中的压缩项。运动回路扫掠的磁通与 Faraday 定律合并，则给含 $\mathbf E+\mathbf u\times\mathbf B$ 的环流式。
 
 因此磁场可随拉伸和压缩改变。比如均匀各向同性压缩，长度缩放为 $a$，质量守恒给 $\rho\propto a^{-3}$，磁通守恒给 $B\propto a^{-2}\propto\rho^{2/3}$。感应方程中的非理想项给出偏离冻结的磁通变化率。
 
@@ -253,7 +257,14 @@ $$
 
 $R_m$ 使用实际特征流速，$S$ 使用 Alfvén 速度；只有 $U=v_A$ 才相等。$R_m\gg1$ 表示在给定尺度平流占优，更薄尺度上的扩散与重联需以局部尺度重新比较。
 
-这些时间来自感应方程各项的量级：$\partial_tB\sim B/\tau$、平流项 $\sim UB/L$、扩散项 $\sim D_mB/L^2$，故 $\tau_U=L/U$、$\tau_R=L^2/D_m$，两项之比为 $R_m=UL/D_m$。Alfvén 速度可由横向位移的张力方程 $\rho\partial_t^2\boldsymbol\xi_\perp=(B^2/\mu_0)\partial_\parallel^2\boldsymbol\xi_\perp$ 识别，波速平方为 $B^2/(\mu_0\rho)$；用该速度定义 $\tau_A$ 就得到 $S=\tau_R/\tau_A$。
+比较感应式各项 $B/\tau$、$UB/L$ 与 $D_mB/L^2$，可直接读出
+
+$$
+\tau_U=L/U,\quad \tau_R=L^2/D_m,\quad
+\tau_A=L/v_A,\qquad R_m=\tau_R/\tau_U,\quad S=\tau_R/\tau_A.
+$$
+
+其中磁张力波速 $v_A^2=B^2/(\mu_0\rho)$。
 
 一个可检验解是无流、周期区域内 $B_y(x,t)=B_1\sin(kx)e^{-D_mk^2t}$，其他分量为零。其振幅衰减时间是 $1/(D_mk^2)$；若 $L$ 取波长，则是 $L^2/(4\pi^2D_m)$，其中 $4\pi^2$ 来自明确的空间本征函数。磁能按振幅平方衰减，衰减率多一个因子 2。
 
@@ -293,7 +304,7 @@ $$
 \Delta^*=R\frac{\partial}{\partial R}\left(\frac1R\frac{\partial}{\partial R}\right)+\frac{\partial^2}{\partial Z^2}.
 $$
 
-推导时先用轴对称与 $\nabla\cdot\mathbf B=0$ 把极向场写成 $\mathbf B_p=\nabla\psi\times\mathbf e_\phi/R$；一般先令 $F=RB_\phi$ 为 $(R,Z)$ 的函数。力平衡的环向分量给 $\mathbf B_p\cdot\nabla F=0$，所以在嵌套磁面上 $F=F(\psi)$；沿场压力平衡同样给 $p=p(\psi)$。随后旋度的极向分量给 $\mathbf J_p=F'\mathbf B_p/\mu_0$，环向分量给上方 $J_\phi$。两个叉乘合并为
+轴对称无散度场用 $\psi$ 表示极向分量；环向力平衡给 $F=F(\psi)$，沿场平衡给 $p=p(\psi)$。安培定律给 $\mathbf J_p=F^{\prime}\mathbf B_p/\mu_0$ 及所列 $J_\phi$，合并叉乘即可得到下式。
 
 $$
 \mathbf J\times\mathbf B
@@ -376,7 +387,7 @@ $$
 =p\nabla\cdot\mathbf u+\mathbf u\cdot(\mathbf J\times\mathbf B).
 $$
 
-热内能方程中的 $-p\nabla\cdot\mathbf u$ 与上式压力功抵消；低频 Poynting 方程为 $\partial_tw_B+\nabla\cdot(\mathbf E\times\mathbf B/\mu_0)=-\mathbf J\cdot\mathbf E$。最后使用三重积恒等式与欧姆定律，场功分解成机械功和 $\eta J^2$，它们又与流体方程的交换项抵消。由此总能量通量可以先写成 $(K+w_{\rm th}+p)\mathbf u+\mathbf E\times\mathbf B/\mu_0$，再按所用欧姆定律展开。
+把动能、内能与低频 Poynting 方程相加，压力功、机械场功和焦耳热逐项抵消。总通量可先写为 $(K+w_{\rm th}+p)\mathbf u+\mathbf E\times\mathbf B/\mu_0$，再代入所用欧姆定律。
 
 **算例。** 指定 $\mathbf u=(1000,0,0)\,\mathrm{m\,s^{-1}}$、$\mathbf B=(0,0,1)\,\mathrm T$、$\mathbf J=(0,10^4,0)\,\mathrm{A\,m^{-2}}$、$\eta=10^{-7}\,\Omega\,\mathrm m$。先算 $-\mathbf u\times\mathbf B=(0,1000,0)\,\mathrm{V\,m^{-1}}$，加上 $\eta\mathbf J$ 后 $E_y=1000.001\,\mathrm{V\,m^{-1}}$。于是 $\mathbf J\cdot\mathbf E=10000010\,\mathrm{W\,m^{-3}}$，其中 $\mathbf u\cdot(\mathbf J\times\mathbf B)=10^7\,\mathrm{W\,m^{-3}}$ 进入宏观动能，$\eta J^2=10\,\mathrm{W\,m^{-3}}$ 进入热内能。这个局部向量算例展示了场功即使很大，直接电阻热仍可很小。
 
@@ -391,7 +402,7 @@ $$
 \delta p=-\boldsymbol\xi\cdot\nabla p_0-\gamma p_0\nabla\cdot\boldsymbol\xi.
 $$
 
-这两式来自把流速扰动写成 $\delta\mathbf u=\partial_t\boldsymbol\xi$：线性感应方程对时间积分给 $\delta\mathbf B$；质量守恒给随流体元变化的 $\Delta\rho=-\rho_0\nabla\cdot\boldsymbol\xi$，绝热关系给 $\Delta p=\gamma p_0\Delta\rho/\rho_0$。再用 Euler 扰动与随体扰动的关系 $\delta p=\Delta p-\boldsymbol\xi\cdot\nabla p_0$，就得到压力式。初始扰动需与这些冻结、绝热约束相容。
+令 $\delta\mathbf u=\partial_t\boldsymbol\xi$，积分线性感应式得磁扰动；由 $\Delta\rho=-\rho_0\nabla\cdot\boldsymbol\xi$、$\Delta p=\gamma p_0\Delta\rho/\rho_0$ 及 $\delta p=\Delta p-\boldsymbol\xi\cdot\nabla p_0$ 得压力扰动。初值须满足冻结与绝热约束。
 
 将它们代入线性动量方程写为 $\rho_0\partial_t^2\boldsymbol\xi=\mathcal F[\boldsymbol\xi]$。对使力算符自伴的边界条件，定义势能二阶变分
 
@@ -399,9 +410,9 @@ $$
 \delta W=-\frac12\int\boldsymbol\xi^*\cdot\mathcal F[\boldsymbol\xi]\,dV.
 $$
 
-线性力算符明确为 $\mathcal F[\boldsymbol\xi]=-\nabla\delta p+(\nabla\times\delta\mathbf B)\times\mathbf B_0/\mu_0+\mathbf J_0\times\delta\mathbf B$，来自逐项线性化压力力和 $\mathbf J\times\mathbf B$。在所列边界下积分分部使它自伴；用 $\partial_t\boldsymbol\xi$ 点乘运动方程并积分，得到扰动动能 $\tfrac12\int\rho_0|\partial_t\boldsymbol\xi|^2dV$ 与 $\delta W$ 之和守恒。对正规模代入 $\partial_t^2\boldsymbol\xi=-\omega^2\boldsymbol\xi$，再乘 $\boldsymbol\xi^*$ 积分，就给出下述变分商；其正负号来自这个守恒振子结构。
+线性化得 $\mathcal F=-\nabla\delta p+(\nabla\times\delta\mathbf B)\times\mathbf B_0/\mu_0+\mathbf J_0\times\delta\mathbf B$。在自伴边界下，扰动动能与 $\delta W$ 之和守恒；代入正规模并积分，即得下述变分商。
 
-例如等离子体边界紧贴固定理想导体壁、平衡磁场沿壁面时，要求壁上 $\boldsymbol\xi\cdot\mathbf n=0$，并在域内满足相应正则性条件；这里 $\mathbf n$ 为壁面单位法向。对正规模 $e^{-i\omega t}$，有 $\omega^2\int\rho_0|\boldsymbol\xi|^2dV=2\delta W$。存在允许的负 $\delta W$ 位移意味着理想失稳方向；若对所有非平凡允许扰动严格为正，则在该理想静态框架内具有能量稳定性。零值对应需要进一步分析的中性方向。
+固定理想导体壁上取 $\boldsymbol\xi\cdot\mathbf n=0$，域内满足正则性。正规模 $e^{-i\omega t}$ 有 $\omega^2\int\rho_0|\boldsymbol\xi|^2dV=2\delta W$：存在允许的负 $\delta W$ 方向即理想失稳；所有非平凡扰动严格为正则能量稳定，零值需另判。
 
 自由边界问题的变分泛函还包含真空、表面和壁等相应能量。平衡流可改变算符性质。电阻撕裂、动理学或快粒子驱动失稳也可能在理想 MHD 稳定的状态出现。因此一次平衡求解或一个 beta 数值不构成完整稳定性评估。
 
@@ -439,7 +450,7 @@ $$
 v_{\rm in}L\sim v_{\rm out}\delta,\qquad v_{\rm out}\sim v_A.
 $$
 
-第一式是单位出平面长度的流入质量率 $\rho v_{\rm in}L$ 与流出质量率 $\rho v_{\rm out}\delta$ 相等；第二式来自出流方向动量量级 $\rho v_{\rm out}^2/L\sim B^2/(\mu_0L)$，即磁张力提供出流动能。稳态二维 Faraday 定律还给 $\partial_xE_z=\partial_yE_z=0$，因此可把同一个 $E_z$ 从理想上游匹配到电阻层；片内安培估计 $J_z\sim B/(\mu_0\delta)$ 才给下一步的电阻场。
+单位出平面长度的质量守恒为 $\rho v_{\rm in}L\sim\rho v_{\rm out}\delta$；磁张力给 $\rho v_{\rm out}^2/L\sim B^2/(\mu_0L)$。稳态二维 Faraday 定律令 $E_z$ 均匀，再以 $J_z\sim B/(\mu_0\delta)$ 匹配上游和片内电场。
 
 上游理想电场 $E\sim v_{\rm in}B$ 与片内电阻电场 $E\sim\eta B/(\mu_0\delta)$ 匹配，推出
 

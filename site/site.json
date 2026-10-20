@@ -114,11 +114,79 @@
     {
       "slug": "simulation",
       "title": "仿真计算",
-      "description": "模型、求解器、耦合与可复现计算。",
+      "description": "按物理过程组织模型与软件：六套辅助加热模拟、平衡、稳定性、输运、边缘、工程与验证。",
       "sections": [
         [
           "simulation",
           "仿真计算/README.md"
+        ],
+        [
+          "simulation-equilibrium",
+          "仿真计算/平衡与磁场优化/README.md"
+        ],
+        [
+          "simulation-mhd",
+          "仿真计算/磁流体稳定性/README.md"
+        ],
+        [
+          "simulation-transport",
+          "仿真计算/芯部输运/README.md"
+        ],
+        [
+          "simulation-gyrokinetic",
+          "仿真计算/陀螺动理学/README.md"
+        ],
+        [
+          "simulation-edge",
+          "仿真计算/边缘与偏滤器/README.md"
+        ],
+        [
+          "simulation-numerics",
+          "仿真计算/离散与粒子方法/README.md"
+        ],
+        [
+          "simulation-rf-models",
+          "仿真计算/射频波与分布函数/README.md"
+        ],
+        [
+          "simulation-icrh",
+          "仿真计算/离子回旋加热模拟/README.md"
+        ],
+        [
+          "simulation-ecrh",
+          "仿真计算/电子回旋加热模拟/README.md"
+        ],
+        [
+          "simulation-nbi",
+          "仿真计算/中性束注入模拟/README.md"
+        ],
+        [
+          "simulation-lhcd",
+          "仿真计算/低杂波电流驱动模拟/README.md"
+        ],
+        [
+          "simulation-ebw",
+          "仿真计算/电子伯恩斯坦波模拟/README.md"
+        ],
+        [
+          "simulation-helicon",
+          "仿真计算/螺旋波模拟/README.md"
+        ],
+        [
+          "simulation-engineering",
+          "仿真计算/中子学与热结构/README.md"
+        ],
+        [
+          "simulation-coupling",
+          "仿真计算/多物理耦合/README.md"
+        ],
+        [
+          "simulation-validation",
+          "仿真计算/验证与不确定性/README.md"
+        ],
+        [
+          "simulation-reproducibility",
+          "仿真计算/可复现与算力/README.md"
         ]
       ]
     },

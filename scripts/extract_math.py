@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Extract all rendered continuous-section math for the MathJax check."""
+"""Extract homepage and continuous-section math for the MathJax check."""
 from pathlib import Path
 from bs4 import BeautifulSoup
 import json
 root=Path(__file__).resolve().parents[1]
 rows={}
-for p in (root/'_site/sections').glob('*/index.html'):
+for p in [root/'_site/index.html', *(root/'_site/sections').glob('*/index.html')]:
  soup=BeautifulSoup(p.read_text(),'html.parser')
  for elem in soup.select('.arithmatex'):
   raw=elem.get_text()

@@ -1,6 +1,6 @@
 # 等离子体基本概念
 
-本专题从单位、分布函数和尺度比较建立等离子体物理的共同语言。以下主要讨论经典、非相对论、弱耦合等离子体；准中性、Maxwellian 分布、无碰撞和磁化分别对应不同的尺度与分布假设。公式采用 SI；温度以 K 表示时写为 $T_s$，温度对应的能量写为 $\Theta_s=k_B T_s$。各条目中的数值采用明确给定参数的教学模型。
+采用 SI、经典非相对论弱耦合模型。$T_s$ 用 K，$\Theta_s=k_BT_s$ 用 J；准中性、Maxwellian、无碰撞和磁化各需独立的尺度或分布假设。数值均为给定输入的教学计算。
 
 ## SI 单位、电子伏特与温度能量
 
@@ -14,7 +14,7 @@ $$
 k_B=1.380649\times10^{-23}\,\mathrm{J\,K^{-1}}.
 $$
 
-这里 $\Theta=k_BT$ 是温度能量的定义，$e$、$k_B$ 的数值由 SI 定义固定；单位换算来自电功 $W=q\Delta\phi$：一个元电荷跨越 $1\,\mathrm V$ 的电势差，电功大小为 $e\times1\,\mathrm V=1\,\mathrm{eV}$。因此 $T=(1.602176634\times10^{-19})/(1.380649\times10^{-23})\,\mathrm K$ 给出下述每 eV 对应的开尔文数，而非额外的热平衡假设。
+$\Theta_s=k_BT_s$ 是定义；SI 固定 $e,k_B$。由电功 $W=q\Delta\phi$，$1\,\mathrm{eV}=e\times1\,\mathrm V$，除以 $k_B$ 即得温度换算。
 
 因此，$\Theta_s=1\,\mathrm{eV}$ 对应 $T_s\simeq1.16045\times10^4\,\mathrm K$，$1\,\mathrm{keV}$ 对应约 $1.16045\times10^7\,\mathrm K$。若记 $T_{s,\mathrm{eV}}=\Theta_s/(1\,\mathrm{eV})$，它是一个数值，例如在 $1\,\mathrm{keV}$ 时等于 $1000$；代入 SI 公式前，须把能量还原为焦耳。[NIST：2022 CODATA 常数表，electron volt 条目](https://physics.nist.gov/cuu/Constants/Table/allascii.txt)；[MIT OCW：Introduction，§1.2.1，式 (1.17)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf)。
 
@@ -34,7 +34,7 @@ $$
 =\frac{m u^2}{2}+\frac32\Theta .
 $$
 
-这条积分链把谱线宽度、热能和整体流动连接起来；高斯宽度控制热项，分布中心的位置控制流动项。对同一批粒子整体改变参考系，只改变后者。
+高斯宽度决定热能，中心位置决定流动能；整体变换参考系只改变后者。
 
 **算例。** 已知电子温度能量为 $250\,\mathrm{eV}$、定向动能为每粒子 $75\,\mathrm{eV}$。先换算 $\Theta=250e=4.00544\times10^{-17}\,\mathrm J$，所以 $T=\Theta/k_B=2.90113\times10^6\,\mathrm K$；热动能为 $375\,\mathrm{eV}=6.00816\times10^{-17}\,\mathrm J$。由 $u=\sqrt{2(75e)/m_e}$ 得 $5.13637\times10^6\,\mathrm{m\,s^{-1}}$，实验室系平均动能为 $450\,\mathrm{eV}$。热项和定向项分别占 $5/6$ 与 $1/6$，可分别进入压力与宏观动能账本。积分依据见 [MIT 第 1 章 §1.2.1 的 Boltzmann 因子与 Maxwell 分布](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf)，矩的分解见 [Fitzpatrick 式 (4.15)、(4.17)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html)。
 
@@ -69,7 +69,7 @@ f_{Ms}=n_s\left(\frac{m_s}{2\pi\Theta_s}\right)^{3/2}
 \exp\!\left[-\frac{m_s|\mathbf v-\mathbf u_s|^2}{2\Theta_s}\right].
 $$
 
-三个独立高斯积分分别给出 $n_s$、零平均相对速度和 $\langle c_{sx}^2\rangle=\Theta_s/m_s$，因此 $\mathsf P_s=n_s\Theta_s\mathsf I$。这个小推导说明 $p=n\Theta$ 中的 $n$ 必须与温度所指的粒子种类相配。电子和离子分别贡献压力；对单价纯氘且 $n_e=n_D=10^{20}\,\mathrm{m^{-3}}$、$\Theta_e=\Theta_D=1\,\mathrm{keV}$，每种压力约为 $1.602\times10^4\,\mathrm{Pa}$，总热压约为 $3.204\times10^4\,\mathrm{Pa}$。[MIT OCW：Introduction，§1.2.1 的 Maxwell–Boltzmann 分布](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf)。
+三个高斯矩给出归一化 $n_s$、零平均相对速度与 $\langle c_j^2\rangle=\Theta_s/m_s$，故 $p_s=n_s\Theta_s$。单价纯氘 $n_e=n_i=10^{20}\,\mathrm{m^{-3}}$、$\Theta_e=\Theta_i=10\,\mathrm{keV}$ 时，每种压力约160 kPa，总热压约320 kPa。 [MIT OCW：Introduction，§1.2.1 的 Maxwell–Boltzmann 分布](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf)。
 
 磁化分布常需要 $p_{\parallel s}$ 与 $p_{\perp s}$，后者对应两个垂直自由度中的每一个方向；此时标量压力为 $(p_{\parallel s}+2p_{\perp s})/3$，三个自由度的权重由迹运算确定。两个不同的非 Maxwellian 分布可以有相同的 $n$、$\mathbf u$ 和温度，却具有不同的共振粒子数、热流和聚变反应率。热流与共振响应还需要更高阶矩或速度分布信息。
 
@@ -90,7 +90,7 @@ p=\frac{n(2\Theta_\perp+\Theta_\parallel)}3,\qquad
 w_{\rm th}=n\left(\Theta_\perp+\frac12\Theta_\parallel\right).
 $$
 
-两个垂直自由度已经包含在系数 2 中；沿场和横场的压力力需要使用各自的张量分量。计算迹再除以三，是把各向异性分布转换为标量温度的明确操作。
+系数2计入两个垂直自由度；取迹除以三得到标量温度，方向上的压力力仍用张量分量。
 
 **算例。** 给定 $n=2\times10^{19}\,\mathrm{m^{-3}}$、$\Theta_\perp=300\,\mathrm{eV}$、$\Theta_\parallel=900\,\mathrm{eV}$，将 eV 乘 $e$ 后，$P_\perp=961.31\,\mathrm{Pa}$、$P_\parallel=2883.92\,\mathrm{Pa}$。标量温度能量为 $500\,\mathrm{eV}$，故 $p=1602.18\,\mathrm{Pa}$，热能密度 $w_{\rm th}=2403.26\,\mathrm{J\,m^{-3}}$。相同标量温度的各向同性分布具有相同总热能，而这个例子的沿场动量通量为横场的三倍。[Fitzpatrick，式 (4.11)–(4.16)，共动系压力与能量矩](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html)。
 
@@ -118,7 +118,7 @@ $$
 \lambda_{De}^2=\frac{\varepsilon_0\Theta_e}{n_e e^2}.
 $$
 
-该式采用单一平滑电势尺度的量纲估算。当 $e\phi_*/\Theta_e$ 为一量级且 $L\gg\lambda_{De}$ 时，极小的电荷不平衡就足以支撑有限电场。例如 $n_e=10^{20}\,\mathrm{m^{-3}}$、$\Theta_e=1\,\mathrm{keV}$、$L=0.1\,\mathrm m$ 给出 $(\lambda_{De}/L)^2\simeq5.53\times10^{-8}$。这一量级说明近乎相等的两种密度仍能产生有动力学作用的电场。
+若 $e|\phi|/\Theta_e\sim1$、$L\gg\lambda_{De}$，极小电荷差也可支撑有限电场。例：$L=1$ m、$\lambda_{De}=10^{-4}$ m、$e|\phi|/\Theta_e=1$ 时，相对失衡约 $10^{-8}$。
 
 电荷中性和电流中性也是不同条件：$\mathbf j=\sum_s q_s n_s\mathbf u_s$ 还依赖各组分流速。单价等密度电子与离子若流速不同，仍可携带电流。反过来，各组分没有平均流动也不自动保证电荷中性。[UT Austin：Moments of Distribution Function，式 (4.7)、(4.8)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node47.html)。
 
@@ -140,6 +140,10 @@ $\delta_q=\varepsilon_0k^2\phi_0/(en_e)=(k\lambda_{De})^2e\phi_0/\Theta_e$。周
 **算例。** 取波长 $2.0\,\mathrm{cm}$、$\phi_0=20\,\mathrm V$、$n_e=10^{19}\,\mathrm{m^{-3}}$。先算 $k=2\pi/0.020=314.159\,\mathrm{m^{-1}}$，得到场振幅 $6.2832\times10^3\,\mathrm{V\,m^{-1}}$、电荷振幅 $1.74775\times10^{-5}\,\mathrm{C\,m^{-3}}$。除以 $en_e=1.60218\,\mathrm{C\,m^{-3}}$，相对失衡仅为 $1.09086\times10^{-5}$，即约十一百万分之一。对应的强度梯度由这一微小空间电荷提供；波长减半而势幅保持时，场幅加倍、电荷幅增加四倍。[MIT 第 1 章 §1.1.2，式 (1.2)–(1.5)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/0d55dc0f7c1c80046ebc862df0e8b314_chap1.pdf)。
 
 ## Debye 屏蔽与多组分屏蔽长度
+
+![线性 Debye 屏蔽的势比与累计包围净电荷](/assets/diagrams/basic-concepts.svg)
+
+*线性 Debye 屏蔽的势比与累计包围净电荷。曲线与示意均按本条所列模型生成。*
 
 Debye 屏蔽描述近热平衡介质对微弱、近静态外加电势的密度重排。对可参与响应的 Maxwellian 组分，取远处电势为零，有
 
@@ -167,7 +171,7 @@ $$
 \phi(r)=\frac{Q}{4\pi\varepsilon_0r}\exp(-r/\lambda_D).
 $$
 
-在点电荷外令 $u(r)=r\phi(r)$，球对称屏蔽方程化为 $u''-u/\lambda_D^2=0$，故 $u=Ae^{-r/\lambda_D}+Ce^{r/\lambda_D}$。远处势为零令 $C=0$；对原方程在原点周围积分，Gauss 条件 $\lim_{r\to0}4\pi\varepsilon_0r^2(-\partial_r\phi)=Q$ 固定 $A=Q/(4\pi\varepsilon_0)$。这给出线性方程的 Green 函数；实际点电荷的非线性近场仍不由该线性解保证。
+点电荷外令 $u=r\phi$，球对称方程变为 $u^{\prime\prime}-u/\lambda_D^2=0$。远处衰减选出 $u=Ae^{-r/\lambda_D}$，原点 Gauss 条件固定 $A=Q/(4\pi\varepsilon_0)$；非线性近场另处理。
 
 指数只修饰原有的 $1/r$ 势；屏蔽势随距离连续衰减。[UT Austin：Debye Shielding，式 (1.11)–(1.15)](https://farside.ph.utexas.edu/teaching/plasma/lectures/node7.html)。
 
@@ -192,7 +196,7 @@ $$
 
 ## 集体效应、Debye 球粒子数与弱耦合
 
-集体效应（collective behavior）是许多粒子通过自洽电磁场共同响应；两粒子间的强散射则由近距离轨道偏转描述。对典型的经典弱耦合准中性等离子体，常用三类比较来判断所选近似是否适合：系统尺度相对于屏蔽长度、一个屏蔽体积中粒子的数量，以及集体响应频率相对于破坏该响应的碰撞率。它们分别约束空间范围、统计描述和时间演化，适合联合比较。
+集体响应由自洽电磁场组织。经典弱耦合近似分别检查系统/屏蔽尺度、屏蔽体积粒子数，以及集体频率/碰撞率，约束空间、统计和时间排序。
 
 以电子 Debye 长度为约定，定义
 
@@ -218,7 +222,7 @@ $$
 
 在弱耦合库仑理论中，碰撞率相对等离子体频率常具有 $\nu/\omega_p$ 与 $\ln N_D/N_D$ 同阶的缩放关系，但精确系数、库仑对数和碰撞率定义依赖具体过程。该缩放展示了弱耦合极限中集体响应快于碰撞的时间尺度分离。[UT Austin：Collisions，式 (1.21)–(1.27)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node9.html)。
 
-可用热速率 $v\sim\sqrt{\Theta/m}$ 与经典近碰撞尺度 $b_{90}\sim e^2/(4\pi\varepsilon_0\Theta)$ 检查这个缩放：小角累积给 $\nu\sim nv b_{90}^2\ln\Lambda$，而 $v=\omega_p\lambda_D$、$b_{90}=1/(4\pi n\lambda_D^2)$。所以 $\nu/\omega_p\sim\ln\Lambda/(n\lambda_D^3)\sim\ln\Lambda/N_D$；同一约定下 $\lambda_D/b_{90}=3N_D$，从而 $\ln\Lambda\sim\ln N_D$。这里只追踪量级，角矩、速度平均和截断会改变常数。
+取 $v_t\sim\sqrt{\Theta_e/m_e}$、$b_0\sim e^2/(4\pi\varepsilon_0\Theta_e)$，小角累积给 $\nu\sim n_ev_tb_0^2\ln\Lambda$。用 $\omega_{pe}\sim v_t/\lambda_{De}$、$b_0\sim1/(n_e\lambda_{De}^2)$，得 $\nu/\omega_{pe}\sim\ln\Lambda/N_D$；这里只保留量级。
 
 弱耦合体系在长时间演化中仍会积累碰撞效应；强耦合物质也可以是等离子体，只是上述 Debye–弱散射描述可能失效。部分电离也是等离子体物理的重要范围：部分电离体系能有集体响应，但须把电子–中性粒子等碰撞纳入时间尺度比较。本页采用聚变热等离子体常见的弱耦合排序。
 
@@ -261,7 +265,7 @@ $$
 
 该简化模型忽略压力、碰撞、磁场和边界细节，给出电荷分离恢复力的本征频率。若多个冷组分都能运动，无磁、静电、均匀线性模型给出 $\omega^2=\sum_s\omega_{ps}^2$ 的电荷分离振荡分支。固定离子的电子振荡是其中的近似；低频问题则保留离子动力学。
 
-对非零波数的纵向位移也能推得多组分结果：连续性给 $\delta n_s=-n_{s0}\partial_x\xi_s$，Poisson 方程积分给 $E=-\sum_sq_sn_{s0}\xi_s/\varepsilon_0$（不含均匀外加场）。对它求两次时间导数，再用 $m_s\ddot\xi_s=q_sE$，得到 $\ddot E+\sum_s\omega_{ps}^2E=0$；其非零频率正是上述电荷分离分支。组分同向移动而不产生电荷分离的零频自由度未包含在这条非零根中。
+非零纵向波数下，$n_{s1}=-n_{s0}\partial_x\xi_s$、$E_1=-\sum_sn_{s0}q_s\xi_s/\varepsilon_0$。结合 $m_s\ddot\xi_s=q_sE_1$，得 $\ddot E_1+\sum_s\omega_{ps}^2E_1=0$；不含不产生电荷分离的零频自由度。
 
 数值上，在 $n_e=10^{20}\,\mathrm{m^{-3}}$ 时，$\omega_{pe}\simeq5.64\times10^{11}\,\mathrm{rad\,s^{-1}}$，$f_{pe}\simeq89.8\,\mathrm{GHz}$；等密度单价氘的 $\omega_{pD}\simeq9.31\times10^9\,\mathrm{rad\,s^{-1}}$。频率随 $\sqrt n$ 增长；将密度提高四倍只使频率加倍。若密度以 $\mathrm{cm^{-3}}$ 输入常见工程公式，须先注意 $1\,\mathrm{cm^{-3}}=10^6\,\mathrm{m^{-3}}$，否则频率会相差一千倍。
 
@@ -307,7 +311,7 @@ $$
 d_s=\frac{c}{\omega_{ps}}.
 $$
 
-第一式把 $\omega_{ps}^2=n_sq_s^2/(\varepsilon_0m_s)$ 代入根号后，直接还原 $\lambda_{Ds}^2=\varepsilon_0\Theta_s/(n_sq_s^2)$。惯性长度则以光速乘集体惯性响应时间 $\omega_{ps}^{-1}$ 定义；其电磁意义可从冷电子动量方程 $-i\omega m_e\mathbf v=-e\mathbf E$ 出发，得 $\mathbf J=i\varepsilon_0\omega_{pe}^2\mathbf E/\omega$，代入 Maxwell 横波方程得到下述 $k^2c^2=\omega^2-\omega_{pe}^2$。令 $k=i\kappa$ 才得到衰减长度。
+将 $\omega_{ps}^2=n_sq_s^2/(\varepsilon_0m_s)$ 代回即可检验第一式。惯性长度定义为 $c/\omega_{ps}$；其电磁衰减意义由冷横波 $k^2c^2=\omega^2-\omega_{pe}^2$ 取 $k=i\kappa$ 得到。
 
 $d_s$ 是惯性长度，单位 m，$c$ 是光速。$\lambda_D$ 与 $d_s$ 的比值含热速度相对光速的因子，所对应的物理响应不同。$d_e$ 常称电子趋肤深度的特征尺度；实际电磁场衰减长度还依赖频率、碰撞和磁场，应从所用色散关系求出。例如固定离子、无磁、无碰撞冷电子模型有 $k^2c^2=\omega^2-\omega_{pe}^2$；在 $\omega<\omega_{pe}$ 时，衰减长度为 $c/\sqrt{\omega_{pe}^2-\omega^2}$，只有其低频极限才趋于 $d_e$。[UT Austin：Plasma Frequency，式 (1.7)、(1.8)](https://farside.ph.utexas.edu/teaching/plasma/lectures/node6.html)；[MIT OCW：Electromagnetic Waves，§5.2.1–§5.2.2，式 (5.53)–(5.57)](https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/75c75c5df51f8fba1b2a903fde937ddc_chap5.pdf)。
 
@@ -322,7 +326,7 @@ $d_s$ 是惯性长度，单位 m，$c$ 是光速。$\lambda_D$ 与 $d_s$ 的比�
 
 相同温度、相同电荷量和相同数密度下，单种 Debye 长度与质量无关；热速度却随 $m^{-1/2}$ 变化，惯性长度与热回旋半径随 $m^{1/2}$ 变化。这解释了为何电子与离子可能对同一尺度的扰动作出不同响应。总静态 Debye 长度仍需按上一条对可响应组分求和，按逆平方规则组合。
 
-表中各行使用同一输入链：$1\,\mathrm{keV}=1.60218\times10^{-16}\,\mathrm J$，电子依次有 $v_{te}=\sqrt{2(1.60218\times10^{-16})/m_e}$、$\omega_{pe}=5.64146\times10^{11}\,\mathrm{s^{-1}}$、$|\Omega_e|=e(5)/m_e=8.79410\times10^{11}\,\mathrm{s^{-1}}$；再分别求 $v_{te}/(\sqrt2\omega_{pe})$、$c/\omega_{pe}$、$v_{te}/|\Omega_e|$。氘的质量比 $m_D/m_e\simeq3670.48$ 使热速率除以 $\sqrt{3670.48}$，后两种长度乘以该因子，Debye 长度保持。
+统一输入 $1\,\mathrm{keV}=1.60218\times10^{-16}$ J。电子 $\omega_{pe}=5.64146\times10^{11}$ s⁻¹、$|\Omega_e|=8.79410\times10^{11}$ s⁻¹，代入本条公式即得各行。氘/电子质量比3670.48：速率除以其平方根，惯性长度与热回旋半径乘以其平方根，单种 Debye 长度不变。
 
 应把梯度尺度、波长、轨道宽度和网格尺度分别与物理尺度比较；模型包含的物理与网格对该尺度的分辨能力需要分别确定。高能尾粒子的回旋半径应按实际 $m_sv_\perp/(|q_s|B)$ 计算。把 $v_t$ 的两种定义混用会产生 $\sqrt2$ 误差，而把角频率与普通频率混用会再引入 $2\pi$ 误差。
 
@@ -352,7 +356,7 @@ $$
 \frac{\nu_s}{|\Omega_s|}\ll1.
 $$
 
-这些条件来自一次回旋内的展开量：Lorentz 方程在均匀场中给 $\ddot v_x+\Omega_s^2v_x=0$，所以 $|\Omega_s|^{-1}$ 是回旋时间尺度，$v_\perp/|\Omega_s|$ 是横向位移尺度。一次回旋中相对场强变化量约为 $\rho_s/L_B$ 或 $\omega_{\rm proc}/|\Omega_s|$，显著散射的累计概率量级为 $\nu_s/|\Omega_s|$；沿场穿越同理给下述 $v_\parallel/(|\Omega_s|L_\parallel)$。排序只比较量级，周期中的 $2\pi$ 不影响远小于一的要求。
+一次回旋内，场强/方向变化约为 $\rho_s/L_B$、$\omega_{\rm proc}/|\Omega_s|$，散射概率约为 $\nu_s/|\Omega_s|$；沿场还需 $v_\parallel/(|\Omega_s|L_\parallel)\ll1$。这些是远小于一的量级排序，周期因子 $2\pi$ 不改变其含义。
 
 $L_B$ 表示磁场大小及方向的有效变化尺度，$\omega_{\mathrm{proc}}$ 是过程特征角频率，$\nu_s$ 是明确指定的散射或动量弛豫率，单位 $\mathrm{s^{-1}}$。还应检查粒子沿磁力线运动时，一次回旋内遇到的磁场变化是否足够小；平行穿越引起的变化率还需满足 $v_\parallel/(|\Omega_s|L_\parallel)\ll1$。[UT Austin：Magnetized Plasmas，式 (1.29)–(1.33)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node10.html)；[Guiding Center Motion，式 (2.21)、(2.22)](https://farside.ph.utexas.edu/teaching/plasma/lectures1/node18.html)。
 

@@ -95,8 +95,12 @@ check('finite-N standard error agrees within 0.3 percent',
 
 out = ROOT/'.build/simulation-research/numerical-checks.json'
 out.parent.mkdir(parents=True, exist_ok=True)
+config = json.loads((ROOT/'site/site.json').read_text())
+simulation = next(chapter for chapter in config['chapters'] if chapter['slug'] == 'simulation')
+source_hashes = {source: hashlib.sha256((ROOT/source).read_bytes()).hexdigest()
+                 for _, source in simulation['sections']}
 report = dict(scope=__doc__.strip(), all_passed=True, count=len(records),
-              source_sha256=hashlib.sha256((ROOT/'仿真计算/README.md').read_bytes()).hexdigest(),
+              source_sha256=source_hashes,
               checks=records)
 out.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
 print(f'{len(records)} simulation teaching checks passed; no listed solver was installed or run.')

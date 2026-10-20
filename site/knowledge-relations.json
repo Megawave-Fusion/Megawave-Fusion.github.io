@@ -1069,6 +1069,186 @@
       "target": "MF000163",
       "type": "related",
       "reason": "电流剖面和磁岛演化可影响托卡马克破裂风险。"
+    },
+    {
+      "source": "MF000183",
+      "target": "MF000184",
+      "type": "prerequisite",
+      "reason": "端口求得的实际带电流谱是热全波驱动的边界输入。"
+    },
+    {
+      "source": "MF000184",
+      "target": "MF000185",
+      "type": "prerequisite",
+      "reason": "统一组分与发射谱后才能比较波支及分物种吸收。"
+    },
+    {
+      "source": "MF000185",
+      "target": "MF000186",
+      "type": "prerequisite",
+      "reason": "吸收产生快尾，需要波–分布迭代与轨道检查。"
+    },
+    {
+      "source": "MF000186",
+      "target": "MF000187",
+      "type": "prerequisite",
+      "reason": "先定义分布与功率输出，再设置数值收敛和实验诊断。"
+    },
+    {
+      "source": "MF000016",
+      "target": "MF000183",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000188",
+      "target": "MF000189",
+      "type": "prerequisite",
+      "reason": "发射光学、平衡和剖面是射线或束追踪的共同输入。"
+    },
+    {
+      "source": "MF000189",
+      "target": "MF000190",
+      "type": "prerequisite",
+      "reason": "选定传播模型后才能定义共振吸收和剩余功率。"
+    },
+    {
+      "source": "MF000190",
+      "target": "MF000191",
+      "type": "prerequisite",
+      "reason": "沉积与共振谱决定伴随或FP电流响应的输入。"
+    },
+    {
+      "source": "MF000191",
+      "target": "MF000192",
+      "type": "prerequisite",
+      "reason": "有了沉积与电流，才可比较热响应和磁岛对准效果。"
+    },
+    {
+      "source": "MF000022",
+      "target": "MF000188",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000193",
+      "target": "MF000194",
+      "type": "prerequisite",
+      "reason": "束线、能量组份和功率归一决定停止与出生源。"
+    },
+    {
+      "source": "MF000194",
+      "target": "MF000195",
+      "type": "prerequisite",
+      "reason": "出生源进入碰撞慢化后才形成分物种热源和NBCD。"
+    },
+    {
+      "source": "MF000195",
+      "target": "MF000196",
+      "type": "prerequisite",
+      "reason": "慢化分布及源权重为三维轨道损失提供共同基线。"
+    },
+    {
+      "source": "MF000196",
+      "target": "MF000197",
+      "type": "prerequisite",
+      "reason": "分布与轨道结果需经诊断响应后才能与FIDA/NPA比较。"
+    },
+    {
+      "source": "MF000028",
+      "target": "MF000193",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000198",
+      "target": "MF000199",
+      "type": "prerequisite",
+      "reason": "耦合求得的实际谱是可达性和传播的输入。"
+    },
+    {
+      "source": "MF000199",
+      "target": "MF000200",
+      "type": "prerequisite",
+      "reason": "局部平行谱决定尾电子的准线性扩散与电流。"
+    },
+    {
+      "source": "MF000200",
+      "target": "MF000201",
+      "type": "prerequisite",
+      "reason": "统一尾电子模型与功率接口后再比较射线和全波。"
+    },
+    {
+      "source": "MF000201",
+      "target": "MF000202",
+      "type": "prerequisite",
+      "reason": "共同基线用于分辨边缘损失及硬X射线信号差异。"
+    },
+    {
+      "source": "MF000034",
+      "target": "MF000198",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000203",
+      "target": "MF000204",
+      "type": "prerequisite",
+      "reason": "O-X产出的慢X支为X-B热转换提供入射条件。"
+    },
+    {
+      "source": "MF000204",
+      "target": "MF000205",
+      "type": "prerequisite",
+      "reason": "离开转换区后才可在可辨识热波支上初始化射线。"
+    },
+    {
+      "source": "MF000205",
+      "target": "MF000206",
+      "type": "prerequisite",
+      "reason": "热传播和谐波吸收为准线性分布及电流计算提供输入。"
+    },
+    {
+      "source": "MF000206",
+      "target": "MF000207",
+      "type": "prerequisite",
+      "reason": "线性转换及分布基线是研究非线性和实验效率的起点。"
+    },
+    {
+      "source": "MF000040",
+      "target": "MF000203",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000208",
+      "target": "MF000209",
+      "type": "prerequisite",
+      "reason": "先明确低温源与高温环形波模型边界，再建立天线输入。"
+    },
+    {
+      "source": "MF000209",
+      "target": "MF000210",
+      "type": "prerequisite",
+      "reason": "实际天线电流谱为边缘全波及寄生支计算提供边界。"
+    },
+    {
+      "source": "MF000210",
+      "target": "MF000211",
+      "type": "prerequisite",
+      "reason": "穿过边缘的谱与功率决定芯部吸收和电子分布输入。"
+    },
+    {
+      "source": "MF000211",
+      "target": "MF000212",
+      "type": "prerequisite",
+      "reason": "吸收及电流预测经前向观测后才能与实验比较。"
+    },
+    {
+      "source": "MF000046",
+      "target": "MF000208",
+      "type": "related",
+      "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
     }
   ],
   "paths": [
@@ -1158,6 +1338,78 @@
         "MF000159",
         "MF000160",
         "MF000161"
+      ]
+    },
+    {
+      "id": "simulation-icrh",
+      "title": "离子回旋加热模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000183",
+        "MF000184",
+        "MF000185",
+        "MF000186",
+        "MF000187"
+      ]
+    },
+    {
+      "id": "simulation-ecrh",
+      "title": "电子回旋加热模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000188",
+        "MF000189",
+        "MF000190",
+        "MF000191",
+        "MF000192"
+      ]
+    },
+    {
+      "id": "simulation-nbi",
+      "title": "中性束注入模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000193",
+        "MF000194",
+        "MF000195",
+        "MF000196",
+        "MF000197"
+      ]
+    },
+    {
+      "id": "simulation-lhcd",
+      "title": "低杂波电流驱动模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000198",
+        "MF000199",
+        "MF000200",
+        "MF000201",
+        "MF000202"
+      ]
+    },
+    {
+      "id": "simulation-ebw",
+      "title": "电子伯恩斯坦波加热模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000203",
+        "MF000204",
+        "MF000205",
+        "MF000206",
+        "MF000207"
+      ]
+    },
+    {
+      "id": "simulation-helicon",
+      "title": "螺旋波加热模拟",
+      "description": "沿实际计算输入、传播/源项、分布和验证顺序阅读。",
+      "nodes": [
+        "MF000208",
+        "MF000209",
+        "MF000210",
+        "MF000211",
+        "MF000212"
       ]
     }
   ]

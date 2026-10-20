@@ -1,6 +1,6 @@
 # 等离子体测量与反馈方法
 
-诊断把等离子体的响应变成可记录信号，反演再把信号转成密度、温度、磁场或热流等物理量。两步都有假设。实时控制还要求这些结果及时、可靠地到达执行器。本页将信号形成、物理反演、误差传播和反馈动态连接起来。
+诊断将等离子体响应变为信号，再经有假设的反演得到物理量；实时控制还要满足延迟与有效性要求。本页连接信号形成、误差和反馈动态。
 
 ## 诊断方法
 
@@ -13,7 +13,16 @@ $$
 r_e=\frac{e^2}{4\pi\epsilon_0m_ec^2}.
 $$
 
-从冷、非磁化电子的线性动量方程 $m_e\dot{\mathbf v}=-e\mathbf E$ 出发，取 $e^{-i\omega t}$ 响应，得到 $\mathbf J=i n_ee^2\mathbf E/(m_e\omega)$。代入 Maxwell 波动方程，横波色散为 $c^2k^2=\omega^2-\omega_{pe}^2$，其中 $\omega_{pe}^2=n_ee^2/(\epsilon_0m_e)$。于是折射率 $n_{\rm ref}=ck/\omega=\sqrt{1-\omega_{pe}^2/\omega^2}$；在高频下保留平方根展开的一阶项，沿光路有
+冷非磁化电子取 $e^{-i\omega t}$，线性运动与 Maxwell 方程依次给出
+
+$$
+m_e\dot{\mathbf v}=-e\mathbf E
+\quad\Longrightarrow\quad\mathbf J=\frac{in_ee^2}{m_e\omega}\mathbf E,
+\quad c^2k^2=\omega^2-\omega_{pe}^2,
+\quad n_{\rm ref}\simeq1-\frac{\omega_{pe}^2}{2\omega^2}.
+$$
+
+这里 $\omega_{pe}^2=n_ee^2/(\epsilon_0m_e)$；高频一阶展开沿光路积分为
 
 $$
 \Delta\phi=\int(k-\omega/c)dl
@@ -21,9 +30,11 @@ $$
 =-\frac{e^2\lambda}{4\pi\epsilon_0m_ec^2}\int n_e\,dl .
 $$
 
-最后使用 $\omega=2\pi c/\lambda$ 并把常数定义成 $r_e$，便得到所列干涉式。
+用 $\omega=2\pi c/\lambda$、$r_e=e^2/(4\pi\epsilon_0m_ec^2)$ 即得干涉式。
 
-这是单程表达；往返探测应沿实际总光路积分。这里采用“等离子体光路相位减真空光路相位”的约定；电子使折射率低于一，故相位差为负。仪器的混频约定可能反号。积分单位是 $\mathrm{m^{-2}}$，乘以 $r_e\lambda$ 后为无量纲相位。只有除以已知弦长，才得到该弦的平均密度；中心密度还需要剖面重建。多弦测量结合轴对称假设可作 Abel 反演，非轴对称情形需要更多视角或其他约束。条纹跳变、折射偏转、机械振动与中性粒子折射率均可能改变结果。依据 [IPP 等离子体干涉实验讲义](https://www.ipp.mpg.de/2882460/anleitung.pdf) 的折射率、线积分反演和 Refraction 部分；本页公式是该高频极限的代数展开。
+上式按单程及“等离子体减真空相位”定义，故相差为负；往返沿总光路积分，混频约定可能反号。$N_e=\int n_e dl$ 用 m⁻²，除以弦长才得到弦平均密度；中心密度需剖面重建。多弦 Abel 反演依赖轴对称，非轴对称需更多视角或约束。条纹跳变、折射、振动和中性粒子响应均进入误差。
+
+依据：[IPP 等离子体干涉实验讲义](https://www.ipp.mpg.de/2882460/anleitung.pdf)。
 
 ### 温度：汤姆逊散射、光谱与 ECE
 
@@ -37,13 +48,15 @@ ECE 是电子回旋辐射。只有热电子分布、足够光学厚度、合适�
 
 磁感应线圈测 $V=-N\,d\Phi_B/dt$，积分得到的是磁通变化；初值、零点漂移、线圈方向和有效面积需要另行确定。长脉冲中微小直流偏置会积累为明显误差。磁通环、局部探针和等离子体电流信号共同约束平衡重建，但有限外部数据并不唯一确定内部电流和压力剖面，还需平衡方程、边界与内部诊断。参见 [MIT 22.67J Magnetics I 课程文字稿](https://ocw.mit.edu/courses/22-67j-principles-of-plasma-diagnostics-fall-2023/12ZAvdzR_8MoYsiMQ4B8sJEHENBLL2eqS_transcript.pdf)，开头的 Faraday 定律、积分与偏置讨论。
 
-磁探针式来自 Maxwell–Faraday 定律 $\oint\mathbf E\cdot d\boldsymbol\ell=-d\int\mathbf B\cdot d\mathbf A/dt$；相同磁通穿过 $N$ 匝时电动势相加，便是 $-N\,d\Phi_B/dt$。例如恒定电压偏置 $V_b$ 在积分时引入 $-V_bt/N$ 的磁通误差，因此即使偏置很小，长时间也会累积。
+Maxwell–Faraday 定律对相同磁通的 $N$ 匝求和即得 $V=-N\,d\Phi_B/dt$。恒定偏置 $V_b$ 积分产生 $\delta\Phi_B=-V_bt/N$，因此长脉冲尤其需要零点校正。
 
 中子计数转为总中子产额需要效率、能量响应、立体角、散射和死时间修正；相机和谱仪还提供空间或能量信息。反应率取决于参与反应的分布，区分束靶与热反应需要结合能谱、分布和反应模型。辐射计接收沿视线的辐射，少量弦的层析结果受几何与正则化影响；独立空间分辨率由视线和反演条件决定。上述系统的用途见 [ITER 诊断系统](https://www.iter.org/machine/supporting-systems/diagnostics)的 Neutron diagnostics 与 Bolometric systems 段。
 
 红外相机测的是波段辐亮度，经过透过率、发射率和反射背景修正才成为表面温度；热流密度还要用材料热物性和导热模型反演。薄沉积层、表面改性和有限厚度会破坏简单半无限体近似。热电偶能提供补充约束，但响应速度和埋深与红外不同。历史案例 [NSTX 红外测量报告](https://nstx.pppl.gov/nstxhome/DragNDrop/Science_Groups/boundary/TSGs/materials_pfcs/archive/2010/20100823_LLD_Fest/pppl_lld_mclean_23august2010.pdf) 的 Infrared measurements 与发射率讨论说明材料状态如何进入温度反演。
 
 ### 从一个密度剖面算出各条弦的相位
+
+![同一抛物线密度剖面的截面探测弦、局部密度和线积分。](/assets/diagrams/system-diagnostic-density.svg)
 
 设圆截面半径为 $a$，轴对称密度为 $n_e(r)=n_0(1-r^2/a^2)$。距轴 $b$ 的直弦用坐标 $x$ 表示，沿弦有 $r^2=x^2+b^2$，弦端是 $x=\pm\sqrt{a^2-b^2}$。将密度积分后得到
 
@@ -66,7 +79,14 @@ u_c^2(y)=\mathbf J\,\mathbf C_x\,\mathbf J^{\mathsf T},\qquad
 J_i=\frac{\partial f}{\partial x_i}.
 $$
 
-具体先在输入均值附近作 Taylor 展开，$\delta y\simeq\sum_iJ_i\delta x_i$。将它平方取期望，并用 $C_{ij}=\langle\delta x_i\delta x_j\rangle$，得到 $u_c^2(y)=\sum_{ij}J_iC_{ij}J_j$，写成矩阵即为上式。扩展不确定度 $U=ku_c$ 则是将标准尺度乘覆盖因子的报告定义；若误差严格为正态，覆盖概率为标准正态在 $[-k,k]$ 的积分，$k=2$ 时为约 95.45%。
+在均值附近线性化并取方差：
+
+$$
+\delta y\simeq\sum_iJ_i\delta x_i
+\quad\Longrightarrow\quad u_c^2(y)=\sum_{ij}J_iC_{ij}J_j.
+$$
+
+扩展不确定度定义为 $U=ku_c$；严格正态时 $k=2$ 的覆盖概率约 95.45%。
 
 $\mathbf C_x$ 是输入协方差矩阵。同一标定灯、同一时钟或同一平衡重建导致相关误差，应保留协方差项。强非线性或接近物理边界时，一阶近似可能不够，需要检查完整误差分布。A 类和 B 类按评定方法区分，并不分别等于随机误差与系统误差。依据 [NIST TN 1297 附录 A](https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty)，公式 A-3 及输入定义。
 
@@ -78,7 +98,7 @@ $\mathbf C_x$ 是输入协方差矩阵。同一标定灯、同一时钟或同一
 
 ### 共同标定偏差如何在差值中抵消
 
-温差测量常用两支共用参考源的温度通道。写成 $T_1=T_{1,\rm true}+b+\epsilon_1$、$T_2=T_{2,\rm true}+b+\epsilon_2$，其中 $b$ 是两通道相同的零点偏差，$\epsilon_1,\epsilon_2$ 是各自独立噪声。相减得到 $\Delta T=T_2-T_1$，共同偏差 $b$ 消去。由一阶扰动或协方差传播都得到
+共用零点 $b$ 的两通道可写为 $T_i=T_{i,\rm true}+b+\epsilon_i$；在 $\Delta T=T_2-T_1$ 中 $b$ 抵消，独立噪声仍保留：
 
 $$
 u^2(\Delta T)=u^2(T_2)+u^2(T_1)-2\,{\rm Cov}(T_1,T_2).
@@ -100,6 +120,8 @@ $$
 
 ### 用频率响应计算延迟占用的相位裕度
 
+![正文一阶比例反馈算例：纯延迟由 2 ms 增至 8 ms，相位裕度下降。](/assets/diagrams/system-diagnostic-control-delay.svg)
+
 将某执行器与被控量的小信号关系近似为一阶环节 $G(s)=K/(1+s\tau_p)$，控制器增益为 $K_c$，端到端延迟为 $\tau_d$。单位负反馈的开环函数为 $L(s)=KK_c e^{-s\tau_d}/(1+s\tau_p)$，闭环特征条件为 $1+L(s)=0$。当 $KK_c>1$ 时，令开环幅值为 1，解得增益交越角频率；再计算该频率的相位：
 
 $$
@@ -107,7 +129,14 @@ $$
 {\rm PM}=\pi-\arctan(\omega_c\tau_p)-\omega_c\tau_d .
 $$
 
-这里的一阶环节可由 $\tau_p\dot y+y=Ku$ 在零初值下作 Laplace 变换得到；若反馈误差为 $e=r-y$、控制输入为 $K_ce$，消去 $e$ 得 $y/r=L/(1+L)$，因此闭环极点满足 $1+L=0$。在 $s=i\omega$ 处，纯延迟 $e^{-i\omega\tau_d}$ 的模为 1、相角为 $-\omega\tau_d$，而一阶环节的模为 $KK_c/\sqrt{1+(\omega\tau_p)^2}$。令后者等于 1 求得 $\omega_c$，再将总相角与 $-\pi$ 比较，就得到上述相位裕度公式。
+零初值下，$\tau_p\dot y+y=Ku$ 给出 $G(s)$；由 $u=K_c(r-y)$ 得 $y/r=L/(1+L)$。取 $s=i\omega$：
+
+$$
+|L|=\frac{KK_c}{\sqrt{1+(\omega\tau_p)^2}},\qquad
+\arg L=-\arctan(\omega\tau_p)-\omega\tau_d.
+$$
+
+令 $|L|=1$ 求交越频率，再与 $-\pi$ 比较求相位裕度。
 
 教学取 $KK_c=4$、$\tau_p=20$ ms，得到 $\omega_c=193.65$ rad/s，即 $30.82$ Hz。延迟 2 ms 时相位裕度为 $82.3^\circ$；延迟 8 ms 时降为 $15.7^\circ$。延迟项的幅值始终为 1，所以交越频率相同，但额外相位滞后随频率线性增加。这说明控制计算、通信和执行器更新周期应共同进入动态模型。该计算适用于给定的一阶、比例负反馈模型；实际多极点系统可直接从测得频响计算同一量。[MIT 16.30，Topic 3，第 3–3、3–4 页的复频响与第 3–9、3–10 页的稳定性和相位裕度](https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/ef34e49f4c79159fe0b1d8e1752bb8b5_MIT16_30F10_lec03.pdf)给出这套分析方法。
 
@@ -119,7 +148,16 @@ $$
 
 ### 完整读出一次干涉测量的物理量
 
-阅读 [IPP 干涉诊断讲义式 (27)–(28)、(42)–(44)](https://www.ipp.mpg.de/2882460/anleitung.pdf)时，可从一组教学读数写成计算卡：波长 10.6 μm、等离子体有效弦长 0.75 m、按“等离子体减真空”定义的相移 $-0.900$ rad。先确认相位单位为 rad，再由 $N_e=-\Delta\phi/(r_e\lambda)$ 求得弦积分密度 $3.01\times10^{19}$ m⁻²，最后除以弦长得到 $\overline n_e=4.02\times10^{19}$ m⁻³。这样每一步的输出单位都决定下一步的输入。
+教学计算卡取波长 10.6 μm、有效弦长 0.75 m、相移 $-0.900$ rad（等离子体减真空）：
+
+$$
+N_e=-\frac{\Delta\phi}{r_e\lambda}=3.01\times10^{19}\ {\rm m^{-2}},\qquad
+\overline n_e=\frac{N_e}{L}=4.02\times10^{19}\ {\rm m^{-3}}.
+$$
+
+相位、积分密度与平均密度的单位链分别保留。
+
+依据：[IPP 干涉诊断讲义式 (27)–(28)、(42)–(44)](https://www.ipp.mpg.de/2882460/anleitung.pdf)。
 
 若只考虑相位标准不确定度 $u_\phi=0.020$ rad，则灵敏度为 $\partial\overline n_e/\partial\phi=-1/(r_e\lambda L)$，所以 $u_n=8.93\times10^{17}$ m⁻³。再读取波长、几何和参考光路的标定记录，按 [NIST TN 1297 式 (A-3)](https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty)加入其方差与相关项。一张完成的阅读卡应同时写下原文方程位置、相位正负约定、积分路径、近似条件、结果和不确定度分量；它可以直接复用到代码注释与放电报告中。
 

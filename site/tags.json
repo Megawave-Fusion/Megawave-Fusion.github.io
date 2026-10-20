@@ -314,21 +314,6 @@
     "status": "draft",
     "kind": "专题"
   },
-  "仿真计算/README.md#多物理耦合与数据接口": {
-    "tag": "MF000064",
-    "status": "draft",
-    "kind": "专题"
-  },
-  "仿真计算/README.md#验证、确认与不确定性": {
-    "tag": "MF000065",
-    "status": "draft",
-    "kind": "专题"
-  },
-  "仿真计算/README.md#可复现计算": {
-    "tag": "MF000066",
-    "status": "draft",
-    "kind": "专题"
-  },
   "工程系统/README.md#磁体与电源": {
     "tag": "MF000067",
     "status": "draft",
@@ -811,6 +796,341 @@
   },
   "基础原理/输运与边界/README.md#破裂、热淬灭与逃逸电子": {
     "tag": "MF000163",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/多物理耦合/README.md#多物理耦合与数据接口": {
+    "tag": "MF000064",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/验证与不确定性/README.md#验证、确认与不确定性": {
+    "tag": "MF000065",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/可复现与算力/README.md#可复现计算": {
+    "tag": "MF000066",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/平衡与磁场优化/README.md#轴对称平衡与实验重建": {
+    "tag": "MF000164",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/平衡与磁场优化/README.md#三维平衡与嵌套磁面": {
+    "tag": "MF000165",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/平衡与磁场优化/README.md#线圈与多指标优化": {
+    "tag": "MF000166",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/磁流体稳定性/README.md#台基的线性稳定边界": {
+    "tag": "MF000167",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/磁流体稳定性/README.md#三维扩展 MHD 软件": {
+    "tag": "MF000168",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/磁流体稳定性/README.md#VDE 跨代码基准": {
+    "tag": "MF000169",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/芯部输运/README.md#解释性分析与预测性输运": {
+    "tag": "MF000170",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/芯部输运/README.md#稳态通量匹配与 TGYRO": {
+    "tag": "MF000171",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/芯部输运/README.md#快速输运与控制模型": {
+    "tag": "MF000172",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/芯部输运/README.md#准线性输运与代理模型": {
+    "tag": "MF000173",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/陀螺动理学/README.md#扰动、全分布与局部全局模型": {
+    "tag": "MF000174",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/陀螺动理学/README.md#网格陀螺动理学软件": {
+    "tag": "MF000175",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/陀螺动理学/README.md#粒子与连续分布的全局动理学": {
+    "tag": "MF000176",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/边缘与偏滤器/README.md#平均输运与动理学中性粒子": {
+    "tag": "MF000177",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/边缘与偏滤器/README.md#边缘涨落与多物种流体": {
+    "tag": "MF000178",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离散与粒子方法/README.md#有限差分、有限体积与守恒步": {
+    "tag": "MF000179",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离散与粒子方法/README.md#通用电磁 PIC 的软件与采样": {
+    "tag": "MF000180",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/射频波与分布函数/README.md#射线、准光学与全波的选择": {
+    "tag": "MF000181",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/射频波与分布函数/README.md#弹跳平均 Fokker–Planck 与电流": {
+    "tag": "MF000182",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋加热模拟/README.md#ICRH 天线负载与匹配：TOPICA、RAPLICASOL 和 HFSS": {
+    "tag": "MF000183",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋加热模拟/README.md#ICRH 组分与发射谱：建立热全波输入": {
+    "tag": "MF000184",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋加热模拟/README.md#ICRH 快波、模转换与各组分吸收": {
+    "tag": "MF000185",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋加热模拟/README.md#ICRH 快离子尾与 RF–Fokker–Planck 迭代": {
+    "tag": "MF000186",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋加热模拟/README.md#ICRH 网格、谱收敛与测量量对照": {
+    "tag": "MF000187",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子回旋加热模拟/README.md#EC 发射光学、磁平衡与剖面输入": {
+    "tag": "MF000188",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子回旋加热模拟/README.md#EC 射线、束追踪软件怎样选择": {
+    "tag": "MF000189",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子回旋加热模拟/README.md#EC 共振吸收、功率沉积与单程余功率": {
+    "tag": "MF000190",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子回旋加热模拟/README.md#ECCD 伴随响应与 Fokker–Planck 耦合": {
+    "tag": "MF000191",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子回旋加热模拟/README.md#EC 热响应、湍流展宽与磁岛定位检验": {
+    "tag": "MF000192",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中性束注入模拟/README.md#束线几何、能量组份与功率归一": {
+    "tag": "MF000193",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中性束注入模拟/README.md#束衰减、离化出生与穿透损失": {
+    "tag": "MF000194",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中性束注入模拟/README.md#碰撞慢化、分物种加热与 NBCD": {
+    "tag": "MF000195",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中性束注入模拟/README.md#三维轨道、快离子损失与壁热斑": {
+    "tag": "MF000196",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中性束注入模拟/README.md#FIDASIM 合成诊断与 NBI 验证": {
+    "tag": "MF000197",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/低杂波电流驱动模拟/README.md#LH 波导耦合与实际发射谱": {
+    "tag": "MF000198",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/低杂波电流驱动模拟/README.md#LH 可达性、折射与谱间隙": {
+    "tag": "MF000199",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/低杂波电流驱动模拟/README.md#LH 尾电子、准线性平台与电流闭合": {
+    "tag": "MF000200",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/低杂波电流驱动模拟/README.md#LH 全波与射线：TORLH–CQL3D 的公平比较": {
+    "tag": "MF000201",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/低杂波电流驱动模拟/README.md#LH 边缘损失与硬 X 射线对照": {
+    "tag": "MF000202",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子伯恩斯坦波模拟/README.md#O-X 转换窗口与有限微波束": {
+    "tag": "MF000203",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子伯恩斯坦波模拟/README.md#X-B 转换、倏逝层和有限 Larmor 半径": {
+    "tag": "MF000204",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子伯恩斯坦波模拟/README.md#EBW 热射线、谐波吸收与代码选择": {
+    "tag": "MF000205",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子伯恩斯坦波模拟/README.md#EBW 准线性吸收与电流方向": {
+    "tag": "MF000206",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/电子伯恩斯坦波模拟/README.md#EBW 非线性转换与数值、实验核对": {
+    "tag": "MF000207",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/螺旋波模拟/README.md#低温螺旋波源与高温环形 Helicon 的模型边界": {
+    "tag": "MF000208",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/螺旋波模拟/README.md#Helicon 三维天线电流、方向谱与耦合功率": {
+    "tag": "MF000209",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/螺旋波模拟/README.md#Helicon 边缘全波、寄生慢波与工具比较": {
+    "tag": "MF000210",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/螺旋波模拟/README.md#Helicon 芯部传播、Landau 吸收与动理学电流": {
+    "tag": "MF000211",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/螺旋波模拟/README.md#Helicon 模型核验与加热、电流实验的闭环": {
+    "tag": "MF000212",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中子学与热结构/README.md#固定源核输运与核数据库": {
+    "tag": "MF000213",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中子学与热结构/README.md#参数 CAD 与输运几何": {
+    "tag": "MF000214",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中子学与热结构/README.md#电磁损耗、温度与热应力": {
+    "tag": "MF000215",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/中子学与热结构/README.md#每源中子结果与实际核热": {
+    "tag": "MF000216",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/多物理耦合/README.md#磁坐标、方向与单位转换": {
+    "tag": "MF000217",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/多物理耦合/README.md#空间重映射与耦合步长": {
+    "tag": "MF000218",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/多物理耦合/README.md#RF、分布与输运的功率闭合": {
+    "tag": "MF000219",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/多物理耦合/README.md#快粒子与热库的能量交换": {
+    "tag": "MF000220",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/验证与不确定性/README.md#输入误差与代理模型泛化": {
+    "tag": "MF000221",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/验证与不确定性/README.md#跨软件对比的共同基准": {
+    "tag": "MF000222",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/验证与不确定性/README.md#相关采样与有效样本数": {
+    "tag": "MF000223",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/验证与不确定性/README.md#制造解与离散阶数检验": {
+    "tag": "MF000224",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/可复现与算力/README.md#算力、并行与端到端成本": {
+    "tag": "MF000225",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/可复现与算力/README.md#按课题建立最小基线": {
+    "tag": "MF000226",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/可复现与算力/README.md#时间积分配置与独立重建": {
+    "tag": "MF000227",
     "status": "draft",
     "kind": "专题"
   }
