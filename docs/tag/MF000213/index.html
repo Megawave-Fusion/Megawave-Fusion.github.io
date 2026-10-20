@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>固定源核输运与核数据库 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="固定源核输运与核数据库 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000213/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000213/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-engineering/">中子学与热结构</a><span>/</span><span>固定源核输运与核数据库</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.15.1 · 专题</p><h1>固定源核输运与核数据库</h1><div class="page-meta"><span class="tag">MF000213</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-engineering/#MF000213">在连续正文中阅读</a></div><article class="prose"><h3 id="openmc-与-mcnp-的共同输入">OpenMC 与 MCNP 的共同输入</h3>
+<p>中子和光子在材料中的输运与带电快粒子磁轨道是不同的问题。工程计算链可写为“参数/CAD 几何 → 几何检查与材料赋值 → 核输运与核热 → 热流/体热源映射 → 温度和结构响应”。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>核心角色</th>
+<th>适合比较的任务</th>
+<th>需要补齐的输入或模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.openmc.org/en/stable/usersguide/beginners.html">OpenMC</a> / <a href="https://mcnp.lanl.gov/how_to_get_the_mcnp_code.html">MCNP</a></td>
+<td>本章关注的固定源中子/光子 Monte Carlo 输运</td>
+<td>氚产生、屏蔽、核热和反应率；对齐几何、核数据和源后做统计比较</td>
+<td>同位素/密度、连续能核数据、温度、源空间/能谱/角分布及 tally 定义</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://docs.openmc.org/en/stable/usersguide/data.html">OpenMC 核数据说明</a>要求把数据库路径、评价/处理版本与温度纳入输入；更换评价库可能改变 TBR 和反应率，增加历史数不能消除这种系统差异。damage-energy tally 到 dpa 还需要位移损伤模型与参数，氚产生比到燃料自持还需要燃耗、库存、处理损失及停机收支。</p>
+<h3 id="聚变源到材料体热源">聚变源到材料体热源</h3>
+<p><strong>聚变源—核热—温度应力。</strong> 反应率与快离子模型提供中子空间、能谱和角分布；中子学求解各材料区的核热与反应率；工程模型再叠加表面热流、冷却和结构约束。保留每源粒子 tally 到 W 或 W/m³ 的归一化过程，以及核数据、材料密度和同位素组成版本。CAD 到输运网格、输运网格到有限元网格的两次映射分别检查总量。</p>
+<p>这些是计算组织方案。选取其中一条时，应明确哪些模块已经真实相连、哪些载荷为外部给定，保存每次耦合调用的输入和输出版本。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenMC</td>
+<td><a href="https://raw.githubusercontent.com/openmc-dev/openmc/develop/LICENSE">官方仓库许可</a>为 MIT</td>
+<td>核数据、耗损链的权限及版本各自确认</td>
+</tr>
+<tr>
+<td>MCNP</td>
+<td><a href="https://mcnp.lanl.gov/how_to_get_the_mcnp_code.html">官方获取说明</a>要求经 RSICC 受控分发</td>
+<td>核数据及 MCNP 分发包的权限与版本各自确认</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E4%B8%AD%E5%AD%90%E5%AD%A6%E4%B8%8E%E7%83%AD%E7%BB%93%E6%9E%84/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000213%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000213,
+  author = {{Megawave-Fusion}},
+  title = {固定源核输运与核数据库},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000213/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-engineering/"><small>← 上一页</small>中子学与热结构</a><a class="next" href="/tag/MF000214/"><small>下一页 →</small>参数 CAD 与输运几何</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

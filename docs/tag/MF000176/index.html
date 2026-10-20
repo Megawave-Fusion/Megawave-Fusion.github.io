@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>粒子与连续分布的全局动理学 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="粒子与连续分布的全局动理学 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000176/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000176/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-gyrokinetic/">陀螺动理学与湍流</a><span>/</span><span>粒子与连续分布的全局动理学</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.5.3 · 专题</p><h1>粒子与连续分布的全局动理学</h1><div class="page-meta"><span class="tag">MF000176</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-gyrokinetic/#MF000176">在连续正文中阅读</a></div><article class="prose"><h3 id="gtc-与-gkeyll-的模型边界">GTC 与 Gkeyll 的模型边界</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>主要方程与表示</th>
+<th>合适的研究任务</th>
+<th>选择时应区分的点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://sun.ps.uci.edu/people/zlin/bib/wong24.pdf">GTC</a></td>
+<td>全局环形 gyrokinetic PIC，可用 <span class="arithmatex">\(\delta f\)</span> 或 full-<span class="arithmatex">\(f\)</span>，有混合电子等模型</td>
+<td>全局湍流、快粒子与 Alfvén 模相关研究</td>
+<td>选定电子与电磁模型，并扫描标记数、随机性和数值噪声；PIC 不表示逐圈解析完整回旋运动</td>
+</tr>
+<tr>
+<td><a href="https://gkeyll.readthedocs.io/en/latest/">Gkeyll</a></td>
+<td>当前公开 GK 模块为 full-<span class="arithmatex">\(f\)</span>、长波极限、模态间断 Galerkin 分布网格，静电 GK-Poisson</td>
+<td>非 Maxwellian 分布、开场线与鞘层相关动理学问题</td>
+<td>与其 Vlasov-Maxwell 模块、历史论文中的电磁扩展分开；实际可用功能以所选模块为准</td>
+</tr>
+</tbody>
+</table></div>
+<p>GTC 的粒子标记和 Gkeyll 的分布网格带来不同的误差来源；比较时先统一电子模型、碰撞、场方程及边界。保留 full-f 并不取消所采用的低频或长波排序。Gkeyll 的<a href="https://gkeyll.readthedocs.io/en/latest/quickstart.html">鞘层教学例</a>还需与包含电离、复合和辐射的实际边缘模型区分。</p>
+<h3 id="获取与运行依赖：粒子与连续分布的全局动理学">获取与运行依赖：粒子与连续分布的全局动理学</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GTC</td>
+<td><a href="https://sun.ps.uci.edu/gtc/">官方入口</a>列 BSD-3-Clause</td>
+<td>电子模型、几何接口、编译库与输入基准分别配置</td>
+</tr>
+<tr>
+<td>Gkeyll</td>
+<td><a href="https://github.com/gkeyllorg/gkeyll">主仓库</a>为 MIT</td>
+<td>按 core/moments/vlasov/gyrokinetic 等实际模块及依赖构建</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E9%99%80%E8%9E%BA%E5%8A%A8%E7%90%86%E5%AD%A6/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000176%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000176,
+  author = {{Megawave-Fusion}},
+  title = {粒子与连续分布的全局动理学},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000176/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000175/"><small>← 上一页</small>网格陀螺动理学软件</a><a class="next" href="/sections/simulation-edge/"><small>下一页 →</small>边缘输运与偏滤器</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

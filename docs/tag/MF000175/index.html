@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>网格陀螺动理学软件 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="网格陀螺动理学软件 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000175/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000175/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-gyrokinetic/">陀螺动理学与湍流</a><span>/</span><span>网格陀螺动理学软件</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.5.2 · 专题</p><h1>网格陀螺动理学软件</h1><div class="page-meta"><span class="tag">MF000175</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-gyrokinetic/#MF000175">在连续正文中阅读</a></div><article class="prose"><h3 id="gene、gs2-与-cgyro">GENE、GS2 与 CGYRO</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>主要方程与表示</th>
+<th>合适的研究任务</th>
+<th>选择时应区分的点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://genecode.org/details.html">GENE</a></td>
+<td>Eulerian 五维 gyrokinetic，经典表述为 <span class="arithmatex">\(\delta f\)</span>，有局部与全局模式</td>
+<td>线性微稳定性、非线性离子/电子尺度湍流、径向非局域效应</td>
+<td>电磁项、碰撞、物种和托卡马克/仿星器几何按输入配置；global 不等同于 full-<span class="arithmatex">\(f\)</span></td>
+</tr>
+<tr>
+<td><a href="https://gyrokinetics.gitlab.io/gs2/">GS2</a></td>
+<td>沿场线的局部 flux-tube、扰动分布网格 gyrokinetic</td>
+<td>给定磁面附近的增长率、模结构、饱和通量与共同基准</td>
+<td>对照动理学/绝热电子、碰撞和几何；局部计算不直接给出整半径剖面演化</td>
+</tr>
+<tr>
+<td><a href="https://gafusion.github.io/doc/cgyro.html">CGYRO</a></td>
+<td>Eulerian、径向谱表示，当前官方说明包括 global-spectral 方案</td>
+<td>碰撞、电磁、多尺度湍流和径向剖面变化研究</td>
+<td>旧的“仅局部”概述已不完整；局部/全局算法与径向处理依实际版本和设置</td>
+</tr>
+</tbody>
+</table></div>
+<p>GENE 的 <span class="arithmatex">\(\delta f\)</span>、local/global 定义可查<a href="https://www.genecode.org/PAPERS_2/JPCS_012011.pdf">方法论文</a>；CGYRO 的全局算法由官方<a href="https://gafusion.github.io/doc/zreferences.html">参考文献表中的 2025 年论文</a>支持，比较时应记录实现版本。Gkeyll 的<a href="https://gkeyll.readthedocs.io/en/latest/quickstart.html">简单 GK 鞘层例子</a>展示了长波静电 full-<span class="arithmatex">\(f\)</span> 的边界问题，但该例不含完整电离、复合和辐射，不能直接当作反应堆偏滤器模型。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GENE / GS2</td>
+<td><a href="https://www.genecode.org/license.html">GENE</a>按个人学术申请，限制再分发，非学术另议；<a href="https://bitbucket.org/gyrokinetics/gs2/raw/master/LICENCE">GS2</a>为 MIT</td>
+<td>电子模型、几何接口、编译库与输入基准分别配置；两个项目的许可条件分别核对</td>
+</tr>
+<tr>
+<td>CGYRO</td>
+<td><a href="https://github.com/gafusion/gacode/blob/master/LICENSE">GACODE 主仓库</a>为 Apache-2.0</td>
+<td>实际模型与数据输入分别配置</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E9%99%80%E8%9E%BA%E5%8A%A8%E7%90%86%E5%AD%A6/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000175%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000175,
+  author = {{Megawave-Fusion}},
+  title = {网格陀螺动理学软件},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000175/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000174/"><small>← 上一页</small>扰动、全分布与局部全局模型</a><a class="next" href="/tag/MF000176/"><small>下一页 →</small>粒子与连续分布的全局动理学</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

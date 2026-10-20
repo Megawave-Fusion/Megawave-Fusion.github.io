@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>磁流体稳定性与演化 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="磁流体稳定性与演化 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-mhd/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-mhd/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>磁流体稳定性与演化</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.3 · 连续阅读</p><h1>磁流体稳定性与演化</h1><div class="page-meta"><span>3 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>从线性阈值、本征模到三维非线性演化，分别核对闭合、耗散和壁模型。</p></div><details class="page-toc"><summary>本节目录 · 3 个条目</summary><ul><li><a href="#MF000167">台基的线性稳定边界</a></li><li><a href="#MF000168">三维扩展 MHD 软件</a></li><li><a href="#MF000169">VDE 跨代码基准</a></li></ul></details><section class="entry-block" id="MF000167"><div class="entry-heading"><h2><span class="entry-number">6.3.1</span><a href="/tag/MF000167/">台基的线性稳定边界</a></h2><a class="tag" href="/tag/MF000167/">MF000167</a></div><div class="prose"><h3 id="elite-与-peeling–ballooning-扫描">ELITE 与 peeling–ballooning 扫描</h3>
+<p>线性本征问题给出某个平衡附近的增长率、频率和模结构；非线性演化才能研究模耦合、磁拓扑变化和饱和。理想 MHD、电阻 MHD、双流体及流体—动理学模型的闭合不同。目标为台基稳定边界时，可先做线性扫描；目标为 ELM 热脉冲或 VDE 壁载荷时，需要相应的时间演化、耗散、壁和源项模型。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>数值与物理特点</th>
+<th>典型任务</th>
+<th>应核对的限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://fusion.gat.com/THEORY/elite/">ELITE</a></td>
+<td>托卡马克边缘中高环向模数的理想 MHD 线性本征分析</td>
+<td>Peeling–ballooning 稳定边界、台基扫描</td>
+<td>平衡边缘分辨率和电流约束很关键；线性失稳阈值不直接给出崩塌热负荷；所引官网为历史功能说明</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ELITE</td>
+<td>当前公开源码与标准许可本次未确认</td>
+<td>获取路径及团队支持安排需另行落实</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<p>线性阶段的单模关系为 <span class="arithmatex">\(\dot A=\gamma A\)</span>，故 <span class="arithmatex">\(A(t)=A_0e^{\gamma t}\)</span>；<span class="arithmatex">\(\gamma&gt;0\)</span> 表示增长。复频率的时间谐波约定应随本征值报告。</p>
+<figure class="science-figure"><a aria-label="放大图示：单模线性幅度示例，不表示非线性 MHD 的预测结果。" class="figure-link" href="/assets/diagrams/sim-mhd.svg"><img alt="单模线性幅度示例，不表示非线性 MHD 的预测结果。" decoding="async" loading="lazy" src="/assets/diagrams/sim-mhd.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>单模线性幅度示例，不表示非线性 MHD 的预测结果。</p></div><div class="entry-tools"><a href="/tag/MF000167/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000168"><div class="entry-heading"><h2><span class="entry-number">6.3.2</span><a href="/tag/MF000168/">三维扩展 MHD 软件</a></h2><a class="tag" href="/tag/MF000168/">MF000168</a></div><div class="prose"><h3 id="m3d-c1、nimrod-与-jorek">M3D-C1、NIMROD 与 JOREK</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>数值与物理特点</th>
+<th>典型任务</th>
+<th>应核对的限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://m3dc1.pppl.gov/m3dc1_overview.html">M3D-C1</a></td>
+<td>高阶 <span class="arithmatex">\(C^1\)</span> 连续有限元与非结构网格，单/双流体扩展 MHD，隐式/半隐式推进</td>
+<td>外加三维场响应、ELM、锯齿、VDE 与破裂相关研究</td>
+<td>列清使用的流体项、壁、电阻率和边界；隐式稳定性不替代时间步收敛</td>
+</tr>
+<tr>
+<td><a href="https://nimrodteam.org/">NIMROD</a></td>
+<td>两维谱有限元与第三维 Fourier，扩展 MHD 及可选动理学闭合/粒子</td>
+<td>宏观稳定性、重联及多种磁约束构型</td>
+<td>说明具体闭合和粒子模型，检查谱模数、耗散与源项对非线性结果的影响</td>
+</tr>
+<tr>
+<td><a href="https://www.jorek.eu/">JOREK</a></td>
+<td>极向 Bézier 有限元、环向 Fourier，reduced/full MHD 及壁、杂质等可选模块</td>
+<td>含 X 点/SOL 的 ELM、VDE、破裂缓解和壁相互作用</td>
+<td>不同物理选项的耦合支持需逐项核对；中性粒子、杂质、壁与粒子设置影响载荷结论</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="获取与运行依赖：三维扩展-mhd-软件">获取与运行依赖：三维扩展 MHD 软件</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3D-C1 / NIMROD</td>
+<td><a href="https://m3dc1.pppl.gov/M3DC1_License.pdf">M3D-C1</a>、<a href="https://nimrodteam.org/code_access/">NIMROD</a>按团队协议申请</td>
+<td>有分发限制及结果使用相关条款；获取申请与团队支持周期计入项目安排</td>
+</tr>
+<tr>
+<td>JOREK</td>
+<td><a href="https://github.com/iterorganization/JOREK">ITER 官方仓库</a>已公开，README 列 LGPL-3.0-or-later</td>
+<td>核对第三方组件、所选模型及社区规则；旧 Wiki 权限与公开代码权限分开</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000168/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000169"><div class="entry-heading"><h2><span class="entry-number">6.3.3</span><a href="/tag/MF000169/">VDE 跨代码基准</a></h2><a class="tag" href="/tag/MF000169/">MF000169</a></div><div class="prose"><h3 id="共同平衡、壁与人为参数">共同平衡、壁与人为参数</h3>
+<p><a href="https://m3dc1.pppl.gov/Papers/artola_PP_21.pdf">2021 年 M3D-C1、NIMROD、JOREK 的 VDE benchmark</a>采用由 NSTX 出发的平衡、简化矩形电阻壁，并为控制成本把等离子体电阻率提高到所用 Spitzer 值的 10 倍；各代码还存在 reduced/full MHD 等差异。该研究可用于学习怎样对齐问题和比较载荷，不能据其代码间一致性给出所有破裂场景的统一精度排名。</p>
+<p>建立比较记录时，分别列出初始平衡、矩形或实际壁、壁电阻与时间常数、等离子体耗散、环向模式和所用方程。先核对线性阶段与能量预算，再比较三维演化；壁受力的峰值、时间积分和方向分量也应分别定义。</p>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000169/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A3%81%E6%B5%81%E4%BD%93%E7%A8%B3%E5%AE%9A%E6%80%A7/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E7%A3%81%E6%B5%81%E4%BD%93%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%B8%8E%E6%BC%94%E5%8C%96%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-mhd,
+  author = {{Megawave-Fusion}},
+  title = {磁流体稳定性与演化},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-mhd/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000166/"><small>← 上一页</small>线圈与多指标优化</a><a class="next" href="/tag/MF000167/"><small>下一页 →</small>台基的线性稳定边界</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

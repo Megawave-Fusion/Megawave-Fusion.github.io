@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>螺旋波传播、天线耦合与电流驱动模拟 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="螺旋波传播、天线耦合与电流驱动模拟 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-helicon/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-helicon/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>螺旋波传播、天线耦合与电流驱动模拟</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.14 · 连续阅读</p><h1>螺旋波传播、天线耦合与电流驱动模拟</h1><div class="page-meta"><span>5 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>Helicon 同时出现在低温圆柱放电与高温环形等离子体中。两类计算都涉及磁化等离子体中的波和天线，却有不同的密度生成、边界、阻尼及电流驱动问题；本专题按对象、天线、边缘全波、芯部吸收和实验检验展开。</p></div><details class="page-toc"><summary>本节目录 · 5 个条目</summary><ul><li><a href="#MF000208">低温螺旋波源与高温环形 Helicon 的模型边界</a></li><li><a href="#MF000209">Helicon 三维天线电流、方向谱与耦合功率</a></li><li><a href="#MF000210">Helicon 边缘全波、寄生慢波与工具比较</a></li><li><a href="#MF000211">Helicon 芯部传播、Landau 吸收与动理学电流</a></li><li><a href="#MF000212">Helicon 模型核验与加热、电流实验的闭环</a></li></ul></details><section class="entry-block" id="MF000208"><div class="entry-heading"><h2><span class="entry-number">6.14.1</span><a href="/tag/MF000208/">低温螺旋波源与高温环形 Helicon 的模型边界</a></h2><a class="tag" href="/tag/MF000208/">MF000208</a></div><div class="prose"><h3 id="同名波需要两套问题定义">同名波需要两套问题定义</h3>
+<p>低温源常在介质圆管中用 MHz 射频维持放电，需要预测电磁场、碰撞吸收、电子能量、电离和粒子损失。高温托卡马克 helicon/whistler 电流驱动则通常从已存在的磁平衡与热剖面出发，研究定向快波能否穿过边缘并在芯部给电子传能。用低温源的高电离效率，不能直接推出环形装置中的非感应电流效率。两者还应标明频率相对于离子、电子回旋频率的位置，以及研究的是快支、慢支还是模转换。</p>
+<h3 id="helic-与有限长度全波计算">HELIC 与有限长度全波计算</h3>
+<p>UCLA 作者说明将 HELIC 用于带径向梯度、碰撞、TG 模和天线耦合的螺旋波研究；它适合相应圆柱模型的参数研究。<a href="https://www.seas.ucla.edu/ltptl/research.htm">作者研究页</a>。有限长介质窗、轴向磁场与密度变化需要另核对模型。MAGPIE 原论文采用冷介电 Maxwell 求解器比较波幅和相位，并明确报告碰撞增强及天线半径调整，说明“拟合到实验”仍可能包含模型校准参数。<a href="https://arxiv.org/html/1205.3540v1">Chang 等 §III–V</a></p>
+<h3 id="密度要么输入，要么由独立方程演化">密度要么输入，要么由独立方程演化</h3>
+<p>给定 <span class="arithmatex">\(n_e(r,z)\)</span> 的线性 RF 计算得到该密度下的吸收场，并不自动预测放电形成的密度。若目标是模拟点火、模式跳变或稳态产额，应把吸收功率接入电子能量与电离输运，更新中性气体耗尽、壁面损失和粒子平衡，再迭代电磁场。先复现实验测得密度下的波结构，再讨论自洽密度反馈，可以分辨是传播模型还是粒子源模型造成偏差。</p></div><div class="entry-tools"><a href="/tag/MF000208/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000209"><div class="entry-heading"><h2><span class="entry-number">6.14.2</span><a href="/tag/MF000209/">Helicon 三维天线电流、方向谱与耦合功率</a></h2><a class="tag" href="/tag/MF000209/">MF000209</a></div><div class="prose"><h3 id="天线电路与等离子体波谱连接">天线电路与等离子体波谱连接</h3>
+<p>输入应包括导体与介质窗几何、法拉第屏、馈电端口、各模块电流幅相、终端负载、局地磁场方向、天线前密度与温度。环形装置不能只填一个中心 <span class="arithmatex">\(N_\parallel\)</span>：有限长度、模块间耦合和磁力线倾角会给出有限宽度及反向尾部。DIII-D 的作者系统报告描述以 476 MHz、窄谱中心 <span class="arithmatex">\(n_\parallel\simeq3\)</span> 为目标的梳状行波天线，并通过阵列拾取环和近天线探针检查传播与负载。<a href="https://www.osti.gov/servlets/purl/1996568">原作者系统报告</a></p>
+<h3 id="一个可复算的阵列谱例子">一个可复算的阵列谱例子</h3>
+<p>理想直线阵列的谱因子可写成 <span class="arithmatex">\(A(k_\parallel)=\sum_{m=0}^{M-1}I_m\exp[i(\phi_m-k_\parallel md)]\)</span>。等幅、相邻相位差 <span class="arithmatex">\(\Delta\phi\)</span> 时，主峰满足 <span class="arithmatex">\(k_\parallel d=\Delta\phi\)</span>，同时存在由有限 M 和模块间距决定的展宽与旁瓣。取 f=476 MHz、目标 <span class="arithmatex">\(N_\parallel=3\)</span>，则 <span class="arithmatex">\(\lambda_0=0.6298\)</span> m、<span class="arithmatex">\(k_\parallel=29.93\)</span> m⁻¹；教学间距 d=0.05 m 需要约 85.7° 的相位差。实际天线相位应由互耦和负载解求出。</p>
+<h3 id="量化方向性与计量面">量化方向性与计量面</h3>
+<p>将正、负 <span class="arithmatex">\(k_\parallel\)</span> 谱分别积分，计算方向性指标 <span class="arithmatex">\((P_+-P_-)/(P_++P_-)\)</span>，再把谱功率传给传播求解器。另记录端口输入、金属损失、反射、终端与耦合进入等离子体的功率，不能把低反射率直接等同芯部吸收率。天线磁场探针的幅相、S 参数和负载电阻用于检验耦合；温度与电流诊断检验的是后续吸收和驱动。</p>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：理想等幅阵列的方向谱；实际带电流仍由负载与馈电求解。" class="figure-link" href="/assets/diagrams/sim-helicon.svg"><img alt="理想等幅阵列的方向谱；实际带电流仍由负载与馈电求解。" decoding="async" loading="lazy" src="/assets/diagrams/sim-helicon.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>理想等幅阵列的方向谱；实际带电流仍由负载与馈电求解。</p></div><div class="entry-tools"><a href="/tag/MF000209/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000210"><div class="entry-heading"><h2><span class="entry-number">6.14.3</span><a href="/tag/MF000210/">Helicon 边缘全波、寄生慢波与工具比较</a></h2><a class="tag" href="/tag/MF000210/">MF000210</a></div><div class="prose"><h3 id="边缘决定进入芯部的功率">边缘决定进入芯部的功率</h3>
+<p>天线近场、快速密度变化、截止、法拉第屏方向和寄生慢波可改变能穿过边缘的波谱。对给定 RF 电流，频域模型求 <span class="arithmatex">\(\nabla\times\nabla\times\mathbf E-(\omega^2/c^2)\boldsymbol\epsilon\mathbf E=i\omega\mu_0\mathbf J_{\rm ant}\)</span>，这里采用 <span class="arithmatex">\(e^{-i\omega t}\)</span> 约定；介电张量和边界必须与该符号一致。把芯部射线追踪的吸收率乘以端口功率，隐含跳过了这段耦合过程。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具或模型</th>
+<th>经来源支持的用途</th>
+<th>不能直接推出的结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GENRAY</td>
+<td>几何光学传播与吸收，适合已定义发射波谱的射线计算</td>
+<td>完整三维金属天线与近场已自洽解析</td>
+</tr>
+<tr>
+<td>AORSA</td>
+<td>DIII-D/ITER helicon 全波与 SOL 影响比较</td>
+<td>单个工况的边缘损失适用于所有放电</td>
+</tr>
+<tr>
+<td>Petra-M</td>
+<td>DIII-D 边缘快慢波、屏栅失配与 SOL 密度研究</td>
+<td>该二维研究等同整套三维天线工程模型</td>
+</tr>
+<tr>
+<td>THEMIS</td>
+<td>2026 年预印本的三维热介电、Helimak 天线与窗口研究</td>
+<td>已证明高温托卡马克非感应电流能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>依据为 <a href="https://fusion.gat.com/pubs-ext/NuclFus/A28568abs.pdf">AORSA 原作者摘要</a>、<a href="https://doi.org/10.34770/g03g-qd76">Petra-M 作者数据集</a>与 <a href="https://arxiv.org/abs/2602.19472">THEMIS 预印本摘要</a>。</p>
+<h3 id="界面与网格检验">界面与网格检验</h3>
+<p>逐次加密介质窗、截止层及慢波短尺度区，并改变计算域和吸收边界位置；比较入射、反射、物种吸收与出射能流。冷张量中的人为碰撞若只是数值正则化，不能不加说明就把耗散全解释为真实电子加热。若只求部分环向谱，应增加谱范围检查是否漏掉反向和高波数成分。</p></div><div class="entry-tools"><a href="/tag/MF000210/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000211"><div class="entry-heading"><h2><span class="entry-number">6.14.4</span><a href="/tag/MF000211/">Helicon 芯部传播、Landau 吸收与动理学电流</a></h2><a class="tag" href="/tag/MF000211/">MF000211</a></div><div class="prose"><h3 id="先给波谱，再算沿路演化">先给波谱，再算沿路演化</h3>
+<p>芯部计算输入包括磁平衡、<span class="arithmatex">\(n_e\)</span>、<span class="arithmatex">\(T_e\)</span>、离子组分、发射位置及加权 <span class="arithmatex">\(N_\parallel\)</span> 谱。沿每条轨迹保存局地折射率、群速度、剩余功率和电子/离子吸收，再累加热源；只有中心射线无法表示谱尾对穿透和驱动方向的影响。GENRAY 文档明确把射线及 RF 信息交给 CQL3D，用于准线性响应。<a href="https://www.compxco.com/genray.html">GENRAY 作者说明</a></p>
+<h3 id="共振速度只是筛选尺度">共振速度只是筛选尺度</h3>
+<p>电子 Landau 共振满足 <span class="arithmatex">\(v_\parallel=\omega/k_\parallel=c/N_\parallel\)</span>。取 <span class="arithmatex">\(N_\parallel=3\)</span>，得到 <span class="arithmatex">\(v_\parallel=c/3\)</span>；按相对论动能 <span class="arithmatex">\((\gamma-1)m_ec^2\)</span> 换算，平行速度对应约 31.0 keV。实际吸收还需沿传播后的谱与电子分布积分，不能据这个初始值认定所有功率都只加热 31 keV 电子。定向谱与对称谱的吸收都可能非零，但净电流响应不同。</p>
+<h3 id="选择线性还是准线性响应">选择线性还是准线性响应</h3>
+<p>弱 RF 扰动时可比较伴随电流模型；若速度分布明显改变，则迭代波吸收与反弹平均 Fokker–Planck 方程，检查电流、能量与碰撞松弛是否收敛。<a href="https://www.compxco.com/cql3d.html">CQL3D 文档</a>列出其碰撞、RF、电场及多物种输入。高电子压力下的强单程吸收预测与低压力下多程传播，属于不同工况；高温芯部结论还应与包含 SOL 的全波计算对照。AORSA 作者研究在忽略 SOL 的相应案例中与 GENRAY 的电流幅值和位置相符，而加入 SOL 会引入其它损失通道。<a href="https://fusion.gat.com/pubs-ext/NuclFus/A28568abs.pdf">原作者比较</a></p></div><div class="entry-tools"><a href="/tag/MF000211/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000212"><div class="entry-heading"><h2><span class="entry-number">6.14.5</span><a href="/tag/MF000212/">Helicon 模型核验与加热、电流实验的闭环</a></h2><a class="tag" href="/tag/MF000212/">MF000212</a></div><div class="prose"><h3 id="给每一级模型独立的比较量">给每一级模型独立的比较量</h3>
+<p>低温源先比较天线负载与磁探针波幅、相位、轴向波长，再比较吸收分布和密度。不同天线的比较必须固定尺寸、频率、密度与馈电计量面；大体积圆柱源论文发现的耦合排序随设定条件和密度剖面改变，不能写成通用最优天线。<a href="https://arxiv.org/abs/1811.12077">Chang 等原作者研究</a>。调整有效碰撞率后应留下校准记录，并用另一组独立工况检验。</p>
+<h3 id="高温装置分开检验热源与电流源">高温装置分开检验热源与电流源</h3>
+<p>对 RF 调制，先计算波吸收，再接入热输运生成温度时序，并对模拟和实测施加相同反演过程。对电流驱动，要扣除欧姆、自举、NBI 和 EC 电流，同时传播平衡与电导率误差。只观察升温或环电压下降，无法把加热导致的电阻变化与非感应电流分开。</p>
+<h3 id="截至核验日的实验约束">截至核验日的实验约束</h3>
+<p>2026-09-11 的 DIII-D 作者预印本报告了芯部电子加热与 helicon 电流驱动证据，采用等效 ECH 对照、MSE 约束平衡及电流源相减；在 <span class="arithmatex">\(\rho&lt;0.2\)</span> 积分获得 <span class="arithmatex">\(20\pm10\)</span> kA，GENRAY 对应预测 21 kA。作者说明外层重建振荡使全半径总电流不确定，多程吸收也尚未充分量化。<a href="https://arxiv.org/html/2609.12474v1">Lestz 等预印本与方法</a>。因此已有结果约束的是指定 L 模工况的原理验证；反应堆高压力、离轴高效率仍需在对应条件下检验。</p>
+<p>报告中应同时保存端口与耦合功率、单程与多程假设、热源宽度、局部与积分电流及误差，避免用一个“效率”混合多个计量面。</p>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000212/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%9E%BA%E6%97%8B%E6%B3%A2%E6%A8%A1%E6%8B%9F/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E8%9E%BA%E6%97%8B%E6%B3%A2%E4%BC%A0%E6%92%AD%E3%80%81%E5%A4%A9%E7%BA%BF%E8%80%A6%E5%90%88%E4%B8%8E%E7%94%B5%E6%B5%81%E9%A9%B1%E5%8A%A8%E6%A8%A1%E6%8B%9F%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-helicon,
+  author = {{Megawave-Fusion}},
+  title = {螺旋波传播、天线耦合与电流驱动模拟},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-helicon/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000207/"><small>← 上一页</small>EBW 非线性转换与数值、实验核对</a><a class="next" href="/tag/MF000208/"><small>下一页 →</small>低温螺旋波源与高温环形 Helicon 的模型边界</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

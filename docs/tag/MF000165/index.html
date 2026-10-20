@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三维平衡与嵌套磁面 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="三维平衡与嵌套磁面 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000165/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000165/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-equilibrium/">平衡与磁场优化</a><span>/</span><span>三维平衡与嵌套磁面</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.2.2 · 专题</p><h1>三维平衡与嵌套磁面</h1><div class="page-meta"><span class="tag">MF000165</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-equilibrium/#MF000165">在连续正文中阅读</a></div><article class="prose"><h3 id="vmec-与-desc-的平衡精度">VMEC 与 DESC 的平衡精度</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>方程与表示</th>
+<th>主要输入和输出</th>
+<th>选型差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://princetonuniversity.github.io/STELLOPT/VMEC.html">VMEC / VMEC2000</a></td>
+<td>在嵌套磁面假设下求三维理想 MHD 平衡；固定或自由边界</td>
+<td>边界、压力、旋转变换或电流、磁通及外线圈场 → wout 等几何与剖面</td>
+<td>适合仿星器几何和已有下游工具链；扫描径向与角向分辨率，检查力残差和近轴导数</td>
+</tr>
+<tr>
+<td><a href="https://desc-docs.readthedocs.io/en/stable/">DESC</a></td>
+<td>三维嵌套磁面、伪谱离散、力残差优化和自动微分</td>
+<td>边界与剖面 → 平衡、派生量和优化结果，可输出 VMEC 相关格式</td>
+<td>适合梯度设计及平衡/线圈优化；JAX 编译、谱阶及目标函数会影响成本</td>
+</tr>
+</tbody>
+</table></div>
+<p>VMEC 和 DESC 都用嵌套磁面表示，磁岛和随机区不能直接从这一表示中产生。<a href="https://doi.org/10.1017/S0022377823000272">DESC 与 VMEC 的原始比较论文</a>用共同的力平衡误差和具体案例讨论收敛，说明应比较达到同一误差目标的成本。优化还要检查线圈间距、曲率、工程载荷、快粒子约束和扰动敏感性；只降低一个准对称指标，不能替代这些约束。</p>
+<h3 id="获取与运行依赖：三维平衡与嵌套磁面">获取与运行依赖：三维平衡与嵌套磁面</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VMEC2000</td>
+<td>所核 <a href="https://raw.githubusercontent.com/hiddenSymmetries/VMEC2000/master/LICENSE">VMEC2000 仓库</a>为 MIT</td>
+<td>此结论限定 hiddenSymmetries/VMEC2000 发行版；外接求解器及 MPI/HDF5 等运行依赖另查</td>
+</tr>
+<tr>
+<td>DESC</td>
+<td>所核 <a href="https://raw.githubusercontent.com/PlasmaControl/DESC/master/LICENSE">DESC 仓库</a>为 MIT</td>
+<td>外接求解器及 JAX 等运行依赖另查</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E5%B9%B3%E8%A1%A1%E4%B8%8E%E7%A3%81%E5%9C%BA%E4%BC%98%E5%8C%96/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000165%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000165,
+  author = {{Megawave-Fusion}},
+  title = {三维平衡与嵌套磁面},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000165/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000164/"><small>← 上一页</small>轴对称平衡与实验重建</a><a class="next" href="/tag/MF000166/"><small>下一页 →</small>线圈与多指标优化</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

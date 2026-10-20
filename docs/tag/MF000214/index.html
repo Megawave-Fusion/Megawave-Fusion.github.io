@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>参数 CAD 与输运几何 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="参数 CAD 与输运几何 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000214/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000214/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-engineering/">中子学与热结构</a><span>/</span><span>参数 CAD 与输运几何</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.15.2 · 专题</p><h1>参数 CAD 与输运几何</h1><div class="page-meta"><span class="tag">MF000214</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-engineering/#MF000214">在连续正文中阅读</a></div><article class="prose"><h3 id="paramak-与-dagmc-的职责">Paramak 与 DAGMC 的职责</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>核心角色</th>
+<th>适合比较的任务</th>
+<th>需要补齐的输入或模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/fusion-energy/paramak">Paramak</a> / <a href="https://github.com/svalinn/DAGMC">DAGMC</a></td>
+<td>参数化聚变 CAD / 在 CAD 上提供输运几何与射线跟踪接口</td>
+<td>自动扫描装置几何，保留材料区和复杂部件</td>
+<td>仍需宿主输运器与核数据；检查水密性、重叠/缝隙、材料标签与体积</td>
+</tr>
+</tbody>
+</table></div>
+<p>几何交接保留长度单位、材料区域和体积。先排查重叠、缝隙和无材料体积，再对简单几何比较反应率；参数扫描中每一组尺寸应对应唯一的几何文件与材料映射。DAGMC 提供宿主输运器使用的几何能力，核数据与源仍由输运计算另行配置。</p>
+<h3 id="获取与运行依赖：参数-cad-与输运几何">获取与运行依赖：参数 CAD 与输运几何</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paramak / DAGMC</td>
+<td><a href="https://raw.githubusercontent.com/fusion-energy/paramak/main/LICENSE">Paramak</a>为 MIT；<a href="https://raw.githubusercontent.com/svalinn/DAGMC/develop/LICENSE.txt">DAGMC</a>主体 Simplified BSD，部分目录例外</td>
+<td>CAD 工具与宿主输运器的权限及版本各自确认</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E4%B8%AD%E5%AD%90%E5%AD%A6%E4%B8%8E%E7%83%AD%E7%BB%93%E6%9E%84/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000214%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000214,
+  author = {{Megawave-Fusion}},
+  title = {参数 CAD 与输运几何},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000214/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000213/"><small>← 上一页</small>固定源核输运与核数据库</a><a class="next" href="/tag/MF000215/"><small>下一页 →</small>电磁损耗、温度与热应力</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

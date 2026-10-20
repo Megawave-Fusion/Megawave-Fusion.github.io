@@ -2,11 +2,52 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>内容核验记录 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
 <meta name="theme-color" content="#123c54"><meta property="og:title" content="内容核验记录 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/verification/"><meta property="og:type" content="article">
-<link rel="canonical" href="https://megawave-fusion.github.io/verification/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=20dddbcbe7"><script type="module" src="/assets/site.mjs?v=9f1d884ee6"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<link rel="canonical" href="https://megawave-fusion.github.io/verification/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>内容核验记录</span></div></div><div class="layout layout-overview">
-<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-10-20：仿真软件对比与计算链补充">2026-10-20：仿真软件对比与计算链补充</h2>
+<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-10-20：过程专题、辅助加热模拟与图解版">2026-10-20：过程专题、辅助加热模拟与图解版</h2>
+<p>本轮将仿真计算拆为 18 个专题、68 个具体条目。平衡、MHD、芯部输运、陀螺动理学、边缘、离散方法、RF/FP、工程、耦合、验证和复现分别组织；ICRH、ECRH/ECCD、NBI、LHCD、EBW、Helicon 各有独立模拟专题，每套按五个实际计算问题展开。原 MF000063–MF000066 身份保留，耦合、验证和复现的旧标签移到对应专题；旧总览片段提供新入口。全库现为 40 个专题、227 个永久条目。</p>
+<p>新增 35 条一手资料记录，来源索引合计 373 条；既有资料补记本轮实际读取范围。辅助加热比较涵盖 TOPICA/RAPLICASOL/HFSS、TORIC/AORSA、TORAY/GRAY/TRAVIS/GENRAY、NUBEAM/BBNBI/ASCOT5/FIDASIM、ALOHA/TORLH/CQL3D、IPF-FDMC/TASK-W1/AMR/LUKE、HELIC/MAGPIE/Petra-M/THEMIS 等在不同过程中的职责。全文、手册、机构摘要与预印本的证据范围分别登记，未用摘要推断未读到的数值结果。</p>
+<p>另通读整理 22 个既有非仿真专题，保留全部 H2、原始来源和教学算例；按 Markdown 中汉字统计（含新增图注），由 116150 减至 103750，减少约 10.7%。将重复的公式复述改为短推导，全库独立公式块由 339 增至 382。新增 45 张原创 SVG：基础/装置 9、辅助加热 9、仿真 18、工程/诊断/材料/实验/文献 9。每个专题均有图，图位于相关 Tag 正文，标注变量、教学参数及模型限制；曲线来自解析关系或给定离散模型，流程图表达数据或证据交接。它们不是外部软件运行或实验测量结果。</p>
+<p>主代理整合，三个代理分组通读；RF 六系统草稿和仿真图另有非首稿代理交叉审读。已处理相对论电流应取速度矩、O-X 双角最优条件、零轨道宽实现的限定、束组份参考面与停止/出生通道、正回旋频率约定、波/FP 能量矩和线性坐标下的估阶方法。压缩过程中发现的 Debye 二阶导数及转义控制字符错误已修复，并对原独立公式与控制字符作比较检查。上述工作属于模型辅助核对，未更新历史审核哈希，也不代替领域专家审稿。</p>
+<p>首页改为环形磁约束几何动画、方程入口与分层目录。动画可暂停，遵循减少动态效果偏好，并有静态 SVG 回退；正文保持连续阅读。科学图可点击放大，长行内公式在本地滚动，不撑宽整页。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>检查</th>
+<th>本轮结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全部 Python 教学复算脚本</td>
+<td>847 项通过，其中新增加热模拟 22 项、既有仿真方法 19 项；未安装或运行所列外部求解器</td>
+</tr>
+<tr>
+<td>来源、永久标签及图示覆盖</td>
+<td>44 个 Markdown 文件、373 条来源、227 条目；40 专题包含 45 张带描述的本地 SVG，仿真 Tag 粒度检查通过</td>
+</tr>
+<tr>
+<td>构建与本地链接</td>
+<td>289 页面；搜索、阅读顺序、全部旧 MF 身份及知识图结构检查通过</td>
+</tr>
+<tr>
+<td>MathJax</td>
+<td>全部专题与首页公式转换通过，零语法错误；检查范围不等同于物理正确性证明</td>
+</tr>
+<tr>
+<td>搜索与知识图 JavaScript</td>
+<td>30 项通过；实际构建数据为 278 个层级节点、208 条学习关系、12 条路径</td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>40 专题在 390 像素检查均无整页横向溢出、公式错误或已加载的坏图；首页另查 1440/320 像素、动画暂停与减少动态效果偏好、手机图示放大/关闭</td>
+</tr>
+</tbody>
+</table></div>
+<p>数值、公式及手机页面检查回执写入本地 <code>.build/</code>。本轮源码和图片的精确版本由发布回执 <code>edition.json</code> 标识；旧日期批次的计数和结论保留如下。</p>
+<h2 id="2026-10-20：仿真软件对比与计算链补充">2026-10-20：仿真软件对比与计算链补充</h2>
 <p>本轮扩写<a href="/sections/simulation/">仿真计算</a>，正文由约 3380 汉字增至约 1.43 万汉字，增加按任务选模型的入口，比较平衡/优化、线性与非线性 MHD、芯部输运、湍流闭合、陀螺动理学、边缘/中性粒子、通用 PIC、RF/FP、快粒子及中子学/热结构软件。补充 IMAS/OMFIT 的层级、三条耦合链、COCOS 与单位、保守重映射、核热源率归一和相关采样误差。保留该章四个二级条目的标题和 MF 永久标签；全库仍为 163 条目、23 专题。</p>
 <p>来源采用官方文档、开发者仓库、机构材料及作者原始论文；本次新增 107 条来源记录，并为 3 条既有来源补充读取范围和日期，全库来源索引共 338 条。逐项记录阅读全文/指定部分/摘要、发行版本与证据限制。软件获取条件核对至 2026-10-20，区分主体代码、外部程序、装置数据和原子/核数据库；未确认的许可保持未确认，不从公开论文或公开仓库推断使用权。未采用脱离共同算例的速度或精度排名。</p>
 <p>正文由主代理整合，另由三个代理分别复读平衡/MHD、GK/边缘/PIC、RF/快粒子/工程对应段落和许可表。已处理 kinetic 术语、FreeGSNKE 路线图、full-f 与长波排序的区别、统计方差定义、电磁功率密度及热应力来源等澄清。这一复读属于模型辅助的资料与公式交叉核对，未形成外部领域专家审稿。</p>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>电子回旋加热与电流驱动模拟 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="电子回旋加热与电流驱动模拟 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-ecrh/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-ecrh/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>电子回旋加热与电流驱动模拟</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.10 · 连续阅读</p><h1>电子回旋加热与电流驱动模拟</h1><div class="page-meta"><span>5 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>电子回旋模拟沿着“发射光学—波束传播—共振吸收—电子分布—电流与热响应”展开。本专题把输入、传播模型、吸收、电流驱动和检验分为独立条目，便于逐步建立可复算的计算链。</p></div><details class="page-toc"><summary>本节目录 · 5 个条目</summary><ul><li><a href="#MF000188">EC 发射光学、磁平衡与剖面输入</a></li><li><a href="#MF000189">EC 射线、束追踪软件怎样选择</a></li><li><a href="#MF000190">EC 共振吸收、功率沉积与单程余功率</a></li><li><a href="#MF000191">ECCD 伴随响应与 Fokker–Planck 耦合</a></li><li><a href="#MF000192">EC 热响应、湍流展宽与磁岛定位检验</a></li></ul></details><section class="entry-block" id="MF000188"><div class="entry-heading"><h2><span class="entry-number">6.10.1</span><a href="/tag/MF000188/">EC 发射光学、磁平衡与剖面输入</a></h2><a class="tag" href="/tag/MF000188/">MF000188</a></div><div class="prose"><h3 id="先把发射器放进同一几何">先把发射器放进同一几何</h3>
+<p>EC 计算的最小输入包括磁平衡、电子密度与温度剖面、有效电荷、微波频率、入射功率、发射点、极向与环向指向、O/X 模功率比例，以及束腰位置、两主轴束宽和波前曲率。功率需注明计量面；把回旋管额定输出直接填成进入等离子体的功率，会把传输损失混进吸收误差。<a href="https://transp.pppl.gov/nml/EC_input.html">TRANSP 的 EC 输入说明</a>逐项定义了频率、功率和角度，其中发射点使用 cm，角度使用 degree；建模接口应先转换为内部统一单位。</p>
+<h3 id="束宽约定决定能否比较">束宽约定决定能否比较</h3>
+<p>圆对称高斯强度取 <span class="arithmatex">\(I(r)\propto\exp(-2r^2/w^2)\)</span>，则 w 是强度降到轴上 <span class="arithmatex">\(e^{-2}\)</span> 的半径，半高全宽为 <span class="arithmatex">\(w\sqrt{2\ln2}\)</span>。因此 <span class="arithmatex">\(w=20\)</span> mm 对应半高全宽 23.55 mm，不能直接把“20 mm 光斑”填到另一程序的 FWHM 输入。椭圆束还应保存两主轴与旋转角。<a href="https://transp.pppl.gov/nml/EC_toray.html">TORAY 接口</a>另用半功率发散半角和束横纵比描述波束，转换时应依据其定义。</p>
+<h3 id="导入后的第一轮检查">导入后的第一轮检查</h3>
+<p>先画真空中的中心线与束包络，再叠加磁轴、最后闭合磁面、冷共振面与截止位置。核对输入剖面采用 <span class="arithmatex">\(\sqrt{\psi_N}\)</span>、<span class="arithmatex">\(\sqrt{\phi_N}\)</span> 还是其它半径，保存原始平衡与剖面时刻。对同一发射器施加正负微小转角，检查方向改变符合装置坐标；这比看一条似乎合理的轨迹更容易发现环向角反号。</p></div><div class="entry-tools"><a href="/tag/MF000188/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000189"><div class="entry-heading"><h2><span class="entry-number">6.10.2</span><a href="/tag/MF000189/">EC 射线、束追踪软件怎样选择</a></h2><a class="tag" href="/tag/MF000189/">MF000189</a></div><div class="prose"><h3 id="根据有限波束与磁场几何选择">根据有限波束与磁场几何选择</h3>
+<p>几何光学把波束分为独立射线；束追踪同时演化有限束的宽度与波前，保留近轴衍射。增加射线数量可以改善采样，却不会自动把独立射线变成包含衍射的波动模型。选择依据应包括波长与剖面尺度、焦点附近束宽以及是否需要三维磁平衡。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>已核对的定位</th>
+<th>选择时应问的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TORAY-GA</td>
+<td>托卡马克 EC 射线、吸收和伴随电流响应</td>
+<td>与既有 TRANSP 工况及角度接口能否一致</td>
+</tr>
+<tr>
+<td>GENRAY</td>
+<td>通用几何光学射线，可把 RF 信息交给 CQL3D</td>
+<td>此次选择了哪套色散、吸收和电流模型</td>
+</tr>
+<tr>
+<td>GRAY</td>
+<td>一般托卡马克平衡中的准光学高斯束，保留衍射</td>
+<td>初始束腰、像散与曲率是否已测定</td>
+</tr>
+<tr>
+<td>TRAVIS</td>
+<td>任意三维平衡的 EC 射线、ECCD 与 ECE</td>
+<td>是否需要仿星器的三维几何和诊断计算</td>
+</tr>
+</tbody>
+</table></div>
+<p>依据为 <a href="https://transp.pppl.gov/nml/EC_toray.html">TORAY 文档</a>、<a href="https://www.compxco.com/genray.html">GENRAY 作者说明</a>、<a href="https://iris.cnr.it/handle/20.500.14243/43173">GRAY 原论文作者机构摘要</a>和 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0010465513003032">TRAVIS 原论文</a>。</p>
+<h3 id="比较结果前统一模型开关">比较结果前统一模型开关</h3>
+<p>先用相同磁平衡、剖面、偏振和发射光学计算同一工况，再对齐射线权重、吸收谐波和电流响应模型。窄焦点问题宜检验束追踪；宽束、多峰或超出近轴条件的场，不能默认任何高斯近轴模型都成立。软件可访问性、源码许可与运行环境另外核实；论文能证明模型存在，不能证明本机已经安装。</p></div><div class="entry-tools"><a href="/tag/MF000189/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000190"><div class="entry-heading"><h2><span class="entry-number">6.10.3</span><a href="/tag/MF000190/">EC 共振吸收、功率沉积与单程余功率</a></h2><a class="tag" href="/tag/MF000190/">MF000190</a></div><div class="prose"><h3 id="轨迹模型与吸收模型分别记录">轨迹模型与吸收模型分别记录</h3>
+<p>共振式采用正的电子回旋频率大小 <span class="arithmatex">\(\Omega_e=eB/m_e&gt;0\)</span>，谐波数 <span class="arithmatex">\(s\ge1\)</span>；与带符号回旋频率约定互换时应同时核对旋向。</p>
+<p>冷共振面满足 <span class="arithmatex">\(\omega=s\Omega_e\)</span>，热电子真正满足 <span class="arithmatex">\(\omega-k_\parallel v_\parallel=s\Omega_e/\gamma\)</span>。因此沉积位置同时受折射后的 <span class="arithmatex">\(N_\parallel\)</span>、温度和磁场控制，不能只把频率换成一个 B 值后画固定热源。TRAVIS 原论文明确区分弱相对论射线与全相对论吸收、电流和发射率；其它程序也应保存实际选用的模型，而非笼统写“使用相对论代码”。<a href="https://www.sciencedirect.com/science/article/abs/pii/S0010465513003032">原论文模型与比较说明</a></p>
+<h3 id="从沿程衰减到磁通面热源">从沿程衰减到磁通面热源</h3>
+<p>沿实际路径求 <span class="arithmatex">\(dP/ds=-\alpha P\)</span>，再将各射线的损失以体积权重累加到 <span class="arithmatex">\(p_e(\rho)\)</span>。检查 <span class="arithmatex">\(\sum_i p_{e,i}\Delta V_i=P_{\rm abs}\)</span>，同时保留每条射线的余功率、终止原因和偏振。对常数吸收系数的教学例，<span class="arithmatex">\(\alpha=2\)</span> m⁻¹、路径长 0.5 m，1 MW 入射给 <span class="arithmatex">\(P_{\rm abs}=(1\,\mathrm{MW})(1-e^{-1})=0.6321\,\mathrm{MW}\)</span>，透射 0.3679 MW。减小积分步长后，这个解析结果应保持。</p>
+<h3 id="沉积宽度需要独立收敛">沉积宽度需要独立收敛</h3>
+<p>对射线数、横向采样、积分步长、平衡插值及径向热源网格分别加密，比较总吸收、峰值半径和统一定义的宽度。总功率守恒并不保证窄沉积已解析。单程剩余功率较大时，后续壁反射、偏振改变和多程吸收成为新的建模任务，不能把余功率直接重新归一化到第一程热源。多次反射需要明确几何与反射模型，TRANSP 的 EC 源接口本身不提供这些未知边界。</p></div><div class="entry-tools"><a href="/tag/MF000190/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000191"><div class="entry-heading"><h2><span class="entry-number">6.10.4</span><a href="/tag/MF000191/">ECCD 伴随响应与 Fokker–Planck 耦合</a></h2><a class="tag" href="/tag/MF000191/">MF000191</a></div><div class="prose"><h3 id="由吸收功率走到驱动电流">由吸收功率走到驱动电流</h3>
+<p>ECCD 的输出应至少同时包括 <span class="arithmatex">\(p_{\rm abs}(\rho)\)</span>、<span class="arithmatex">\(j_\parallel(\rho)\)</span> 和总驱动电流。电子被选择性加热后，碰撞、俘获粒子与沿场不对称共同决定电流；同样的吸收功率不能套一个跨工况通用的 A/W 常数。TORAY-GA 在 TRANSP 中采用带碰撞性修正（影响俘获电子响应）的 Lin-Liu 伴随方案；GRAY 用新经典响应函数；TRAVIS 论文描述含平行动量守恒的伴随计算。<a href="https://transp.pppl.gov/nml/EC_toray.html">TORAY</a>、<a href="https://iris.cnr.it/handle/20.500.14243/43173">GRAY</a>、<a href="https://www.sciencedirect.com/science/article/abs/pii/S0010465513003032">TRAVIS</a></p>
+<h3 id="非热分布时求解动理学响应">非热分布时求解动理学响应</h3>
+<p>当局部 RF 扩散明显改变共振电子分布，需检验线性响应假定。GENRAY 可向 CQL3D 提供准线性扩散所需信息；CQL3D 在反弹平均条件下演化两维动量和径向分布，包含碰撞、RF、粒子源及电场，并可迭代射线能量输运。<a href="https://www.compxco.com/cql3d.html">CQL3D 作者文档</a>同时列出其轴对称分布与反弹平均假设。采用该链路需要核对两程序的磁通面、速度网格、功率归一化和源时间步。</p>
+<h3 id="电流与功率使用各自积分权重">电流与功率使用各自积分权重</h3>
+<p>以速度空间归一的扰动分布 <span class="arithmatex">\(\delta f\)</span> 计算 <span class="arithmatex">\(j_\parallel=-e\int v_\parallel\delta f\,d^3v\)</span> 得电流密度，投影后通过截面积分求总电流；吸收功率则用体积积分。两者不能共用一套未经定义的径向权重。若一工况吸收 0.8 MW、驱动 40 kA，其吸收功率归一化效率为 0.05 A/W；这只是该工况的比值。检验时分别加密共振区动量网格和径向网格，并检查准线性传能与波功率损失闭合。</p></div><div class="entry-tools"><a href="/tag/MF000191/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000192"><div class="entry-heading"><h2><span class="entry-number">6.10.5</span><a href="/tag/MF000192/">EC 热响应、湍流展宽与磁岛定位检验</a></h2><a class="tag" href="/tag/MF000192/">MF000192</a></div><div class="prose"><h3 id="先验证传播，再验证诊断能看见的量">先验证传播，再验证诊断能看见的量</h3>
+<p>基础检验依次覆盖真空高斯束、均匀介质、光学厚解析衰减和相同输入下的代码互比。对真实放电，要把模拟热源接入时变电子能量方程，生成与 ECE 测量相同时间窗和响应函数的温度信号。调制温度分布已包含热输运，不能直接把它的宽度当成波吸收宽度。</p>
+<h3 id="边缘散射使用对应模型">边缘散射使用对应模型</h3>
+<p>平滑背景的射线或束追踪结果不能覆盖所有密度涨落效应。WKBeam 用带散射算子的波动动理学方程，IPF-FDMC 直接求解时域全波问题；原作者比较要求给两者相同涨落统计，对全波随机样本取集合平均，并检查 Born 近似适用范围。<a href="https://eprints.whiterose.ac.uk/id/eprint/145691/1/1805.09594v1.pdf">Köhn 等论文 §2–4</a>。实验中可结合调制 ECE 与输运分析估计展宽，但论文中的单装置倍率不可直接移植到另一密度与涨落谱。</p>
+<h3 id="用目标重叠检验局部执行器">用目标重叠检验局部执行器</h3>
+<p>教学模型取径向电流分布 <span class="arithmatex">\(dI/dx=I_0\exp[-(x-d)^2/w^2]/(\sqrt{\pi}w)\)</span>，目标区为 <span class="arithmatex">\(|x|&lt;a\)</span>。其份额是 <span class="arithmatex">\(F=\{\operatorname{erf}[(a-d)/w]+\operatorname{erf}[(a+d)/w]\}/2\)</span>。取 <span class="arithmatex">\(a=w=20\)</span> mm，对准时 F=0.8427；偏移 20 mm 时 F=0.4977。总电流不变，目标内电流却明显下降。真实磁岛控制还要加入磁岛螺旋相位、平衡误差和镜面响应，因此报告至少应同时给峰值位置、宽度、总电流和目标重叠，扫描磁平衡、密度剖面与指向的测量不确定度。</p>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：给定束宽的 Gaussian 截面与束心偏移，未包含等离子体折射。" class="figure-link" href="/assets/diagrams/sim-ecrh.svg"><img alt="给定束宽的 Gaussian 截面与束心偏移，未包含等离子体折射。" decoding="async" loading="lazy" src="/assets/diagrams/sim-ecrh.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>给定束宽的 Gaussian 截面与束心偏移，未包含等离子体折射。</p>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000192/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%94%B5%E5%AD%90%E5%9B%9E%E6%97%8B%E5%8A%A0%E7%83%AD%E6%A8%A1%E6%8B%9F/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E7%94%B5%E5%AD%90%E5%9B%9E%E6%97%8B%E5%8A%A0%E7%83%AD%E4%B8%8E%E7%94%B5%E6%B5%81%E9%A9%B1%E5%8A%A8%E6%A8%A1%E6%8B%9F%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-ecrh,
+  author = {{Megawave-Fusion}},
+  title = {电子回旋加热与电流驱动模拟},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-ecrh/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000187/"><small>← 上一页</small>ICRH 网格、谱收敛与测量量对照</a><a class="next" href="/tag/MF000188/"><small>下一页 →</small>EC 发射光学、磁平衡与剖面输入</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

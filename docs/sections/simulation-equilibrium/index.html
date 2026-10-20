@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>平衡与磁场优化 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="平衡与磁场优化 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-equilibrium/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-equilibrium/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>平衡与磁场优化</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.2 · 连续阅读</p><h1>平衡与磁场优化</h1><div class="page-meta"><span>3 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>先区分轴对称重建、三维平衡与线圈优化，再准备输运和稳定性所需的几何。</p></div><details class="page-toc"><summary>本节目录 · 3 个条目</summary><ul><li><a href="#MF000164">轴对称平衡与实验重建</a></li><li><a href="#MF000165">三维平衡与嵌套磁面</a></li><li><a href="#MF000166">线圈与多指标优化</a></li></ul></details><section class="entry-block" id="MF000164"><div class="entry-heading"><h2><span class="entry-number">6.2.1</span><a href="/tag/MF000164/">轴对称平衡与实验重建</a></h2><a class="tag" href="/tag/MF000164/">MF000164</a></div><div class="prose"><h3 id="诊断约束与自由边界">诊断约束与自由边界</h3>
+<p>平衡重建是反问题：给定有限且带误差的诊断，寻找满足力平衡并与测量相容的电流和压力分布。设计平衡通常是正问题：给定线圈和剖面，求磁面及边界。轴对称托卡马克与三维仿星器的几何和假设不同，软件选择也不同。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>方程与表示</th>
+<th>主要输入和输出</th>
+<th>选型差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/OMFIT-source/modules/mod_EFIT.html">EFIT / EFIT-AI</a></td>
+<td>二维轴对称 Grad–Shafranov 平衡，可结合诊断约束重建</td>
+<td>磁测量、MSE、压力/电流约束和机器几何 → 磁通、边界、<span class="arithmatex">\(q\)</span> 与 g/a 等文件</td>
+<td>适合实验平衡与下游输入；内部电流剖面的可信度依赖诊断覆盖、参数化与拟合权重</td>
+</tr>
+<tr>
+<td><a href="https://github.com/freegs-plasma/freegs/blob/master/README.md">FreeGS</a></td>
+<td>Python 自由边界 GS，Picard 迭代与多重网格</td>
+<td>线圈、剖面、形状约束 → 稳态磁通、X 点及线圈电流</td>
+<td>适合磁形状设计、教学和自定义约束；稳态线圈解不包含完整控制电路时间演化</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FusionComputingLab/freegsnke">FreeGSNKE</a></td>
+<td>轴对称 GS 平衡与主动/被动导体电路演化</td>
+<td>初态、线圈电压和剖面参数 → 形状及线圈/被动结构/等离子体总电流轨迹</td>
+<td>可研究动态平衡和控制；当前采用 FreeGS4E 后端，所核 README 仍将电流扩散与输运耦合列为后续计划</td>
+</tr>
+</tbody>
+</table></div>
+<p>FreeGSNKE 的<a href="https://arxiv.org/abs/2407.12432">静态平衡比较论文摘要</a>描述了在一致 MAST-U 几何、导体电流和剖面条件下与 Fiesta、EFIT++ 的核对；本章仅据摘要引用这一比较范围。静态平衡的一致性证据不能直接转移成动态壁载荷的精度结论。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EFIT-AI</td>
+<td><a href="https://efit-ai.gitlab.io/efit/license.html">官方许可页</a>列 BSD-2-Clause，同时附用户协议与邮件申请流程</td>
+<td>该页另列分发、研究与发表要求，目标发行版按团队提供的完整条款确认；机器与诊断配置另备</td>
+</tr>
+<tr>
+<td>FreeGS / FreeGSNKE</td>
+<td>公开；<a href="https://github.com/freegs-plasma/freegs/blob/master/LICENSE">FreeGS</a>、<a href="https://raw.githubusercontent.com/FusionComputingLab/freegsnke/main/LICENSE">FreeGSNKE</a>均为 LGPL v3</td>
+<td>平衡后端、机器几何、线圈数据和装置数据库接口</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<p>加权重建可用下式理解（目标函数示意，实际残差及正则项依实现）：</p>
+<div class="arithmatex">\[
+\mathcal J=\sum_j\left[\frac{\mathcal H_j(\psi)-y_j}{\sigma_j}\right]^2+\lambda\mathcal R(\psi).
+\]</div>
+<p><span class="arithmatex">\(y_j\)</span> 为测量、<span class="arithmatex">\(\mathcal H_j\)</span> 为前向观测、<span class="arithmatex">\(\sigma_j\)</span> 为误差尺度；正则权重 <span class="arithmatex">\(\lambda\)</span> 改变拟合与平滑之间的权衡。</p>
+<figure class="science-figure"><a aria-label="放大图示：重建约束、设计变量与下游磁几何的职责。" class="figure-link" href="/assets/diagrams/sim-equilibrium.svg"><img alt="重建约束、设计变量与下游磁几何的职责。" decoding="async" loading="lazy" src="/assets/diagrams/sim-equilibrium.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>重建约束、设计变量与下游磁几何的职责。</p></div><div class="entry-tools"><a href="/tag/MF000164/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000165"><div class="entry-heading"><h2><span class="entry-number">6.2.2</span><a href="/tag/MF000165/">三维平衡与嵌套磁面</a></h2><a class="tag" href="/tag/MF000165/">MF000165</a></div><div class="prose"><h3 id="vmec-与-desc-的平衡精度">VMEC 与 DESC 的平衡精度</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>方程与表示</th>
+<th>主要输入和输出</th>
+<th>选型差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://princetonuniversity.github.io/STELLOPT/VMEC.html">VMEC / VMEC2000</a></td>
+<td>在嵌套磁面假设下求三维理想 MHD 平衡；固定或自由边界</td>
+<td>边界、压力、旋转变换或电流、磁通及外线圈场 → wout 等几何与剖面</td>
+<td>适合仿星器几何和已有下游工具链；扫描径向与角向分辨率，检查力残差和近轴导数</td>
+</tr>
+<tr>
+<td><a href="https://desc-docs.readthedocs.io/en/stable/">DESC</a></td>
+<td>三维嵌套磁面、伪谱离散、力残差优化和自动微分</td>
+<td>边界与剖面 → 平衡、派生量和优化结果，可输出 VMEC 相关格式</td>
+<td>适合梯度设计及平衡/线圈优化；JAX 编译、谱阶及目标函数会影响成本</td>
+</tr>
+</tbody>
+</table></div>
+<p>VMEC 和 DESC 都用嵌套磁面表示，磁岛和随机区不能直接从这一表示中产生。<a href="https://doi.org/10.1017/S0022377823000272">DESC 与 VMEC 的原始比较论文</a>用共同的力平衡误差和具体案例讨论收敛，说明应比较达到同一误差目标的成本。优化还要检查线圈间距、曲率、工程载荷、快粒子约束和扰动敏感性；只降低一个准对称指标，不能替代这些约束。</p>
+<h3 id="获取与运行依赖：三维平衡与嵌套磁面">获取与运行依赖：三维平衡与嵌套磁面</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VMEC2000</td>
+<td>所核 <a href="https://raw.githubusercontent.com/hiddenSymmetries/VMEC2000/master/LICENSE">VMEC2000 仓库</a>为 MIT</td>
+<td>此结论限定 hiddenSymmetries/VMEC2000 发行版；外接求解器及 MPI/HDF5 等运行依赖另查</td>
+</tr>
+<tr>
+<td>DESC</td>
+<td>所核 <a href="https://raw.githubusercontent.com/PlasmaControl/DESC/master/LICENSE">DESC 仓库</a>为 MIT</td>
+<td>外接求解器及 JAX 等运行依赖另查</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000165/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000166"><div class="entry-heading"><h2><span class="entry-number">6.2.3</span><a href="/tag/MF000166/">线圈与多指标优化</a></h2><a class="tag" href="/tag/MF000166/">MF000166</a></div><div class="prose"><h3 id="simsopt-的变量、目标与后端">SIMSOPT 的变量、目标与后端</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>方程与表示</th>
+<th>主要输入和输出</th>
+<th>选型差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://simsopt.readthedocs.io/latest/mhd.html">SIMSOPT</a></td>
+<td>组织线圈/表面、磁场、目标函数及外部物理求解器的优化框架</td>
+<td>设计自由度和约束 → 线圈/边界方案及求解历史</td>
+<td>适合组合多种指标；VMEC、SPEC 等后端需另装，成本取决于调用次数与求导方式</td>
+</tr>
+</tbody>
+</table></div>
+<p>优化中把边界 Fourier 系数、线圈曲线和电流作为不同的设计变量，明确哪些固定、哪些变化。每次目标函数评估应留下对应的平衡版本；比较两个方案时，除目标值外同时查看约束违反量与扰动敏感性。所接求解器、求导方法和容差属于优化配置。参见 <a href="https://simsopt.readthedocs.io/latest/mhd.html">SIMSOPT MHD 接口</a>。</p>
+<h3 id="获取与运行依赖：线圈与多指标优化">获取与运行依赖：线圈与多指标优化</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIMSOPT</td>
+<td>所核 <a href="https://raw.githubusercontent.com/hiddenSymmetries/simsopt/master/LICENSE">SIMSOPT 仓库</a>为 MIT</td>
+<td>外接求解器及 MPI/HDF5 等运行依赖另查</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000166/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E5%B9%B3%E8%A1%A1%E4%B8%8E%E7%A3%81%E5%9C%BA%E4%BC%98%E5%8C%96/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E5%B9%B3%E8%A1%A1%E4%B8%8E%E7%A3%81%E5%9C%BA%E4%BC%98%E5%8C%96%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-equilibrium,
+  author = {{Megawave-Fusion}},
+  title = {平衡与磁场优化},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-equilibrium/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000063/"><small>← 上一页</small>模型与求解器目录</a><a class="next" href="/tag/MF000164/"><small>下一页 →</small>轴对称平衡与实验重建</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

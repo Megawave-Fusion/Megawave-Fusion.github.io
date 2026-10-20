@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Helicon 边缘全波、寄生慢波与工具比较 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="Helicon 边缘全波、寄生慢波与工具比较 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000210/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000210/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-helicon/">螺旋波传播、天线耦合与电流驱动模拟</a><span>/</span><span>Helicon 边缘全波、寄生慢波与工具比较</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.14.3 · 专题</p><h1>Helicon 边缘全波、寄生慢波与工具比较</h1><div class="page-meta"><span class="tag">MF000210</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-helicon/#MF000210">在连续正文中阅读</a></div><article class="prose"><h3 id="边缘决定进入芯部的功率">边缘决定进入芯部的功率</h3>
+<p>天线近场、快速密度变化、截止、法拉第屏方向和寄生慢波可改变能穿过边缘的波谱。对给定 RF 电流，频域模型求 <span class="arithmatex">\(\nabla\times\nabla\times\mathbf E-(\omega^2/c^2)\boldsymbol\epsilon\mathbf E=i\omega\mu_0\mathbf J_{\rm ant}\)</span>，这里采用 <span class="arithmatex">\(e^{-i\omega t}\)</span> 约定；介电张量和边界必须与该符号一致。把芯部射线追踪的吸收率乘以端口功率，隐含跳过了这段耦合过程。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具或模型</th>
+<th>经来源支持的用途</th>
+<th>不能直接推出的结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GENRAY</td>
+<td>几何光学传播与吸收，适合已定义发射波谱的射线计算</td>
+<td>完整三维金属天线与近场已自洽解析</td>
+</tr>
+<tr>
+<td>AORSA</td>
+<td>DIII-D/ITER helicon 全波与 SOL 影响比较</td>
+<td>单个工况的边缘损失适用于所有放电</td>
+</tr>
+<tr>
+<td>Petra-M</td>
+<td>DIII-D 边缘快慢波、屏栅失配与 SOL 密度研究</td>
+<td>该二维研究等同整套三维天线工程模型</td>
+</tr>
+<tr>
+<td>THEMIS</td>
+<td>2026 年预印本的三维热介电、Helimak 天线与窗口研究</td>
+<td>已证明高温托卡马克非感应电流能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>依据为 <a href="https://fusion.gat.com/pubs-ext/NuclFus/A28568abs.pdf">AORSA 原作者摘要</a>、<a href="https://doi.org/10.34770/g03g-qd76">Petra-M 作者数据集</a>与 <a href="https://arxiv.org/abs/2602.19472">THEMIS 预印本摘要</a>。</p>
+<h3 id="界面与网格检验">界面与网格检验</h3>
+<p>逐次加密介质窗、截止层及慢波短尺度区，并改变计算域和吸收边界位置；比较入射、反射、物种吸收与出射能流。冷张量中的人为碰撞若只是数值正则化，不能不加说明就把耗散全解释为真实电子加热。若只求部分环向谱，应增加谱范围检查是否漏掉反向和高波数成分。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%9E%BA%E6%97%8B%E6%B3%A2%E6%A8%A1%E6%8B%9F/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000210%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000210,
+  author = {{Megawave-Fusion}},
+  title = {Helicon 边缘全波、寄生慢波与工具比较},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000210/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000209/"><small>← 上一页</small>Helicon 三维天线电流、方向谱与耦合功率</a><a class="next" href="/tag/MF000211/"><small>下一页 →</small>Helicon 芯部传播、Landau 吸收与动理学电流</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

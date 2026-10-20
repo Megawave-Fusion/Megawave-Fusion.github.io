@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>电磁损耗、温度与热应力 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="电磁损耗、温度与热应力 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000215/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000215/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-engineering/">中子学与热结构</a><span>/</span><span>电磁损耗、温度与热应力</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.15.3 · 专题</p><h1>电磁损耗、温度与热应力</h1><div class="page-meta"><span class="tag">MF000215</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-engineering/#MF000215">在连续正文中阅读</a></div><article class="prose"><h3 id="商业工程求解器与-moose">商业工程求解器与 MOOSE</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>核心角色</th>
+<th>适合比较的任务</th>
+<th>需要补齐的输入或模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doc.comsol.com/6.3/doc/com.comsol.help.heat/heat_ug_theory.07.088.html">COMSOL 电磁热接口</a></td>
+<td>通用有限元电磁与热等多物理耦合，模块组合依任务选择</td>
+<td>天线/传输部件损耗、介质/导体发热及热响应</td>
+<td>端口、材料频散/温度关系、热边界与授权模块；热等离子体动理学响应须另建或导入</td>
+</tr>
+<tr>
+<td><a href="https://ansyshelp.ansys.com/public/Views/Secured/Electronics/v251/en/Subsystems/Mechanical/Content/Mechanical/Two-WayCoupling.htm">Ansys HFSS/Maxwell—Mechanical</a></td>
+<td>高频/低频电磁与热结构工作流</td>
+<td>电磁损耗到温升，温度反馈材料属性与损耗</td>
+<td>表面/体损耗映射、冷却、接触、材料与双向迭代收敛；所引说明为 2025 R1</td>
+</tr>
+<tr>
+<td><a href="https://mooseframework.inl.gov/modules/electromagnetics/index.html">MOOSE</a></td>
+<td>可开发的有限元多物理框架</td>
+<td>自定义方程、材料和场/热/力耦合</td>
+<td>框架与具体应用分开核验；当前所读电磁模块文档的波问题为 1D/2D，不能据此假定现成的任意三维 RF 能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ansys 的<a href="https://ansyshelp.ansys.com/public/Views/Secured/corp/v242/en/wb_sim/ds_thermal_stress.html">热应力文档</a>说明如何把温度场传为结构热载荷。热结构选型要看材料非线性、接触、脉冲、冷却、网格和已有模型，而非只看是否写着“多物理”。表面热流 W/m²、体热源 W/m³ 和积分功率 W 分别传递；天线金属损耗、快粒子壁沉积与中子核热分别建账，芯部吸收功率不能直接作为天线金属热源。</p>
+<h3 id="获取与运行依赖：电磁损耗、温度与热应力">获取与运行依赖：电磁损耗、温度与热应力</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COMSOL / Ansys / MOOSE</td>
+<td><a href="https://www.comsol.com/documentation/6.3.0.290/COMSOL_SoftwareLicenseAgreement.pdf">COMSOL</a>、<a href="https://ansys.synopsys.com/content/dam/legal/wla-july-29-2021.pdf">Ansys</a>按自有商业协议；<a href="https://raw.githubusercontent.com/idaholab/moose/master/LICENSE">MOOSE</a>框架为 LGPL-2.1</td>
+<td>商业产品的具体模块、并行/网络许可按所购授权；MOOSE 具体应用与材料模型另查</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E4%B8%AD%E5%AD%90%E5%AD%A6%E4%B8%8E%E7%83%AD%E7%BB%93%E6%9E%84/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000215%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000215,
+  author = {{Megawave-Fusion}},
+  title = {电磁损耗、温度与热应力},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000215/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000214/"><small>← 上一页</small>参数 CAD 与输运几何</a><a class="next" href="/tag/MF000216/"><small>下一页 →</small>每源中子结果与实际核热</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

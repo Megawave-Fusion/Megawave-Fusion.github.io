@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>通用电磁 PIC 的软件与采样 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="通用电磁 PIC 的软件与采样 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000180/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000180/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-numerics/">数值离散与粒子方法</a><span>/</span><span>通用电磁 PIC 的软件与采样</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.7.2 · 专题</p><h1>通用电磁 PIC 的软件与采样</h1><div class="page-meta"><span class="tag">MF000180</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-numerics/#MF000180">在连续正文中阅读</a></div><article class="prose"><h3 id="完整快速动理学的求解范围">完整快速动理学的求解范围</h3>
+<p>完整 Vlasov–Maxwell PIC 保留快速电磁和粒子动力学，适合激光—等离子体、局部不稳定性或特定动理学机制。它与磁约束长期输运所用的回旋平均模型在解析尺度上不同；将电子快速尺度一直积分到宏观放电时间通常带来巨大的成本。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的定位</th>
+<th>选择依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://smileipic.github.io/Smilei/">Smilei</a></td>
+<td>通用相对论 PIC，官方算法说明宏粒子、网格 Maxwell 与 PIC 循环</td>
+<td>适合需要完整快速动理学的课题，核对维度、碰撞、边界及粒子诊断</td>
+</tr>
+<tr>
+<td><a href="https://warpx.readthedocs.io/en/latest/">WarpX</a></td>
+<td>通用 PIC，提供不同电磁、静电及混合场路径，并有网格加密和 CPU/GPU 运行能力</td>
+<td>按具体算法、网格层级、硬件和版本做基准；具有聚变反应模块不等于具备整次托卡马克放电模型</td>
+</tr>
+<tr>
+<td><a href="https://github.com/epochpic/epoch">EPOCH</a></td>
+<td>提供一、二、三维实现的等离子体 PIC 软件</td>
+<td>可作为快速动理学问题的候选；本次只核对公开仓库定位与许可，具体扩展模块需继续阅读对应手册</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="宏粒子、网格与推进循环">宏粒子、网格与推进循环</h3>
+<p>PIC 用带权宏粒子表示分布，并在网格上求场。一个循环包含粒子处场插值、粒子推进、电荷/电流沉积和场更新。宏粒子代表具有给定统计权重的粒子群；统计噪声、网格加热、时间步误差和边界处理都影响结论。应分别扫描网格、时间步、每格粒子数和随机种子；显式电磁算法还需满足其稳定性约束。上述算法路径已核对 <a href="https://smileipic.github.io/Smilei/Understand/algorithms.html">Smilei 5.1 PIC algorithms</a> 的 Quasi-particles、Time and space discretization 与 PIC loop，稳定条件由所选时间推进和场求解算法确定。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smilei / WarpX / EPOCH</td>
+<td><a href="https://smileipic.github.io/Smilei/Overview/licence.html">Smilei</a>为 CeCILL-B；<a href="https://github.com/BLAST-WarpX/warpx">WarpX</a>为 BSD-3-Clause-LBNL；<a href="https://github.com/epochpic/epoch">EPOCH</a>为 GPL-3.0</td>
+<td>对照实际求解器与加速器后端、物理模块和输入数据</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A6%BB%E6%95%A3%E4%B8%8E%E7%B2%92%E5%AD%90%E6%96%B9%E6%B3%95/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000180%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000180,
+  author = {{Megawave-Fusion}},
+  title = {通用电磁 PIC 的软件与采样},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000180/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000179/"><small>← 上一页</small>有限差分、有限体积与守恒步</a><a class="next" href="/sections/simulation-rf-models/"><small>下一页 →</small>射频波与分布函数方法</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

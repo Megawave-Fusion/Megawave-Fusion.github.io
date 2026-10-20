@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>边缘输运与偏滤器 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="边缘输运与偏滤器 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-edge/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-edge/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>边缘输运与偏滤器</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.6 · 连续阅读</p><h1>边缘输运与偏滤器</h1><div class="page-meta"><span>2 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>把平均排热和中性粒子收支，与三维涨落及局部瞬态分开建模。</p></div><details class="page-toc"><summary>本节目录 · 2 个条目</summary><ul><li><a href="#MF000177">平均输运与动理学中性粒子</a></li><li><a href="#MF000178">边缘涨落与多物种流体</a></li></ul></details><section class="entry-block" id="MF000177"><div class="entry-heading"><h2><span class="entry-number">6.6.1</span><a href="/tag/MF000177/">平均输运与动理学中性粒子</a></h2><a class="tag" href="/tag/MF000177/">MF000177</a></div><div class="prose"><h3 id="solps-iter-与-uedge">SOLPS-ITER 与 UEDGE</h3>
+<p>SOL 和偏滤器需要处理沿场输运、鞘层、原子分子过程、回收、杂质与辐射。平均输运模型通常需要给定横场扩散系数；三维湍流模型解析部分涨落，但仍需选择平行热流、中性粒子和边界闭合。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>等离子体和中性粒子处理</th>
+<th>典型用途</th>
+<th>关键差异与输入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://solps-tutorials.readthedocs.io/">SOLPS-ITER</a></td>
+<td>标准工作流为二维轴对称 B2.5 多流体与 EIRENE Monte Carlo 中性粒子耦合</td>
+<td>偏滤器排热、脱靶、杂质/辐射、回收与抽气</td>
+<td><a href="https://solps-tutorials.readthedocs.io/feature_blog/Diffusion_coefficients/">横场粒子与热扩散系数</a>是模型输入；应检查网格、反应库及中性粒子统计</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LLNL/UEDGE">UEDGE</a></td>
+<td>二维等离子体及中性气体流体，有限体积与全隐式求解</td>
+<td>边缘稳态扫描和瞬态输运</td>
+<td>中性流体闭合与 EIRENE 的动理学中性模型不同；横场反常输运也需设定</td>
+</tr>
+</tbody>
+</table></div>
+<p>若目的是给靶板平均热流和中性压力做扫描，可先在平均输运模型中约束上游剖面、回收和辐射；若目的是解释 blob、间歇性负荷或横场输运机制，则需要相应的三维涨落模型与合成诊断。拟合实验得到的 <span class="arithmatex">\(D_\perp,\chi_e,\chi_i\)</span> 能解释该工况，不自动构成对新工况的预测能力。</p>
+<h3 id="芯部到靶板的负荷交接">芯部到靶板的负荷交接</h3>
+<p><strong>芯部—偏滤器—壁。</strong> 芯部给出越过分界面的功率与粒子流，边缘模型结合加料、回收和抽气返回上游状态、杂质和辐射；靶面热流再投影到实际 CAD 表面，交给热结构求解。检查闭合面和控制体边界，防止把辐射、回收能量或快粒子损失重复计入。该链可与<a href="/sections/materials/">腔体材料</a>及<a href="/sections/engineering/">工程系统</a>的载荷定义联用。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOLPS-ITER / EIRENE</td>
+<td><a href="https://github.com/iterorganization/SOLPS-ITER">SOLPS-ITER</a>已公开、顶层 EUPL-1.1；<a href="https://solps-tutorials.readthedocs.io/installing/solps-iter-codebase/">安装说明</a>仍要求确认 EIRENE 注册/许可</td>
+<td><a href="https://www.eirene.de/cgi-bin/eirene/write_temp.cgi?temp_dat=Download/download">EIRENE</a>列专用 EPL 或 CC BY-NC-ND 条款，不能只看顶层仓库；反应数据也应登记</td>
+</tr>
+<tr>
+<td>UEDGE</td>
+<td><a href="https://github.com/LLNL/UEDGE">官方仓库</a>为 LGPL-2.1</td>
+<td>核对实际模型、输入数据与运行依赖</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<p>选定控制体后，用同一参考面记功率：</p>
+<div class="arithmatex">\[
+P_{\rm in}=P_{\rm target}+P_{\rm radiation}+P_{\rm other}+\frac{dW}{dt}.
+\]</div>
+<p><span class="arithmatex">\(P_{\rm other}\)</span> 汇总穿出其他边界的净能流；荷交换和中性粒子功率需按控制体计入相应项，避免把内部交换重复当损失。</p>
+<figure class="science-figure"><a aria-label="放大图示：平均边缘模型与中性粒子模型的数据交接。" class="figure-link" href="/assets/diagrams/sim-edge.svg"><img alt="平均边缘模型与中性粒子模型的数据交接。" decoding="async" loading="lazy" src="/assets/diagrams/sim-edge.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>平均边缘模型与中性粒子模型的数据交接。</p></div><div class="entry-tools"><a href="/tag/MF000177/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000178"><div class="entry-heading"><h2><span class="entry-number">6.6.2</span><a href="/tag/MF000178/">边缘涨落与多物种流体</a></h2><a class="tag" href="/tag/MF000178/">MF000178</a></div><div class="prose"><h3 id="bout++、hermes-3-与-soledge3x">BOUT++、Hermes-3 与 SOLEDGE3X</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>等离子体和中性粒子处理</th>
+<th>典型用途</th>
+<th>关键差异与输入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://bout-dev.readthedocs.io/en/latest/user_docs/introduction.html">BOUT++</a> / <a href="https://hermes3.readthedocs.io/en/latest/">Hermes-3</a></td>
+<td>曲线坐标流体框架 / 建立其上的多物种边缘模型，可配置维度与稳态、瞬态、湍流任务</td>
+<td>边缘流体、涨落与模型开发</td>
+<td>指明具体模型、物种、方程和组件；Hermes-3 的<a href="https://hermes3.readthedocs.io/en/latest/equations.html">中性流体闭合</a>也须按维度选择</td>
+</tr>
+<tr>
+<td><a href="https://soledge3x.onrender.com/features/fluid_description/">SOLEDGE3X</a></td>
+<td>漂移序多流体；所引方程页采用静电固定磁场，可运行平均输运或相应湍流问题</td>
+<td>边缘输运、回收与壁相互作用</td>
+<td><a href="https://soledge3x.onrender.com/features/neutrals/">中性模型</a>可用简化扩散或经 STYX 耦合 EIRENE，不能把两种计算等量齐观</td>
+</tr>
+</tbody>
+</table></div>
+<p>三维涨落计算需要说明被解析的时间与波数范围，同时给出平行热流、鞘层、中性粒子和材料边界条件。先在简化几何中核对粒子与能量收支，再增加回收和原子过程。框架中的组件可以分别启停，算例应保存实际启用的方程及输入，而不是只写框架名称。</p>
+<h3 id="获取与运行依赖：边缘涨落与多物种流体">获取与运行依赖：边缘涨落与多物种流体</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOUT++ / SOLEDGE3X</td>
+<td><a href="https://bout-dev.readthedocs.io/en/latest/user_docs/introduction.html">BOUT++</a>为 LGPL-3.0-or-later；<a href="https://soledge3x.onrender.com/">SOLEDGE3X</a>按需获取</td>
+<td>BOUT++ 的具体应用与模型另查；SOLEDGE3X 未核实标准开源许可，不从论文开放性推断</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000178/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%BE%B9%E7%BC%98%E4%B8%8E%E5%81%8F%E6%BB%A4%E5%99%A8/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E8%BE%B9%E7%BC%98%E8%BE%93%E8%BF%90%E4%B8%8E%E5%81%8F%E6%BB%A4%E5%99%A8%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-edge,
+  author = {{Megawave-Fusion}},
+  title = {边缘输运与偏滤器},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-edge/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000176/"><small>← 上一页</small>粒子与连续分布的全局动理学</a><a class="next" href="/tag/MF000177/"><small>下一页 →</small>平均输运与动理学中性粒子</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

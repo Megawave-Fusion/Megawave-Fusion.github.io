@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>芯部输运与剖面演化 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="芯部输运与剖面演化 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-transport/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-transport/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>芯部输运与剖面演化</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.4 · 连续阅读</p><h1>芯部输运与剖面演化</h1><div class="page-meta"><span>4 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>分别讨论实验收支、稳态通量匹配、快速时序模型与湍流通量闭合。</p></div><details class="page-toc"><summary>本节目录 · 4 个条目</summary><ul><li><a href="#MF000170">解释性分析与预测性输运</a></li><li><a href="#MF000171">稳态通量匹配与 TGYRO</a></li><li><a href="#MF000172">快速输运与控制模型</a></li><li><a href="#MF000173">准线性输运与代理模型</a></li></ul></details><section class="entry-block" id="MF000170"><div class="entry-heading"><h2><span class="entry-number">6.4.1</span><a href="/tag/MF000170/">解释性分析与预测性输运</a></h2><a class="tag" href="/tag/MF000170/">MF000170</a></div><div class="prose"><h3 id="transp、astra-与-jintrac">TRANSP、ASTRA 与 JINTRAC</h3>
+<p>芯部输运把三维磁几何约化成磁面平均方程。“1D”一般指径向输运；“1.5D”常指径向输运与二维轴对称平衡联用，具体含义应查软件定义。解释性分析输入实测剖面，反推出满足粒子、能量和动量收支所需的通量；预测性分析给定闭合和源项，再演化未知剖面。同一个平台可以在不同通道分别采用这两种模式，比较前应列清哪些量被实验固定。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://arxiv.org/abs/2406.07781">TRANSP</a></td>
+<td>托卡马克粒子、功率、动量收支及电流扩散，包含加热、电流驱动和预测模块</td>
+<td>有完整诊断和执行器输入的放电分析；结合 NUBEAM 研究快离子与加热收支</td>
+<td>把解释与预测通道、采用的平衡、加热模块、输运闭合和实验约束逐项列出</td>
+</tr>
+<tr>
+<td><a href="https://w3.pppl.gov/~hammett/work/2009/Astra_ocr.pdf">ASTRA</a></td>
+<td>通过模型描述语言和模块组织输运问题，原报告给出一维输运与二维平衡的闭合</td>
+<td>检验自定义通量/源项假设，组织已有装置模型</td>
+<td>本表采用 2002 年原报告的框架定义；现代发行版、插件和接口需另核对，不能照抄旧安装要求</td>
+</tr>
+<tr>
+<td><a href="https://scientific-publications.ukaea.uk/wp-content/uploads/MILITELLO_ASP_2022_NUCL-_FUSION_62_126033.PDF">JINTRAC：JETTO/SANCO 与 EDGE2D/EIRENE</a></td>
+<td>芯部输运和杂质与 SOL/偏滤器多流体—中性粒子耦合</td>
+<td>研究芯边界、加料、杂质和排热相互反馈</td>
+<td>核对接口位置、返流/回收、原子数据、边缘输运系数与实际启用的子模块</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRANSP</td>
+<td><a href="https://transp.pppl.gov/releases.html">发布页</a>要求签协议，<a href="https://transp.pppl.gov/files/LicenseAgreement.pdf">现行协议文本</a>区分研究与商业使用</td>
+<td>按实际发行方的协议与装置数据权限配置工作流</td>
+</tr>
+<tr>
+<td>JINTRAC</td>
+<td><a href="https://scientific-publications.ukaea.uk/wp-content/uploads/UKAEA-CCFE-CP2525.PDF">UKAEA 公开应用论文</a>明确按许可使用</td>
+<td>具体发行包、子模块与运行依赖分别落实</td>
+</tr>
+<tr>
+<td>ASTRA</td>
+<td>本次未确认现代发行许可</td>
+<td>历史报告不可替代当前条款</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000170/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000171"><div class="entry-heading"><h2><span class="entry-number">6.4.2</span><a href="/tag/MF000171/">稳态通量匹配与 TGYRO</a></h2><a class="tag" href="/tag/MF000171/">MF000171</a></div><div class="prose"><h3 id="从源项积分确定所需通量">从源项积分确定所需通量</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/doc/tgyro/solver.html">TGYRO</a></td>
+<td>迭代梯度，使新经典与湍流通量满足稳态源项积分</td>
+<td>在给定边界温度、密度和源项下求稳态剖面，比较通量闭合</td>
+<td>官方算法以 <span class="arithmatex">\(\partial_t=0\)</span> 为目标；稳态通量匹配不能直接解释整个升流、加热、降流时序</td>
+</tr>
+</tbody>
+</table></div>
+<p>在固定几何、无旋转功项、且只考虑净热源 <span class="arithmatex">\(S\)</span> 的简化磁面平均能量方程中，令 <span class="arithmatex">\(r\)</span> 为有长度单位的径向标签，<span class="arithmatex">\(V'=dV/dr\)</span>，<span class="arithmatex">\(Q\)</span> 为使总径向输运功率等于 <span class="arithmatex">\(V'Q\)</span> 的通量定义。稳态下</p>
+<div class="arithmatex">\[
+\frac{1}{V'}\frac{d(V'Q)}{dr}=S,
+\qquad
+P(r)=V'(r)Q(r)=\int_0^r V'(x)S(x)\,dx,
+\]</div>
+<p>其中取磁轴处净流出功率为零。积分源项给出所需输运功率，再调整剖面梯度，使选定输运闭合给出的 <span class="arithmatex">\(Q\)</span> 与之匹配。这是 <a href="https://gafusion.github.io/doc/tgyro/solver.html">TGYRO 稳态求解算法</a>背后的守恒结构；实际多物种求解还须加入各自的交换和源项。</p>
+<p>若在某磁面内净热源积分为 4.0 MW，而离散通量给出 3.8 MW，定义功率残差 <span class="arithmatex">\(R_P=P_{\rm transport}-P_{\rm source}\)</span>，则 <span class="arithmatex">\(R_P=-0.2\)</span> MW，相对源功率为 <span class="arithmatex">\(-5\%\)</span>。即使温度曲线几次迭代几乎重合，这个预算仍未闭合。源项误差、台基边界误差与求解残差应分别报告；收紧非线性容差只会降低其中一部分。</p>
+<h3 id="获取与运行依赖：稳态通量匹配与-tgyro">获取与运行依赖：稳态通量匹配与 TGYRO</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TGYRO</td>
+<td><a href="https://github.com/gafusion/gacode/blob/master/LICENSE">GACODE 主仓库</a>为 Apache-2.0</td>
+<td>实际调用的通量模型与数据输入分别配置</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：稳态圆柱源积分的解析示意，不是 TGYRO 算例。" class="figure-link" href="/assets/diagrams/sim-transport.svg"><img alt="稳态圆柱源积分的解析示意，不是 TGYRO 算例。" decoding="async" loading="lazy" src="/assets/diagrams/sim-transport.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>稳态圆柱源积分的解析示意，不是 TGYRO 算例。</p></div><div class="entry-tools"><a href="/tag/MF000171/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000172"><div class="entry-heading"><h2><span class="entry-number">6.4.3</span><a href="/tag/MF000172/">快速输运与控制模型</a></h2><a class="tag" href="/tag/MF000172/">MF000172</a></div><div class="prose"><h3 id="raptor-与-torax-的时间轨迹">RAPTOR 与 TORAX 的时间轨迹</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://crppwww.epfl.ch/~sauter/raptor/">RAPTOR</a></td>
+<td>面向快速执行、实时状态估计和非线性优化的径向输运</td>
+<td>控制器开发、放电轨迹和可观测性研究</td>
+<td>闭合的简化程度、观测器输入和执行器模型决定可用范围；实时性要在指定硬件与算例上测量</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2406.06718">TORAX</a></td>
+<td>基于 Python/JAX 的可微芯部输运，推进离子/电子热、粒子与电流扩散方程</td>
+<td>快速参数扫描、梯度优化、代理模型与输运方程联用</td>
+<td>区分给定的几何/源项与在线求解量；自动微分覆盖范围取决于所接模块是否可微</td>
+</tr>
+</tbody>
+</table></div>
+<p>TORAX 的具体物理配置可查 <a href="https://torax.readthedocs.io/en/v1.4.3/physics_models.html">v1.4.3 的模型页</a>及<a href="https://github.com/google-deepmind/torax/releases">版本发布记录</a>：加热源、台基、旋转和边缘约化模块按版本配置。输入一串 EQDSK 并进行几何插值，与在每个时间步重新求自由边界平衡是两种不同的耦合方式。更换源模型或调用外部程序时，应重新检查导数、求解器配置和计算开销。</p>
+<h3 id="获取与运行依赖：快速输运与控制模型">获取与运行依赖：快速输运与控制模型</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAPTOR</td>
+<td><a href="https://crppwww.epfl.ch/~sauter/raptor/">官方页</a>仍要求签转移/CLA 协议</td>
+<td>获取申请与团队支持周期计入项目安排</td>
+</tr>
+<tr>
+<td>TORAX</td>
+<td><a href="https://github.com/google-deepmind/torax/blob/main/LICENSE">主体仓库</a>为 Apache-2.0</td>
+<td>第三方数据另列许可，实际配置与依赖按所用版本核对</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000172/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000173"><div class="entry-heading"><h2><span class="entry-number">6.4.4</span><a href="/tag/MF000173/">准线性输运与代理模型</a></h2><a class="tag" href="/tag/MF000173/">MF000173</a></div><div class="prose"><h3 id="tglf、qualikiz-与教师模型">TGLF、QuaLiKiz 与教师模型</h3>
+<p>输运平台本身不唯一决定湍流预测。相同的输运方程，换用常数扩散、TGLF、QuaLiKiz、非线性 gyrokinetic 通量或神经网络代理，会得到不同的剖面与误差结构。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>怎样得到输运通量</th>
+<th>相比直接非线性计算省下什么</th>
+<th>需要保留的模型信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/doc/tglf.html">TGLF</a></td>
+<td>求解 gyro-Landau-fluid 线性模，配合准线性权重和饱和规则</td>
+<td>约化速度空间响应，并用饱和规则表示非线性通量水平</td>
+<td>饱和规则、波数范围、几何、电磁项和 <span class="arithmatex">\(E\times B\)</span> 剪切选项</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/1708.01224">QuaLiKiz</a></td>
+<td>约化的准线性 gyrokinetic 模型，输出热、粒子与动量通量</td>
+<td>用约化模结构和饱和模型，减少直接演化非线性湍流的工作量</td>
+<td>模型版本、适用的局部参数与几何、碰撞和旋转处理</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2105.01168">QLKNN</a> 等代理</td>
+<td>学习已有物理模型的数据映射</td>
+<td>避免每次调用原模型求解</td>
+<td>教师模型、训练域、特征归一化、阈值附近误差和域外检测</td>
+</tr>
+<tr>
+<td>非线性 gyrokinetic 通量</td>
+<td>在指定方程与排序下直接演化湍流并做统计平均</td>
+<td>保留所解析尺度上的非线性相互作用</td>
+<td>相空间分辨率、尺寸、碰撞、饱和时间、平均窗和统计误差</td>
+</tr>
+</tbody>
+</table></div>
+<p>TGLF 是 gyrofluid 线性响应加通量闭合，QuaLiKiz 是约化 gyrokinetic 准线性模型；二者的相似输出不表示采用同一组方程。代理模型对教师的拟合误差、教师对实验的偏差、输运迭代引入的误差应分别记录。阈值附近一点通量误差可能移动温度梯度；在刚性输运区，通量差异与最终剖面差异也未必成比例。对代理可先做独立参数留出，再在相同边界和源项下比较整段输运轨迹，最后检查独立放电。</p>
+<h3 id="获取与运行依赖：准线性输运与代理模型">获取与运行依赖：准线性输运与代理模型</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TGLF</td>
+<td><a href="https://github.com/gafusion/gacode/blob/master/LICENSE">GACODE 主仓库</a>为 Apache-2.0</td>
+<td>模型与数据输入分别配置；更新饱和规则后重跑基准</td>
+</tr>
+<tr>
+<td>QuaLiKiz / QLKNN</td>
+<td><a href="https://gitlab.com/qualikiz-group/QuaLiKiz/-/blob/main/LICENSE">QuaLiKiz</a>为 CeCILL-C；QLKNN 按具体模型的发行包核对</td>
+<td>QLKNN 的代码、权重与训练数据分别核对</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000173/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%8A%AF%E9%83%A8%E8%BE%93%E8%BF%90/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E8%8A%AF%E9%83%A8%E8%BE%93%E8%BF%90%E4%B8%8E%E5%89%96%E9%9D%A2%E6%BC%94%E5%8C%96%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-transport,
+  author = {{Megawave-Fusion}},
+  title = {芯部输运与剖面演化},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-transport/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000169/"><small>← 上一页</small>VDE 跨代码基准</a><a class="next" href="/tag/MF000170/"><small>下一页 →</small>解释性分析与预测性输运</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

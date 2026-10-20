@@ -2,11 +2,11 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>多物理耦合与数据接口 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
 <meta name="theme-color" content="#123c54"><meta property="og:title" content="多物理耦合与数据接口 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000064/"><meta property="og:type" content="article">
-<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000064/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=20dddbcbe7"><script type="module" src="/assets/site.mjs?v=9f1d884ee6"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000064/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/sections/simulation/">仿真计算：模型、软件与验证</a><span>/</span><span>多物理耦合与数据接口</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.1.2 · 专题</p><h1>多物理耦合与数据接口</h1><div class="page-meta"><span class="tag">MF000064</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation/#MF000064">在连续正文中阅读</a></div><article class="prose"><h3 id="集成平台怎样组织软件">集成平台怎样组织软件</h3>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-coupling/">多物理耦合与数据接口</a><span>/</span><span>多物理耦合与数据接口</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.16.1 · 专题</p><h1>多物理耦合与数据接口</h1><div class="page-meta"><span class="tag">MF000064</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-coupling/#MF000064">在连续正文中阅读</a></div><article class="prose"><h3 id="imas、omas-与-omfit-的层级">IMAS、OMAS 与 OMFIT 的层级</h3>
 <p><a href="https://imas-data-dictionary.readthedocs.io/en/latest/intro.html">IMAS Data Dictionary</a>定义 Interface Data Structures（IDS），规定数据含义、单位和坐标；访问层负责读写这些结构。<a href="https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source">ITER 2025 年的开放发布公告</a>涉及基础设施和逐步发布的物理软件，应逐仓库核对许可及依赖。数据结构、模型接口和运行环境共同组成工作流。</p>
 <p><a href="https://www.omfit.io/modules/mod_STEP.html">OMFIT 的 STEP</a>通过 OMAS 组织状态，将稳定性、输运、平衡和台基计算按步骤连接并保存历史。其<a href="https://omfit.io/install.html">安装说明</a>明确指出，OMFIT 本体不包含模块调用的所有外部程序；可访问一个界面，不等于已经获得 EFIT、TRANSP 或其他求解器与数据库。软件目录、实际安装和输入数据是三份需要对应的清单。</p>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
@@ -41,67 +41,27 @@
 </tbody>
 </table></div>
 <p>IMAS-Python 的 <a href="https://imas-python.readthedocs.io/en/latest/validation.html">IDS validation</a>检查时间模式及坐标维度等一致性。字段形状正确后，仍需另算功率积分、物种收支及方向约定，才能判断两段程序在物理上是否闭合。</p>
-<h3 id="三条可以落地的计算链">三条可以落地的计算链</h3>
-<p><strong>加热方案与放电剖面。</strong> 先用指定平衡和实测或设计剖面计算 RF/NBI 的分物种源项，传入输运模型；剖面变化后更新波吸收、束出生和碰撞交换，必要时再更新平衡。先固定几何、核对单向功率映射，再增加反馈，能够定位每个接口的误差。用 TORAX/RAPTOR 做优化时，可在少量代表性状态上与所选波、轨道或输运教师模型对照，保存代理调用范围。</p>
-<p><strong>芯部—偏滤器—壁。</strong> 芯部给出越过分界面的功率与粒子流，边缘模型结合加料、回收和抽气返回上游状态、杂质和辐射；靶面热流再投影到实际 CAD 表面，交给热结构求解。检查闭合面和控制体边界，防止把辐射、回收能量或快粒子损失重复计入。该链可与<a href="/sections/materials/">腔体材料</a>及<a href="/sections/engineering/">工程系统</a>的载荷定义联用。</p>
-<p><strong>聚变源—核热—温度应力。</strong> 反应率与快离子模型提供中子空间、能谱和角分布；中子学求解各材料区的核热与反应率；工程模型再叠加表面热流、冷却和结构约束。保留每源粒子 tally 到 W 或 W/m³ 的归一化过程，以及核数据、材料密度和同位素组成版本。CAD 到输运网格、输运网格到有限元网格的两次映射分别检查总量。</p>
-<p>这些是计算组织方案。选取其中一条时，应明确哪些模块已经真实相连、哪些载荷为外部给定，保存每次耦合调用的输入和输出版本。</p>
-<h3 id="rf—分布函数—输运">RF—分布函数—输运</h3>
-<p>射频场给出波粒能量交换和扩散系数；分布函数改变介电响应、碰撞功率和电流；输运改变温度、密度及共振位置。迭代耦合把这些更新传回上游，形成场、分布与剖面之间的反馈。最小接口应写明物种、坐标、体积元、功率单位、归一化、时间窗和损失口径。</p>
-<p>用非相对论动能 <span class="arithmatex">\(m_sv^2/2\)</span> 定义 RF 算子贡献时，可检查</p>
-<div class="arithmatex">\[
-P_{\mathrm{RF}\to s}^{\mathrm{FP}}
-=\int dV\int d^3v\,\frac{m_sv^2}{2}\,Q_{\mathrm{RF},s}[f_s].
-\]</div>
-<p>这一功率矩的推导是对分布演化中的 RF 部分 <span class="arithmatex">\(\partial_tf_s|_{\rm RF}=Q_{{\rm RF},s}\)</span> 乘单粒子动能，再在相空间积分。速度、位置坐标不随时间变化时，时间导数可移出积分，左边就是该算子造成的动能变化率；若使用扩散算子，还可分部积分把能量变化写成扩散通量做功，必须同时保留或明确令零速度空间边界通量。</p>
-<p>它应与同一物种、同一体积内的波吸收功率一致，精度受离散和耦合残差限制；相对论计算需换成相对论动能，动量坐标需换积分测度。快离子吸收进入快粒子库，其对背景的碰撞加热是两个能量库之间的转移。是否把逃逸粒子和边界通量纳入预算也须明确。</p>
-<p><a href="https://arxiv.org/abs/2207.09011">Frank 等 2022 原论文摘要</a>报告了 TORLH 与 CQL3D 的功率自洽耦合，并指出其所研究的 C-Mod 情形中，全波修正未解释全部实验差异。本次读取摘要，只引用这一方法与结论边界，不据此断言所有 LHCD 场景都可忽略全波效应。</p>
-<h3 id="空间和时间映射">空间和时间映射</h3>
-<p>磁通坐标中的密度必须与正确体积元配套；极向磁通与环向磁通各有自己的坐标变换。保守重映射要求输出网格上的积分与输入预算一致。点值插值看起来平滑，仍可能改变总功率。将二维沉积投影为一维磁面平均会丢失环向和极向结构，应说明这种约化对局部热点或不稳定性是否适用。</p>
-<p>耦合时间步需解析被关心的反馈时间尺度。隐式或松弛迭代用于改善数值收敛；可保存各物种能量残差、粒子残差和迭代变化量，检查更细耦合步长下的目标量是否稳定。</p>
-<h3 id="坐标、符号与单位必须随数据一起传递">坐标、符号与单位必须随数据一起传递</h3>
-<p>同名径向坐标可能表示几何半径、归一化极向磁通或归一化环向磁通的平方根。例如 <span class="arithmatex">\(\psi_N=(\psi-\psi_a)/(\psi_b-\psi_a)\)</span> 与 <span class="arithmatex">\(\rho_{\rm tor}=\sqrt{(\Phi-\Phi_a)/(\Phi_b-\Phi_a)}\)</span> 定义不同，不能只改列名就互换；应由同一个平衡给出映射和体积 <span class="arithmatex">\(V\)</span>。下标 <span class="arithmatex">\(a,b\)</span> 分别表示磁轴与所选边界。</p>
-<p><a href="https://www.epfl.ch/research/domains/swiss-plasma-center/wp-content/uploads/2018/10/Sauter_COCOS_Tokamak_Coordinate_Conventions.pdf">COCOS 原论文</a>系统区分磁通是否含 <span class="arithmatex">\(2\pi\)</span>、坐标定向和电流/磁场符号。它们会影响 <span class="arithmatex">\(q\)</span>、<span class="arithmatex">\(F=RB_\phi\)</span>、平行波数和同向/反向电流驱动。接口至少保存输入与输出 COCOS、磁通单位、磁轴/边界取值、环向角正向和电流定义，并对一个已知磁场方向的点做向量检查。</p>
-<p><a href="https://gafusion.github.io/doc/tgyro/equations.html">TGYRO 方程与单位表</a>是实际例子：部分内部量使用 CGS，而本库工程预算使用 SI。由 <span class="arithmatex">\(1\,\mathrm{erg}=10^{-7}\)</span> J、<span class="arithmatex">\(1\,\mathrm{cm^2}=10^{-4}\)</span> m²、<span class="arithmatex">\(1\,\mathrm{cm^3}=10^{-6}\)</span> m³，有</p>
-<div class="arithmatex">\[
-1\,\frac{\mathrm{erg}}{\mathrm{s\,cm^2}}=10^{-3}\,\mathrm{W\,m^{-2}},\qquad
-1\,\frac{\mathrm{erg}}{\mathrm{s\,cm^3}}=0.1\,\mathrm{W\,m^{-3}}.
-\]</div>
-<p>因此 <span class="arithmatex">\(2\times10^8\,\mathrm{erg\,s^{-1}\,cm^{-2}}\)</span> 对应 <span class="arithmatex">\(0.20\,\mathrm{MW\,m^{-2}}\)</span>。粒子能量、温度能量和归一化热通量也分别恢复单位；写在图上的“功率”必须明确是体积密度、面积通量、磁面输运通量还是已积分功率。</p>
-<h3 id="保守重映射的一个小算例">保守重映射的一个小算例</h3>
-<p>把源网格上的单元平均体热源 <span class="arithmatex">\(s_i\)</span>（W/m³）映射到目标单元 <span class="arithmatex">\(j\)</span>，若各单元内用常数重构，可按交叠体积写成</p>
-<div class="arithmatex">\[
-\widetilde s_j=\frac{1}{\Delta\widetilde V_j}
-\sum_i s_i\,\Delta V_{ij}^{\rm overlap}.
-\]</div>
-<p>对所有目标单元乘体积并求和，若新旧网格覆盖同一计算域，且交叠部分没有重复或遗漏，则 <span class="arithmatex">\(\sum_j\widetilde s_j\Delta\widetilde V_j=\sum_i s_i\Delta V_i\)</span>。这是对控制体积分的直接分配；若物理边界改变，移出域的功率需另列。</p>
-<p>用累计体积 <span class="arithmatex">\(V\)</span> 作坐标，原网格边界为 <span class="arithmatex">\((0,1,4)\)</span> m³，平均热源为 <span class="arithmatex">\((2,1)\)</span> MW/m³，总功率为 <span class="arithmatex">\(2\times1+1\times3=5\)</span> MW。新网格为 <span class="arithmatex">\((0,2,4)\)</span> m³，第一个单元接收 <span class="arithmatex">\(2\times1+1\times1=3\)</span> MW，第二个接收 2 MW，得到平均值 <span class="arithmatex">\((1.5,1)\)</span> MW/m³，总功率仍为 5 MW。</p>
-<p>若对原单元中心 <span class="arithmatex">\(V=(0.5,2.5)\)</span> 的热源做线性点值插值，并在右端使用常数外延，新中心 <span class="arithmatex">\(V=(1,3)\)</span> 得到 <span class="arithmatex">\((1.75,1)\)</span> MW/m³，积分为 5.5 MW，比原值多 10%。曲线平滑没有保证功率一致。高阶映射还可进一步检验非负性、极值和局部矩；此处的分片常数例子只展示守恒结构。</p>
-<h3 id="从每源中子-tally-到核热功率">从每源中子 tally 到核热功率</h3>
-<p><a href="https://docs.openmc.org/en/stable/usersguide/tallies.html">OpenMC tally 文档</a>给出的量通常按每源粒子归一。对以一个 D–T 反应中子为一个源粒子的固定源问题，设某部件的积分核热 tally 为 <span class="arithmatex">\(H\)</span>（eV/source），真实中子源率为 <span class="arithmatex">\(\dot N_n\)</span>（s⁻¹），则</p>
-<div class="arithmatex">\[
-P_{\rm heat}=H\,\dot N_n\,(1.602176634\times10^{-19})\quad\mathrm W.
-\]</div>
-<p>该式是每源释放能量乘每秒源数。若给定 D–T 聚变总功率 <span class="arithmatex">\(P_{\rm fus}\)</span>、每次反应取 17.6 MeV 且产生一个中子，则 <span class="arithmatex">\(\dot N_n=P_{\rm fus}/(17.6\times10^6 e)\)</span>，这里 <span class="arithmatex">\(e\)</span> 的数值为每 eV 对应的焦耳数。取 <span class="arithmatex">\(P_{\rm fus}=500\)</span> MW、<span class="arithmatex">\(H=9.0\)</span> MeV/source，得到 <span class="arithmatex">\(\dot N_n\simeq1.7732\times10^{20}\)</span> s⁻¹，部件核热为 <span class="arithmatex">\(500\times9/17.6\simeq255.68\)</span> MW；若部件体积为 10 m³，其体积平均热源为 25.568 MW/m³。<span class="arithmatex">\(H\)</span> 在此为教学给定值，未由真实包层计算取得。</p>
-<p>如果 tally 为体积分 flux，OpenMC 常用单位为 particle·cm/source，应先除以 tally 体积（cm³）再乘源率，得到 particle/(cm²·s)。若用另一种源粒子定义、源权重或多源采样，必须相应重建归一化。耦合光子输运与 heating/heating-local 的选择也应随核热结果记录。</p>
-<h3 id="用两个能量库检验耦合交换">用两个能量库检验耦合交换</h3>
-<p>设快粒子能量库为 <span class="arithmatex">\(W_f\)</span>、热等离子体能量库为 <span class="arithmatex">\(W_t\)</span>。将快粒子慢化近似为时间常数 <span class="arithmatex">\(\tau_f\)</span>、热损失近似为 <span class="arithmatex">\(\tau_E\)</span>，则</p>
-<div class="arithmatex">\[
-\dot W_f=P_{\rm inj}-W_f/\tau_f,\qquad
-\dot W_t=W_f/\tau_f-W_t/\tau_E.
-\]</div>
-<p>相加后交换项消去，<span class="arithmatex">\(\dot W_f+\dot W_t=P_{\rm inj}-W_t/\tau_E\)</span>，因而耦合接口的同一份沉积功率在两边分别是损失和增益。对瞬时注入后 <span class="arithmatex">\(P_{\rm inj}=0\)</span>、<span class="arithmatex">\(W_f(0)=W_0\)</span>、<span class="arithmatex">\(W_t(0)=0\)</span>，先解第一个指数衰减，再对第二式用积分因子，得到</p>
-<div class="arithmatex">\[
-W_f=W_0e^{-t/\tau_f},\quad
-W_t=W_0\frac{\tau_E}{\tau_E-\tau_f}
-\left(e^{-t/\tau_E}-e^{-t/\tau_f}\right).
-\]</div>
-<p>上述两指数式适用于 <span class="arithmatex">\(\tau_E\ne\tau_f\)</span>。当 <span class="arithmatex">\(\tau_E=\tau_f=\tau\)</span> 时，积分因子直接给出 <span class="arithmatex">\(W_t=W_0(t/\tau)e^{-t/\tau}\)</span>，也等于两指数式的连续极限；此时热能峰值位于 <span class="arithmatex">\(t=\tau\)</span>。</p>
-<p>教学取 <span class="arithmatex">\(W_0=1.0\)</span> MJ、<span class="arithmatex">\(\tau_f=0.050\)</span> s、<span class="arithmatex">\(\tau_E=0.20\)</span> s，<span class="arithmatex">\(t=0.10\)</span> s 时分别有 0.1353 MJ 和 0.6283 MJ，已损失的热量为 0.2364 MJ，三者相加为初始 1.0 MJ。令 <span class="arithmatex">\(\dot W_t=0\)</span> 可得热能峰值时刻 <span class="arithmatex">\(\ln(\tau_E/\tau_f)/(1/\tau_f-1/\tau_E)=0.0924\)</span> s。快粒子向电子和离子的真实慢化分配见 <a href="https://event.ipp-hgw.mpg.de/event/1032/contributions/1480/attachments/715/1166/IAEA%20-%20Fusion%20Physics.pdf">IAEA《Fusion Physics》§5.1.4，书页 543–545 的能量转移</a>；这里用一阶能量库提取了耦合中必须满足的守恒结构。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000064%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000064,
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OMFIT / IMAS</td>
+<td><a href="https://omfit.io/install.html">OMFIT</a>要求用户协议并授予仓库权限；<a href="https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source">IMAS</a>已发布多项开放组件</td>
+<td>OMFIT 不附带所有外部程序；IMAS 许可按各基础设施/物理软件仓库与版本核对</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E5%A4%9A%E7%89%A9%E7%90%86%E8%80%A6%E5%90%88/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000064%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000064,
   author = {{Megawave-Fusion}},
   title = {多物理耦合与数据接口},
   year = {2026},
   url = {https://megawave-fusion.github.io/tag/MF000064/},
-  note = {Fusion Stacks; revision 3cf5a192752d}
-}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000063/"><small>← 上一页</small>模型与求解器目录</a><a class="next" href="/tag/MF000065/"><small>下一页 →</small>验证、确认与不确定性</a></nav></main></div>
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-coupling/"><small>← 上一页</small>多物理耦合与数据接口</a><a class="next" href="/tag/MF000217/"><small>下一页 →</small>磁坐标、方向与单位转换</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>射频波与分布函数方法 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="射频波与分布函数方法 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-rf-models/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-rf-models/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>射频波与分布函数方法</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.8 · 连续阅读</p><h1>射频波与分布函数方法</h1><div class="page-meta"><span>2 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>先掌握射线、准光学、全波和弹跳平均 FP 的区别，再进入各加热系统的具体流程。</p></div><details class="page-toc"><summary>本节目录 · 2 个条目</summary><ul><li><a href="#MF000181">射线、准光学与全波的选择</a></li><li><a href="#MF000182">弹跳平均 Fokker–Planck 与电流</a></li></ul></details><section class="entry-block" id="MF000181"><div class="entry-heading"><h2><span class="entry-number">6.8.1</span><a href="/tag/MF000181/">射线、准光学与全波的选择</a></h2><a class="tag" href="/tag/MF000181/">MF000181</a></div><div class="prose"><h3 id="genray、gray、toric-与-aorsa">GENRAY、GRAY、TORIC 与 AORSA</h3>
+<p>射线追踪用几何光学近似计算传播和局部吸收；准光学束追踪还描述有限束宽与衍射；全波求解给定频率、边界和介电响应下的场；Fokker–Planck（FP）求碰撞、波扩散、电场与源汇作用下的分布函数。这几层分别决定传播、场结构、非热尾部和电流。具体应用可对照<a href="/sections/icrh/">离子回旋</a>、<a href="/sections/ecrh/">电子回旋</a>与<a href="/sections/lhcd/">低杂波</a>专题。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>物理层级</th>
+<th>主要输出</th>
+<th>模型边界与比较重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.compxco.com/genray.html">GENRAY</a></td>
+<td>几何光学射线，具有 EC、LH、ICRF 等色散/吸收选项</td>
+<td>射线路径、吸收及线性电流驱动；可向 FP 提供 RF 数据</td>
+<td>核对色散与吸收模型、初始谱和功率；截止、模转换、干涉与衍射需检查近似是否成立</td>
+</tr>
+<tr>
+<td><a href="https://baltig.cnr.it/ectoplasm/gray">GRAY</a></td>
+<td>用复 eikonal 描述 EC 高斯束的准光学传播</td>
+<td>束传播、衍射、吸收与 EC 电流驱动</td>
+<td>比单条射线多了束宽/衍射描述，但不等同于三维天线近场全波</td>
+</tr>
+<tr>
+<td><a href="https://www-internal.psfc.mit.edu/~jwright/Publications/jcw_icnsp_submittedpaper/node2.html">TORIC</a></td>
+<td>轴对称环形几何、热等离子体有限拉莫尔半径（FLR）全波</td>
+<td>波场、模式转换和分物种吸收</td>
+<td>“全波”仍有线性响应、几何和 FLR 模型近似，须写明所用版本</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ORNL-Fusion/aorsa">AORSA</a></td>
+<td>谱全波，保留离子拉莫尔半径与波长比的所有阶响应</td>
+<td>RF 场、沉积，按配置输出准线性系数</td>
+<td>所谓所有阶不消除平衡梯度、线性响应和有限分辨率的近似；构建与大矩阵求解也是成本</td>
+</tr>
+</tbody>
+</table></div>
+<p>TORIC 的<a href="https://doi.org/10.1088/0741-3335/41/1/002">原始论文</a>说明其有限拉莫尔半径全波模型；AORSA 作者的<a href="https://nstx.pppl.gov/DragNDrop/Science_Groups/core/TSGs/energetic_particles/archive/2011/RF%20Conference%202011/Abstracts/Contributed%20Abstracts/Poster%20Session%20A/A49_Jaeger_E_.pdf">电导率修正说明</a>区分 <span class="arithmatex">\(k_\perp\rho\)</span> 与 <span class="arithmatex">\(\rho/L_{\rm eq}\)</span> 两种展开参数。选择全波应来自具体的波效应需求，而非把求解器名称当作无近似的保证。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GENRAY / GRAY</td>
+<td><a href="https://github.com/compxco/genray/blob/master/LICENSE">GENRAY</a>为 GPL-3.0-or-later；<a href="https://baltig.cnr.it/ectoplasm/gray/-/blob/master/LICENSE.md">GRAY</a>采用自有用户协议，含非商业研究及修改限制</td>
+<td>分别核对用途和修改条件，不能由公开仓库推断相同许可</td>
+</tr>
+<tr>
+<td>AORSA / TORIC</td>
+<td><a href="https://raw.githubusercontent.com/ORNL-Fusion/aorsa/master/LICENSE">AORSA</a>所核仓库为 MIT；TORIC 本次未确认独立发行许可</td>
+<td>核对实际发行方、平台协议和依赖</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：传播模型与速度空间分布之间的接口。" class="figure-link" href="/assets/diagrams/sim-rf-models.svg"><img alt="传播模型与速度空间分布之间的接口。" decoding="async" loading="lazy" src="/assets/diagrams/sim-rf-models.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>传播模型与速度空间分布之间的接口。</p></div><div class="entry-tools"><a href="/tag/MF000181/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000182"><div class="entry-heading"><h2><span class="entry-number">6.8.2</span><a href="/tag/MF000182/">弹跳平均 Fokker–Planck 与电流</a></h2><a class="tag" href="/tag/MF000182/">MF000182</a></div><div class="prose"><h3 id="cql3d-与-luke-的输入输出">CQL3D 与 LUKE 的输入输出</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>物理层级</th>
+<th>主要输出</th>
+<th>模型边界与比较重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.compxco.com/cql3d.html">CQL3D</a></td>
+<td>相对论、弹跳平均的碰撞/准线性 FP；常用两动量维加一径向维</td>
+<td>非热电子/离子分布、加热、电流驱动和相关诊断量</td>
+<td>名称中的 3D 不表示三维空间全轨道；RF 扩散和几何须由对应模型或上游求解器提供</td>
+</tr>
+<tr>
+<td><a href="https://spcgit.epfl.ch/luke/tutorial.html">LUKE</a></td>
+<td>所引教程为相对论、弹跳平均电子 FP，一空间维加两动量维</td>
+<td>电子分布、电流驱动与相关响应</td>
+<td>核对背景、碰撞线性化、波输入、电场和输运；该教程基于 MATLAB</td>
+</tr>
+</tbody>
+</table></div>
+<p>强非热情形中，场给出准线性扩散，分布改变吸收和介电响应，二者可能需要迭代。比较功率时统一天线/入射面、反射、金属/介质损耗、电子/离子吸收和出域功率。频域复场采用峰值幅度时，周期平均功率密度（W/m³）常写为 <span class="arithmatex">\(\tfrac12\operatorname{Re}(\mathbf J\cdot\mathbf E^*)\)</span>；采用 RMS 幅度时因子相应改变，必须跟随软件约定，例如 <a href="https://ansyshelp.ansys.com/public/views/secured/electronics/v261/en/subsystems/HFSS/Content/HFSS/PeakVersusRMSPhasors.htm">HFSS 的相量说明</a>。RF—FP 功率矩的核对方法见<a href="/sections/simulation-coupling/">多物理耦合</a>。</p>
+<h3 id="获取与运行依赖：弹跳平均-fokker–planck-与电流">获取与运行依赖：弹跳平均 Fokker–Planck 与电流</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CQL3D</td>
+<td><a href="https://raw.githubusercontent.com/compxco/cql3d/master/LICENSE">官方许可</a>为 GPL-3.0-or-later</td>
+<td>实际发行方、平台协议和依赖分别核对</td>
+</tr>
+<tr>
+<td>LUKE</td>
+<td>本次未确认独立发行许可</td>
+<td>核对实际发行方、平台协议和 MATLAB 等运行依赖</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000182/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E5%B0%84%E9%A2%91%E6%B3%A2%E4%B8%8E%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E5%B0%84%E9%A2%91%E6%B3%A2%E4%B8%8E%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-rf-models,
+  author = {{Megawave-Fusion}},
+  title = {射频波与分布函数方法},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-rf-models/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000180/"><small>← 上一页</small>通用电磁 PIC 的软件与采样</a><a class="next" href="/tag/MF000181/"><small>下一页 →</small>射线、准光学与全波的选择</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

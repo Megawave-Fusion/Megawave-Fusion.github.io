@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>稳态通量匹配与 TGYRO · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="稳态通量匹配与 TGYRO · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000171/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000171/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-transport/">芯部输运与剖面演化</a><span>/</span><span>稳态通量匹配与 TGYRO</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.4.2 · 专题</p><h1>稳态通量匹配与 TGYRO</h1><div class="page-meta"><span class="tag">MF000171</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-transport/#MF000171">在连续正文中阅读</a></div><article class="prose"><h3 id="从源项积分确定所需通量">从源项积分确定所需通量</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/doc/tgyro/solver.html">TGYRO</a></td>
+<td>迭代梯度，使新经典与湍流通量满足稳态源项积分</td>
+<td>在给定边界温度、密度和源项下求稳态剖面，比较通量闭合</td>
+<td>官方算法以 <span class="arithmatex">\(\partial_t=0\)</span> 为目标；稳态通量匹配不能直接解释整个升流、加热、降流时序</td>
+</tr>
+</tbody>
+</table></div>
+<p>在固定几何、无旋转功项、且只考虑净热源 <span class="arithmatex">\(S\)</span> 的简化磁面平均能量方程中，令 <span class="arithmatex">\(r\)</span> 为有长度单位的径向标签，<span class="arithmatex">\(V'=dV/dr\)</span>，<span class="arithmatex">\(Q\)</span> 为使总径向输运功率等于 <span class="arithmatex">\(V'Q\)</span> 的通量定义。稳态下</p>
+<div class="arithmatex">\[
+\frac{1}{V'}\frac{d(V'Q)}{dr}=S,
+\qquad
+P(r)=V'(r)Q(r)=\int_0^r V'(x)S(x)\,dx,
+\]</div>
+<p>其中取磁轴处净流出功率为零。积分源项给出所需输运功率，再调整剖面梯度，使选定输运闭合给出的 <span class="arithmatex">\(Q\)</span> 与之匹配。这是 <a href="https://gafusion.github.io/doc/tgyro/solver.html">TGYRO 稳态求解算法</a>背后的守恒结构；实际多物种求解还须加入各自的交换和源项。</p>
+<p>若在某磁面内净热源积分为 4.0 MW，而离散通量给出 3.8 MW，定义功率残差 <span class="arithmatex">\(R_P=P_{\rm transport}-P_{\rm source}\)</span>，则 <span class="arithmatex">\(R_P=-0.2\)</span> MW，相对源功率为 <span class="arithmatex">\(-5\%\)</span>。即使温度曲线几次迭代几乎重合，这个预算仍未闭合。源项误差、台基边界误差与求解残差应分别报告；收紧非线性容差只会降低其中一部分。</p>
+<h3 id="获取与运行依赖：稳态通量匹配与-tgyro">获取与运行依赖：稳态通量匹配与 TGYRO</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TGYRO</td>
+<td><a href="https://github.com/gafusion/gacode/blob/master/LICENSE">GACODE 主仓库</a>为 Apache-2.0</td>
+<td>实际调用的通量模型与数据输入分别配置</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：稳态圆柱源积分的解析示意，不是 TGYRO 算例。" class="figure-link" href="/assets/diagrams/sim-transport.svg"><img alt="稳态圆柱源积分的解析示意，不是 TGYRO 算例。" decoding="async" loading="lazy" src="/assets/diagrams/sim-transport.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>稳态圆柱源积分的解析示意，不是 TGYRO 算例。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%8A%AF%E9%83%A8%E8%BE%93%E8%BF%90/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000171%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000171,
+  author = {{Megawave-Fusion}},
+  title = {稳态通量匹配与 TGYRO},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000171/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000170/"><small>← 上一页</small>解释性分析与预测性输运</a><a class="next" href="/tag/MF000172/"><small>下一页 →</small>快速输运与控制模型</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

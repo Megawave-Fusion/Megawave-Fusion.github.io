@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中性束注入与快粒子模拟 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="中性束注入与快粒子模拟 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/simulation-nbi/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/simulation-nbi/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>中性束注入与快粒子模拟</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.11 · 连续阅读</p><h1>中性束注入与快粒子模拟</h1><div class="page-meta"><span>5 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>从束线与能量组份建立出生源，再分别计算慢化、电流、三维损失和诊断信号。物理原理见<a href="/sections/nbi/">中性束注入</a>。</p></div><details class="page-toc"><summary>本节目录 · 5 个条目</summary><ul><li><a href="#MF000193">束线几何、能量组份与功率归一</a></li><li><a href="#MF000194">束衰减、离化出生与穿透损失</a></li><li><a href="#MF000195">碰撞慢化、分物种加热与 NBCD</a></li><li><a href="#MF000196">三维轨道、快离子损失与壁热斑</a></li><li><a href="#MF000197">FIDASIM 合成诊断与 NBI 验证</a></li></ul></details><section class="entry-block" id="MF000193"><div class="entry-heading"><h2><span class="entry-number">6.11.1</span><a href="/tag/MF000193/">束线几何、能量组份与功率归一</a></h2><a class="tag" href="/tag/MF000193/">MF000193</a></div><div class="prose"><h3 id="从注入器到相空间源">从注入器到相空间源</h3>
+<p>NBI 输入要区分源栅位置、束轴、水平/垂直焦距、发散、孔径、切向半径和束功率。总功率相同的两束粒子，可以有不同的入射俯仰、穿透深度、轨道宽度和力矩。先把源坐标和机器坐标转换核对，再检查束轨迹是否被真实孔径截断。<a href="https://transp.pppl.gov/nml/beams.html">TRANSP 的束输入说明</a>给出这些参数；输入给在哪个功率参考面也应随几何记录。</p>
+<h3 id="电流份额不等于功率份额">电流份额不等于功率份额</h3>
+<p>原子离子及分子离子中和、解离后形成全、半、三分之一能量组份。<a href="https://d3denergetic.github.io/FIDASIM/master/page/02_physics/04_neutrals.html">FIDASIM 中性束模型</a>采用参考面处中性原子的等效粒子流份额 <span class="arithmatex">\(C_1,C_2,C_3\)</span>；它不同于源端分子离子的原始电流比例，后者还需计解离倍数及中和效率。对这些中性组份，令 <span class="arithmatex">\(E_j=(E_0,E_0/2,E_0/3)\)</span>，有</p>
+<div class="arithmatex">\[
+\dot N_b=\frac{P_b}{\sum_j C_jE_j},\qquad
+\frac{P_j}{P_b}=\frac{C_jE_j}{\sum_k C_kE_k},\qquad \sum_j C_j=1.
+\]</div>
+<p>能量代入 J 后，第一式给粒子每秒。教学取 <span class="arithmatex">\(E_0=80\)</span> keV、<span class="arithmatex">\(C=(0.6,0.3,0.1)\)</span>，平均能量为 62.667 keV；三个功率份额约为 76.60%、19.15%、4.26%。按 60%、30%、10% 直接分功率会改变出生源和后续慢化。这个归一化测试应先于复杂束线模拟。</p></div><div class="entry-tools"><a href="/tag/MF000193/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000194"><div class="entry-heading"><h2><span class="entry-number">6.11.2</span><a href="/tag/MF000194/">束衰减、离化出生与穿透损失</a></h2><a class="tag" href="/tag/MF000194/">MF000194</a></div><div class="prose"><h3 id="nubeam-与-bbnbi-的源项角色">NUBEAM 与 BBNBI 的源项角色</h3>
+<p>NUBEAM 在集成放电模型中产生束出生和慢化源；BBNBI 根据注入几何、背景及原子反应产生可交给 ASCOT5 的出生源与 shine-through。<a href="https://ascot4fusion.github.io/ascot5/inputgen.html">ASCOT5 输入说明</a>把注入器、原子反应数据和轨道标记列为不同输入，不能把注入功率直接当作已经进入快离子库的功率。</p>
+<h3 id="沿每一能量组份追踪衰减">沿每一能量组份追踪衰减</h3>
+<p>在给定背景、直线束轨迹的简化模型中，对单一组份的粒子流 <span class="arithmatex">\(\Gamma_b\)</span> 写</p>
+<div class="arithmatex">\[
+\frac{d\Gamma_b}{ds}=-\kappa(s)\Gamma_b,\qquad
+\kappa=\frac{\sum_a n_a\langle\sigma_a v_{\rm rel}\rangle}{v_b},\qquad
+\Gamma_b(s)=\Gamma_b(0)e^{-\int_0^s\kappa\,ds'}.
+\]</div>
+<p><span class="arithmatex">\(\kappa\)</span> 是有效移除束中性粒子的停止系数（离化、荷交换等），单位 m⁻¹；反应率系数按靶种类和相对速度平均。激发/退激发不能全部计作束损失，多能级中性态需联立率方程。若给定总光学厚度为 1，简例穿透比例为 <span class="arithmatex">\(e^{-1}=36.79\%\)</span>，沿途停止比例为 63.21%；对仅含离化和荷交换的单束模型，这部分计入束离子出生，孔径、结构截获或散射出束等其他损失另记；真实出生能量、速度和位置分布还需记录具体反应与几何。参见 <a href="https://transp.jetdata.eu/docs/Webpages/files/NUBEAM.pdf">NUBEAM 原论文的沉积模型与反应率</a>。</p>
+<p>计算应分别扫描束网格、轨迹数、孔径及背景边缘延伸。不同能量组份分别衰减，且非均匀背景、荷交换和激发态模型会改变结果；总量收支与局部出生剖面需要分别收敛。</p>
+<h3 id="计算图解">计算图解</h3>
+<figure class="science-figure"><a aria-label="放大图示：常停止系数的单能束解析模型；仅含离化/荷交换时停止计入出生，孔径与结构损失另记。" class="figure-link" href="/assets/diagrams/sim-nbi.svg"><img alt="常停止系数的单能束解析模型；仅含离化/荷交换时停止计入出生，孔径与结构损失另记。" decoding="async" loading="lazy" src="/assets/diagrams/sim-nbi.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>常停止系数的单能束解析模型；仅含离化/荷交换时停止计入出生，孔径与结构损失另记。</p></div><div class="entry-tools"><a href="/tag/MF000194/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000195"><div class="entry-heading"><h2><span class="entry-number">6.11.3</span><a href="/tag/MF000195/">碰撞慢化、分物种加热与 NBCD</a></h2><a class="tag" href="/tag/MF000195/">MF000195</a></div><div class="prose"><h3 id="出生功率怎样变成背景热源">出生功率怎样变成背景热源</h3>
+<p>快离子出生后储存能量并沿轨道碰撞慢化。仅保留出生、电子/离子热化与粒子损失时，能量账本为</p>
+<div class="arithmatex">\[
+\frac{dW_f}{dt}=P_{\rm birth}-P_e-P_i-P_{\rm loss}.
+\]</div>
+<p>教学给定出生功率 100 kW、快离子储能增长率 10 kW、电子和离子热化分别为 40 与 30 kW，则损失应为 20 kW；若把 100 kW 又全加进背景热源，会重复计能。电子/离子分功率随快离子能量和背景分布变化，应由所选碰撞模型计算，不能固定照搬一个分配百分比。<a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">NUBEAM 官方模型说明</a>覆盖沉积、慢化、热化、荷交换和相应反应率。</p>
+<h3 id="从快离子分布到电流与力矩">从快离子分布到电流与力矩</h3>
+<p>NUBEAM 与 TRANSP 的接口用于输送分物种功率、粒子和动量等源项；NBCD 还要处理电子响应和所用电流模型，不能仅把快离子定向运动算出的电流当成总驱动电流。背景密度、温度、杂质、转动和磁几何应与出生计算一致。<a href="https://w3.pppl.gov/~pshare/help/body_nubeam_hlp.html">模块指南</a>还说明接口单位存在 MKS 与 keV 的字段差别，必须逐字段换算。</p>
+<p>先在固定背景下检查单步源项和快离子能量变化，再细化耦合步长、更新背景剖面。若为匹配快离子诊断引入反常扩散或经验损失项，保留与经典碰撞基线的对照；它与自洽求解 MHD—快粒子反馈有不同的证据要求。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUBEAM</td>
+<td>本次未确认独立发行许可</td>
+<td>核对实际发行方、平台协议和依赖；<a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">所用 ADAS 数据</a>另有协议</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000195/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000196"><div class="entry-heading"><h2><span class="entry-number">6.11.4</span><a href="/tag/MF000196/">三维轨道、快离子损失与壁热斑</a></h2><a class="tag" href="/tag/MF000196/">MF000196</a></div><div class="prose"><h3 id="ascot5-的-test-particle-轨道链">ASCOT5 的 test-particle 轨道链</h3>
+<p><a href="https://ascot4fusion.github.io/ascot5/">ASCOT5</a>可在三维托卡马克或仿星器场中计算全轨道或导引中心轨道、碰撞和壁损失。输入包括 <span class="arithmatex">\(\mathbf B,\mathbf E\)</span>、背景、加权粒子源及壁三角网格；BBNBI 和 AFSI 分别可提供束与聚变产物源。test-particle 标记不反向改变背景场；给定 MHD 模时也须说明是否存在粒子到模式的反馈。</p>
+<h3 id="损失分数与局部载荷分开收敛">损失分数与局部载荷分开收敛</h3>
+<p>先在静态无碰撞条件下检查轨道与不变量，再加入碰撞、三维磁扰动和真实壁。导引中心与全轨道在靠近壁、强梯度或转换区要分别检查；扫描轨道步长、场插值和三角网格。场和壁使用同一坐标定向，源俯仰符号必须与磁场方向一致。具体可选输入和反应数据见 <a href="https://ascot4fusion.github.io/ascot5/inputgen.html">ASCOT5 输入生成文档</a>。</p>
+<p>总损失比例收敛后，局部热斑仍可能受少数高权重标记控制。报告每个壁片的沉积能量、源率或采样时间及面积，换成 W/m²，并给出有效样本数或重复采样误差。损失粒子的能量和俯仰分布也应保留，以便与快离子损失探测器或壁温诊断建立前向比较。</p>
+<h3 id="获取与运行依赖：三维轨道、快离子损失与壁热斑">获取与运行依赖：三维轨道、快离子损失与壁热斑</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCOT5</td>
+<td><a href="https://github.com/ascot4fusion/ascot5">官方仓库</a>列 LGPL v3</td>
+<td>场数据、壁 CAD、原子数据和源粒子包分别保存来源</td>
+</tr>
+</tbody>
+</table></div></div><div class="entry-tools"><a href="/tag/MF000196/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000197"><div class="entry-heading"><h2><span class="entry-number">6.11.5</span><a href="/tag/MF000197/">FIDASIM 合成诊断与 NBI 验证</a></h2><a class="tag" href="/tag/MF000197/">MF000197</a></div><div class="prose"><h3 id="把分布函数变成仪器可见信号">把分布函数变成仪器可见信号</h3>
+<p><a href="https://d3denergetic.github.io/FIDASIM/page/index.html">FIDASIM 用户指南</a>列出束沉积/出生、halo 中性粒子、束与 halo 光谱、FIDA 光谱、NPA 通量和相空间权函数。NUBEAM/ASCOT 的快离子分布先经过中性粒子、荷交换、激发和视线几何，才形成可与仪器比较的光谱或粒子信号。它是验证链中的前向模型，不能从某个通道偏差直接断定唯一的输运机制。</p>
+<h3 id="比较几何、单位与诊断响应">比较几何、单位与诊断响应</h3>
+<p>输入应保存磁场、背景剖面、束几何、能量与俯仰分布、观察方向、光谱范围和仪器响应。<a href="https://d3denergetic.github.io/FIDASIM/page/03_technical/01_prefida_inputs.html">PREFIDA 输入文档</a>分别给出网格、全轨道/导心分布与诊断几何字段；其中长度、能量和密度单位必须按字段核对。FIDA、主动/被动 NPA、出生与 halo 计算各有 Monte Carlo 样本设置。</p>
+<p>先用束发射谱和独立束几何约束源，再比较不同视线的 FIDA/NPA，最后与中子、储能或功率收支交叉检查。扫描快离子相空间网格、诊断样本量和背景不确定性；把源的误差、轨道模型差异与诊断响应误差分开。只用总中子率调一个扩散系数，通常不足以同时约束局部能量与俯仰分布。</p>
+<p><a href="/sections/simulation/">返回仿真计算总览</a></p></div><div class="entry-tools"><a href="/tag/MF000197/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E4%B8%AD%E6%80%A7%E6%9D%9F%E6%B3%A8%E5%85%A5%E6%A8%A1%E6%8B%9F/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E4%B8%AD%E6%80%A7%E6%9D%9F%E6%B3%A8%E5%85%A5%E4%B8%8E%E5%BF%AB%E7%B2%92%E5%AD%90%E6%A8%A1%E6%8B%9F%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-simulation-nbi,
+  author = {{Megawave-Fusion}},
+  title = {中性束注入与快粒子模拟},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/sections/simulation-nbi/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000192/"><small>← 上一页</small>EC 热响应、湍流展宽与磁岛定位检验</a><a class="next" href="/tag/MF000193/"><small>下一页 →</small>束线几何、能量组份与功率归一</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>解释性分析与预测性输运 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="解释性分析与预测性输运 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000170/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000170/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-transport/">芯部输运与剖面演化</a><span>/</span><span>解释性分析与预测性输运</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.4.1 · 专题</p><h1>解释性分析与预测性输运</h1><div class="page-meta"><span class="tag">MF000170</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-transport/#MF000170">在连续正文中阅读</a></div><article class="prose"><h3 id="transp、astra-与-jintrac">TRANSP、ASTRA 与 JINTRAC</h3>
+<p>芯部输运把三维磁几何约化成磁面平均方程。“1D”一般指径向输运；“1.5D”常指径向输运与二维轴对称平衡联用，具体含义应查软件定义。解释性分析输入实测剖面，反推出满足粒子、能量和动量收支所需的通量；预测性分析给定闭合和源项，再演化未知剖面。同一个平台可以在不同通道分别采用这两种模式，比较前应列清哪些量被实验固定。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://arxiv.org/abs/2406.07781">TRANSP</a></td>
+<td>托卡马克粒子、功率、动量收支及电流扩散，包含加热、电流驱动和预测模块</td>
+<td>有完整诊断和执行器输入的放电分析；结合 NUBEAM 研究快离子与加热收支</td>
+<td>把解释与预测通道、采用的平衡、加热模块、输运闭合和实验约束逐项列出</td>
+</tr>
+<tr>
+<td><a href="https://w3.pppl.gov/~hammett/work/2009/Astra_ocr.pdf">ASTRA</a></td>
+<td>通过模型描述语言和模块组织输运问题，原报告给出一维输运与二维平衡的闭合</td>
+<td>检验自定义通量/源项假设，组织已有装置模型</td>
+<td>本表采用 2002 年原报告的框架定义；现代发行版、插件和接口需另核对，不能照抄旧安装要求</td>
+</tr>
+<tr>
+<td><a href="https://scientific-publications.ukaea.uk/wp-content/uploads/MILITELLO_ASP_2022_NUCL-_FUSION_62_126033.PDF">JINTRAC：JETTO/SANCO 与 EDGE2D/EIRENE</a></td>
+<td>芯部输运和杂质与 SOL/偏滤器多流体—中性粒子耦合</td>
+<td>研究芯边界、加料、杂质和排热相互反馈</td>
+<td>核对接口位置、返流/回收、原子数据、边缘输运系数与实际启用的子模块</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRANSP</td>
+<td><a href="https://transp.pppl.gov/releases.html">发布页</a>要求签协议，<a href="https://transp.pppl.gov/files/LicenseAgreement.pdf">现行协议文本</a>区分研究与商业使用</td>
+<td>按实际发行方的协议与装置数据权限配置工作流</td>
+</tr>
+<tr>
+<td>JINTRAC</td>
+<td><a href="https://scientific-publications.ukaea.uk/wp-content/uploads/UKAEA-CCFE-CP2525.PDF">UKAEA 公开应用论文</a>明确按许可使用</td>
+<td>具体发行包、子模块与运行依赖分别落实</td>
+</tr>
+<tr>
+<td>ASTRA</td>
+<td>本次未确认现代发行许可</td>
+<td>历史报告不可替代当前条款</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E8%8A%AF%E9%83%A8%E8%BE%93%E8%BF%90/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000170%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000170,
+  author = {{Megawave-Fusion}},
+  title = {解释性分析与预测性输运},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000170/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-transport/"><small>← 上一页</small>芯部输运与剖面演化</a><a class="next" href="/tag/MF000171/"><small>下一页 →</small>稳态通量匹配与 TGYRO</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

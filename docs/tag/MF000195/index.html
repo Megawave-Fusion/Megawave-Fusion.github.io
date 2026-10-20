@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>碰撞慢化、分物种加热与 NBCD · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="碰撞慢化、分物种加热与 NBCD · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000195/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000195/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-nbi/">中性束注入与快粒子模拟</a><span>/</span><span>碰撞慢化、分物种加热与 NBCD</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.11.3 · 专题</p><h1>碰撞慢化、分物种加热与 NBCD</h1><div class="page-meta"><span class="tag">MF000195</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-nbi/#MF000195">在连续正文中阅读</a></div><article class="prose"><h3 id="出生功率怎样变成背景热源">出生功率怎样变成背景热源</h3>
+<p>快离子出生后储存能量并沿轨道碰撞慢化。仅保留出生、电子/离子热化与粒子损失时，能量账本为</p>
+<div class="arithmatex">\[
+\frac{dW_f}{dt}=P_{\rm birth}-P_e-P_i-P_{\rm loss}.
+\]</div>
+<p>教学给定出生功率 100 kW、快离子储能增长率 10 kW、电子和离子热化分别为 40 与 30 kW，则损失应为 20 kW；若把 100 kW 又全加进背景热源，会重复计能。电子/离子分功率随快离子能量和背景分布变化，应由所选碰撞模型计算，不能固定照搬一个分配百分比。<a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">NUBEAM 官方模型说明</a>覆盖沉积、慢化、热化、荷交换和相应反应率。</p>
+<h3 id="从快离子分布到电流与力矩">从快离子分布到电流与力矩</h3>
+<p>NUBEAM 与 TRANSP 的接口用于输送分物种功率、粒子和动量等源项；NBCD 还要处理电子响应和所用电流模型，不能仅把快离子定向运动算出的电流当成总驱动电流。背景密度、温度、杂质、转动和磁几何应与出生计算一致。<a href="https://w3.pppl.gov/~pshare/help/body_nubeam_hlp.html">模块指南</a>还说明接口单位存在 MKS 与 keV 的字段差别，必须逐字段换算。</p>
+<p>先在固定背景下检查单步源项和快离子能量变化，再细化耦合步长、更新背景剖面。若为匹配快离子诊断引入反常扩散或经验损失项，保留与经典碰撞基线的对照；它与自洽求解 MHD—快粒子反馈有不同的证据要求。</p>
+<h3 id="获取与运行依赖">获取与运行依赖</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUBEAM</td>
+<td>本次未确认独立发行许可</td>
+<td>核对实际发行方、平台协议和依赖；<a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">所用 ADAS 数据</a>另有协议</td>
+</tr>
+</tbody>
+</table></div></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E4%B8%AD%E6%80%A7%E6%9D%9F%E6%B3%A8%E5%85%A5%E6%A8%A1%E6%8B%9F/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000195%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000195,
+  author = {{Megawave-Fusion}},
+  title = {碰撞慢化、分物种加热与 NBCD},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000195/},
+  note = {Fusion Stacks; revision 2cc211bb9903}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000194/"><small>← 上一页</small>束衰减、离化出生与穿透损失</a><a class="next" href="/tag/MF000196/"><small>下一页 →</small>三维轨道、快离子损失与壁热斑</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

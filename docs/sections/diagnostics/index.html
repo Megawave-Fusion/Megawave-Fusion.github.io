@@ -2,34 +2,43 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>等离子体测量与反馈方法 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
 <meta name="theme-color" content="#123c54"><meta property="og:title" content="等离子体测量与反馈方法 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/sections/diagnostics/"><meta property="og:type" content="article">
-<link rel="canonical" href="https://megawave-fusion.github.io/sections/diagnostics/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=20dddbcbe7"><script type="module" src="/assets/site.mjs?v=9f1d884ee6"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<link rel="canonical" href="https://megawave-fusion.github.io/sections/diagnostics/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>等离子体测量与反馈方法</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="active" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="active" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 5.1 · 连续阅读</p><h1>等离子体测量与反馈方法</h1><div class="page-meta"><span>4 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>诊断把等离子体的响应变成可记录信号，反演再把信号转成密度、温度、磁场或热流等物理量。两步都有假设。实时控制还要求这些结果及时、可靠地到达执行器。本页将信号形成、物理反演、误差传播和反馈动态连接起来。</p></div><details class="page-toc"><summary>本节目录 · 4 个条目</summary><ul><li><a href="#MF000059">诊断方法</a></li><li><a href="#MF000060">标定与数据质量</a></li><li><a href="#MF000061">实时控制与联锁接口</a></li><li><a href="#MF000062">诊断文献中的测量与误差链</a></li></ul></details><section class="entry-block" id="MF000059"><div class="entry-heading"><h2><span class="entry-number">5.1.1</span><a href="/tag/MF000059/">诊断方法</a></h2><a class="tag" href="/tag/MF000059/">MF000059</a></div><div class="prose"><h3 id="密度：干涉测到的是线积分">密度：干涉测到的是线积分</h3>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>等离子体测量与反馈方法</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="active" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="active" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 5.1 · 连续阅读</p><h1>等离子体测量与反馈方法</h1><div class="page-meta"><span>4 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>诊断将等离子体响应变为信号，再经有假设的反演得到物理量；实时控制还要满足延迟与有效性要求。本页连接信号形成、误差和反馈动态。</p></div><details class="page-toc"><summary>本节目录 · 4 个条目</summary><ul><li><a href="#MF000059">诊断方法</a></li><li><a href="#MF000060">标定与数据质量</a></li><li><a href="#MF000061">实时控制与联锁接口</a></li><li><a href="#MF000062">诊断文献中的测量与误差链</a></li></ul></details><section class="entry-block" id="MF000059"><div class="entry-heading"><h2><span class="entry-number">5.1.1</span><a href="/tag/MF000059/">诊断方法</a></h2><a class="tag" href="/tag/MF000059/">MF000059</a></div><div class="prose"><h3 id="密度：干涉测到的是线积分">密度：干涉测到的是线积分</h3>
 <p>在探测频率远高于电子等离子体频率、碰撞和磁化修正可忽略、光路近似不变时，折射率展开给出相对真空的相位差</p>
 <div class="arithmatex">\[
 \Delta\phi\simeq-r_e\lambda\int n_e(l)\,dl,\qquad
 r_e=\frac{e^2}{4\pi\epsilon_0m_ec^2}.
 \]</div>
-<p>从冷、非磁化电子的线性动量方程 <span class="arithmatex">\(m_e\dot{\mathbf v}=-e\mathbf E\)</span> 出发，取 <span class="arithmatex">\(e^{-i\omega t}\)</span> 响应，得到 <span class="arithmatex">\(\mathbf J=i n_ee^2\mathbf E/(m_e\omega)\)</span>。代入 Maxwell 波动方程，横波色散为 <span class="arithmatex">\(c^2k^2=\omega^2-\omega_{pe}^2\)</span>，其中 <span class="arithmatex">\(\omega_{pe}^2=n_ee^2/(\epsilon_0m_e)\)</span>。于是折射率 <span class="arithmatex">\(n_{\rm ref}=ck/\omega=\sqrt{1-\omega_{pe}^2/\omega^2}\)</span>；在高频下保留平方根展开的一阶项，沿光路有</p>
+<p>冷非磁化电子取 <span class="arithmatex">\(e^{-i\omega t}\)</span>，线性运动与 Maxwell 方程依次给出</p>
+<div class="arithmatex">\[
+m_e\dot{\mathbf v}=-e\mathbf E
+\quad\Longrightarrow\quad\mathbf J=\frac{in_ee^2}{m_e\omega}\mathbf E,
+\quad c^2k^2=\omega^2-\omega_{pe}^2,
+\quad n_{\rm ref}\simeq1-\frac{\omega_{pe}^2}{2\omega^2}.
+\]</div>
+<p>这里 <span class="arithmatex">\(\omega_{pe}^2=n_ee^2/(\epsilon_0m_e)\)</span>；高频一阶展开沿光路积分为</p>
 <div class="arithmatex">\[
 \Delta\phi=\int(k-\omega/c)dl
 =-\frac1{2c\omega}\int\omega_{pe}^2dl
 =-\frac{e^2\lambda}{4\pi\epsilon_0m_ec^2}\int n_e\,dl .
 \]</div>
-<p>最后使用 <span class="arithmatex">\(\omega=2\pi c/\lambda\)</span> 并把常数定义成 <span class="arithmatex">\(r_e\)</span>，便得到所列干涉式。</p>
-<p>这是单程表达；往返探测应沿实际总光路积分。这里采用“等离子体光路相位减真空光路相位”的约定；电子使折射率低于一，故相位差为负。仪器的混频约定可能反号。积分单位是 <span class="arithmatex">\(\mathrm{m^{-2}}\)</span>，乘以 <span class="arithmatex">\(r_e\lambda\)</span> 后为无量纲相位。只有除以已知弦长，才得到该弦的平均密度；中心密度还需要剖面重建。多弦测量结合轴对称假设可作 Abel 反演，非轴对称情形需要更多视角或其他约束。条纹跳变、折射偏转、机械振动与中性粒子折射率均可能改变结果。依据 <a href="https://www.ipp.mpg.de/2882460/anleitung.pdf">IPP 等离子体干涉实验讲义</a> 的折射率、线积分反演和 Refraction 部分；本页公式是该高频极限的代数展开。</p>
+<p>用 <span class="arithmatex">\(\omega=2\pi c/\lambda\)</span>、<span class="arithmatex">\(r_e=e^2/(4\pi\epsilon_0m_ec^2)\)</span> 即得干涉式。</p>
+<p>上式按单程及“等离子体减真空相位”定义，故相差为负；往返沿总光路积分，混频约定可能反号。<span class="arithmatex">\(N_e=\int n_e dl\)</span> 用 m⁻²，除以弦长才得到弦平均密度；中心密度需剖面重建。多弦 Abel 反演依赖轴对称，非轴对称需更多视角或约束。条纹跳变、折射、振动和中性粒子响应均进入误差。</p>
+<p>依据：<a href="https://www.ipp.mpg.de/2882460/anleitung.pdf">IPP 等离子体干涉实验讲义</a>。</p>
 <h3 id="温度：汤姆逊散射、光谱与-ece">温度：汤姆逊散射、光谱与 ECE</h3>
 <p>非集体 Thomson scattering 的频谱形状反映散射波矢方向上的电子速度分布；在所用热分布模型成立时拟合得到 <span class="arithmatex">\(T_e\)</span>，绝对散射强度结合激光能量、收集立体角和谱响应标定给出 <span class="arithmatex">\(n_e\)</span>。它是有限散射体积和激光脉冲时间内的测量，具有确定的空间与时间响应。背景光、杂散激光和通道响应必须进入拟合，拟合残差过大时应检查非热分布或标定问题。集体散射可能包含离子特征，使用相应的集体散射谱模型。参见 <a href="https://gss.pppl.gov/talks/LASER-AIDED-COURSE-2018v7.pdf">PPPL Diallo 2018 课程</a>，PDF 第 23–34、38–40 页。</p>
 <p>光谱诊断首先辨认谱线及其产生机制，再讨论温度或流速。沿视线的 Doppler 位移用于约束发射粒子的速度；线宽还包含仪器、自然、Stark 等贡献。把所有展宽都归为热运动会高估温度。主动电荷交换谱的局域性来自束与视线交叠，仍需扣除被动背景、考虑原子过程和几何。光强增加也可能来自密度、杂质含量或激发率变化，不单独证明温度升高。氦还可能出现沿磁场运动后产生的非局域 plume 发射，扩展了信号的空间来源。见 <a href="https://www.ipp.mpg.de/3825313/highlights2014?page=1">IPP 2014 氦输运与电荷交换谱说明</a>正文，可据此理解诊断的空间响应。</p>
 <p>ECE 是电子回旋辐射。只有热电子分布、足够光学厚度、合适传播模式和空间定位等条件满足时，亮温才能近似对应局域电子温度。光学薄情形同时依赖密度、路径与温度；快电子可能贡献很强的非热辐射。因此 ECE 与 Thomson 不一致时，应先比较测量体积、时刻、标定与分布假设。依据 <a href="https://tsdw.pppl.gov/Talks/2016/Liu%20%281%29.pdf">Liu 等，2016 ECE 报告</a>，第 7–9 页热平衡和光学厚度、第 15–18 页非热贡献。</p>
 <h3 id="磁场、中子、辐射和壁面热负荷">磁场、中子、辐射和壁面热负荷</h3>
 <p>磁感应线圈测 <span class="arithmatex">\(V=-N\,d\Phi_B/dt\)</span>，积分得到的是磁通变化；初值、零点漂移、线圈方向和有效面积需要另行确定。长脉冲中微小直流偏置会积累为明显误差。磁通环、局部探针和等离子体电流信号共同约束平衡重建，但有限外部数据并不唯一确定内部电流和压力剖面，还需平衡方程、边界与内部诊断。参见 <a href="https://ocw.mit.edu/courses/22-67j-principles-of-plasma-diagnostics-fall-2023/12ZAvdzR_8MoYsiMQ4B8sJEHENBLL2eqS_transcript.pdf">MIT 22.67J Magnetics I 课程文字稿</a>，开头的 Faraday 定律、积分与偏置讨论。</p>
-<p>磁探针式来自 Maxwell–Faraday 定律 <span class="arithmatex">\(\oint\mathbf E\cdot d\boldsymbol\ell=-d\int\mathbf B\cdot d\mathbf A/dt\)</span>；相同磁通穿过 <span class="arithmatex">\(N\)</span> 匝时电动势相加，便是 <span class="arithmatex">\(-N\,d\Phi_B/dt\)</span>。例如恒定电压偏置 <span class="arithmatex">\(V_b\)</span> 在积分时引入 <span class="arithmatex">\(-V_bt/N\)</span> 的磁通误差，因此即使偏置很小，长时间也会累积。</p>
+<p>Maxwell–Faraday 定律对相同磁通的 <span class="arithmatex">\(N\)</span> 匝求和即得 <span class="arithmatex">\(V=-N\,d\Phi_B/dt\)</span>。恒定偏置 <span class="arithmatex">\(V_b\)</span> 积分产生 <span class="arithmatex">\(\delta\Phi_B=-V_bt/N\)</span>，因此长脉冲尤其需要零点校正。</p>
 <p>中子计数转为总中子产额需要效率、能量响应、立体角、散射和死时间修正；相机和谱仪还提供空间或能量信息。反应率取决于参与反应的分布，区分束靶与热反应需要结合能谱、分布和反应模型。辐射计接收沿视线的辐射，少量弦的层析结果受几何与正则化影响；独立空间分辨率由视线和反演条件决定。上述系统的用途见 <a href="https://www.iter.org/machine/supporting-systems/diagnostics">ITER 诊断系统</a>的 Neutron diagnostics 与 Bolometric systems 段。</p>
 <p>红外相机测的是波段辐亮度，经过透过率、发射率和反射背景修正才成为表面温度；热流密度还要用材料热物性和导热模型反演。薄沉积层、表面改性和有限厚度会破坏简单半无限体近似。热电偶能提供补充约束，但响应速度和埋深与红外不同。历史案例 <a href="https://nstx.pppl.gov/nstxhome/DragNDrop/Science_Groups/boundary/TSGs/materials_pfcs/archive/2010/20100823_LLD_Fest/pppl_lld_mclean_23august2010.pdf">NSTX 红外测量报告</a> 的 Infrared measurements 与发射率讨论说明材料状态如何进入温度反演。</p>
 <h3 id="从一个密度剖面算出各条弦的相位">从一个密度剖面算出各条弦的相位</h3>
+<figure class="science-figure"><a aria-label="放大图示：同一抛物线密度剖面的截面探测弦、局部密度和线积分。" class="figure-link" href="/assets/diagrams/system-diagnostic-density.svg"><img alt="同一抛物线密度剖面的截面探测弦、局部密度和线积分。" decoding="async" loading="lazy" src="/assets/diagrams/system-diagnostic-density.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
 <p>设圆截面半径为 <span class="arithmatex">\(a\)</span>，轴对称密度为 <span class="arithmatex">\(n_e(r)=n_0(1-r^2/a^2)\)</span>。距轴 <span class="arithmatex">\(b\)</span> 的直弦用坐标 <span class="arithmatex">\(x\)</span> 表示，沿弦有 <span class="arithmatex">\(r^2=x^2+b^2\)</span>，弦端是 <span class="arithmatex">\(x=\pm\sqrt{a^2-b^2}\)</span>。将密度积分后得到</p>
 <div class="arithmatex">\[
 N_e(b)=2n_0\int_0^{\sqrt{a^2-b^2}}
@@ -42,13 +51,18 @@ N_e(b)=2n_0\int_0^{\sqrt{a^2-b^2}}
 u_c^2(y)=\mathbf J\,\mathbf C_x\,\mathbf J^{\mathsf T},\qquad
 J_i=\frac{\partial f}{\partial x_i}.
 \]</div>
-<p>具体先在输入均值附近作 Taylor 展开，<span class="arithmatex">\(\delta y\simeq\sum_iJ_i\delta x_i\)</span>。将它平方取期望，并用 <span class="arithmatex">\(C_{ij}=\langle\delta x_i\delta x_j\rangle\)</span>，得到 <span class="arithmatex">\(u_c^2(y)=\sum_{ij}J_iC_{ij}J_j\)</span>，写成矩阵即为上式。扩展不确定度 <span class="arithmatex">\(U=ku_c\)</span> 则是将标准尺度乘覆盖因子的报告定义；若误差严格为正态，覆盖概率为标准正态在 <span class="arithmatex">\([-k,k]\)</span> 的积分，<span class="arithmatex">\(k=2\)</span> 时为约 95.45%。</p>
+<p>在均值附近线性化并取方差：</p>
+<div class="arithmatex">\[
+\delta y\simeq\sum_iJ_i\delta x_i
+\quad\Longrightarrow\quad u_c^2(y)=\sum_{ij}J_iC_{ij}J_j.
+\]</div>
+<p>扩展不确定度定义为 <span class="arithmatex">\(U=ku_c\)</span>；严格正态时 <span class="arithmatex">\(k=2\)</span> 的覆盖概率约 95.45%。</p>
 <p><span class="arithmatex">\(\mathbf C_x\)</span> 是输入协方差矩阵。同一标定灯、同一时钟或同一平衡重建导致相关误差，应保留协方差项。强非线性或接近物理边界时，一阶近似可能不够，需要检查完整误差分布。A 类和 B 类按评定方法区分，并不分别等于随机误差与系统误差。依据 <a href="https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty">NIST TN 1297 附录 A</a>，公式 A-3 及输入定义。</p>
 <p>本库建议保存原始数据、标定版本、处理脚本和质量掩码。缺测保留独立掩码；饱和、坏道和条纹跳变应保留标记。滤波需记录通带、相位响应与边界处理；实时处理另外计入因果滤波延迟。跨诊断比较前，要统一时间窗和空间响应，最好先把同一物理模型映射成各仪器可见的合成信号。</p>
 <h3 id="标定链和漂移">标定链和漂移</h3>
 <p>绝对标定回答输出与物理量的比例，相对标定回答通道之间的差异。零点、增益和量程内线性分别测试。应在实际光路、线缆和采集设置下记录参考量、环境、重复测量及前后漂移；更换窗口或放大器后重新判断标定是否适用。报告扩展不确定度时写清 <span class="arithmatex">\(U=k u_c\)</span> 的覆盖因子及分布依据；<span class="arithmatex">\(k=2\)</span> 只在相应条件下近似对应 95% 覆盖，覆盖概率随分布和自由度变化。参见 <a href="https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-6-expanded-uncertainty">NIST TN 1297 第 6 节</a>。</p>
 <h3 id="共同标定偏差如何在差值中抵消">共同标定偏差如何在差值中抵消</h3>
-<p>温差测量常用两支共用参考源的温度通道。写成 <span class="arithmatex">\(T_1=T_{1,\rm true}+b+\epsilon_1\)</span>、<span class="arithmatex">\(T_2=T_{2,\rm true}+b+\epsilon_2\)</span>，其中 <span class="arithmatex">\(b\)</span> 是两通道相同的零点偏差，<span class="arithmatex">\(\epsilon_1,\epsilon_2\)</span> 是各自独立噪声。相减得到 <span class="arithmatex">\(\Delta T=T_2-T_1\)</span>，共同偏差 <span class="arithmatex">\(b\)</span> 消去。由一阶扰动或协方差传播都得到</p>
+<p>共用零点 <span class="arithmatex">\(b\)</span> 的两通道可写为 <span class="arithmatex">\(T_i=T_{i,\rm true}+b+\epsilon_i\)</span>；在 <span class="arithmatex">\(\Delta T=T_2-T_1\)</span> 中 <span class="arithmatex">\(b\)</span> 抵消，独立噪声仍保留：</p>
 <div class="arithmatex">\[
 u^2(\Delta T)=u^2(T_2)+u^2(T_1)-2\,{\rm Cov}(T_1,T_2).
 \]</div>
@@ -58,25 +72,37 @@ u^2(\Delta T)=u^2(T_2)+u^2(T_1)-2\,{\rm Cov}(T_1,T_2).
 <h3 id="正常控制、机器保护与安全系统">正常控制、机器保护与安全系统</h3>
 <p>正常控制追踪目标轨迹；机器保护限制设备损伤；人员和核安全系统处理另一组安全需求。这些功能的权限、独立性和验证依据必须分别说明。ITER 的官方架构明确将机器保护和安全系统与 CODAC 解耦并独立动作，见 <a href="https://www.iter.org/machine/supporting-systems/codac/architecture">CODAC Architecture</a> 正文。保护链应在规定的故障条件下验证。联锁试验应记录输入条件、触发动作、响应时间、复位条件及测量证据，判据来自具体系统需求。</p>
 <h3 id="用频率响应计算延迟占用的相位裕度">用频率响应计算延迟占用的相位裕度</h3>
+<figure class="science-figure"><a aria-label="放大图示：正文一阶比例反馈算例：纯延迟由 2 ms 增至 8 ms，相位裕度下降。" class="figure-link" href="/assets/diagrams/system-diagnostic-control-delay.svg"><img alt="正文一阶比例反馈算例：纯延迟由 2 ms 增至 8 ms，相位裕度下降。" decoding="async" loading="lazy" src="/assets/diagrams/system-diagnostic-control-delay.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
 <p>将某执行器与被控量的小信号关系近似为一阶环节 <span class="arithmatex">\(G(s)=K/(1+s\tau_p)\)</span>，控制器增益为 <span class="arithmatex">\(K_c\)</span>，端到端延迟为 <span class="arithmatex">\(\tau_d\)</span>。单位负反馈的开环函数为 <span class="arithmatex">\(L(s)=KK_c e^{-s\tau_d}/(1+s\tau_p)\)</span>，闭环特征条件为 <span class="arithmatex">\(1+L(s)=0\)</span>。当 <span class="arithmatex">\(KK_c&gt;1\)</span> 时，令开环幅值为 1，解得增益交越角频率；再计算该频率的相位：</p>
 <div class="arithmatex">\[
 \omega_c=\frac{\sqrt{(KK_c)^2-1}}{\tau_p},\qquad
 {\rm PM}=\pi-\arctan(\omega_c\tau_p)-\omega_c\tau_d .
 \]</div>
-<p>这里的一阶环节可由 <span class="arithmatex">\(\tau_p\dot y+y=Ku\)</span> 在零初值下作 Laplace 变换得到；若反馈误差为 <span class="arithmatex">\(e=r-y\)</span>、控制输入为 <span class="arithmatex">\(K_ce\)</span>，消去 <span class="arithmatex">\(e\)</span> 得 <span class="arithmatex">\(y/r=L/(1+L)\)</span>，因此闭环极点满足 <span class="arithmatex">\(1+L=0\)</span>。在 <span class="arithmatex">\(s=i\omega\)</span> 处，纯延迟 <span class="arithmatex">\(e^{-i\omega\tau_d}\)</span> 的模为 1、相角为 <span class="arithmatex">\(-\omega\tau_d\)</span>，而一阶环节的模为 <span class="arithmatex">\(KK_c/\sqrt{1+(\omega\tau_p)^2}\)</span>。令后者等于 1 求得 <span class="arithmatex">\(\omega_c\)</span>，再将总相角与 <span class="arithmatex">\(-\pi\)</span> 比较，就得到上述相位裕度公式。</p>
+<p>零初值下，<span class="arithmatex">\(\tau_p\dot y+y=Ku\)</span> 给出 <span class="arithmatex">\(G(s)\)</span>；由 <span class="arithmatex">\(u=K_c(r-y)\)</span> 得 <span class="arithmatex">\(y/r=L/(1+L)\)</span>。取 <span class="arithmatex">\(s=i\omega\)</span>：</p>
+<div class="arithmatex">\[
+|L|=\frac{KK_c}{\sqrt{1+(\omega\tau_p)^2}},\qquad
+\arg L=-\arctan(\omega\tau_p)-\omega\tau_d.
+\]</div>
+<p>令 <span class="arithmatex">\(|L|=1\)</span> 求交越频率，再与 <span class="arithmatex">\(-\pi\)</span> 比较求相位裕度。</p>
 <p>教学取 <span class="arithmatex">\(KK_c=4\)</span>、<span class="arithmatex">\(\tau_p=20\)</span> ms，得到 <span class="arithmatex">\(\omega_c=193.65\)</span> rad/s，即 <span class="arithmatex">\(30.82\)</span> Hz。延迟 2 ms 时相位裕度为 <span class="arithmatex">\(82.3^\circ\)</span>；延迟 8 ms 时降为 <span class="arithmatex">\(15.7^\circ\)</span>。延迟项的幅值始终为 1，所以交越频率相同，但额外相位滞后随频率线性增加。这说明控制计算、通信和执行器更新周期应共同进入动态模型。该计算适用于给定的一阶、比例负反馈模型；实际多极点系统可直接从测得频响计算同一量。<a href="https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/ef34e49f4c79159fe0b1d8e1752bb8b5_MIT16_30F10_lec03.pdf">MIT 16.30，Topic 3，第 3–3、3–4 页的复频响与第 3–9、3–10 页的稳定性和相位裕度</a>给出这套分析方法。</p></div><div class="entry-tools"><a href="/tag/MF000061/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000062"><div class="entry-heading"><h2><span class="entry-number">5.1.4</span><a href="/tag/MF000062/">诊断文献中的测量与误差链</a></h2><a class="tag" href="/tag/MF000062/">MF000062</a></div><div class="prose"><ul>
 <li><a href="https://ocw.mit.edu/courses/22-67j-principles-of-plasma-diagnostics-fall-2023/download/">MIT 22.67J Principles of Plasma Diagnostics</a>：公开课程目录、讲授主题及配套资料。</li>
 <li><a href="https://w3.pppl.gov/~hji/AST555/AST555.html">PPPL AST555 2026 课程纲要</a>：磁测量、折射率、辐射、散射和核诊断的学习范围。</li>
 <li><a href="/sections/experiments/">实验运行</a>：假设、对照、计量报告和复盘；<a href="/sections/simulation/">仿真计算</a>：合成诊断及模型验证。</li>
 </ul>
 <h3 id="完整读出一次干涉测量的物理量">完整读出一次干涉测量的物理量</h3>
-<p>阅读 <a href="https://www.ipp.mpg.de/2882460/anleitung.pdf">IPP 干涉诊断讲义式 (27)–(28)、(42)–(44)</a>时，可从一组教学读数写成计算卡：波长 10.6 μm、等离子体有效弦长 0.75 m、按“等离子体减真空”定义的相移 <span class="arithmatex">\(-0.900\)</span> rad。先确认相位单位为 rad，再由 <span class="arithmatex">\(N_e=-\Delta\phi/(r_e\lambda)\)</span> 求得弦积分密度 <span class="arithmatex">\(3.01\times10^{19}\)</span> m⁻²，最后除以弦长得到 <span class="arithmatex">\(\overline n_e=4.02\times10^{19}\)</span> m⁻³。这样每一步的输出单位都决定下一步的输入。</p>
+<p>教学计算卡取波长 10.6 μm、有效弦长 0.75 m、相移 <span class="arithmatex">\(-0.900\)</span> rad（等离子体减真空）：</p>
+<div class="arithmatex">\[
+N_e=-\frac{\Delta\phi}{r_e\lambda}=3.01\times10^{19}\ {\rm m^{-2}},\qquad
+\overline n_e=\frac{N_e}{L}=4.02\times10^{19}\ {\rm m^{-3}}.
+\]</div>
+<p>相位、积分密度与平均密度的单位链分别保留。</p>
+<p>依据：<a href="https://www.ipp.mpg.de/2882460/anleitung.pdf">IPP 干涉诊断讲义式 (27)–(28)、(42)–(44)</a>。</p>
 <p>若只考虑相位标准不确定度 <span class="arithmatex">\(u_\phi=0.020\)</span> rad，则灵敏度为 <span class="arithmatex">\(\partial\overline n_e/\partial\phi=-1/(r_e\lambda L)\)</span>，所以 <span class="arithmatex">\(u_n=8.93\times10^{17}\)</span> m⁻³。再读取波长、几何和参考光路的标定记录，按 <a href="https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty">NIST TN 1297 式 (A-3)</a>加入其方差与相关项。一张完成的阅读卡应同时写下原文方程位置、相位正负约定、积分路径、近似条件、结果和不确定度分量；它可以直接复用到代码注释与放电报告中。</p>
 <p><a href="/about/">返回知识库</a></p></div><div class="entry-tools"><a href="/tag/MF000062/">条目详情与引用 →</a></div></section><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E8%AF%8A%E6%96%AD%E6%8E%A7%E5%88%B6/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%8F%8D%E9%A6%88%E6%96%B9%E6%B3%95%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-sections-diagnostics,
   author = {{Megawave-Fusion}},
   title = {等离子体测量与反馈方法},
   year = {2026},
   url = {https://megawave-fusion.github.io/sections/diagnostics/},
-  note = {Fusion Stacks; revision 3cf5a192752d}
+  note = {Fusion Stacks; revision 2cc211bb9903}
 }</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000058/"><small>← 上一页</small>材料物性数据与状态追踪</a><a class="next" href="/tag/MF000059/"><small>下一页 →</small>诊断方法</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>
