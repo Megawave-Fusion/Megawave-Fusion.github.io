@@ -5,11 +5,489 @@
 <link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000063/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=20dddbcbe7"><script type="module" src="/assets/site.mjs?v=9f1d884ee6"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/sections/simulation/">模型、求解与验证</a><span>/</span><span>模型与求解器目录</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.1.1 · 专题</p><h1>模型与求解器目录</h1><div class="page-meta"><span class="tag">MF000063</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation/#MF000063">在连续正文中阅读</a></div><article class="prose"><h3 id="先选择尺度，再选择软件">先选择尺度，再选择软件</h3>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/sections/simulation/">仿真计算：模型、软件与验证</a><span>/</span><span>模型与求解器目录</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.1.1 · 专题</p><h1>模型与求解器目录</h1><div class="page-meta"><span class="tag">MF000063</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation/#MF000063">在连续正文中阅读</a></div><article class="prose"><h3 id="从问题找到模型">从问题找到模型</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>要回答的问题</th>
+<th>需要的模型与主要输入</th>
+<th>应比较的输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已知磁测量和压力，等离子体边界、磁面和电流怎样分布</td>
+<td>平衡重建；线圈/壁几何、磁测量、动理学约束（压力、电流等内部约束）</td>
+<td>边界、X 点、磁通、<span class="arithmatex">\(q\)</span> 或旋转变换、拟合残差</td>
+</tr>
+<tr>
+<td>换一组仿星器边界或线圈，约束性质怎样改变</td>
+<td>三维平衡与优化；目标函数、几何和电流约束</td>
+<td>力平衡残差、磁场谱、线圈间距、优化目标及约束违反量</td>
+</tr>
+<tr>
+<td>模是否增长，磁岛、ELM 或破裂阶段怎样演化</td>
+<td>线性稳定性或非线性 MHD；平衡、耗散、闭合和边界</td>
+<td>复频率、模结构、非线性饱和、能量与壁电流</td>
+</tr>
+<tr>
+<td>为什么某半径热通量增加，是否存在 ITG/TEM/ETG</td>
+<td>线性/非线性 gyrokinetic；局部或全局剖面与磁几何</td>
+<td>增长率、频率、谱、饱和通量与统计误差</td>
+</tr>
+<tr>
+<td>加热时序改变后，温度、密度和电流如何演化</td>
+<td>芯部输运；几何、初边值、输运闭合和源项</td>
+<td><span class="arithmatex">\(T_e,T_i,n_e,q\)</span> 的时间轨迹、功率平衡及目标量敏感性</td>
+</tr>
+<tr>
+<td>偏滤器靶板热流和脱靶怎样变化</td>
+<td>边缘等离子体—中性粒子；上游通量、回收、抽气、原子数据</td>
+<td>靶温、粒子与热流、辐射分布、压力和守恒残差</td>
+</tr>
+<tr>
+<td>RF/NBI 能量在哪里沉积，驱动多少电流，快粒子损失多少</td>
+<td>射线/全波、Fokker–Planck、束出生和轨道模型</td>
+<td>分物种吸收、分布尾部、电流、逃逸与壁负荷</td>
+</tr>
+<tr>
+<td>包层增殖、屏蔽和部件热应力是否满足目标</td>
+<td>中子/光子输运与热结构；核数据、CAD、材料和载荷</td>
+<td>TBR、核热、反应率、剂量相关量、温度与应力</td>
+</tr>
+</tbody>
+</table></div>
+<p>平衡、湍流、芯部输运、边缘、加热及工程各组软件在下文逐组比较。先给目标量及其误差预算，能够避免用一个更复杂、却没有相应输入数据的模型替代一个边界明确的模型。</p>
+<h3 id="先选择尺度，再选择软件">先选择尺度，再选择软件</h3>
 <p>平衡模型回答给定约束下磁面和力平衡如何组织；扰动增长率由相应的稳定性模型计算。MHD 演化描述集体流体行为，依赖单流体、双流体或其他闭合；电阻、粘性及热流模型会影响结果。输运模型描述剖面随时间演化，其通量闭合可以来自经验关系、约化模型或湍流计算，预测能力随所采用的通量闭合而变化。模型层级的理论入口见 <a href="https://ocw.mit.edu/courses/22-611j-introduction-to-plasma-physics-i-fall-2003/pages/lecture-notes/">MIT 22.611J 课程讲义目录</a>，尤其流体、MHD、Vlasov 和波动章节。</p>
-<p>动理学模型保留速度分布，能够描述流体矩不足以唯一决定的共振或非热尾部。Gyrokinetic 模型平均去除快回旋相位，以相应磁化、频率和空间尺度排序换取较低计算成本；是否包含电磁扰动、碰撞、大幅剖面变化和有限拉莫尔半径效应必须逐项查证。例如 <a href="https://gkeyll.readthedocs.io/en/latest/">Gkeyll 官方说明</a> 的 gyrokinetic 模块明确列出长波长极限下的 full-<span class="arithmatex">\(f\)</span> 静电连续动理学求解器，具体功能可继续沿模块文档和方程核对。</p>
+<p>动理学模型保留速度分布，能够描述流体矩不足以唯一决定的共振或非热尾部。Gyrokinetic 模型平均去除快回旋相位，以相应磁化、频率和空间尺度排序换取较低计算成本；是否包含电磁扰动、碰撞、大幅剖面变化和有限拉莫尔半径效应必须逐项查证。各软件的 <span class="arithmatex">\(\delta f\)</span>/full-<span class="arithmatex">\(f\)</span>、静电/电磁与局部/全局能力须分别核对，具体比较见下文的陀螺动理学表。</p>
 <p>全波求解器保留给定介电响应下的波动结构，射线方法则采用局部波长短于背景变化尺度的近似。是否需要全波取决于截止、模转换、干涉、衍射及边界及所需空间分辨率。Fokker–Planck 求解碰撞、源汇和波致扩散作用下的分布演化；热结构求解器把沉积热量转为温度和应力，中子学求解器追踪反应、输运和材料响应。跨模型比较前要核对各自忽略的物理项。</p>
+<h3 id="平衡与磁场优化">平衡与磁场优化</h3>
+<p>平衡重建是反问题：给定有限且带误差的诊断，寻找满足力平衡并与测量相容的电流和压力分布。设计平衡通常是正问题：给定线圈和剖面，求磁面及边界。轴对称托卡马克与三维仿星器的几何和假设不同，软件选择也不同。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>方程与表示</th>
+<th>主要输入和输出</th>
+<th>选型差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/OMFIT-source/modules/mod_EFIT.html">EFIT / EFIT-AI</a></td>
+<td>二维轴对称 Grad–Shafranov 平衡，可结合诊断约束重建</td>
+<td>磁测量、MSE、压力/电流约束和机器几何 → 磁通、边界、<span class="arithmatex">\(q\)</span> 与 g/a 等文件</td>
+<td>适合实验平衡与下游输入；内部电流剖面的可信度依赖诊断覆盖、参数化与拟合权重</td>
+</tr>
+<tr>
+<td><a href="https://github.com/freegs-plasma/freegs/blob/master/README.md">FreeGS</a></td>
+<td>Python 自由边界 GS，Picard 迭代与多重网格</td>
+<td>线圈、剖面、形状约束 → 稳态磁通、X 点及线圈电流</td>
+<td>适合磁形状设计、教学和自定义约束；稳态线圈解不包含完整控制电路时间演化</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FusionComputingLab/freegsnke">FreeGSNKE</a></td>
+<td>轴对称 GS 平衡与主动/被动导体电路演化</td>
+<td>初态、线圈电压和剖面参数 → 形状及线圈/被动结构/等离子体总电流轨迹</td>
+<td>可研究动态平衡和控制；当前采用 FreeGS4E 后端，所核 README 仍将电流扩散与输运耦合列为后续计划</td>
+</tr>
+<tr>
+<td><a href="https://princetonuniversity.github.io/STELLOPT/VMEC.html">VMEC / VMEC2000</a></td>
+<td>在嵌套磁面假设下求三维理想 MHD 平衡；固定或自由边界</td>
+<td>边界、压力、旋转变换或电流、磁通及外线圈场 → wout 等几何与剖面</td>
+<td>适合仿星器几何和已有下游工具链；扫描径向与角向分辨率，检查力残差和近轴导数</td>
+</tr>
+<tr>
+<td><a href="https://desc-docs.readthedocs.io/en/stable/">DESC</a></td>
+<td>三维嵌套磁面、伪谱离散、力残差优化和自动微分</td>
+<td>边界与剖面 → 平衡、派生量和优化结果，可输出 VMEC 相关格式</td>
+<td>适合梯度设计及平衡/线圈优化；JAX 编译、谱阶及目标函数会影响成本</td>
+</tr>
+<tr>
+<td><a href="https://simsopt.readthedocs.io/latest/mhd.html">SIMSOPT</a></td>
+<td>组织线圈/表面、磁场、目标函数及外部物理求解器的优化框架</td>
+<td>设计自由度和约束 → 线圈/边界方案及求解历史</td>
+<td>适合组合多种指标；VMEC、SPEC 等后端需另装，成本取决于调用次数与求导方式</td>
+</tr>
+</tbody>
+</table></div>
+<p>VMEC 和 DESC 都用嵌套磁面表示，磁岛和随机区不能直接从这一表示中产生。<a href="https://doi.org/10.1017/S0022377823000272">DESC 与 VMEC 的原始比较论文</a>用共同的力平衡误差和具体案例讨论收敛，说明应比较达到同一误差目标的成本。优化还要检查线圈间距、曲率、工程载荷、快粒子约束和扰动敏感性；只降低一个准对称指标，不能替代这些约束。</p>
+<p>FreeGSNKE 的<a href="https://arxiv.org/abs/2407.12432">静态平衡比较论文摘要</a>描述了在一致 MAST-U 几何、导体电流和剖面条件下与 Fiesta、EFIT++ 的核对；本章仅据摘要引用这一比较范围。静态平衡的一致性证据不能直接转移成动态壁载荷的精度结论。</p>
+<h3 id="线性稳定性与非线性-mhd">线性稳定性与非线性 MHD</h3>
+<p>线性本征问题给出某个平衡附近的增长率、频率和模结构；非线性演化才能研究模耦合、磁拓扑变化和饱和。理想 MHD、电阻 MHD、双流体及流体—动理学模型的闭合不同。目标为台基稳定边界时，可先做线性扫描；目标为 ELM 热脉冲或 VDE 壁载荷时，需要相应的时间演化、耗散、壁和源项模型。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>数值与物理特点</th>
+<th>典型任务</th>
+<th>应核对的限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://fusion.gat.com/THEORY/elite/">ELITE</a></td>
+<td>托卡马克边缘中高环向模数的理想 MHD 线性本征分析</td>
+<td>Peeling–ballooning 稳定边界、台基扫描</td>
+<td>平衡边缘分辨率和电流约束很关键；线性失稳阈值不直接给出崩塌热负荷；所引官网为历史功能说明</td>
+</tr>
+<tr>
+<td><a href="https://m3dc1.pppl.gov/m3dc1_overview.html">M3D-C1</a></td>
+<td>高阶 <span class="arithmatex">\(C^1\)</span> 连续有限元与非结构网格，单/双流体扩展 MHD，隐式/半隐式推进</td>
+<td>外加三维场响应、ELM、锯齿、VDE 与破裂相关研究</td>
+<td>列清使用的流体项、壁、电阻率和边界；隐式稳定性不替代时间步收敛</td>
+</tr>
+<tr>
+<td><a href="https://nimrodteam.org/">NIMROD</a></td>
+<td>两维谱有限元与第三维 Fourier，扩展 MHD 及可选动理学闭合/粒子</td>
+<td>宏观稳定性、重联及多种磁约束构型</td>
+<td>说明具体闭合和粒子模型，检查谱模数、耗散与源项对非线性结果的影响</td>
+</tr>
+<tr>
+<td><a href="https://www.jorek.eu/">JOREK</a></td>
+<td>极向 Bézier 有限元、环向 Fourier，reduced/full MHD 及壁、杂质等可选模块</td>
+<td>含 X 点/SOL 的 ELM、VDE、破裂缓解和壁相互作用</td>
+<td>不同物理选项的耦合支持需逐项核对；中性粒子、杂质、壁与粒子设置影响载荷结论</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://m3dc1.pppl.gov/Papers/artola_PP_21.pdf">2021 年 M3D-C1、NIMROD、JOREK 的 VDE benchmark</a>采用由 NSTX 出发的平衡、简化矩形电阻壁，并为控制成本把等离子体电阻率提高到所用 Spitzer 值的 10 倍；各代码还存在 reduced/full MHD 等差异。该研究可用于学习怎样对齐问题和比较载荷，不能据其代码间一致性给出所有破裂场景的统一精度排名。</p>
+<h3 id="芯部输运与集成放电建模">芯部输运与集成放电建模</h3>
+<p>芯部输运把三维磁几何约化成磁面平均方程。“1D”一般指径向输运；“1.5D”常指径向输运与二维轴对称平衡联用，具体含义应查软件定义。解释性分析输入实测剖面，反推出满足粒子、能量和动量收支所需的通量；预测性分析给定闭合和源项，再演化未知剖面。同一个平台可以在不同通道分别采用这两种模式，比较前应列清哪些量被实验固定。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件或平台</th>
+<th>主要求解任务</th>
+<th>适合怎样使用</th>
+<th>比较时的关键条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://arxiv.org/abs/2406.07781">TRANSP</a></td>
+<td>托卡马克粒子、功率、动量收支及电流扩散，包含加热、电流驱动和预测模块</td>
+<td>有完整诊断和执行器输入的放电分析；结合 NUBEAM 研究快离子与加热收支</td>
+<td>把解释与预测通道、采用的平衡、加热模块、输运闭合和实验约束逐项列出</td>
+</tr>
+<tr>
+<td><a href="https://w3.pppl.gov/~hammett/work/2009/Astra_ocr.pdf">ASTRA</a></td>
+<td>通过模型描述语言和模块组织输运问题，原报告给出一维输运与二维平衡的闭合</td>
+<td>检验自定义通量/源项假设，组织已有装置模型</td>
+<td>本表采用 2002 年原报告的框架定义；现代发行版、插件和接口需另核对，不能照抄旧安装要求</td>
+</tr>
+<tr>
+<td><a href="https://scientific-publications.ukaea.uk/wp-content/uploads/MILITELLO_ASP_2022_NUCL-_FUSION_62_126033.PDF">JINTRAC：JETTO/SANCO 与 EDGE2D/EIRENE</a></td>
+<td>芯部输运和杂质与 SOL/偏滤器多流体—中性粒子耦合</td>
+<td>研究芯边界、加料、杂质和排热相互反馈</td>
+<td>核对接口位置、返流/回收、原子数据、边缘输运系数与实际启用的子模块</td>
+</tr>
+<tr>
+<td><a href="https://gafusion.github.io/doc/tgyro/solver.html">TGYRO</a></td>
+<td>迭代梯度，使新经典与湍流通量满足稳态源项积分</td>
+<td>在给定边界温度、密度和源项下求稳态剖面，比较通量闭合</td>
+<td>官方算法以 <span class="arithmatex">\(\partial_t=0\)</span> 为目标；稳态通量匹配不能直接解释整个升流、加热、降流时序</td>
+</tr>
+<tr>
+<td><a href="https://crppwww.epfl.ch/~sauter/raptor/">RAPTOR</a></td>
+<td>面向快速执行、实时状态估计和非线性优化的径向输运</td>
+<td>控制器开发、放电轨迹和可观测性研究</td>
+<td>闭合的简化程度、观测器输入和执行器模型决定可用范围；实时性要在指定硬件与算例上测量</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2406.06718">TORAX</a></td>
+<td>基于 Python/JAX 的可微芯部输运，推进离子/电子热、粒子与电流扩散方程</td>
+<td>快速参数扫描、梯度优化、代理模型与输运方程联用</td>
+<td>区分给定的几何/源项与在线求解量；自动微分覆盖范围取决于所接模块是否可微</td>
+</tr>
+</tbody>
+</table></div>
+<p>TORAX 的具体物理配置可查 <a href="https://torax.readthedocs.io/en/v1.4.3/physics_models.html">v1.4.3 的模型页</a>及<a href="https://github.com/google-deepmind/torax/releases">版本发布记录</a>：加热源、台基、旋转和边缘约化模块按版本配置。输入一串 EQDSK 并进行几何插值，与在每个时间步重新求自由边界平衡是两种不同的耦合方式。更换源模型或调用外部程序时，应重新检查导数、求解器配置和计算开销。</p>
+<h3 id="湍流闭合、准线性模型与代理模型">湍流闭合、准线性模型与代理模型</h3>
+<p>输运平台本身不唯一决定湍流预测。相同的输运方程，换用常数扩散、TGLF、QuaLiKiz、非线性 gyrokinetic 通量或神经网络代理，会得到不同的剖面与误差结构。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>怎样得到输运通量</th>
+<th>相比直接非线性计算省下什么</th>
+<th>需要保留的模型信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gafusion.github.io/doc/tglf.html">TGLF</a></td>
+<td>求解 gyro-Landau-fluid 线性模，配合准线性权重和饱和规则</td>
+<td>约化速度空间响应，并用饱和规则表示非线性通量水平</td>
+<td>饱和规则、波数范围、几何、电磁项和 <span class="arithmatex">\(E\times B\)</span> 剪切选项</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/1708.01224">QuaLiKiz</a></td>
+<td>约化的准线性 gyrokinetic 模型，输出热、粒子与动量通量</td>
+<td>用约化模结构和饱和模型，减少直接演化非线性湍流的工作量</td>
+<td>模型版本、适用的局部参数与几何、碰撞和旋转处理</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2105.01168">QLKNN</a> 等代理</td>
+<td>学习已有物理模型的数据映射</td>
+<td>避免每次调用原模型求解</td>
+<td>教师模型、训练域、特征归一化、阈值附近误差和域外检测</td>
+</tr>
+<tr>
+<td>非线性 gyrokinetic 通量</td>
+<td>在指定方程与排序下直接演化湍流并做统计平均</td>
+<td>保留所解析尺度上的非线性相互作用</td>
+<td>相空间分辨率、尺寸、碰撞、饱和时间、平均窗和统计误差</td>
+</tr>
+</tbody>
+</table></div>
+<p>TGLF 是 gyrofluid 线性响应加通量闭合，QuaLiKiz 是约化 gyrokinetic 准线性模型；二者的相似输出不表示采用同一组方程。代理模型对教师的拟合误差、教师对实验的偏差、输运迭代引入的误差应分别记录。阈值附近一点通量误差可能移动温度梯度；在刚性输运区，通量差异与最终剖面差异也未必成比例。对代理可先做独立参数留出，再在相同边界和源项下比较整段输运轨迹，最后检查独立放电。</p>
+<h3 id="陀螺动理学湍流：gene、gs2、cgyro、gtc-与-gkeyll">陀螺动理学湍流：GENE、GS2、CGYRO、GTC 与 Gkeyll</h3>
+<p>这组软件要沿三个独立维度比较。采用 <span class="arithmatex">\(\delta f\)</span> 时，在相应扰动排序下把分布分成背景与主要演化的小扰动；full-<span class="arithmatex">\(f\)</span> 演化总分布；局部 flux-tube 在小径向区域采用给定平衡量与梯度，全局模型保留径向剖面变化；Eulerian 在相空间网格上演化分布，PIC 用带权标记采样分布。全局模型可以采用 <span class="arithmatex">\(\delta f\)</span>，PIC 也可以是 gyrokinetic PIC。full-<span class="arithmatex">\(f\)</span> 不取消 gyrokinetic 排序；采用长波近似时也仍受其约束。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>主要方程与表示</th>
+<th>合适的研究任务</th>
+<th>选择时应区分的点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://genecode.org/details.html">GENE</a></td>
+<td>Eulerian 五维 gyrokinetic，经典表述为 <span class="arithmatex">\(\delta f\)</span>，有局部与全局模式</td>
+<td>线性微稳定性、非线性离子/电子尺度湍流、径向非局域效应</td>
+<td>电磁项、碰撞、物种和托卡马克/仿星器几何按输入配置；global 不等同于 full-<span class="arithmatex">\(f\)</span></td>
+</tr>
+<tr>
+<td><a href="https://gyrokinetics.gitlab.io/gs2/">GS2</a></td>
+<td>沿场线的局部 flux-tube、扰动分布网格 gyrokinetic</td>
+<td>给定磁面附近的增长率、模结构、饱和通量与共同基准</td>
+<td>对照动理学/绝热电子、碰撞和几何；局部计算不直接给出整半径剖面演化</td>
+</tr>
+<tr>
+<td><a href="https://gafusion.github.io/doc/cgyro.html">CGYRO</a></td>
+<td>Eulerian、径向谱表示，当前官方说明包括 global-spectral 方案</td>
+<td>碰撞、电磁、多尺度湍流和径向剖面变化研究</td>
+<td>旧的“仅局部”概述已不完整；局部/全局算法与径向处理依实际版本和设置</td>
+</tr>
+<tr>
+<td><a href="https://sun.ps.uci.edu/people/zlin/bib/wong24.pdf">GTC</a></td>
+<td>全局环形 gyrokinetic PIC，可用 <span class="arithmatex">\(\delta f\)</span> 或 full-<span class="arithmatex">\(f\)</span>，有混合电子等模型</td>
+<td>全局湍流、快粒子与 Alfvén 模相关研究</td>
+<td>选定电子与电磁模型，并扫描标记数、随机性和数值噪声；PIC 不表示逐圈解析完整回旋运动</td>
+</tr>
+<tr>
+<td><a href="https://gkeyll.readthedocs.io/en/latest/">Gkeyll</a></td>
+<td>当前公开 GK 模块为 full-<span class="arithmatex">\(f\)</span>、长波极限、模态间断 Galerkin 分布网格，静电 GK-Poisson</td>
+<td>非 Maxwellian 分布、开场线与鞘层相关动理学问题</td>
+<td>与其 Vlasov-Maxwell 模块、历史论文中的电磁扩展分开；实际可用功能以所选模块为准</td>
+</tr>
+</tbody>
+</table></div>
+<p>GENE 的 <span class="arithmatex">\(\delta f\)</span>、local/global 定义可查<a href="https://www.genecode.org/PAPERS_2/JPCS_012011.pdf">方法论文</a>；CGYRO 的全局算法由官方<a href="https://gafusion.github.io/doc/zreferences.html">参考文献表中的 2025 年论文</a>支持，比较时应记录实现版本。Gkeyll 的<a href="https://gkeyll.readthedocs.io/en/latest/quickstart.html">简单 GK 鞘层例子</a>展示了长波静电 full-<span class="arithmatex">\(f\)</span> 的边界问题，但该例不含完整电离、复合和辐射，不能直接当作反应堆偏滤器模型。</p>
+<p>回旋平均通常将分布的相空间从三位置、三速度降到三位置、两速度，但成本仍由空间、平行速度、磁矩/垂直能量、物种和时间共同决定。局部线性扫描、全局非线性饱和与电子/离子多尺度研究对应的计算量相差很大；仅按软件名称给出“几核几小时”缺少物理依据。报告预算时应给出目标量误差随自由度和统计时间的变化。</p>
+<h3 id="边缘与偏滤器：平均输运和涨落分开比较">边缘与偏滤器：平均输运和涨落分开比较</h3>
+<p>SOL 和偏滤器需要处理沿场输运、鞘层、原子分子过程、回收、杂质与辐射。平均输运模型通常需要给定横场扩散系数；三维湍流模型解析部分涨落，但仍需选择平行热流、中性粒子和边界闭合。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>等离子体和中性粒子处理</th>
+<th>典型用途</th>
+<th>关键差异与输入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://solps-tutorials.readthedocs.io/">SOLPS-ITER</a></td>
+<td>标准工作流为二维轴对称 B2.5 多流体与 EIRENE Monte Carlo 中性粒子耦合</td>
+<td>偏滤器排热、脱靶、杂质/辐射、回收与抽气</td>
+<td><a href="https://solps-tutorials.readthedocs.io/feature_blog/Diffusion_coefficients/">横场粒子与热扩散系数</a>是模型输入；应检查网格、反应库及中性粒子统计</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LLNL/UEDGE">UEDGE</a></td>
+<td>二维等离子体及中性气体流体，有限体积与全隐式求解</td>
+<td>边缘稳态扫描和瞬态输运</td>
+<td>中性流体闭合与 EIRENE 的动理学中性模型不同；横场反常输运也需设定</td>
+</tr>
+<tr>
+<td><a href="https://bout-dev.readthedocs.io/en/latest/user_docs/introduction.html">BOUT++</a> / <a href="https://hermes3.readthedocs.io/en/latest/">Hermes-3</a></td>
+<td>曲线坐标流体框架 / 建立其上的多物种边缘模型，可配置维度与稳态、瞬态、湍流任务</td>
+<td>边缘流体、涨落与模型开发</td>
+<td>指明具体模型、物种、方程和组件；Hermes-3 的<a href="https://hermes3.readthedocs.io/en/latest/equations.html">中性流体闭合</a>也须按维度选择</td>
+</tr>
+<tr>
+<td><a href="https://soledge3x.onrender.com/features/fluid_description/">SOLEDGE3X</a></td>
+<td>漂移序多流体；所引方程页采用静电固定磁场，可运行平均输运或相应湍流问题</td>
+<td>边缘输运、回收与壁相互作用</td>
+<td><a href="https://soledge3x.onrender.com/features/neutrals/">中性模型</a>可用简化扩散或经 STYX 耦合 EIRENE，不能把两种计算等量齐观</td>
+</tr>
+</tbody>
+</table></div>
+<p>若目的是给靶板平均热流和中性压力做扫描，可先在平均输运模型中约束上游剖面、回收和辐射；若目的是解释 blob、间歇性负荷或横场输运机制，则需要相应的三维涨落模型与合成诊断。拟合实验得到的 <span class="arithmatex">\(D_\perp,\chi_e,\chi_i\)</span> 能解释该工况，不自动构成对新工况的预测能力。</p>
+<h3 id="通用电磁-pic：smilei、warpx-与-epoch">通用电磁 PIC：Smilei、WarpX 与 EPOCH</h3>
+<p>完整 Vlasov–Maxwell PIC 保留快速电磁和粒子动力学，适合激光—等离子体、局部不稳定性或特定动理学机制。它与磁约束长期输运所用的回旋平均模型在解析尺度上不同；将电子快速尺度一直积分到宏观放电时间通常带来巨大的成本。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的定位</th>
+<th>选择依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://smileipic.github.io/Smilei/">Smilei</a></td>
+<td>通用相对论 PIC，官方算法说明宏粒子、网格 Maxwell 与 PIC 循环</td>
+<td>适合需要完整快速动理学的课题，核对维度、碰撞、边界及粒子诊断</td>
+</tr>
+<tr>
+<td><a href="https://warpx.readthedocs.io/en/latest/">WarpX</a></td>
+<td>通用 PIC，提供不同电磁、静电及混合场路径，并有网格加密和 CPU/GPU 运行能力</td>
+<td>按具体算法、网格层级、硬件和版本做基准；具有聚变反应模块不等于具备整次托卡马克放电模型</td>
+</tr>
+<tr>
+<td><a href="https://github.com/epochpic/epoch">EPOCH</a></td>
+<td>提供一、二、三维实现的等离子体 PIC 软件</td>
+<td>可作为快速动理学问题的候选；本次只核对公开仓库定位与许可，具体扩展模块需继续阅读对应手册</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="射频波与分布函数：射线、准光学、全波与-fp">射频波与分布函数：射线、准光学、全波与 FP</h3>
+<p>射线追踪用几何光学近似计算传播和局部吸收；准光学束追踪还描述有限束宽与衍射；全波求解给定频率、边界和介电响应下的场；Fokker–Planck（FP）求碰撞、波扩散、电场与源汇作用下的分布函数。这几层分别决定传播、场结构、非热尾部和电流。具体应用可对照<a href="/sections/icrh/">离子回旋</a>、<a href="/sections/ecrh/">电子回旋</a>与<a href="/sections/lhcd/">低杂波</a>专题。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>物理层级</th>
+<th>主要输出</th>
+<th>模型边界与比较重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.compxco.com/genray.html">GENRAY</a></td>
+<td>几何光学射线，具有 EC、LH、ICRF 等色散/吸收选项</td>
+<td>射线路径、吸收及线性电流驱动；可向 FP 提供 RF 数据</td>
+<td>核对色散与吸收模型、初始谱和功率；截止、模转换、干涉与衍射需检查近似是否成立</td>
+</tr>
+<tr>
+<td><a href="https://baltig.cnr.it/ectoplasm/gray">GRAY</a></td>
+<td>用复 eikonal 描述 EC 高斯束的准光学传播</td>
+<td>束传播、衍射、吸收与 EC 电流驱动</td>
+<td>比单条射线多了束宽/衍射描述，但不等同于三维天线近场全波</td>
+</tr>
+<tr>
+<td><a href="https://www-internal.psfc.mit.edu/~jwright/Publications/jcw_icnsp_submittedpaper/node2.html">TORIC</a></td>
+<td>轴对称环形几何、热等离子体有限拉莫尔半径（FLR）全波</td>
+<td>波场、模式转换和分物种吸收</td>
+<td>“全波”仍有线性响应、几何和 FLR 模型近似，须写明所用版本</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ORNL-Fusion/aorsa">AORSA</a></td>
+<td>谱全波，保留离子拉莫尔半径与波长比的所有阶响应</td>
+<td>RF 场、沉积，按配置输出准线性系数</td>
+<td>所谓所有阶不消除平衡梯度、线性响应和有限分辨率的近似；构建与大矩阵求解也是成本</td>
+</tr>
+<tr>
+<td><a href="https://www.compxco.com/cql3d.html">CQL3D</a></td>
+<td>相对论、弹跳平均的碰撞/准线性 FP；常用两动量维加一径向维</td>
+<td>非热电子/离子分布、加热、电流驱动和相关诊断量</td>
+<td>名称中的 3D 不表示三维空间全轨道；RF 扩散和几何须由对应模型或上游求解器提供</td>
+</tr>
+<tr>
+<td><a href="https://spcgit.epfl.ch/luke/tutorial.html">LUKE</a></td>
+<td>所引教程为相对论、弹跳平均电子 FP，一空间维加两动量维</td>
+<td>电子分布、电流驱动与相关响应</td>
+<td>核对背景、碰撞线性化、波输入、电场和输运；该教程基于 MATLAB</td>
+</tr>
+</tbody>
+</table></div>
+<p>TORIC 的<a href="https://doi.org/10.1088/0741-3335/41/1/002">原始论文</a>说明其有限拉莫尔半径全波模型；AORSA 作者的<a href="https://nstx.pppl.gov/DragNDrop/Science_Groups/core/TSGs/energetic_particles/archive/2011/RF%20Conference%202011/Abstracts/Contributed%20Abstracts/Poster%20Session%20A/A49_Jaeger_E_.pdf">电导率修正说明</a>区分 <span class="arithmatex">\(k_\perp\rho\)</span> 与 <span class="arithmatex">\(\rho/L_{\rm eq}\)</span> 两种展开参数。选择全波应来自具体的波效应需求，而非把求解器名称当作无近似的保证。</p>
+<p>强非热情形中，场给出准线性扩散，分布改变吸收和介电响应，二者可能需要迭代。比较功率时统一天线/入射面、反射、金属/介质损耗、电子/离子吸收和出域功率。频域复场采用峰值幅度时，周期平均功率密度（W/m³）常写为 <span class="arithmatex">\(\tfrac12\operatorname{Re}(\mathbf J\cdot\mathbf E^*)\)</span>；采用 RMS 幅度时因子相应改变，必须跟随软件约定，例如 <a href="https://ansyshelp.ansys.com/public/views/secured/electronics/v261/en/subsystems/HFSS/Content/HFSS/PeakVersusRMSPhasors.htm">HFSS 的相量说明</a>。下文给出 RF—FP 功率矩的核对方法。</p>
+<h3 id="中性束与快粒子：出生、慢化与三维轨道">中性束与快粒子：出生、慢化与三维轨道</h3>
+<p><a href="https://w3.pppl.gov/~pshare/help/body_nubeam_hlp.html">NUBEAM 官方指南</a>在给定背景上做中性束相关出生、碰撞、慢化和快离子处理，再向背景模型返回源项。<a href="https://ascot4fusion.github.io/ascot5/">ASCOT5</a>则提供三维场中的 test-particle 轨道计算；二者应围绕目标量和所用场、源、壁模型比较。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>在链条中的角色</th>
+<th>输入与输出</th>
+<th>需要检查什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">NUBEAM</a></td>
+<td>中性束及聚变快离子的出生、慢化/热化与源项模块，常用于 TRANSP</td>
+<td>平衡、背景、注入器/束成分和原子过程 → 粒子、能量、动量源与分布/反应率</td>
+<td>所引指南采用轴对称嵌套磁面；直接标量和 Plasma State 接口的单位分别查表</td>
+</tr>
+<tr>
+<td>ASCOT5</td>
+<td>三维全轨道或导引中心轨道与碰撞、壁损失</td>
+<td><span class="arithmatex">\(\mathbf B,\mathbf E\)</span>、背景、加权粒子源、壁三角网格 → 分布、损失位置与壁负荷</td>
+<td>test-particle 不反馈改变背景；导心/全轨道转换、轨道步长和局部损失采样需收敛</td>
+</tr>
+<tr>
+<td>BBNBI / AFSI（ASCOT 工具链）</td>
+<td>BBNBI 给束出生与穿透；AFSI 给聚变产物源</td>
+<td>注入几何或反应物分布 → 可用于轨道跟踪的源</td>
+<td>出生源、轨道损失和慢化沉积是不同阶段，接口中保留源率与能量/俯仰分布</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果问题是分析加热功率收支，可先沿集成平台的既有源模块建立预算；如果关心三维误差场、线圈纹波或局部壁热点，则需要对应的三维场、真实壁及轨道模型。一个损失百分比转为 W/m²，还要有粒子能量、标记权重、源率或统计时间和表面面积；热点统计往往比总损失比例需要更多有效样本。中性束的物理分段见<a href="/sections/nbi/">中性束注入</a>。</p>
+<h3 id="中子学、cad-与热结构软件">中子学、CAD 与热结构软件</h3>
+<p>中子和光子在材料中的输运与带电快粒子磁轨道是不同的问题。工程计算链可写为“参数/CAD 几何 → 几何检查与材料赋值 → 核输运与核热 → 热流/体热源映射 → 温度和结构响应”。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>核心角色</th>
+<th>适合比较的任务</th>
+<th>需要补齐的输入或模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.openmc.org/en/stable/usersguide/beginners.html">OpenMC</a> / <a href="https://mcnp.lanl.gov/how_to_get_the_mcnp_code.html">MCNP</a></td>
+<td>本章关注的固定源中子/光子 Monte Carlo 输运</td>
+<td>氚产生、屏蔽、核热和反应率；对齐几何、核数据和源后做统计比较</td>
+<td>同位素/密度、连续能核数据、温度、源空间/能谱/角分布及 tally 定义</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fusion-energy/paramak">Paramak</a> / <a href="https://github.com/svalinn/DAGMC">DAGMC</a></td>
+<td>参数化聚变 CAD / 在 CAD 上提供输运几何与射线跟踪接口</td>
+<td>自动扫描装置几何，保留材料区和复杂部件</td>
+<td>仍需宿主输运器与核数据；检查水密性、重叠/缝隙、材料标签与体积</td>
+</tr>
+<tr>
+<td><a href="https://doc.comsol.com/6.3/doc/com.comsol.help.heat/heat_ug_theory.07.088.html">COMSOL 电磁热接口</a></td>
+<td>通用有限元电磁与热等多物理耦合，模块组合依任务选择</td>
+<td>天线/传输部件损耗、介质/导体发热及热响应</td>
+<td>端口、材料频散/温度关系、热边界与授权模块；热等离子体动理学响应须另建或导入</td>
+</tr>
+<tr>
+<td><a href="https://ansyshelp.ansys.com/public/Views/Secured/Electronics/v251/en/Subsystems/Mechanical/Content/Mechanical/Two-WayCoupling.htm">Ansys HFSS/Maxwell—Mechanical</a></td>
+<td>高频/低频电磁与热结构工作流</td>
+<td>电磁损耗到温升，温度反馈材料属性与损耗</td>
+<td>表面/体损耗映射、冷却、接触、材料与双向迭代收敛；所引说明为 2025 R1</td>
+</tr>
+<tr>
+<td><a href="https://mooseframework.inl.gov/modules/electromagnetics/index.html">MOOSE</a></td>
+<td>可开发的有限元多物理框架</td>
+<td>自定义方程、材料和场/热/力耦合</td>
+<td>框架与具体应用分开核验；当前所读电磁模块文档的波问题为 1D/2D，不能据此假定现成的任意三维 RF 能力</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://docs.openmc.org/en/stable/usersguide/data.html">OpenMC 核数据说明</a>要求把数据库路径、评价/处理版本与温度纳入输入；更换评价库可能改变 TBR 和反应率，增加历史数不能消除这种系统差异。damage-energy tally 到 dpa 还需要位移损伤模型与参数，氚产生比到燃料自持还需要燃耗、库存、处理损失及停机收支。</p>
+<p>Ansys 的<a href="https://ansyshelp.ansys.com/public/Views/Secured/corp/v242/en/wb_sim/ds_thermal_stress.html">热应力文档</a>说明如何把温度场传为结构热载荷。热结构选型要看材料非线性、接触、脉冲、冷却、网格和已有模型，而非只看是否写着“多物理”。表面热流 W/m²、体热源 W/m³ 和积分功率 W 分别传递；天线金属损耗、快粒子壁沉积与中子核热分别建账，芯部吸收功率不能直接作为天线金属热源。</p>
 <h3 id="有限差分、有限体积与-pic">有限差分、有限体积与 PIC</h3>
 <p>有限差分近似网格点上的导数；有限体积对控制体积分，用单元面通量更新体平均量。若内部公共面的通量在相邻单元取同值反号，总和中会相消，这正是离散守恒的重要结构。高阶重构、复杂边界或插值仍可能破坏正性、稳定性或整体守恒，需要单独测试。BOUT++ 官方将自身描述为曲线坐标下的结构化有限差分/体积框架，物理方程由模型指定；示例含流体与湍流模型。参见 <a href="https://bout-dev.readthedocs.io/en/stable/user_docs/introduction.html">BOUT++ Introduction</a> 和 <a href="https://bout-dev.readthedocs.io/en/latest/user_docs/physics_models.html">Physics models</a>。每套方程实现都可分别建立解析解和守恒测试。</p>
 <p>PIC 用带权宏粒子表示分布，并在网格上求场。一个循环包含粒子处场插值、粒子推进、电荷/电流沉积和场更新。宏粒子代表具有给定统计权重的粒子群；统计噪声、网格加热、时间步误差和边界处理都影响结论。应分别扫描网格、时间步、每格粒子数和随机种子；显式电磁算法还需满足其稳定性约束。上述算法路径已核对 <a href="https://smileipic.github.io/Smilei/Understand/algorithms.html">Smilei 5.1 PIC algorithms</a> 的 Quasi-particles、Time and space discretization 与 PIC loop，稳定条件由所选时间推进和场求解算法确定。</p>
@@ -25,6 +503,6 @@ u_i^{n+1}=u_i^n-\nu(u_i^n-u_{i-1}^n)
   title = {模型与求解器目录},
   year = {2026},
   url = {https://megawave-fusion.github.io/tag/MF000063/},
-  note = {Fusion Stacks; revision 7c818a230b02}
-}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation/"><small>← 上一页</small>模型、求解与验证</a><a class="next" href="/tag/MF000064/"><small>下一页 →</small>多物理耦合与数据接口</a></nav></main></div>
+  note = {Fusion Stacks; revision 3cf5a192752d}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation/"><small>← 上一页</small>仿真计算：模型、软件与验证</a><a class="next" href="/tag/MF000064/"><small>下一页 →</small>多物理耦合与数据接口</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

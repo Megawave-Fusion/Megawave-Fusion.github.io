@@ -5,9 +5,197 @@
 <link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000066/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=20dddbcbe7"><script type="module" src="/assets/site.mjs?v=9f1d884ee6"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/sections/simulation/">模型、求解与验证</a><span>/</span><span>可复现计算</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/sections/simulation/">仿真计算：模型、软件与验证</a><span>/</span><span>可复现计算</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
 <main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/sections/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.1.4 · 专题</p><h1>可复现计算</h1><div class="page-meta"><span class="tag">MF000066</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation/#MF000066">在连续正文中阅读</a></div><article class="prose"><p>一份可复现记录应能回答“用什么方程、什么版本、什么输入得到哪些结果”。本库建议把代码提交、依赖版本、编译选项、机器精度、输入文件、网格、初边值、随机种子、执行命令、输出校验值及分析脚本作为同一运行清单保存。重启计算应记录检查点来源，禁止覆盖原始输入后仍沿用旧标签。</p>
 <p>报告以目标量组织：给出网格和时间步敏感性、守恒残差、参数不确定性及适用工况；保留未收敛和失败运行。图片需带物理单位、坐标定义和色标，使读者能还原数值对应的物理量。跨版本结果变化时先定位方程、数据、数值设置或后处理的变化，再判断物理解释。<a href="https://bout-dev.readthedocs.io/en/latest/user_docs/running_bout.html">BOUT++ Running 文档</a>说明其输出可记录核心 Git 修订与构建信息；项目自己的模型和输入版本仍需另存。</p>
+<h3 id="获取条件和外部依赖">获取条件和外部依赖</h3>
+<p>软件可见的网页、公开论文、可下载源码和可再分发软件是不同层次的条件。下表记录本次读取的获取路径与许可名称；实际使用时保存下载版本及随附许可。代码、外接求解器、装置数据、训练权重和原子/核数据库分别登记。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>本次核对的代码获取或许可</th>
+<th>需要单独落实的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EFIT-AI</td>
+<td><a href="https://efit-ai.gitlab.io/efit/license.html">官方许可页</a>列 BSD-2-Clause，同时附用户协议与邮件申请流程</td>
+<td>该页另列分发、研究与发表要求，目标发行版按团队提供的完整条款确认；机器与诊断配置另备</td>
+</tr>
+<tr>
+<td>FreeGS / FreeGSNKE</td>
+<td>公开；<a href="https://github.com/freegs-plasma/freegs/blob/master/LICENSE">FreeGS</a>、<a href="https://raw.githubusercontent.com/FusionComputingLab/freegsnke/main/LICENSE">FreeGSNKE</a>均为 LGPL v3</td>
+<td>平衡后端、机器几何、线圈数据和装置数据库接口</td>
+</tr>
+<tr>
+<td>VMEC2000 / DESC / SIMSOPT</td>
+<td>所核仓库分别为 <a href="https://raw.githubusercontent.com/hiddenSymmetries/VMEC2000/master/LICENSE">VMEC2000 MIT</a>、<a href="https://raw.githubusercontent.com/PlasmaControl/DESC/master/LICENSE">DESC MIT</a>、<a href="https://raw.githubusercontent.com/hiddenSymmetries/simsopt/master/LICENSE">SIMSOPT MIT</a></td>
+<td>该 VMEC 结论限定 hiddenSymmetries/VMEC2000 发行版；外接求解器及 MPI/HDF5/JAX 等运行依赖另查</td>
+</tr>
+<tr>
+<td>ELITE / M3D-C1 / NIMROD</td>
+<td>ELITE 当前公开源码/标准许可未确认；<a href="https://m3dc1.pppl.gov/M3DC1_License.pdf">M3D-C1</a>、<a href="https://nimrodteam.org/code_access/">NIMROD</a>按团队协议申请</td>
+<td>后两者有分发限制及结果使用相关条款；获取申请与团队支持周期计入项目安排</td>
+</tr>
+<tr>
+<td>JOREK</td>
+<td><a href="https://github.com/iterorganization/JOREK">ITER 官方仓库</a>已公开，README 列 LGPL-3.0-or-later</td>
+<td>核对第三方组件、所选模型及社区规则；旧 Wiki 权限与公开代码权限分开</td>
+</tr>
+<tr>
+<td>GENE / GS2 / GTC</td>
+<td><a href="https://www.genecode.org/license.html">GENE</a>按个人学术申请，限制再分发，非学术另议；<a href="https://bitbucket.org/gyrokinetics/gs2/raw/master/LICENCE">GS2</a>为 MIT；<a href="https://sun.ps.uci.edu/gtc/">GTC</a>为 BSD-3-Clause</td>
+<td>电子模型、几何接口、编译库与输入基准；不可把三个项目的条件合并成一种许可</td>
+</tr>
+<tr>
+<td>CGYRO / TGLF / TGYRO</td>
+<td><a href="https://github.com/gafusion/gacode/blob/master/LICENSE">GACODE 主仓库</a>为 Apache-2.0</td>
+<td>各模型与数据输入分别配置；更新饱和规则后重跑基准</td>
+</tr>
+<tr>
+<td>Gkeyll</td>
+<td><a href="https://github.com/gkeyllorg/gkeyll">主仓库</a>为 MIT</td>
+<td>按 core/moments/vlasov/gyrokinetic 等实际模块及依赖构建</td>
+</tr>
+<tr>
+<td>SOLPS-ITER / EIRENE</td>
+<td><a href="https://github.com/iterorganization/SOLPS-ITER">SOLPS-ITER</a>已公开、顶层 EUPL-1.1；<a href="https://solps-tutorials.readthedocs.io/installing/solps-iter-codebase/">安装说明</a>仍要求确认 EIRENE 注册/许可</td>
+<td><a href="https://www.eirene.de/cgi-bin/eirene/write_temp.cgi?temp_dat=Download/download">EIRENE</a>列专用 EPL 或 CC BY-NC-ND 条款，不能只看顶层仓库；反应数据也应登记</td>
+</tr>
+<tr>
+<td>UEDGE / BOUT++ / SOLEDGE3X</td>
+<td><a href="https://github.com/LLNL/UEDGE">UEDGE</a>为 LGPL-2.1；<a href="https://bout-dev.readthedocs.io/en/latest/user_docs/introduction.html">BOUT++</a>为 LGPL-3.0-or-later；<a href="https://soledge3x.onrender.com/">SOLEDGE3X</a>按需获取</td>
+<td>BOUT++ 的具体应用与模型另查；SOLEDGE3X 未核实标准开源许可，不从论文开放性推断</td>
+</tr>
+<tr>
+<td>TRANSP / JINTRAC / ASTRA / RAPTOR</td>
+<td><a href="https://transp.pppl.gov/releases.html">TRANSP</a>须签协议，<a href="https://transp.pppl.gov/files/LicenseAgreement.pdf">现行协议文本</a>区分研究与商业使用；<a href="https://crppwww.epfl.ch/~sauter/raptor/">RAPTOR</a>官方页仍要求签转移/CLA 协议</td>
+<td>JINTRAC 的<a href="https://scientific-publications.ukaea.uk/wp-content/uploads/UKAEA-CCFE-CP2525.PDF">UKAEA 公开应用论文</a>明确按许可使用；ASTRA 本次未确认现代发行许可，历史报告不可替代当前条款</td>
+</tr>
+<tr>
+<td>TORAX / QuaLiKiz / QLKNN</td>
+<td><a href="https://github.com/google-deepmind/torax/blob/main/LICENSE">TORAX 主体</a>为 Apache-2.0；<a href="https://gitlab.com/qualikiz-group/QuaLiKiz/-/blob/main/LICENSE">QuaLiKiz</a>为 CeCILL-C</td>
+<td>TORAX 第三方数据另列许可；QLKNN 按具体模型的代码、权重与训练数据发行包分别核对</td>
+</tr>
+<tr>
+<td>OMFIT / IMAS</td>
+<td><a href="https://omfit.io/install.html">OMFIT</a>要求用户协议并授予仓库权限；<a href="https://www.iter.org/node/20687/release-imas-infrastructure-and-physics-models-open-source">IMAS</a>已发布多项开放组件</td>
+<td>OMFIT 不附带所有外部程序；IMAS 许可按各基础设施/物理软件仓库与版本核对</td>
+</tr>
+<tr>
+<td>GENRAY / GRAY / CQL3D</td>
+<td><a href="https://github.com/compxco/genray/blob/master/LICENSE">GENRAY</a>、<a href="https://raw.githubusercontent.com/compxco/cql3d/master/LICENSE">CQL3D</a>为 GPL-3.0-or-later；<a href="https://baltig.cnr.it/ectoplasm/gray/-/blob/master/LICENSE.md">GRAY</a>采用自有用户协议，含非商业研究及修改限制</td>
+<td>公开仓库并不使三者具有同样的用途和修改条件</td>
+</tr>
+<tr>
+<td>AORSA / TORIC / LUKE / NUBEAM</td>
+<td><a href="https://raw.githubusercontent.com/ORNL-Fusion/aorsa/master/LICENSE">AORSA</a>所核仓库为 MIT；其余三者本次未确认独立发行许可</td>
+<td>核对实际发行方、平台协议和依赖；<a href="https://w3.pppl.gov/ntcc/NUBEAM/abstract.html">NUBEAM</a>所用 ADAS 数据另有协议</td>
+</tr>
+<tr>
+<td>ASCOT5</td>
+<td><a href="https://github.com/ascot4fusion/ascot5">官方仓库</a>列 LGPL v3</td>
+<td>场数据、壁 CAD、原子数据和源粒子包分别保存来源</td>
+</tr>
+<tr>
+<td>OpenMC / MCNP / Paramak / DAGMC</td>
+<td><a href="https://raw.githubusercontent.com/openmc-dev/openmc/develop/LICENSE">OpenMC</a>、<a href="https://raw.githubusercontent.com/fusion-energy/paramak/main/LICENSE">Paramak</a>为 MIT；<a href="https://raw.githubusercontent.com/svalinn/DAGMC/develop/LICENSE.txt">DAGMC</a>主体 Simplified BSD，部分目录例外；<a href="https://mcnp.lanl.gov/how_to_get_the_mcnp_code.html">MCNP</a>经 RSICC 受控分发</td>
+<td>核数据、耗损链、CAD 工具和 MCNP 分发包的权限及版本各自确认</td>
+</tr>
+<tr>
+<td>COMSOL / Ansys / MOOSE</td>
+<td><a href="https://www.comsol.com/documentation/6.3.0.290/COMSOL_SoftwareLicenseAgreement.pdf">COMSOL</a>、<a href="https://ansys.synopsys.com/content/dam/legal/wla-july-29-2021.pdf">Ansys</a>按自有商业协议；<a href="https://raw.githubusercontent.com/idaholab/moose/master/LICENSE">MOOSE</a>框架为 LGPL-2.1</td>
+<td>商业产品的具体模块、并行/网络许可按所购授权；MOOSE 具体应用与材料模型另查</td>
+</tr>
+<tr>
+<td>Smilei / WarpX / EPOCH</td>
+<td><a href="https://smileipic.github.io/Smilei/Overview/licence.html">Smilei</a>为 CeCILL-B；<a href="https://github.com/BLAST-WarpX/warpx">WarpX</a>为 BSD-3-Clause-LBNL；<a href="https://github.com/epochpic/epoch">EPOCH</a>为 GPL-3.0</td>
+<td>对照实际求解器与加速器后端、物理模块和输入数据</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何比较算力与使用成本">如何比较算力与使用成本</h3>
+<p>有 GPU、MPI 或隐式求解器，只说明存在某种运行路径。可执行文件构建、数据准备、JIT 首次编译、作业排队、求解、I/O 和后处理应分别计时。比较 CPU/GPU 时记录硬件、精度、内存、并行布局与通信；使用 JAX 等异步后端时，计时前须确保设备计算已经完成。比较相同目标误差下的成本，才能判断加速是否改善实际任务。</p>
+<p>一个可用的 benchmark 记录可包含：共同物理算例、目标量与参考值、启用的方程项、所有网格和时间步、统计误差或残差、峰值内存、冷启动/重复运行时间、核时或 GPU 时、编译器及数学库。对模型优化还应记录外层迭代次数与失败率；单次通量调用更快，不一定让整体优化更快。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>课题起点</th>
+<th>建议先做的最小基线</th>
+<th>扩展到下一层的依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>托卡马克形状与控制</td>
+<td>FreeGS 静态平衡及约束；已有实验则先建立可信的平衡重建</td>
+<td>需要电压与被动结构响应时接动态平衡；出现非轴对称 MHD 问题再选相应演化模型</td>
+</tr>
+<tr>
+<td>仿星器设计</td>
+<td>固定边界平衡与共同力残差，再做单一设计目标扫描</td>
+<td>逐步加入线圈可制造性、快粒子/输运和扰动约束</td>
+</tr>
+<tr>
+<td>芯部剖面与控制</td>
+<td>简化几何、明确源项、已知输运闭合下的 TORAX/RAPTOR 或既有平台基线</td>
+<td>先完成守恒与时间/网格收敛，再更换准线性/代理/非线性通量模型</td>
+</tr>
+<tr>
+<td>RF/NBI 方案</td>
+<td>统一背景和输入功率，先对比沉积/出生及总预算</td>
+<td>分布明显非热时加 FP；三维损失影响目标时加轨道与真实壁</td>
+</tr>
+<tr>
+<td>偏滤器设计</td>
+<td>用边缘平均输运约束上游、回收、辐射与靶热流</td>
+<td>涨落与局部瞬态成为目标时，增加对应三维模型和诊断</td>
+</tr>
+<tr>
+<td>包层与第一壁</td>
+<td>简化几何固定源核输运，核对源率和每源 tally</td>
+<td>几何/材料敏感性明确后接 CAD，再把载荷保守映射到热结构网格</td>
+</tr>
+</tbody>
+</table></div>
+<p>这里的起步路径来自前文模型范围与接口要求。团队若已有可复现装置输入、许可和经过核对的工作流，优先在其上建立共同基准；迁移软件应有明确的新物理需求、维护收益或计算收益。</p>
+<h3 id="一次计算需要留下的记录">一次计算需要留下的记录</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>记录</th>
+<th>最少内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题与模型</td>
+<td>目标量、方程/闭合、几何、启用模块、忽略项及适用尺度</td>
+</tr>
+<tr>
+<td>软件身份</td>
+<td>仓库和 commit/tag、补丁、许可、编译器、MPI/BLAS/JAX/CUDA 等依赖</td>
+</tr>
+<tr>
+<td>物理数据</td>
+<td>平衡与 COCOS、源/剖面、材料/同位素、核/原子数据、训练权重及各自来源版本</td>
+</tr>
+<tr>
+<td>数值设置</td>
+<td>网格/谱阶/速度域、时间步、粒子数、随机种子、边界、求解容差、耦合/松弛设置</td>
+</tr>
+<tr>
+<td>执行与输出</td>
+<td>命令、硬件/并行布局、日志、重启来源、输入输出散列、单位与分析脚本</td>
+</tr>
+<tr>
+<td>可信度证据</td>
+<td>守恒和耦合残差、加密/统计收敛、共同基准、实验比较及不确定性</td>
+</tr>
+</tbody>
+</table></div>
 <h3 id="让一个时间积分结果可以从配置独立重建">让一个时间积分结果可以从配置独立重建</h3>
 <p>考虑 <span class="arithmatex">\(\dot W=-W/\tau\)</span>，前向 Euler 法写为 <span class="arithmatex">\(W_{k+1}=(1-\Delta t/\tau)W_k\)</span>，重复 <span class="arithmatex">\(N\)</span> 步得到 <span class="arithmatex">\(W_N=W_0(1-\Delta t/\tau)^N\)</span>。把输入明确写为 <span class="arithmatex">\(W_0=10^6\)</span> J、<span class="arithmatex">\(\tau=0.10\)</span> s、<span class="arithmatex">\(\Delta t=0.001\)</span> s、<span class="arithmatex">\(N=100\)</span>，终点时间便固定为 0.10 s，输出应为 <span class="arithmatex">\(366032.34\)</span> J。解析值 <span class="arithmatex">\(W_0e^{-1}=367879.44\)</span> J 给出相对误差约 <span class="arithmatex">\(0.502\%\)</span>。将步长减半并改为 200 步，输出变为 <span class="arithmatex">\(366957.82\)</span> J，误差约减半，符合一阶时间积分。</p>
 <p>Euler 更新来自对时间导数取前向差分 <span class="arithmatex">\((W_{k+1}-W_k)/\Delta t=-W_k/\tau\)</span>；解析解则对原方程分离变量积分得到 <span class="arithmatex">\(\ln[W(t)/W_0]=-t/\tau\)</span>。固定终点 <span class="arithmatex">\(t=N\Delta t\)</span>，将数值结果的对数展开为 <span class="arithmatex">\(N\ln(1-\Delta t/\tau)=-t/\tau-t\Delta t/(2\tau^2)+O(\Delta t^2)\)</span>，就解释了其全局相对误差的一阶步长标度。</p>
@@ -17,6 +205,6 @@
   title = {可复现计算},
   year = {2026},
   url = {https://megawave-fusion.github.io/tag/MF000066/},
-  note = {Fusion Stacks; revision 7c818a230b02}
+  note = {Fusion Stacks; revision 3cf5a192752d}
 }</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000065/"><small>← 上一页</small>验证、确认与不确定性</a><a class="next" href="/sections/engineering/"><small>下一页 →</small>聚变装置的配套工程</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>
