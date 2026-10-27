@@ -1,6 +1,6 @@
 {
-  "built_at": "2026-10-20T10:31:12.472619+00:00",
-  "source_commit": "2cc211bb99039bd304ad048aee9eb67183582316",
+  "built_at": "2026-10-27T07:36:09.378070+00:00",
+  "source_commit": "e53402a1141b6f531837d7d6d3e3cf921cac57b4",
   "chapters": 10,
   "sections": 40,
   "entries": 227,
@@ -64,7 +64,7 @@
     "scripts/check_math.mjs": "065d4d1b121298dd5ca56c004ed61cd4d23aca6474ddbedb76ab4697f5ab22a9",
     "scripts/check_site.py": "f2dbf1ba6ca839027ade3717a893818cc69238403214d29bb4129e598c174490",
     "scripts/extract_math.py": "e3668fcada3fdc327628c5cee32b37b9bf293d725f53ef338880cd809b7c351e",
-    "scripts/homepage.py": "15e0d0914eb492869081413c0fdaec3bcaa3ee6fae911c45e88fbb2b80300395",
+    "scripts/homepage.py": "f8184599d20fc55782b10e2cc9e7228847211b38709c91311fb4e6eb75470c82",
     "scripts/knowledge_graph.py": "5294d7fc47b3151e9edc6223e5d2898c08353d557bc58a12ecc31e84044a8cd7",
     "scripts/publish.py": "bed79bec89192772f698383236614caf465f05c66b4b357810eeca6de8206e99",
     "scripts/simulation_figures.py": "236af613f0efd0a4afb373e99e72bcf9c8f659bd826b5197a69b09ae9bbc8b6b",
