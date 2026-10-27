@@ -16,7 +16,7 @@ def homepage(chapters, sections, entries, references):
                     [(len(chapters), '知识章节'), (len(sections), '阅读专题'), (len(entries), '永久条目'), (len(references), '参考来源')])
     return f'''<section class="fusion-hero" aria-labelledby="hero-title">
 <div class="hero-copy"><p class="orbit-kicker"><span></span> FUSION STACKS / 曦融兆波</p>
-<h1 id="hero-title">从一个粒子，<br>到一座<span>聚变电站。</span></h1>
+<h1 id="hero-title">探索聚变世界，<br><span>拥抱未来能源。</span></h1>
 <p class="hero-description">沿着方程、图解与计算，读懂聚变科学与工程。</p>
 <div class="fusion-actions"><a class="button primary" href="/sections/foundations/">开始探索 <span>↗</span></a><a class="button" href="/knowledge-tree/">打开三维知识树 <span>◎</span></a></div>
 <div class="reaction-line" aria-label="氘氚聚变反应：产生氦四和中子，释放约17.6兆电子伏特"><span>²H + ³H</span><b>→</b><span>⁴He + n</span><small>17.6 MeV</small></div>
