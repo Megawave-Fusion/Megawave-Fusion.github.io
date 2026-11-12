@@ -1249,6 +1249,72 @@
       "target": "MF000208",
       "type": "related",
       "reason": "该系统的物理输入与设备约束用于建立相应仿真初始及边界条件。"
+    },
+    {
+      "source": "MF000228",
+      "target": "MF000229",
+      "type": "prerequisite",
+      "reason": "常见天线入口给出结构选择，参数卡将其落实为几何、负载和馈电输入。"
+    },
+    {
+      "source": "MF000229",
+      "target": "MF000230",
+      "type": "prerequisite",
+      "reason": "先确定共同坐标和三层输入，再建立单带的馈入、短路与回流。"
+    },
+    {
+      "source": "MF000230",
+      "target": "MF000231",
+      "type": "prerequisite",
+      "reason": "闭合单带电流回路后，增加第二单元以研究相位和互耦。"
+    },
+    {
+      "source": "MF000231",
+      "target": "MF000235",
+      "type": "prerequisite",
+      "reason": "规定电流谱用于初检，实际双带电流需由带互耦的端口网络求解。"
+    },
+    {
+      "source": "MF000235",
+      "target": "MF000232",
+      "type": "prerequisite",
+      "reason": "共同参考面的S/Z矩阵是连接四带与共轭T支路的输入。"
+    },
+    {
+      "source": "MF000235",
+      "target": "MF000234",
+      "type": "prerequisite",
+      "reason": "多端口响应先固定波归一和参考面，再连接行波阵列的电容与两端终端。"
+    },
+    {
+      "source": "MF000231",
+      "target": "MF000233",
+      "type": "prerequisite",
+      "reason": "两带相位消零的认识用于理解三带的额外空间矩抵消及近场目标。"
+    },
+    {
+      "source": "MF000230",
+      "target": "MF000236",
+      "type": "prerequisite",
+      "reason": "单带回流基线建立后再恢复屏条、有限导体与局部近场。"
+    },
+    {
+      "source": "MF000235",
+      "target": "MF000237",
+      "type": "prerequisite",
+      "reason": "端口功率和参考面固定后才能把剖面及开放边界接入共同能量账本。"
+    },
+    {
+      "source": "MF000237",
+      "target": "MF000238",
+      "type": "prerequisite",
+      "reason": "先核对等离子体负载及开放边界，再按分层流程比较软件和收敛。"
+    },
+    {
+      "source": "MF000238",
+      "target": "MF000183",
+      "type": "prerequisite",
+      "reason": "天线流程输出的实际带谱和净耦合功率交给后续ICRH模拟。"
     }
   ],
   "paths": [
@@ -1410,6 +1476,21 @@
         "MF000210",
         "MF000211",
         "MF000212"
+      ]
+    },
+    {
+      "id": "icrf-antenna-models",
+      "title": "从天线结构到ICRH计算输入",
+      "description": "选择结构、闭合回流、检查电流谱，再接端口、等离子体和热波模型。",
+      "nodes": [
+        "MF000228",
+        "MF000229",
+        "MF000230",
+        "MF000231",
+        "MF000235",
+        "MF000237",
+        "MF000238",
+        "MF000183"
       ]
     }
   ]

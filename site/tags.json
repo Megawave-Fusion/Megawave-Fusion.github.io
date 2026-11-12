@@ -1133,5 +1133,60 @@
     "tag": "MF000227",
     "status": "draft",
     "kind": "专题"
+  },
+  "辅助加热/离子回旋加热/README.md#常见天线结构与建模入口": {
+    "tag": "MF000228",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#建模层级与几何参数卡": {
+    "tag": "MF000229",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#单电流带的回流路径与谐振近似": {
+    "tag": "MF000230",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#双电流带的间距、相位与发射谱": {
+    "tag": "MF000231",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#四电流带与共轭 T 的电路连接": {
+    "tag": "MF000232",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#三电流带的边框电流与近场优化": {
+    "tag": "MF000233",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#行波阵列的多端口与终端余功率": {
+    "tag": "MF000234",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#同轴端口、互耦与参考面": {
+    "tag": "MF000235",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#法拉第屏、有限电导与局部近场": {
+    "tag": "MF000236",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#边缘等离子体与开放边界": {
+    "tag": "MF000237",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#软件分工与可复算建模流程": {
+    "tag": "MF000238",
+    "status": "draft",
+    "kind": "专题"
   }
 }

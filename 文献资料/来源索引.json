@@ -912,7 +912,18 @@
     "scope": "离子回旋加热专题；具体假设、公式位置和案例范围见正文及结构化核验记录。",
     "checked_on": "2026-10-16",
     "evidence": "对应内容经过模型辅助资料对照与公式复核；获取范围：institutional publication abstract opened",
-    "中文标题": "Bobkov 等，First results with 3-strap ICRF antennas in ASDEX Upgrade，2016 年实验论文摘要"
+    "中文标题": "Bobkov 等，First results with 3-strap ICRF antennas in ASDEX Upgrade，2016 年实验论文摘要",
+    "additional_checks": [
+      {
+        "checked_on": "2026-11-12",
+        "scope": "实际读取作者机构页的完整摘要及元数据；未取得该论文全文。",
+        "evidence": "一手资料实际读取。AUG 以三带天线降低 ICRF 特有钨释放，并扫描中心带与外带功率配置。；摘要报告1.5:1和2:1为所采用的中心/外带功率配置。。证据边界：只摘要，中心/外带分母应由全文明确再引用；建议正文不把该比值写成通用最优值，建模应扫描实际复电流及等耦合功率近场。"
+      }
+    ],
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md",
+      "辅助加热/离子回旋加热/README.md"
+    ]
   },
   {
     "id": "ICRH-010",
@@ -3583,7 +3594,15 @@
     "scope": "实际读取全文 HTML §1–3 与软件比较、冷张量实现、时间约定和吸收边界说明。",
     "evidence": "一手文档或作者原始论文。HFSS 研究通过自定义各向异性导电张量实现冷磁化等离子体，并比较 ANTITER 与 WEST 天线数据。；TOPICA 包含真实 3D 天线与该文所述 1D 热等离子体；RAPLICASOL 基于 COMSOL、冷张量与 PML。；通用电磁求解器时间约定及张量转坐标须显式处理。。证据边界：仅该研究中的实现与验证；鞘、慢波共振等拓展在论文中有不同完成程度，不能统一写为原生可用功能。",
     "used_in": [
-      "仿真计算/离子回旋加热模拟/README.md"
+      "仿真计算/离子回旋加热模拟/README.md",
+      "仿真计算/离子回旋天线建模/README.md"
+    ],
+    "additional_checks": [
+      {
+        "checked_on": "2026-11-12",
+        "scope": "实际在线读取全文HTML §1、§2（Eq1–7、单strap表1）、§3.1–3.3（ABL、ANTITER基准、SW/LH）、§4 WEST三维案例定位。",
+        "evidence": "一手资料实际读取。HFSS中采用等价电导张量以处理大Stix P造成数值问题，论文e−iωt与HFSS e+iωt需转换。；本文使用优化ABL，明确未实施PML；RAPLICASOL使用COMSOL/PML。；单strap厚度和电流近似差异会改变与ANTITER的对比，近场模型不自动等价热尾分布。。证据边界：2023作者特定实现，不能据此断言所有后续HFSS版本缺少某功能；仅以本文实现比较，非通用性能排名。"
+      }
     ]
   },
   {
@@ -3849,6 +3868,118 @@
     "evidence": "一手文档或作者原始论文。固定无限长0.5m直径圆柱模型中比较四类天线；天线耦合对频率和密度径向形状敏感。证据边界：仅摘要；不重复排序为普适规律，也不推断许可。",
     "used_in": [
       "仿真计算/螺旋波模拟/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-001",
+    "title": "Tierens et al. 2019 — Validation of RAPLICASOL against TOPICA and experiments",
+    "url": "https://impact.ornl.gov/en/publications/validation-of-the-icrf-antenna-coupling-code-raplicasol-against-t/",
+    "checked_on": "2026-11-12",
+    "scope": "实际读取ORNL作者记录Abstract与书目信息。",
+    "evidence": "一手资料实际读取。比较AUG双strap和WEST-like四strap。；同几何下对比反射、耦合电阻、S/Z、匹配与RF场。。证据边界：只有摘要，不引用原论文未读取的几何尺寸、误差百分比或速度/内存数字；资源比较不外推。",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-002",
+    "title": "Ansys HFSS Help 2024 R2 — Post Processing: Wave Ports",
+    "url": "https://ansyshelp.ansys.com/public/Views/Secured/Electronics/v242/en/Subsystems/HFSS/Content/HFSS/PostProcessingWavePorts.htm",
+    "checked_on": "2026-11-12",
+    "scope": "实际读取全文57行，尤其renormalization、deembed方向/截止模警告以及field postprocessing。",
+    "evidence": "一手资料实际读取。端口可重归一到50Ω或其它参考阻抗。；去嵌变更参考面，网络参数和场的后处理影响应分别设置。。证据边界：版本特定菜单及默认值，不把参考阻抗当真实放置的电阻；不将截止模无约束去嵌。",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-003",
+    "title": "Migliore et al. 2023 — Impedance sheath boundary condition in Stix",
+    "url": "https://arxiv.org/abs/2306.12930",
+    "checked_on": "2026-11-12",
+    "scope": "实际读取作者摘要与提交信息。",
+    "evidence": "一手资料实际读取。PEC材料边界忽略RF鞘层效应；非线性鞘层阻抗边界处理电容/电阻效应。。证据边界：摘要只支持模型边界定位，不把pseudo1D/2D开发当已验证全三维复杂天线能力。",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-004",
+    "title": "WEST IC Antenna — Introduction",
+    "url": "https://west-ic-antenna.readthedocs.io/en/latest/introduction.html",
+    "checked_on": "2026-11-12",
+    "scope": "全文中结构、端口、电容、active S 与双侧匹配说明",
+    "evidence": "一手资料实际读取。WEST模型的4带（2环向×2极向）、内部共轭T、实际馈电下有源反射与互耦。证据边界：保留作者模型范围；不把四带等同所有共轭T，不引用未复算的默认电容作为通用设计",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md",
+      "辅助加热/离子回旋加热/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-005",
+    "title": "WEST IC Antenna — Coupling to Ideal Loads",
+    "url": "https://west-ic-antenna.readthedocs.io/en/latest/coupling_to_ideal_load.html",
+    "checked_on": "2026-11-12",
+    "scope": "全文定义与推导、ideal front-face、RDL、load resilience各节",
+    "evidence": "一手资料实际读取。理想独立负载/RMS或峰值功率须按本文约定转换；RDL匹配与负载扫描。证据边界：理想模型无带间互耦；不照搬网页中电压平方分母的排版疑误",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-006",
+    "title": "WEST IC Antenna — Plasma Coupling Using COMSOL Results",
+    "url": "https://west-ic-antenna.readthedocs.io/en/latest/coupling_to_plasma_from_COMSOL.html",
+    "checked_on": "2026-11-12",
+    "scope": "全文端口连接、去嵌、参考阻抗和端口排序，以及幅相导出",
+    "evidence": "一手资料实际读取。导入COMSOL S参数后处理参考面、重归一和端口次序，再连接馈电网络。证据边界：文中具体阻抗、电容与MW数值只属于该例；未运行其外部数据与软件",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-007",
+    "title": "scikit-rf — network.s2z",
+    "url": "https://scikit-rf.readthedocs.io/en/latest/api/generated/skrf.network.s2z.html",
+    "checked_on": "2026-11-12",
+    "scope": "官方API全文、power/pseudo/traveling波定义及广义变换",
+    "evidence": "一手资料实际读取。S/Z转换依赖参考阻抗和波定义；正文式限定相同实正Z0。证据边界：仅采用相同实参考阻抗的特例，不套用于任意复参考阻抗",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-008",
+    "title": "Lancellotti et al. 2006 — TOPICA: analysis and design of ICRF antennas",
+    "url": "https://iris.polito.it/handle/11583/1406792",
+    "checked_on": "2026-11-12",
+    "scope": "作者机构页完整摘要，模型、谱表面阻抗、MoM和输出",
+    "evidence": "一手资料实际读取。三维带/屏/腔与等离子体谱响应相连；导体电流、S/Z、辐射和场输出。证据边界：实际读取摘要，未声称逐页读完方法论文，不推断软件获取许可",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-009",
+    "title": "MIT Electromagnetic Fields and Energy — Skin Effect",
+    "url": "https://web.mit.edu/6.013_book/www/chapter10/10.7.html",
+    "checked_on": "2026-11-12",
+    "scope": "教材§10.7正文、衰减尺度和导体近似；公式以网页图像提供",
+    "evidence": "一手资料实际读取。良导体趋肤与磁扩散；正文Rs关系由表面做功推导并以体积分独立复核。证据边界：教学导电率为给定值；不是有温升/镀层/接触阻抗的材料数据表",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-ANTENNA-010",
+    "title": "Maquet et al. 2023 — Minimization of the edge modes and near fields of a TWA for WEST",
+    "url": "https://arxiv.org/html/2301.10754v1",
+    "checked_on": "2026-11-12",
+    "scope": "作者HTML全文§1–5，重点7端口、电容/输入输出、谱归一、有无屏及研究几何",
+    "evidence": "一手资料实际读取。阵列谱与近场按实际电流、负载与电容共同决定；多端口接成两端馈电模型。证据边界：2023特定研究模型；非已部署状态声明。理想电流谱与本库S参数功率例为自设教学输入",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md",
+      "辅助加热/离子回旋加热/README.md"
     ]
   }
 ]

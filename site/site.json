@@ -149,6 +149,10 @@
           "仿真计算/射频波与分布函数/README.md"
         ],
         [
+          "simulation-icrf-antennas",
+          "仿真计算/离子回旋天线建模/README.md"
+        ],
+        [
           "simulation-icrh",
           "仿真计算/离子回旋加热模拟/README.md"
         ],
