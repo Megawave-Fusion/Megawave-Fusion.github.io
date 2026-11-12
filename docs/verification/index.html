@@ -6,7 +6,14 @@
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>内容核验记录</span></div></div><div class="layout layout-overview">
-<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-11-12：离子回旋天线结构与建模">2026-11-12：离子回旋天线结构与建模</h2>
+<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-11-12：补做单带与双带三维-maxwell-模型">2026-11-12：补做单带与双带三维 Maxwell 模型</h2>
+<p>前一批天线内容主要是结构目录、解析谱与给定网络，未提供可运行的三维场模型。本轮将<a href="/sections/simulation-icrf-antennas/">天线建模</a>及 ICRH 前置入口改为实际模型、下载包和结果优先：参数化有限厚带、底部短路、单连通 PEC 回流腔、顶部 12 mm 体源馈电间隙，单带/双带同相/反相均已实际网格划分和求解。新增三维设置、双带场和网格功率记录三个条目，原 Tag 保留；现 241 条目、41 专题、385 来源。</p>
+<p><code>models/icrf-strap/solve.py</code> 使用 NGSolve/Netgen 6.2.2606、三维复数 H(curl) 边元，电子/氘的带碰撞冷张量由规定 B、密度与频率计算。实际跑过一阶与二阶各三档网格，三种驱动共 18 个正确边界版本的算例；主图与模型包选二阶最细单带及双带。提供 STEP、mesh.vol、复 E/H VTU、原生解、切面 NPZ、参数、完整 Z 和功率 JSON；下载 ZIP 含 27 个可校验文件。四张新图直接来自真实参数、网格和场数据，不采用解析阵列因子伪造场。科学图合计 56 张。</p>
+<p>主代理整合，求解代理编写执行，另一代理独立审查几何、边界、张量及结果，绘图代理读取实际输出制图。审查中发现 gap 独立体端面未继承 PEC 的错误；修复并加入全部外表面标记、单连通金属、gap 体积断言后重新计算，旧错误边界的试算均排除。冷张量另用每物种三维动量矩阵求逆重建，相对差约 1.1×10⁻¹⁶；输入功率另由存档 I†ZI 复算。</p>
+<p>二阶最细单带为 14963 四面体/154035 复自由度，双带为 16053 四面体/165360 复自由度。每个 gap 峰值 1 A 时，输入分别 0.284481/0.801988/0.00756624 W；相对最细值的最后两档网格变化为 5.51%/4.29%/1.50%，不声称达到 1% 网格独立。功率闭合约 10⁻¹²、线性残差约 10⁻¹³，与上述离散误差分开记录。</p>
+<p>这是有限 PEC 外盒加渐增人工吸收的冷负载基础模型；规定 ν/ω=0.025 是现象输入，人工吸收与规定冷碰撞耗散单列。未包含真同轴口、法拉第屏、热/FLR、鞘层和有限导体损耗，未完成无限域截断误差或实验验证。gap 广义阻抗不冒称 TEM 同轴口阻抗；近场图不用于额定功率或击穿结论。</p>
+<p><code>tests/icrf_fem_checks.py</code> 对九个归档二阶算例、源码身份、ZIP 成员哈希、几何、被动性、源功率与耗散复算通过；ZIP CRC 和独立复查通过。构建、公式排版、前置顺序和模型下载入口另按当前版本检查。历史记录中的“未运行外部求解器”只属于其原批次，不适用于本节已实际执行的 Maxwell 计算。</p>
+<h2 id="2026-11-12：离子回旋天线结构与建模">2026-11-12：离子回旋天线结构与建模</h2>
 <p>在<a href="/sections/icrh/">离子回旋加热</a>正文最前新增“常见天线结构与建模入口”，并在仿真章节、原 ICRH 模拟专题前新增<a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a>。新专题按 10 个具体问题组织：参数卡、单带、双带、四带与共轭 T、三带近场、行波阵列、端口互耦、屏与导体、等离子体边界、软件和复算流程。原 227 个永久 Tag 身份保留，新增 MF000228–MF000238；全库为 41 专题、238 条目。</p>
 <p>补充五类结构图、单带回流与三层输入、双/三带电流谱、四带网络、行波终端和计算域等 7 张原创 SVG，全库共 52 张科学图。单带尺寸明确引用 Maquet 2023 的 55 MHz 简化模型；双带几何、电流、给定 Z 矩阵、LC 和 TWA 功率比例明确为本库教学输入。新增 <code>scripts/icrf_antenna_examples.py</code> 生成参数 JSON、谱 CSV、互耦功率和共轭 T 扫描，输出在 <code>.build/icrf-antenna/</code>。没有运行外部三维电磁求解器，也不把解析谱等同于真实等离子体功率谱。</p>
 <p>来源采用开发者文档、原作者论文和机构摘要，新增 10 条记录、为 2 条既有记录追加读取范围，全库来源 383 条。重点依据 TOPICA 方法摘要、HFSS 作者实现、RAPLICASOL 对照、WEST 电路与 COMSOL 接口、AUG 三带摘要、Ansys 端口、scikit-rf 与 MIT 趋肤章节；全文、指定章节和仅摘要分开记录，旧核对日期未覆盖。</p>

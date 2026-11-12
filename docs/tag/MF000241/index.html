@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三维求解的网格与功率记录 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="三维求解的网格与功率记录 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000241/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000241/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a><span>/</span><span>三维求解的网格与功率记录</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.9.3 · 专题</p><h1>三维求解的网格与功率记录</h1><div class="page-meta"><span class="tag">MF000241</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-icrf-antennas/#MF000241">在连续正文中阅读</a></div><article class="prose"><h3 id="报告真实数值及尚存的离散误差">报告真实数值及尚存的离散误差</h3>
+<p>使用相同几何、负载与 1 A 峰值源，逐级加密四面体，并从一阶提高到二阶边元。最细二阶 h_max=40 mm，gap 局部控制 15 mm；单带 14963 四面体/154035 复自由度，双带 16053 四面体/165360 复自由度。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>二阶全局 h_max</th>
+<th>单带输入 W</th>
+<th>双带同相输入 W</th>
+<th>双带反相输入 W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75 mm</td>
+<td>0.251615</td>
+<td>0.728343</td>
+<td>0.00731005</td>
+</tr>
+<tr>
+<td>55 mm</td>
+<td>0.268799</td>
+<td>0.767565</td>
+<td>0.00745305</td>
+</tr>
+<tr>
+<td>40 mm</td>
+<td>0.284481</td>
+<td>0.801988</td>
+<td>0.00756624</td>
+</tr>
+</tbody>
+</table></div>
+<p>相对最细值，最后两档变化分别为 <strong>5.51%、4.29%、1.50%</strong>。这是已经观察到的网格变化，不是严格误差上界，尤其不能称 1% 网格独立。图中保留一阶与二阶的完整变化；尖角最大电场还需圆角与局部加密，不能用于额定功率/击穿设计。</p>
+<figure class="science-figure"><a aria-label="放大图示：实际一阶/二阶网格序列的有效间隙阻抗与人工吸收份额，保留未收敛趋势。" class="figure-link" href="/assets/diagrams/icrf-fem-convergence.svg"><img alt="实际一阶/二阶网格序列的有效间隙阻抗与人工吸收份额，保留未收敛趋势。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-convergence.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<h3 id="两类耗散分别计账">两类耗散分别计账</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>最细二阶工况</th>
+<th>输入 W</th>
+<th>规定冷碰撞耗散 W</th>
+<th>人工吸收层耗散 W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单带</td>
+<td>0.284481</td>
+<td>0.212656</td>
+<td>0.0718255</td>
+</tr>
+<tr>
+<td>双带同相</td>
+<td>0.801988</td>
+<td>0.598878</td>
+<td>0.203110</td>
+</tr>
+<tr>
+<td>双带反相</td>
+<td>0.00756624</td>
+<td>0.00756290</td>
+<td>0.00000333883</td>
+</tr>
+</tbody>
+</table></div>
+<p>PEC 金属损耗为零，有限外盒的净通量为零，源做功等于上述两类体耗散之和；人工吸收不能算作芯部热化。最细解的功率闭合约 <span class="arithmatex">\(10^{-12}\)</span>、自由度线性残差约 <span class="arithmatex">\(10^{-13}\)</span>，只说明离散方程与账本解好，不能消除上表离散误差。模型文件保存所有数字与原始复场。<a href="https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html">NGSolve 边元说明</a>提供离散空间背景。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A6%BB%E5%AD%90%E5%9B%9E%E6%97%8B%E5%A4%A9%E7%BA%BF%E5%BB%BA%E6%A8%A1/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000241%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000241,
+  author = {{Megawave-Fusion}},
+  title = {三维求解的网格与功率记录},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000241/},
+  note = {Fusion Stacks; revision 7bf47c54a340}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000240/"><small>← 上一页</small>双带同相与反相的三维场</a><a class="next" href="/tag/MF000229/"><small>下一页 →</small>建模层级与几何参数卡</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

@@ -6,7 +6,130 @@
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>离子回旋天线建模</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.9 · 连续阅读</p><h1>离子回旋天线建模</h1><div class="page-meta"><span>10 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>先建立能解释馈电、回流和负载的最小天线，再增加法拉第屏、真实等离子体和匹配网络。这里按建模过程给出结构、方程、输入与可核对的输出；芯部吸收和快尾另见<a href="/sections/simulation-icrh/">离子回旋加热模拟</a>，物理与设备见<a href="/sections/icrh/">离子回旋加热</a>。</p>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.9 · 连续阅读</p><h1>离子回旋天线建模</h1><div class="page-meta"><span>13 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>本页首先给出已实际划网格、求解并导出复场的单带/双带模型，再讨论常见天线和软件的扩展路线。<a href="/assets/models/icrf-strap-fem.zip">直接下载模型包</a>。芯部吸收与快尾另见<a href="/sections/simulation-icrh/">离子回旋加热模拟</a>。</p></div><details class="page-toc"><summary>本节目录 · 13 个条目</summary><ul><li><a href="#MF000239">单带三维几何与可运行模型</a></li><li><a href="#MF000240">双带同相与反相的三维场</a></li><li><a href="#MF000241">三维求解的网格与功率记录</a></li><li><a href="#MF000229">建模层级与几何参数卡</a></li><li><a href="#MF000230">单电流带的回流路径与谐振近似</a></li><li><a href="#MF000231">双电流带的间距、相位与发射谱</a></li><li><a href="#MF000232">四电流带与共轭 T 的电路连接</a></li><li><a href="#MF000233">三电流带的边框电流与近场优化</a></li><li><a href="#MF000234">行波阵列的多端口与终端余功率</a></li><li><a href="#MF000235">同轴端口、互耦与参考面</a></li><li><a href="#MF000236">法拉第屏、有限电导与局部近场</a></li><li><a href="#MF000237">边缘等离子体与开放边界</a></li><li><a href="#MF000238">软件分工与可复算建模流程</a></li></ul></details><section class="entry-block" id="MF000239"><div class="entry-heading"><h2><span class="entry-number">6.9.1</span><a href="/tag/MF000239/">单带三维几何与可运行模型</a></h2><a class="tag" href="/tag/MF000239/">MF000239</a></div><div class="prose"><h3 id="模型文件、尺寸和源域">模型文件、尺寸和源域</h3>
+<p><a href="/assets/models/icrf-strap-fem.zip">下载完整三维模型包（约 30 MB）</a>：包含求解脚本、依赖版本、单/双带 STEP 实体、实际 Netgen 网格、复数 E/H 的 VTU 与原生解、参数和结果 JSON。不是仅供观看的结构图；可修改参数重新生成几何、划网格并求解。</p>
+<figure class="science-figure"><a aria-label="放大图示：从实际模型几何绘制的单/双带透视与馈电间隙，STEP中保留完整回流箱体。" class="figure-link" href="/assets/diagrams/icrf-fem-geometry.svg"><img alt="从实际模型几何绘制的单/双带透视与馈电间隙，STEP中保留完整回流箱体。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-geometry.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>实际输入</th>
+<th>本轮求解值与定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐标和频率</td>
+<td>x 径向指向负载、y 沿带、z 为环向及背景磁场方向；50 MHz</td>
+</tr>
+<tr>
+<td>电流带</td>
+<td>宽 60 mm、厚 15 mm，y 从 −200 至 150 mm，中心 x=−35 mm；底端短接回流腔</td>
+</tr>
+<tr>
+<td>馈电与回流</td>
+<td>顶部留 12 mm 真空间隙；跨隙规定峰值 1 A 的均匀体电流，间隙两端是 PEC，侧面接真空</td>
+</tr>
+<tr>
+<td>回流腔内尺寸</td>
+<td>x=−135 至 0 mm、y=±200 mm、z=±245 mm；背板/顶底/侧壁连接成一个 PEC 实体</td>
+</tr>
+<tr>
+<td>冷负载</td>
+<td>x≥25 mm，电子与单电荷氘、各 2×10¹⁸ m⁻³；B=2 T 沿 +z，规定碰撞率 ν/ω=0.025</td>
+</tr>
+<tr>
+<td>截断</td>
+<td>有限外盒 x=−160 至 650 mm、y=±225 mm、z=±270 mm，外表面 PEC；x≥450 mm 另加渐增人工吸收</td>
+</tr>
+</tbody>
+</table></div>
+<p>这套平板化几何是本库明确规定的基础模型。碰撞率是现象输入，不是实测经典碰撞值；模型尚未包括法拉第屏、真同轴馈线、热/FLR、鞘层和有限导体损耗。有限外盒与吸收层也未证明达到无限域误差要求。</p>
+<h3 id="实际求解与查看">实际求解与查看</h3>
+<p>采用三维复数 H(curl) 边元求解完整频域 Maxwell 方程，未删除梯度场。冷张量由带碰撞的电子/氘动量方程算出，并检查耗散矩阵被动性；方法接口参见 <a href="https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html">NGSolve H(curl) 官方文档</a>。运行命令：</p>
+<pre><code class="language-sh">python3 -m venv .venv-fem
+.venv-fem/bin/python -m pip install -r models/icrf-strap/requirements.txt
+.venv-fem/bin/python models/icrf-strap/solve.py --straps 1 --order 2 --maxh .075 .055 .04 --out .build/icrf-fem-final-single-p2
+</code></pre>
+<p>模型包内 <code>pec-metal.step</code> 是实际扣除的导体，<code>field-domain.step</code> 是求解体分区，<code>mesh.vol</code> 为所用网格，<code>field.vtu</code> 含 E/H 实虚部，<code>E.sol</code> 保留二阶原生解。VTU可在 ParaView 查看；<a href="https://docu.ngsolve.org/latest/i-tutorials/appendix-vtk/vtk.html">NGSolve VTK 说明</a>区分显示细分与有限元精度。</p>
+<figure class="science-figure"><a aria-label="放大图示：真实二阶单带电场与加载实际四面体网格得到的切面。" class="figure-link" href="/assets/diagrams/icrf-fem-single-field.svg"><img alt="真实二阶单带电场与加载实际四面体网格得到的切面。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-single-field.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000239/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000240"><div class="entry-heading"><h2><span class="entry-number">6.9.2</span><a href="/tag/MF000240/">双带同相与反相的三维场</a></h2><a class="tag" href="/tag/MF000240/">MF000240</a></div><div class="prose"><h3 id="几何相同，独立求两组-gap-源">几何相同，独立求两组 gap 源</h3>
+<p>在同一回流腔内将带中心放到 z=±90 mm，各有独立体源间隙。先分别激励每个间隙得到两列响应，再叠加为峰值电流 <span class="arithmatex">\((1,1)\)</span> A 或 <span class="arithmatex">\((1,-1)\)</span> A。这里求得的是整个三维负载问题的复场，不是用理想阵列因子直接画场。多端口/实际电流的物理背景可对照 <a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 电路模型</a>。</p>
+<pre><code class="language-sh">.venv-fem/bin/python models/icrf-strap/solve.py --straps 2 --order 2 --maxh .075 .055 .04 --out .build/icrf-fem-final-p2
+</code></pre>
+<figure class="science-figure"><a aria-label="放大图示：真实双带同相/反相的E与H切面，按各自求解输入功率归一，同列共享色标。" class="figure-link" href="/assets/diagrams/icrf-fem-double-fields.svg"><img alt="真实双带同相/反相的E与H切面，按各自求解输入功率归一，同列共享色标。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-double-fields.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>原始解为每 gap 峰值 1 A，图将场除以各自输入功率的平方根，因此单位为 V·m⁻¹·W⁻¹ᐟ² 和 A·m⁻¹·W⁻¹ᐟ²，同列共享色标。相位改变后，中心附近的场抵消、近场与向负载传播的分布发生变化。归一化按实际算出的输入功率完成，并非给两工况套同一效率。</p>
+<p>体源 <span class="arithmatex">\(\mathbf J_{\rm ext}=\sum_p I_p\mathbf g_p\)</span>，每个 <span class="arithmatex">\(\mathbf g_p\)</span> 的横截面积分为 1。对峰值相量、<span class="arithmatex">\(e^{-i\omega t}\)</span>，用与体源配对的广义间隙电压定义</p>
+<div class="arithmatex">\[
+V_q=-\int_{\rm gap_q}\mathbf E\cdot\mathbf g_q\,dV,\quad
+Z_{qp}=V_q/I_p,\quad
+P_{\rm in}=-\frac12\operatorname{Re}\int\mathbf E\cdot\mathbf J_{\rm ext}^*dV
+=\frac12\operatorname{Re}(\mathbf I^\dagger\mathbf Z\mathbf I).
+\]</div>
+<p>单独激励 p 时，其余源电流为零。该 Z 属于规定体源的 gap 端口，不能直接宣称是同轴 TEM 口或给出已模拟馈线的 S₁₁。这个区别也影响如何接真实匹配电路。</p></div><div class="entry-tools"><a href="/tag/MF000240/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000241"><div class="entry-heading"><h2><span class="entry-number">6.9.3</span><a href="/tag/MF000241/">三维求解的网格与功率记录</a></h2><a class="tag" href="/tag/MF000241/">MF000241</a></div><div class="prose"><h3 id="报告真实数值及尚存的离散误差">报告真实数值及尚存的离散误差</h3>
+<p>使用相同几何、负载与 1 A 峰值源，逐级加密四面体，并从一阶提高到二阶边元。最细二阶 h_max=40 mm，gap 局部控制 15 mm；单带 14963 四面体/154035 复自由度，双带 16053 四面体/165360 复自由度。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>二阶全局 h_max</th>
+<th>单带输入 W</th>
+<th>双带同相输入 W</th>
+<th>双带反相输入 W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75 mm</td>
+<td>0.251615</td>
+<td>0.728343</td>
+<td>0.00731005</td>
+</tr>
+<tr>
+<td>55 mm</td>
+<td>0.268799</td>
+<td>0.767565</td>
+<td>0.00745305</td>
+</tr>
+<tr>
+<td>40 mm</td>
+<td>0.284481</td>
+<td>0.801988</td>
+<td>0.00756624</td>
+</tr>
+</tbody>
+</table></div>
+<p>相对最细值，最后两档变化分别为 <strong>5.51%、4.29%、1.50%</strong>。这是已经观察到的网格变化，不是严格误差上界，尤其不能称 1% 网格独立。图中保留一阶与二阶的完整变化；尖角最大电场还需圆角与局部加密，不能用于额定功率/击穿设计。</p>
+<figure class="science-figure"><a aria-label="放大图示：实际一阶/二阶网格序列的有效间隙阻抗与人工吸收份额，保留未收敛趋势。" class="figure-link" href="/assets/diagrams/icrf-fem-convergence.svg"><img alt="实际一阶/二阶网格序列的有效间隙阻抗与人工吸收份额，保留未收敛趋势。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-convergence.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<h3 id="两类耗散分别计账">两类耗散分别计账</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>最细二阶工况</th>
+<th>输入 W</th>
+<th>规定冷碰撞耗散 W</th>
+<th>人工吸收层耗散 W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单带</td>
+<td>0.284481</td>
+<td>0.212656</td>
+<td>0.0718255</td>
+</tr>
+<tr>
+<td>双带同相</td>
+<td>0.801988</td>
+<td>0.598878</td>
+<td>0.203110</td>
+</tr>
+<tr>
+<td>双带反相</td>
+<td>0.00756624</td>
+<td>0.00756290</td>
+<td>0.00000333883</td>
+</tr>
+</tbody>
+</table></div>
+<p>PEC 金属损耗为零，有限外盒的净通量为零，源做功等于上述两类体耗散之和；人工吸收不能算作芯部热化。最细解的功率闭合约 <span class="arithmatex">\(10^{-12}\)</span>、自由度线性残差约 <span class="arithmatex">\(10^{-13}\)</span>，只说明离散方程与账本解好，不能消除上表离散误差。模型文件保存所有数字与原始复场。<a href="https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html">NGSolve 边元说明</a>提供离散空间背景。</p></div><div class="entry-tools"><a href="/tag/MF000241/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000229"><div class="entry-heading"><h2><span class="entry-number">6.9.4</span><a href="/tag/MF000229/">建模层级与几何参数卡</a></h2><a class="tag" href="/tag/MF000229/">MF000229</a></div><div class="prose"><h3 id="从基础模型扩展到常见结构">从基础模型扩展到常见结构</h3>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -44,7 +167,8 @@
 </tbody>
 </table></div>
 <p>前三类是常用的基线或装置结构；三带介绍 ASDEX Upgrade 的设计思路，TWA 介绍特定论文中的研究模型。带数不是完整型号，共轭 T 也不是带数的别名。资料读取至 2026-11-12；图和数值均明确区分文献模型与本库教学模型。</p>
-<figure class="science-figure"><a aria-label="放大图示：五类天线的辐射带排列概览，馈电、回流与匹配网络分别建模。" class="figure-link" href="/assets/diagrams/icrf-common-antennas.svg"><img alt="五类天线的辐射带排列概览，馈电、回流与匹配网络分别建模。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-common-antennas.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><details class="page-toc"><summary>本节目录 · 10 个条目</summary><ul><li><a href="#MF000229">建模层级与几何参数卡</a></li><li><a href="#MF000230">单电流带的回流路径与谐振近似</a></li><li><a href="#MF000231">双电流带的间距、相位与发射谱</a></li><li><a href="#MF000232">四电流带与共轭 T 的电路连接</a></li><li><a href="#MF000233">三电流带的边框电流与近场优化</a></li><li><a href="#MF000234">行波阵列的多端口与终端余功率</a></li><li><a href="#MF000235">同轴端口、互耦与参考面</a></li><li><a href="#MF000236">法拉第屏、有限电导与局部近场</a></li><li><a href="#MF000237">边缘等离子体与开放边界</a></li><li><a href="#MF000238">软件分工与可复算建模流程</a></li></ul></details><section class="entry-block" id="MF000229"><div class="entry-heading"><h2><span class="entry-number">6.9.1</span><a href="/tag/MF000229/">建模层级与几何参数卡</a></h2><a class="tag" href="/tag/MF000229/">MF000229</a></div><div class="prose"><h3 id="几何、负载和电路分三层">几何、负载和电路分三层</h3>
+<figure class="science-figure"><a aria-label="放大图示：五类天线的辐射带排列概览，馈电、回流与匹配网络分别建模。" class="figure-link" href="/assets/diagrams/icrf-common-antennas.svg"><img alt="五类天线的辐射带排列概览，馈电、回流与匹配网络分别建模。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-common-antennas.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<h3 id="几何、负载和电路分三层">几何、负载和电路分三层</h3>
 <p>建立局部右手坐标：<span class="arithmatex">\(x\)</span> 指向等离子体，<span class="arithmatex">\(y\)</span> 为极向，<span class="arithmatex">\(z\)</span> 为环向。带的长向常近似沿 <span class="arithmatex">\(y\)</span>，回流经侧壁/背板形成回路；局部磁场可倾斜，故 <span class="arithmatex">\(E_\parallel=\mathbf E\cdot\mathbf B_0/B_0\)</span>，不能永远用 <span class="arithmatex">\(E_z\)</span> 代替。</p>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
 <thead>
@@ -73,7 +197,7 @@
 </tbody>
 </table></div>
 <p>先求真空 S/Z 与冷测量，再加负载；最后恢复曲率、屏栅和细节。2D 截面适合查色散与边界，有限长带的端部、馈电和旁路电流需三维模型。表中尺寸来自<a href="https://arxiv.org/html/2309.14015v1">Maquet 等 §2.2、表 1</a>，不是可直接复刻 WEST 的完整工程设计。</p>
-<figure class="science-figure"><a aria-label="放大图示：天线辐射面、回流腔、端口与边缘负载的建模层级。" class="figure-link" href="/assets/diagrams/icrf-model-hierarchy.svg"><img alt="天线辐射面、回流腔、端口与边缘负载的建模层级。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-model-hierarchy.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000229/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000230"><div class="entry-heading"><h2><span class="entry-number">6.9.2</span><a href="/tag/MF000230/">单电流带的回流路径与谐振近似</a></h2><a class="tag" href="/tag/MF000230/">MF000230</a></div><div class="prose"><h3 id="先闭合电流，再讨论场">先闭合电流，再讨论场</h3>
+<figure class="science-figure"><a aria-label="放大图示：天线辐射面、回流腔、端口与边缘负载的建模层级。" class="figure-link" href="/assets/diagrams/icrf-model-hierarchy.svg"><img alt="天线辐射面、回流腔、端口与边缘负载的建模层级。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-model-hierarchy.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000229/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000230"><div class="entry-heading"><h2><span class="entry-number">6.9.5</span><a href="/tag/MF000230/">单电流带的回流路径与谐振近似</a></h2><a class="tag" href="/tag/MF000230/">MF000230</a></div><div class="prose"><h3 id="先闭合电流，再讨论场">先闭合电流，再讨论场</h3>
 <p>最小三维模型包含一条带、馈入间隙或同轴线、短路连接和接地腔。只放一块悬浮矩形金属再加电压，可能改变回流与电容。网格先解析带边、馈电间隙、短路和开口；比较端口阻抗、表面电流及开口场，而不只看远处波纹。<a href="https://iris.polito.it/handle/11583/1406792">TOPICA 原论文</a>同时处理带、腔体、屏与同轴馈电，适合作为几何完整性的参照。</p>
 <p>电尺寸较小的电路起步模型可写为</p>
 <div class="arithmatex">\[
@@ -81,7 +205,7 @@ Z_s=R_{\rm load}+R_\Omega-i\omega L+\frac{i}{\omega C},\qquad
 \omega_0=\frac1{\sqrt{LC}}.
 \]</div>
 <p>这里采用 <span class="arithmatex">\(e^{-i\omega t}\)</span>、RMS 电压电流，<span class="arithmatex">\(L,C\)</span> 是提取/拟合的等效参数，不是材料常数。教学取 <span class="arithmatex">\(L=100\)</span> nH、<span class="arithmatex">\(f_0=50\)</span> MHz，得 <span class="arithmatex">\(C=101.32\)</span> pF。若带上电流幅相明显变化，就改用分布传输线或三维场；短路端、电容调谐和等离子体负载共同决定电流形状，不把所有 strap 都当自由空间半波振子。</p>
-<p>谐振使输入虚部过零，未必使实部等于 50 Ω；电路通过还要检查带、间隙和馈通上的峰值电压。可对照 <a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 模型的电容与调谐定义</a>。</p></div><div class="entry-tools"><a href="/tag/MF000230/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000231"><div class="entry-heading"><h2><span class="entry-number">6.9.3</span><a href="/tag/MF000231/">双电流带的间距、相位与发射谱</a></h2><a class="tag" href="/tag/MF000231/">MF000231</a></div><div class="prose"><h3 id="电流谱先做解析检查">电流谱先做解析检查</h3>
+<p>谐振使输入虚部过零，未必使实部等于 50 Ω；电路通过还要检查带、间隙和馈通上的峰值电压。可对照 <a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 模型的电容与调谐定义</a>。</p></div><div class="entry-tools"><a href="/tag/MF000230/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000231"><div class="entry-heading"><h2><span class="entry-number">6.9.6</span><a href="/tag/MF000231/">双电流带的间距、相位与发射谱</a></h2><a class="tag" href="/tag/MF000231/">MF000231</a></div><div class="prose"><h3 id="电流谱先做解析检查">电流谱先做解析检查</h3>
 <p>设两条宽 <span class="arithmatex">\(w\)</span> 的均匀薄带沿 <span class="arithmatex">\(z\)</span> 相隔 <span class="arithmatex">\(d\)</span>，总带电流为 <span class="arithmatex">\(I\)</span> 与 <span class="arithmatex">\(I e^{i\Delta\phi}\)</span>。每带面电流密度为 <span class="arithmatex">\(K_y=I_p/w\)</span>（A/m），带宽以外为零。对空间变换 <span class="arithmatex">\(\widetilde J(k_z)=\int K_y(z)e^{-ik_zz}dz\)</span>，归一化电流谱为</p>
 <div class="arithmatex">\[
 \frac{|\widetilde J(k_z)|^2}{|I|^2}
@@ -91,7 +215,7 @@ Z_s=R_{\rm load}+R_\Omega-i\omega L+\frac{i}{\omega C},\qquad
 \]</div>
 <p>同相在 <span class="arithmatex">\(k_z=0\)</span> 相加，反相在该处相消；<span class="arithmatex">\(\Delta\phi=\pm\pi/2\)</span> 使谱偏向不同方向。这个量是规定电流的 Fourier 谱，功率谱还要用等离子体响应和 Poynting 通量计算。局部 <span class="arithmatex">\(k_\parallel\)</span> 则由波矢对总磁场投影得到。<a href="https://arxiv.org/html/2301.10754v1">TWA 论文 §4–5</a>明确区分电流设计与实际开口功率谱。</p>
 <p>教学取 <span class="arithmatex">\(w=0.06\)</span> m、<span class="arithmatex">\(d=0.18\)</span> m，反相阵列因子的第一对峰在 <span class="arithmatex">\(k_z=\pm\pi/d=\pm17.45\)</span> m⁻¹；乘单带包络后，该点谱值为 3.6476，完整谱峰位置略变。保持每带电流相同是谱检验；比较实际效率时应重归一到相同接受功率，并从含互耦的网络求实际带电流。</p>
-<figure class="science-figure"><a aria-label="放大图示：有限带宽与双带相位共同决定规定电流谱，曲线不是等离子体功率谱。" class="figure-link" href="/assets/diagrams/icrf-two-strap-spectrum.svg"><img alt="有限带宽与双带相位共同决定规定电流谱，曲线不是等离子体功率谱。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-two-strap-spectrum.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000231/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000232"><div class="entry-heading"><h2><span class="entry-number">6.9.4</span><a href="/tag/MF000232/">四电流带与共轭 T 的电路连接</a></h2><a class="tag" href="/tag/MF000232/">MF000232</a></div><div class="prose"><h3 id="辐射阵列和匹配拓扑分别建立">辐射阵列和匹配拓扑分别建立</h3>
+<figure class="science-figure"><a aria-label="放大图示：有限带宽与双带相位共同决定规定电流谱，曲线不是等离子体功率谱。" class="figure-link" href="/assets/diagrams/icrf-two-strap-spectrum.svg"><img alt="有限带宽与双带相位共同决定规定电流谱，曲线不是等离子体功率谱。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-two-strap-spectrum.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000231/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000232"><div class="entry-heading"><h2><span class="entry-number">6.9.7</span><a href="/tag/MF000232/">四电流带与共轭 T 的电路连接</a></h2><a class="tag" href="/tag/MF000232/">MF000232</a></div><div class="prose"><h3 id="辐射阵列和匹配拓扑分别建立">辐射阵列和匹配拓扑分别建立</h3>
 <p>WEST 的公开模型为 2 个环向位置乘 2 个极向位置、共 4 条带，两侧馈电并用串联电容形成内部共轭 T。上下带的支路构成谐振双环（resonant double loop，RDL）；先把辐射面导出为四端口网络，再接电容、传输线与 T 点，保留上下及左右互耦。<a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 结构与电路说明</a>、<a href="https://west-ic-antenna.readthedocs.io/en/latest/coupling_to_ideal_load.html">理想双环负载例</a>。共轭 T 是网络拓扑，不能由带数直接推断，也不能据此推断 ITER 的完整带数。</p>
 <p>在忽略支路互耦、两支路已经变换到同一 T 点的教学模型中，令 <span class="arithmatex">\(Z_1=R+iX\)</span>、<span class="arithmatex">\(Z_2=R-iX\)</span>，则</p>
 <div class="arithmatex">\[
@@ -99,7 +223,7 @@ Y_T=\frac1{Z_1}+\frac1{Z_2}=\frac{2R}{R^2+X^2},\qquad
 Z_T=\frac{R^2+X^2}{2R}.
 \]</div>
 <p>取 <span class="arithmatex">\(X=6\)</span> Ω，<span class="arithmatex">\(R=2,6,18\)</span> Ω 分别给 <span class="arithmatex">\(Z_T=10,6,10\)</span> Ω。两支路同变与一侧独变应分开扫：不平衡时 T 点一般重新出现虚部。电路需检查有源反射、电容电压和支路电流，而不只要求某次静态 <span class="arithmatex">\(S_{11}\)</span> 最小。实际负载容忍与电弧检测见 <a href="https://arxiv.org/pdf/1309.4644">JET external conjugate-T 原论文 §2–5</a>；这不是固定负载无限容忍的保证。</p>
-<figure class="science-figure"><a aria-label="放大图示：四带辐射面与两个独立支路 T 点的概念连接，实际网络仍含带间互耦。" class="figure-link" href="/assets/diagrams/icrf-four-strap-network.svg"><img alt="四带辐射面与两个独立支路 T 点的概念连接，实际网络仍含带间互耦。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-four-strap-network.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000232/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000233"><div class="entry-heading"><h2><span class="entry-number">6.9.5</span><a href="/tag/MF000233/">三电流带的边框电流与近场优化</a></h2><a class="tag" href="/tag/MF000233/">MF000233</a></div><div class="prose"><h3 id="中央带不是简单复制第三个端口">中央带不是简单复制第三个端口</h3>
+<figure class="science-figure"><a aria-label="放大图示：四带辐射面与两个独立支路 T 点的概念连接，实际网络仍含带间互耦。" class="figure-link" href="/assets/diagrams/icrf-four-strap-network.svg"><img alt="四带辐射面与两个独立支路 T 点的概念连接，实际网络仍含带间互耦。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-four-strap-network.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000232/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000233"><div class="entry-heading"><h2><span class="entry-number">6.9.8</span><a href="/tag/MF000233/">三电流带的边框电流与近场优化</a></h2><a class="tag" href="/tag/MF000233/">MF000233</a></div><div class="prose"><h3 id="中央带不是简单复制第三个端口">中央带不是简单复制第三个端口</h3>
 <p>三带方案通过中央与两侧电流的幅相配合，改变天线框架、限制器上的感应电流和相关平行近场。优化模型应保留侧限制器、接地连接、磁场倾角和观测位置；只比较三条孤立带的自由空间远场，不能判断金属壁杂质源。ASDEX Upgrade 的实验证据见<a href="https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/">三带天线首轮结果摘要</a>，近场与谱的设计逻辑见 <a href="https://arxiv.org/html/2301.10754v1">Maquet 等 §1、§5</a>。</p>
 <p>一个仅用于理解低波数抑制的对称电流例是 <span class="arithmatex">\(I(1,-2,1)\)</span>，位置为 <span class="arithmatex">\((-d,0,d)\)</span>：</p>
 <div class="arithmatex">\[
@@ -107,7 +231,7 @@ Z_T=\frac{R^2+X^2}{2R}.
 =2I[\cos(k_zd)-1]\simeq-I(k_zd)^2.
 \]</div>
 <p>这说明总电流和一阶空间矩同时相消；它不是 AUG 的通用最优电流比，也不保证近场最小。实际先在其余端口匹配终接时，提取单位入射功率波幅的端口场 <span class="arithmatex">\(\mathbf E_p\)</span>，再按 <span class="arithmatex">\(\mathbf E=\sum_p a_p\mathbf E_p\)</span> 合成，在固定接受功率和电压约束下最小化指定表面上的 <span class="arithmatex">\(E_\parallel\)</span> 与边框电流；鞘层电压和溅射需进一步模型。</p>
-<figure class="science-figure"><a aria-label="放大图示：规定两带和三带电流的低波数谱对比；只统一电流幅度平方和，不是等耦合功率比较。" class="figure-link" href="/assets/diagrams/icrf-three-strap-spectrum.svg"><img alt="规定两带和三带电流的低波数谱对比；只统一电流幅度平方和，不是等耦合功率比较。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-three-strap-spectrum.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000233/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000234"><div class="entry-heading"><h2><span class="entry-number">6.9.6</span><a href="/tag/MF000234/">行波阵列的多端口与终端余功率</a></h2><a class="tag" href="/tag/MF000234/">MF000234</a></div><div class="prose"><h3 id="先算单元互耦，再闭合两端馈电">先算单元互耦，再闭合两端馈电</h3>
+<figure class="science-figure"><a aria-label="放大图示：规定两带和三带电流的低波数谱对比；只统一电流幅度平方和，不是等耦合功率比较。" class="figure-link" href="/assets/diagrams/icrf-three-strap-spectrum.svg"><img alt="规定两带和三带电流的低波数谱对比；只统一电流幅度平方和，不是等耦合功率比较。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-three-strap-spectrum.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000233/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000234"><div class="entry-heading"><h2><span class="entry-number">6.9.9</span><a href="/tag/MF000234/">行波阵列的多端口与终端余功率</a></h2><a class="tag" href="/tag/MF000234/">MF000234</a></div><div class="prose"><h3 id="先算单元互耦，再闭合两端馈电">先算单元互耦，再闭合两端馈电</h3>
 <p>TWA 依靠耦合单元、电容与终端形成沿阵列的电流。Maquet 2023 的 WEST 研究以每排 7 单元为模型：先求七端口 S 矩阵，接各单元电容，再在首末单元设置输入/输出，得到两端口网络。其平板化几何及等效负载属于该论文的研究设定，不能写成已部署装置性能。<a href="https://arxiv.org/html/2301.10754v1">原论文 §2–5</a>。</p>
 <p>输入端 1 激励、输出端匹配时，按相同实参考阻抗定义</p>
 <div class="arithmatex">\[
@@ -115,7 +239,7 @@ Z_T=\frac{R^2+X^2}{2R}.
 =1-|S_{11}|^2-|S_{21}|^2.
 \]</div>
 <p>这里 <span class="arithmatex">\(P_{\rm coupled}\)</span> 指净交给等离子体的功率，可包含其内部耗散及向等离子体传播区的净出射通量；它不一定已在天线计算域内热化。除两端口外只保留这一路和金属损耗时，上式闭合；仅在金属与其他损耗可忽略时，差值才等于目标等离子体耦合效率。教学取 <span class="arithmatex">\(|S_{11}|=0.1\)</span>、<span class="arithmatex">\(|S_{21}|=0.7\)</span>，有 1% 反射、49% 出口功率、50% 向等离子体交付或在金属中损耗。输出接假负载、回收环或另一网络时，终端反射会改变全阵列电流，必须重新连接求解。</p>
-<figure class="science-figure"><a aria-label="放大图示：行波阵列由多端口电磁响应和电容网络连接成两端口，出口功率单独记账。" class="figure-link" href="/assets/diagrams/icrf-twa-termination.svg"><img alt="行波阵列由多端口电磁响应和电容网络连接成两端口，出口功率单独记账。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-twa-termination.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000234/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000235"><div class="entry-heading"><h2><span class="entry-number">6.9.7</span><a href="/tag/MF000235/">同轴端口、互耦与参考面</a></h2><a class="tag" href="/tag/MF000235/">MF000235</a></div><div class="prose"><h3 id="从单端口激励得到共同网络">从单端口激励得到共同网络</h3>
+<figure class="science-figure"><a aria-label="放大图示：行波阵列由多端口电磁响应和电容网络连接成两端口，出口功率单独记账。" class="figure-link" href="/assets/diagrams/icrf-twa-termination.svg"><img alt="行波阵列由多端口电磁响应和电容网络连接成两端口，出口功率单独记账。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-twa-termination.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000234/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000235"><div class="entry-heading"><h2><span class="entry-number">6.9.10</span><a href="/tag/MF000235/">同轴端口、互耦与参考面</a></h2><a class="tag" href="/tag/MF000235/">MF000235</a></div><div class="prose"><h3 id="从单端口激励得到共同网络">从单端口激励得到共同网络</h3>
 <p>在均匀同轴截面设置 TEM 波端口，逐端口激励并匹配终接其余端口，得到 S 的各列；集总/电压间隙端口适合约化馈电，需保存参考导体、积分线及电压正方向。端口面应避开强不连续区，并核对所选高阶模。去嵌是移动参考面，重归一是改变参考阻抗，后处理设成 50 Ω 不会把真实天线负载变成 50 Ω。去嵌应沿已知的均匀馈线进行，不跨过任意不连续结构。<a href="https://ansyshelp.ansys.com/public/Views/Secured/Electronics/v242/en/Subsystems/HFSS/Content/HFSS/PostProcessingWavePorts.htm">Ansys 端口后处理说明</a>还区分网络参数和场的后处理；WEST 的<a href="https://west-ic-antenna.readthedocs.io/en/latest/coupling_to_plasma_from_COMSOL.html">COMSOL 网络接口例</a>显式调整端口排序。</p>
 <p>对所有端口相同的实 <span class="arithmatex">\(Z_0&gt;0\)</span>，RMS 复电压电流定义功率波：</p>
 <div class="arithmatex">\[
@@ -126,7 +250,7 @@ b_p=\frac{V_p-Z_0I_p}{2\sqrt{Z_0}},\quad
 \]</div>
 <p>于是 <span class="arithmatex">\(P_{\rm acc}=\mathbf a^\dagger\mathbf a-\mathbf b^\dagger\mathbf b=\operatorname{Re}(\mathbf I^\dagger\mathbf Z\mathbf I)\)</span>。若电压电流改用峰值相量，<span class="arithmatex">\(a_p,b_p\)</span> 的定义另除以 <span class="arithmatex">\(\sqrt2\)</span>，最后的电压电流功率式乘 <span class="arithmatex">\(1/2\)</span>。同时馈电时 <span class="arithmatex">\(\Gamma_{{\rm act},p}=(\mathbf S\mathbf a)_p/a_p\)</span>（<span class="arithmatex">\(a_p\ne0\)</span>），不等于单独的 <span class="arithmatex">\(S_{pp}\)</span>。不同或复参考阻抗应采用相应广义功率波定义，见 <a href="https://scikit-rf.readthedocs.io/en/latest/api/generated/skrf.network.s2z.html">scikit-rf s2z 官方文档</a>。磁化等离子体一般不保证互易，不能把 <span class="arithmatex">\(S_{12}=S_{21}\)</span> 当成所有模型的通过条件。</p>
 <h3 id="含互阻抗的双端口算例">含互阻抗的双端口算例</h3>
-<p>规定被动网络 <span class="arithmatex">\(\mathbf Z=\begin{pmatrix}2-20i&amp;0.5-4i\\0.5-4i&amp;2-20i\end{pmatrix}\)</span> Ω，取 RMS 电流 <span class="arithmatex">\((100,100)\)</span> A 或 <span class="arithmatex">\((100,-100)\)</span> A。同相接受功率为 50 kW，反相为 30 kW；对角项都没变，差异来自互阻抗。这个给定网络检验不从几何预测加载，实际 Z 应由场求解或测量得到。<a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 有源馈电示例</a>给出互耦改变匹配点的真实建模背景。</p></div><div class="entry-tools"><a href="/tag/MF000235/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000236"><div class="entry-heading"><h2><span class="entry-number">6.9.8</span><a href="/tag/MF000236/">法拉第屏、有限电导与局部近场</a></h2><a class="tag" href="/tag/MF000236/">MF000236</a></div><div class="prose"><h3 id="理想屏用于起步，屏条几何用于应力">理想屏用于起步，屏条几何用于应力</h3>
+<p>规定被动网络 <span class="arithmatex">\(\mathbf Z=\begin{pmatrix}2-20i&amp;0.5-4i\\0.5-4i&amp;2-20i\end{pmatrix}\)</span> Ω，取 RMS 电流 <span class="arithmatex">\((100,100)\)</span> A 或 <span class="arithmatex">\((100,-100)\)</span> A。同相接受功率为 50 kW，反相为 30 kW；对角项都没变，差异来自互阻抗。这个给定网络检验不从几何预测加载，实际 Z 应由场求解或测量得到。<a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">WEST 有源馈电示例</a>给出互耦改变匹配点的真实建模背景。</p></div><div class="entry-tools"><a href="/tag/MF000235/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000236"><div class="entry-heading"><h2><span class="entry-number">6.9.11</span><a href="/tag/MF000236/">法拉第屏、有限电导与局部近场</a></h2><a class="tag" href="/tag/MF000236/">MF000236</a></div><div class="prose"><h3 id="理想屏用于起步，屏条几何用于应力">理想屏用于起步，屏条几何用于应力</h3>
 <p>先用 PEC 带和腔体检查几何电流；理想屏边界可用于快速谱计算。关心屏条端部、间隙场、欧姆热或鞘层驱动时，加入屏条的截面、节距、倾角、端部连接及圆角；既要保持电流回路，也要恢复相对于总磁场的方向。屏存在不意味着 <span class="arithmatex">\(E_\parallel\)</span> 处处为零。TOPICA 的<a href="https://iris.polito.it/handle/11583/1406792">三维结构模型</a>与 TWA 的<a href="https://arxiv.org/html/2301.10754v1">有/无屏对照 §5</a>提供两种层级。</p>
 <p>对良导体且趋肤近似成立，表面电阻与深度为</p>
 <div class="arithmatex">\[
@@ -135,7 +259,7 @@ R_s=\sqrt{\frac{\omega\mu}{2\sigma}},\qquad
 P_\Omega=\int_A R_s|\mathbf H_{t,\rm RMS}|^2\,dA.
 \]</div>
 <p>教学给铜 <span class="arithmatex">\(\sigma=5.8\times10^7\)</span> S/m、<span class="arithmatex">\(\mu=\mu_0\)</span>、50 MHz，得 <span class="arithmatex">\(\delta=9.35\)</span> μm、<span class="arithmatex">\(R_s=1.845\)</span> mΩ；涂层、接触和温升另用其实际材料数据。有限导体可用满足适用条件的表面阻抗避免体网格穿透全部趋肤深度，相关基础见 <a href="https://web.mit.edu/6.013_book/www/chapter10/10.7.html">MIT 电磁场教材 §10.7</a>。</p>
-<p>尖角最大场可能随网格发散。比较时保留真实圆角，并固定离壁距离/面积定义场指标。沿连接材料的规定磁力线保留复相位积分 <span class="arithmatex">\(V_{\rm RF}=\int E_\parallel d\ell\)</span>，而不是先取各点 <span class="arithmatex">\(|E_\parallel|\)</span> 再相加；它是鞘层的 RF 驱动量，整流直流鞘势及粒子热流还需鞘层模型和背景输入，见 <a href="https://arxiv.org/abs/2306.12930">Stix 鞘层边界研究摘要</a>。不能把单个网格点最大场直接乘任意长度。</p></div><div class="entry-tools"><a href="/tag/MF000236/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000237"><div class="entry-heading"><h2><span class="entry-number">6.9.9</span><a href="/tag/MF000237/">边缘等离子体与开放边界</a></h2><a class="tag" href="/tag/MF000237/">MF000237</a></div><div class="prose"><h3 id="从色散基准增加到剖面负载">从色散基准增加到剖面负载</h3>
+<p>尖角最大场可能随网格发散。比较时保留真实圆角，并固定离壁距离/面积定义场指标。沿连接材料的规定磁力线保留复相位积分 <span class="arithmatex">\(V_{\rm RF}=\int E_\parallel d\ell\)</span>，而不是先取各点 <span class="arithmatex">\(|E_\parallel|\)</span> 再相加；它是鞘层的 RF 驱动量，整流直流鞘势及粒子热流还需鞘层模型和背景输入，见 <a href="https://arxiv.org/abs/2306.12930">Stix 鞘层边界研究摘要</a>。不能把单个网格点最大场直接乘任意长度。</p></div><div class="entry-tools"><a href="/tag/MF000236/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000237"><div class="entry-heading"><h2><span class="entry-number">6.9.12</span><a href="/tag/MF000237/">边缘等离子体与开放边界</a></h2><a class="tag" href="/tag/MF000237/">MF000237</a></div><div class="prose"><h3 id="从色散基准增加到剖面负载">从色散基准增加到剖面负载</h3>
 <p>真空腔外先设均匀冷等离子体，检查波长、极化和旋转张量；再加入实测或规定的一维密度剖面、磁场倾角及多组分。最后用二维/三维剖面和真实曲率。密度剖面的坐标零点、梯度与截止位置共同影响穿过衰逝区的耦合。单谱、局部缓变近似给场幅因子 <span class="arithmatex">\(\exp[-\int\kappa(x)dx]\)</span>，其平方用于估计两侧传播模之间的透射强度尺度；它不是纯衰逝场自身的径向净 Poynting 功率，也不替代完整负载计算。</p>
 <p>在 <span class="arithmatex">\(e^{-i\omega t}\)</span> 下，局部波方程与张量旋转写为</p>
 <div class="arithmatex">\[
@@ -146,7 +270,7 @@ P_\Omega=\int_A R_s|\mathbf H_{t,\rm RMS}|^2\,dA.
 <p><span class="arithmatex">\(\mathbf Q\)</span> 的列为磁场局部基矢在实验室系的坐标。取正的阻尼率并验证被动介质做功非负；非负耗散对应张量的反厄米部分，不要求每个矩阵元素的虚部都为正。软件若采用 <span class="arithmatex">\(e^{+i\omega t}\)</span>，复响应和激励一起转换，不能只抄非对角项符号。</p>
 <h3 id="pml-和吸收层按实现分别核对">PML 和吸收层按实现分别核对</h3>
 <p>RAPLICASOL 使用冷张量与 PML；Maquet 2023 的 HFSS 实现为避开大 Stix <span class="arithmatex">\(P\)</span> 的数值困难，使用等效电导张量和优化吸收层 ABL，论文未实现 PML。ABL、碰撞耗散及芯部热吸收分开记账。扩大域、改变层厚与损耗渐变，检查带阻抗和返回波；真空辐射边界不能自动代表磁化等离子体的出射条件。软件实现和这一层基准见 <a href="https://arxiv.org/html/2309.14015v1">HFSS 作者论文 §2–3</a>；<a href="https://impact.ornl.gov/en/publications/validation-of-the-icrf-antenna-coupling-code-raplicasol-against-t/">Tierens 等官方作者摘要</a>列出双带/四带模型的共同几何、S/Z、匹配和 RF 场对照。</p>
-<figure class="science-figure"><a aria-label="放大图示：从带、屏和真空腔，到密度剖面、传播域与吸收层的计算域示意。" class="figure-link" href="/assets/diagrams/icrf-domain-boundaries.svg"><img alt="从带、屏和真空腔，到密度剖面、传播域与吸收层的计算域示意。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-domain-boundaries.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000237/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000238"><div class="entry-heading"><h2><span class="entry-number">6.9.10</span><a href="/tag/MF000238/">软件分工与可复算建模流程</a></h2><a class="tag" href="/tag/MF000238/">MF000238</a></div><div class="prose"><h3 id="每次增加一种复杂性">每次增加一种复杂性</h3>
+<figure class="science-figure"><a aria-label="放大图示：从带、屏和真空腔，到密度剖面、传播域与吸收层的计算域示意。" class="figure-link" href="/assets/diagrams/icrf-domain-boundaries.svg"><img alt="从带、屏和真空腔，到密度剖面、传播域与吸收层的计算域示意。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-domain-boundaries.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></div><div class="entry-tools"><a href="/tag/MF000237/">条目详情与引用 →</a></div></section><section class="entry-block" id="MF000238"><div class="entry-heading"><h2><span class="entry-number">6.9.13</span><a href="/tag/MF000238/">软件分工与可复算建模流程</a></h2><a class="tag" href="/tag/MF000238/">MF000238</a></div><div class="prose"><h3 id="每次增加一种复杂性">每次增加一种复杂性</h3>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -236,6 +360,6 @@ P_\Omega=\int_A R_s|\mathbf H_{t,\rm RMS}|^2\,dA.
   title = {离子回旋天线建模},
   year = {2026},
   url = {https://megawave-fusion.github.io/sections/simulation-icrf-antennas/},
-  note = {Fusion Stacks; revision 330119bb7050}
-}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000182/"><small>← 上一页</small>弹跳平均 Fokker–Planck 与电流</a><a class="next" href="/tag/MF000229/"><small>下一页 →</small>建模层级与几何参数卡</a></nav></main></div>
+  note = {Fusion Stacks; revision 7bf47c54a340}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/tag/MF000182/"><small>← 上一页</small>弹跳平均 Fokker–Planck 与电流</a><a class="next" href="/tag/MF000239/"><small>下一页 →</small>单带三维几何与可运行模型</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>
