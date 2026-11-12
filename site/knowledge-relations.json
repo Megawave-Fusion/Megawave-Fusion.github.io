@@ -1315,6 +1315,24 @@
       "target": "MF000183",
       "type": "prerequisite",
       "reason": "天线流程输出的实际带谱和净耦合功率交给后续ICRH模拟。"
+    },
+    {
+      "source": "MF000239",
+      "target": "MF000230",
+      "type": "related",
+      "reason": "单带三维实体和gap源给出回流电路的实际场求解基线。"
+    },
+    {
+      "source": "MF000240",
+      "target": "MF000231",
+      "type": "related",
+      "reason": "比较实际三维双带场与规定电流谱时需区分功率归一和负载响应。"
+    },
+    {
+      "source": "MF000241",
+      "target": "MF000238",
+      "type": "related",
+      "reason": "实际网格和功率记录用于落实分层建模中的离散误差与能量检查。"
     }
   ],
   "paths": [

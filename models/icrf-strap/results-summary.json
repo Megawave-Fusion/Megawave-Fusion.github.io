@@ -1,0 +1,2142 @@
+{
+  "solver": "NGSolve 6.2.2606; 3D complex HCurl; exp(-i omega t), peak phasors",
+  "model": "Connected PEC strap/cavity, distributed gap current, collisional cold e/D plasma and finite PEC outer box with artificial absorber",
+  "source_sha256": "46e50e9625281eef230c76d0de891473798a696d85102a34ee866fbb4c238551",
+  "parameters": {
+    "single": {
+      "frequency_hz": 50000000.0,
+      "magnetic_field_t": 2.0,
+      "electron_density_m3": 2e+18,
+      "collision_ratio": 0.025,
+      "absorber_imaginary_epsilon": 80.0,
+      "strap_count": 1,
+      "strap_width_m": 0.06,
+      "strap_thickness_m": 0.015,
+      "strap_center_x_m": -0.035,
+      "strap_centers_z_m": [
+        0.0
+      ],
+      "strap_bottom_y_m": -0.2,
+      "strap_top_y_m": 0.15,
+      "gap_height_m": 0.012,
+      "gap_peak_current_a": 1.0,
+      "order": 2,
+      "outer_bounds": [
+        [
+          -0.16,
+          -0.225,
+          -0.27
+        ],
+        [
+          0.65,
+          0.225,
+          0.27
+        ]
+      ],
+      "cavity_bounds": [
+        [
+          -0.135,
+          -0.2,
+          -0.245
+        ],
+        [
+          0.0,
+          0.2,
+          0.245
+        ]
+      ],
+      "plasma_start_x_m": 0.025,
+      "absorber_start_x_m": 0.45
+    },
+    "double": {
+      "frequency_hz": 50000000.0,
+      "magnetic_field_t": 2.0,
+      "electron_density_m3": 2e+18,
+      "collision_ratio": 0.025,
+      "absorber_imaginary_epsilon": 80.0,
+      "strap_count": 2,
+      "strap_width_m": 0.06,
+      "strap_thickness_m": 0.015,
+      "strap_center_x_m": -0.035,
+      "strap_centers_z_m": [
+        -0.09,
+        0.09
+      ],
+      "strap_bottom_y_m": -0.2,
+      "strap_top_y_m": 0.15,
+      "gap_height_m": 0.012,
+      "gap_peak_current_a": 1.0,
+      "order": 2,
+      "outer_bounds": [
+        [
+          -0.16,
+          -0.225,
+          -0.27
+        ],
+        [
+          0.65,
+          0.225,
+          0.27
+        ]
+      ],
+      "cavity_bounds": [
+        [
+          -0.135,
+          -0.2,
+          -0.245
+        ],
+        [
+          0.0,
+          0.2,
+          0.245
+        ]
+      ],
+      "plasma_start_x_m": 0.025,
+      "absorber_start_x_m": 0.45
+    }
+  },
+  "cases": [
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.075,
+      "order": 2,
+      "ndof": 45441,
+      "nelements": 4279,
+      "nvertices": 1055,
+      "Z_ohm": [
+        [
+          [
+            0.5032308906078627,
+            -68.45298593586281
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.5032308906078627,
+          -68.45298593586281
+        ]
+      ],
+      "delivered_power_w": 0.25161544530392255,
+      "physical_plasma_absorption_w": 0.18529063050264527,
+      "artificial_absorber_power_w": 0.06632481480118849,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 3.5288011150169526e-13,
+      "linear_residual_relative": 4.530702663263727e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.5032308906078627
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.5032308906078451,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 3.1730574169996544,
+      "elapsed_seconds": 3.8162422079999487,
+      "meshpath": ".build/icrf-fem-final-single-p2/straps-1-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-single-p2/straps-1-h-0.075/geometry.json",
+      "name": "1-strap-phase-0-h-0.075-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "single"
+    },
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.055,
+      "order": 2,
+      "ndof": 91170,
+      "nelements": 8844,
+      "nvertices": 1985,
+      "Z_ohm": [
+        [
+          [
+            0.5375986777006717,
+            -69.02465398645488
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.5375986777006717,
+          -69.02465398645488
+        ]
+      ],
+      "delivered_power_w": 0.2687993388503264,
+      "physical_plasma_absorption_w": 0.19951163724125792,
+      "artificial_absorber_power_w": 0.0692877016090871,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 6.918259450342689e-14,
+      "linear_residual_relative": 3.4158807270236747e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.5375986777006717
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.5375986777006528,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 24.767404707999958,
+      "elapsed_seconds": 26.618005999999696,
+      "meshpath": ".build/icrf-fem-final-single-p2/straps-1-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-single-p2/straps-1-h-0.055/geometry.json",
+      "name": "1-strap-phase-0-h-0.055-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "single"
+    },
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.04,
+      "order": 2,
+      "ndof": 154035,
+      "nelements": 14963,
+      "nvertices": 3337,
+      "Z_ohm": [
+        [
+          [
+            0.5689629585560634,
+            -69.36116405104875
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.5689629585560634,
+          -69.36116405104875
+        ]
+      ],
+      "delivered_power_w": 0.2844814792780215,
+      "physical_plasma_absorption_w": 0.21265601313126942,
+      "artificial_absorber_power_w": 0.07182546614669666,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.9474072290890054e-13,
+      "linear_residual_relative": 3.6599571980719797e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.5689629585560634
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.568962958556043,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 67.54466908400036,
+      "elapsed_seconds": 70.7625506659997,
+      "meshpath": ".build/icrf-fem-final-single-p2/straps-1-h-0.04/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-single-p2/straps-1-h-0.04/geometry.json",
+      "name": "1-strap-phase-0-h-0.04-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "single"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.075,
+      "order": 2,
+      "ndof": 58701,
+      "nelements": 5572,
+      "nvertices": 1332,
+      "Z_ohm": [
+        [
+          [
+            0.3677583713431585,
+            -63.84468960459376
+          ],
+          [
+            0.36137441476562876,
+            -16.096888425559236
+          ]
+        ],
+        [
+          [
+            0.3596585130556057,
+            -16.09678611702675
+          ],
+          [
+            0.36789465229359186,
+            -63.870373201502616
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.7291327861087873,
+          -79.941578030153
+        ],
+        [
+          0.7275531653491976,
+          -79.96715931852937
+        ]
+      ],
+      "delivered_power_w": 0.7283429757289663,
+      "physical_plasma_absorption_w": 0.5373404237877808,
+      "artificial_absorber_power_w": 0.19100255194121107,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 3.50592103134126e-14,
+      "linear_residual_relative": 4.120599748447482e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007310037839031654,
+        0.7283429857977186
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.7283429757289663,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 7.979232333000255,
+      "elapsed_seconds": 9.005156083000202,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.075/geometry.json",
+      "name": "2-strap-phase-0-h-0.075-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.075,
+      "order": 2,
+      "ndof": 58701,
+      "nelements": 5572,
+      "nvertices": 1332,
+      "Z_ohm": [
+        [
+          [
+            0.3677583713431585,
+            -63.84468960459376
+          ],
+          [
+            0.36137441476562876,
+            -16.096888425559236
+          ]
+        ],
+        [
+          [
+            0.3596585130556057,
+            -16.09678611702675
+          ],
+          [
+            0.36789465229359186,
+            -63.870373201502616
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.006383956577531686,
+          -47.747801179034525
+        ],
+        [
+          -0.00823613923797834,
+          47.773587084475864
+        ]
+      ],
+      "delivered_power_w": 0.007310047907757697,
+      "physical_plasma_absorption_w": 0.007306744493722352,
+      "artificial_absorber_power_w": 3.3034140157927073e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 2.6747938054827077e-12,
+      "linear_residual_relative": 3.2431532545718057e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007310037839031654,
+        0.7283429857977186
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.007310047907757697,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 7.979232333000255,
+      "elapsed_seconds": 9.376807416000247,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.075/geometry.json",
+      "name": "2-strap-phase-180-h-0.075-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.055,
+      "order": 2,
+      "ndof": 101073,
+      "nelements": 9780,
+      "nvertices": 2204,
+      "Z_ohm": [
+        [
+          [
+            0.3873668702904117,
+            -64.15905750229633
+          ],
+          [
+            0.37841388829850475,
+            -16.281847811507365
+          ]
+        ],
+        [
+          [
+            0.381697667377202,
+            -16.281756935927845
+          ],
+          [
+            0.3876507770753965,
+            -64.25206412343731
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.7657807585889165,
+          -80.4409053138037
+        ],
+        [
+          0.7693484444525985,
+          -80.53382105936515
+        ]
+      ],
+      "delivered_power_w": 0.7675646015207302,
+      "physical_plasma_absorption_w": 0.5699644481845053,
+      "artificial_absorber_power_w": 0.19760015333620998,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.9490548713664125e-14,
+      "linear_residual_relative": 4.1302015271910153e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007453016618607043,
+        0.767564630747201
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.7675646015207302,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 36.57592245800015,
+      "elapsed_seconds": 38.510848707999685,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.055/geometry.json",
+      "name": "2-strap-phase-0-h-0.055-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.055,
+      "order": 2,
+      "ndof": 101073,
+      "nelements": 9780,
+      "nvertices": 2204,
+      "Z_ohm": [
+        [
+          [
+            0.3873668702904117,
+            -64.15905750229633
+          ],
+          [
+            0.37841388829850475,
+            -16.281847811507365
+          ]
+        ],
+        [
+          [
+            0.381697667377202,
+            -16.281756935927845
+          ],
+          [
+            0.3876507770753965,
+            -64.25206412343731
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.008952981991908965,
+          -47.87720969078897
+        ],
+        [
+          -0.0059531096981866455,
+          47.97030718750946
+        ]
+      ],
+      "delivered_power_w": 0.0074530458450505176,
+      "physical_plasma_absorption_w": 0.007449728232122448,
+      "artificial_absorber_power_w": 3.317612888664714e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 5.2870696823979676e-12,
+      "linear_residual_relative": 3.272221781661243e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007453016618607043,
+        0.767564630747201
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.0074530458450505176,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 36.57592245800015,
+      "elapsed_seconds": 39.22504333300003,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.055/geometry.json",
+      "name": "2-strap-phase-180-h-0.055-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.04,
+      "order": 2,
+      "ndof": 165360,
+      "nelements": 16053,
+      "nvertices": 3578,
+      "Z_ohm": [
+        [
+          [
+            0.40455955824991746,
+            -64.38476925337991
+          ],
+          [
+            0.39239861735197523,
+            -16.423911502381376
+          ]
+        ],
+        [
+          [
+            0.40202350436285583,
+            -16.423395340474546
+          ],
+          [
+            0.40499504157441646,
+            -64.44814217237125
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.7969581756018926,
+          -80.80868075576129
+        ],
+        [
+          0.8070185459372723,
+          -80.87153751284579
+        ]
+      ],
+      "delivered_power_w": 0.8019883607695539,
+      "physical_plasma_absorption_w": 0.5988783661446437,
+      "artificial_absorber_power_w": 0.2031099946251208,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 2.626089330888798e-13,
+      "linear_residual_relative": 4.589264389874908e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007566095532578173,
+        0.8019885042917557
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.8019883607695539,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 100.87366529199971,
+      "elapsed_seconds": 105.16998495799999,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.04/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.04/geometry.json",
+      "name": "2-strap-phase-0-h-0.04-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.04,
+      "order": 2,
+      "ndof": 165360,
+      "nelements": 16053,
+      "nvertices": 3578,
+      "Z_ohm": [
+        [
+          [
+            0.40455955824991746,
+            -64.38476925337991
+          ],
+          [
+            0.39239861735197523,
+            -16.423911502381376
+          ]
+        ],
+        [
+          [
+            0.40202350436285583,
+            -16.423395340474546
+          ],
+          [
+            0.40499504157441646,
+            -64.44814217237125
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.01216094089794424,
+          -47.96085775099854
+        ],
+        [
+          -0.002971537211552734,
+          48.02474683189671
+        ]
+      ],
+      "delivered_power_w": 0.007566239054751244,
+      "physical_plasma_absorption_w": 0.0075629002252344145,
+      "artificial_absorber_power_w": 3.3388295479931993e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 4.118762591251029e-12,
+      "linear_residual_relative": 3.7563966049981085e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007566095532578173,
+        0.8019885042917557
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.007566239054751244,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 100.87366529199971,
+      "elapsed_seconds": 106.50192066599993,
+      "meshpath": ".build/icrf-fem-final-p2/straps-2-h-0.04/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final-p2/straps-2-h-0.04/geometry.json",
+      "name": "2-strap-phase-180-h-0.04-p-2",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "model": "double"
+    }
+  ],
+  "first_order_mesh_study": [
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.055,
+      "order": 1,
+      "ndof": 23530,
+      "nelements": 8844,
+      "nvertices": 1985,
+      "Z_ohm": [
+        [
+          [
+            0.3629643042913105,
+            -63.206590458402076
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.3629643042913105,
+          -63.206590458402076
+        ]
+      ],
+      "delivered_power_w": 0.181482152145649,
+      "physical_plasma_absorption_w": 0.1350936158913519,
+      "artificial_absorber_power_w": 0.04638853625426888,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.554618031565106e-13,
+      "linear_residual_relative": 3.1363773394867116e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.3629643042913105
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.362964304291298,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.9259252920001018,
+      "elapsed_seconds": 1.5948954169998615,
+      "meshpath": ".build/icrf-fem-final/straps-1-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-1-h-0.055/geometry.json",
+      "name": "1-strap-phase-0-h-0.055-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.075,
+      "order": 1,
+      "ndof": 11922,
+      "nelements": 4279,
+      "nvertices": 1055,
+      "Z_ohm": [
+        [
+          [
+            0.2817202743267081,
+            -60.86714105609006
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.2817202743267081,
+          -60.86714105609006
+        ]
+      ],
+      "delivered_power_w": 0.14086013716334922,
+      "physical_plasma_absorption_w": 0.1070871023164047,
+      "artificial_absorber_power_w": 0.033773034847003454,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 4.18372629138812e-13,
+      "linear_residual_relative": 2.907022378963793e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.2817202743267081
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.28172027432669844,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.2282479999998941,
+      "elapsed_seconds": 0.6442210420000265,
+      "meshpath": ".build/icrf-fem-final/straps-1-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-1-h-0.075/geometry.json",
+      "name": "1-strap-phase-0-h-0.075-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 1,
+      "phase_degree": 0.0,
+      "maxh_m": 0.1,
+      "order": 1,
+      "ndof": 9558,
+      "nelements": 3443,
+      "nvertices": 844,
+      "Z_ohm": [
+        [
+          [
+            0.24582664667915208,
+            -60.326140327188014
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.24582664667915208,
+          -60.326140327188014
+        ]
+      ],
+      "delivered_power_w": 0.12291332333957185,
+      "physical_plasma_absorption_w": 0.09591047230575114,
+      "artificial_absorber_power_w": 0.027002851033848488,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 2.2604002915524228e-13,
+      "linear_residual_relative": 2.845749217381561e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.24582664667915208
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.2458266466791437,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.26800983300017833,
+      "elapsed_seconds": 0.6434002920000239,
+      "meshpath": ".build/icrf-fem-final/straps-1-h-0.1/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-1-h-0.1/geometry.json",
+      "name": "1-strap-phase-0-h-0.1-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.055,
+      "order": 1,
+      "ndof": 26114,
+      "nelements": 9780,
+      "nvertices": 2204,
+      "Z_ohm": [
+        [
+          [
+            0.2615629911477691,
+            -58.57040168715037
+          ],
+          [
+            0.24974089392047208,
+            -14.779038490872658
+          ]
+        ],
+        [
+          [
+            0.25799922202174813,
+            -14.77885670079032
+          ],
+          [
+            0.2606952027596858,
+            -58.83104577725175
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.5113038850682412,
+          -73.34944017802303
+        ],
+        [
+          0.5186944247814339,
+          -73.60990247804207
+        ]
+      ],
+      "delivered_power_w": 0.5149991549248196,
+      "physical_plasma_absorption_w": 0.3831926501785682,
+      "artificial_absorber_power_w": 0.1318065047463423,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.7645029840647925e-13,
+      "linear_residual_relative": 3.470526800065433e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007258651922536458,
+        0.5149995419849184
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.5149991549248196,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 1.5045036670003356,
+      "elapsed_seconds": 2.3913329169999997,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.055/geometry.json",
+      "name": "2-strap-phase-0-h-0.055-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.055,
+      "order": 1,
+      "ndof": 26114,
+      "nelements": 9780,
+      "nvertices": 2204,
+      "Z_ohm": [
+        [
+          [
+            0.2615629911477691,
+            -58.57040168715037
+          ],
+          [
+            0.24974089392047208,
+            -14.779038490872658
+          ]
+        ],
+        [
+          [
+            0.25799922202174813,
+            -14.77885670079032
+          ],
+          [
+            0.2606952027596858,
+            -58.83104577725175
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.011822097227298827,
+          -43.791363196277715
+        ],
+        [
+          -0.0026959807379304374,
+          44.05218907646143
+        ]
+      ],
+      "delivered_power_w": 0.007259038982617082,
+      "physical_plasma_absorption_w": 0.007255939522406536,
+      "artificial_absorber_power_w": 3.099460246983418e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 5.019562576910589e-12,
+      "linear_residual_relative": 2.645826663378079e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007258651922536458,
+        0.5149995419849184
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.007259038982617082,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 1.5045036670003356,
+      "elapsed_seconds": 2.7725960830002805,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.055/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.055/geometry.json",
+      "name": "2-strap-phase-180-h-0.055-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.075,
+      "order": 1,
+      "ndof": 15326,
+      "nelements": 5572,
+      "nvertices": 1332,
+      "Z_ohm": [
+        [
+          [
+            0.20637377874398005,
+            -56.89866359063298
+          ],
+          [
+            0.18817703477491504,
+            -14.062038498423528
+          ]
+        ],
+        [
+          [
+            0.2115733776565828,
+            -14.061255184193412
+          ],
+          [
+            0.2082839225993267,
+            -57.05845225304159
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.3945508135188951,
+          -70.96070208905651
+        ],
+        [
+          0.4198573002559095,
+          -71.119707437235
+        ]
+      ],
+      "delivered_power_w": 0.40720405688738837,
+      "physical_plasma_absorption_w": 0.30885745086289457,
+      "artificial_absorber_power_w": 0.09834660602446789,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 6.362861420203118e-14,
+      "linear_residual_relative": 3.4744597755731085e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007450978916246307,
+        0.40720672242706046
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.40720405688738837,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.5041931669998121,
+      "elapsed_seconds": 1.0700198330000603,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.075/geometry.json",
+      "name": "2-strap-phase-0-h-0.075-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.075,
+      "order": 1,
+      "ndof": 15326,
+      "nelements": 5572,
+      "nvertices": 1332,
+      "Z_ohm": [
+        [
+          [
+            0.20637377874398005,
+            -56.89866359063298
+          ],
+          [
+            0.18817703477491504,
+            -14.062038498423528
+          ]
+        ],
+        [
+          [
+            0.2115733776565828,
+            -14.061255184193412
+          ],
+          [
+            0.2082839225993267,
+            -57.05845225304159
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.01819674396906673,
+          -42.83662509220945
+        ],
+        [
+          0.003289455057263073,
+          42.99719706884817
+        ]
+      ],
+      "delivered_power_w": 0.007453644455904223,
+      "physical_plasma_absorption_w": 0.0074497146816527885,
+      "artificial_absorber_power_w": 3.92977423973966e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.5689968992531287e-12,
+      "linear_residual_relative": 2.475064845122367e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.007450978916246307,
+        0.40720672242706046
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.007453644455904223,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.5041931669998121,
+      "elapsed_seconds": 1.2964677499999198,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.075/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.075/geometry.json",
+      "name": "2-strap-phase-180-h-0.075-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 0.0,
+      "maxh_m": 0.1,
+      "order": 1,
+      "ndof": 13034,
+      "nelements": 4758,
+      "nvertices": 1128,
+      "Z_ohm": [
+        [
+          [
+            0.18278825689392966,
+            -56.72702603055477
+          ],
+          [
+            0.16377862268425344,
+            -13.778840675701273
+          ]
+        ],
+        [
+          [
+            0.18649660611184518,
+            -13.778152926434164
+          ],
+          [
+            0.18210047302368687,
+            -56.66086618116161
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.3465668795781831,
+          -70.50586670625604
+        ],
+        [
+          0.3685970791355321,
+          -70.43901910759577
+        ]
+      ],
+      "delivered_power_w": 0.3575819793568452,
+      "physical_plasma_absorption_w": 0.27861996227411295,
+      "artificial_absorber_power_w": 0.0789620170827554,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 6.469641539888701e-14,
+      "linear_residual_relative": 3.1598134108721493e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.0073060753460953715,
+        0.35758265457152094
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.3575819793568452,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.3339917080002124,
+      "elapsed_seconds": 0.8275897080002323,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.1/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.1/geometry.json",
+      "name": "2-strap-phase-0-h-0.1-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    },
+    {
+      "strap_count": 2,
+      "phase_degree": 180.0,
+      "maxh_m": 0.1,
+      "order": 1,
+      "ndof": 13034,
+      "nelements": 4758,
+      "nvertices": 1128,
+      "Z_ohm": [
+        [
+          [
+            0.18278825689392966,
+            -56.72702603055477
+          ],
+          [
+            0.16377862268425344,
+            -13.778840675701273
+          ]
+        ],
+        [
+          [
+            0.18649660611184518,
+            -13.778152926434164
+          ],
+          [
+            0.18210047302368687,
+            -56.66086618116161
+          ]
+        ]
+      ],
+      "peak_currents_a": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.2246467991473532e-16
+        ]
+      ],
+      "peak_voltages_v": [
+        [
+          0.019009634209677904,
+          -42.94818535485349
+        ],
+        [
+          0.004396133088165249,
+          42.88271325472745
+        ]
+      ],
+      "delivered_power_w": 0.007306750560758714,
+      "physical_plasma_absorption_w": 0.007302718429956509,
+      "artificial_absorber_power_w": 4.0321308116578905e-06,
+      "pec_metal_loss_w": 0.0,
+      "outer_pec_flux_w": 0.0,
+      "power_balance_relative": 1.2938152969498516e-12,
+      "linear_residual_relative": 2.557445134140585e-13,
+      "matrix_passivity_eigenvalues_ohm": [
+        0.0073060753460953715,
+        0.35758265457152094
+      ],
+      "cold_epsilon": [
+        [
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            -0.32527890435564255,
+            -63.49478143553016
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.32527890435564255,
+            63.49478143553016
+          ],
+          [
+            -18.303375070225673,
+            0.5843851295189534
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -64469.38549836477,
+            1611.7596374591194
+          ]
+        ]
+      ],
+      "epsilon_dissipation_eigenvalues": [
+        0.25910622516331083,
+        0.9096640338745959,
+        1611.7596374591194
+      ],
+      "effective_delivered_resistance_ohm": 0.007306750560758714,
+      "inverse": "NGSolve UMFPACK",
+      "assembly_factor_seconds": 0.3339917080002124,
+      "elapsed_seconds": 1.0243330409998634,
+      "meshpath": ".build/icrf-fem-final/straps-2-h-0.1/mesh.vol",
+      "geometrypath": ".build/icrf-fem-final/straps-2-h-0.1/geometry.json",
+      "name": "2-strap-phase-180-h-0.1-p-1",
+      "ngsolve_version": "6.2.2606",
+      "numpy_version": "2.5.4",
+      "runtime_metadata_note": "Library versions recorded after run from the unchanged runtime; numerical values not modified."
+    }
+  ]
+}

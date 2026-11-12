@@ -3981,5 +3981,27 @@
       "仿真计算/离子回旋天线建模/README.md",
       "辅助加热/离子回旋加热/README.md"
     ]
+  },
+  {
+    "id": "ICRF-FEM-HCURL",
+    "title": "NGSolve — H(curl) and H(div) function spaces",
+    "url": "https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html",
+    "scope": "实际读取边元空间、切向连续与高阶单元说明；求解代码采用6.2.2606，文档入口当前为6.2.2608",
+    "checked_on": "2026-11-12",
+    "evidence": "只支持离散空间和API背景，本库具体几何、张量、源和求解值由本地代码/实际输出给出",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
+  },
+  {
+    "id": "ICRF-FEM-VTK",
+    "title": "NGSolve — VTK Output",
+    "url": "https://docu.ngsolve.org/latest/i-tutorials/appendix-vtk/vtk.html",
+    "scope": "实际读取VTKOutput API、Do及subdivision说明",
+    "checked_on": "2026-11-12",
+    "evidence": "显示细分不等于有限元网格加密；本模型完整二阶场另存原生解",
+    "used_in": [
+      "仿真计算/离子回旋天线建模/README.md"
+    ]
   }
 ]

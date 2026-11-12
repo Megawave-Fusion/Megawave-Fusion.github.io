@@ -1,6 +1,94 @@
 # 离子回旋天线建模
 
-先建立能解释馈电、回流和负载的最小天线，再增加法拉第屏、真实等离子体和匹配网络。这里按建模过程给出结构、方程、输入与可核对的输出；芯部吸收和快尾另见[离子回旋加热模拟](../离子回旋加热模拟/README.md)，物理与设备见[离子回旋加热](../../辅助加热/离子回旋加热/README.md)。
+本页首先给出已实际划网格、求解并导出复场的单带/双带模型，再讨论常见天线和软件的扩展路线。[直接下载模型包](/assets/models/icrf-strap-fem.zip)。芯部吸收与快尾另见[离子回旋加热模拟](../离子回旋加热模拟/README.md)。
+
+## 单带三维几何与可运行模型
+
+### 模型文件、尺寸和源域
+
+[下载完整三维模型包（约 30 MB）](/assets/models/icrf-strap-fem.zip)：包含求解脚本、依赖版本、单/双带 STEP 实体、实际 Netgen 网格、复数 E/H 的 VTU 与原生解、参数和结果 JSON。不是仅供观看的结构图；可修改参数重新生成几何、划网格并求解。
+
+![从实际模型几何绘制的单/双带透视与馈电间隙，STEP中保留完整回流箱体。](/assets/diagrams/icrf-fem-geometry.svg)
+
+| 实际输入 | 本轮求解值与定义 |
+| --- | --- |
+| 坐标和频率 | x 径向指向负载、y 沿带、z 为环向及背景磁场方向；50 MHz |
+| 电流带 | 宽 60 mm、厚 15 mm，y 从 −200 至 150 mm，中心 x=−35 mm；底端短接回流腔 |
+| 馈电与回流 | 顶部留 12 mm 真空间隙；跨隙规定峰值 1 A 的均匀体电流，间隙两端是 PEC，侧面接真空 |
+| 回流腔内尺寸 | x=−135 至 0 mm、y=±200 mm、z=±245 mm；背板/顶底/侧壁连接成一个 PEC 实体 |
+| 冷负载 | x≥25 mm，电子与单电荷氘、各 2×10¹⁸ m⁻³；B=2 T 沿 +z，规定碰撞率 ν/ω=0.025 |
+| 截断 | 有限外盒 x=−160 至 650 mm、y=±225 mm、z=±270 mm，外表面 PEC；x≥450 mm 另加渐增人工吸收 |
+
+这套平板化几何是本库明确规定的基础模型。碰撞率是现象输入，不是实测经典碰撞值；模型尚未包括法拉第屏、真同轴馈线、热/FLR、鞘层和有限导体损耗。有限外盒与吸收层也未证明达到无限域误差要求。
+
+### 实际求解与查看
+
+采用三维复数 H(curl) 边元求解完整频域 Maxwell 方程，未删除梯度场。冷张量由带碰撞的电子/氘动量方程算出，并检查耗散矩阵被动性；方法接口参见 [NGSolve H(curl) 官方文档](https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html)。运行命令：
+
+```sh
+python3 -m venv .venv-fem
+.venv-fem/bin/python -m pip install -r models/icrf-strap/requirements.txt
+.venv-fem/bin/python models/icrf-strap/solve.py --straps 1 --order 2 --maxh .075 .055 .04 --out .build/icrf-fem-final-single-p2
+```
+
+模型包内 `pec-metal.step` 是实际扣除的导体，`field-domain.step` 是求解体分区，`mesh.vol` 为所用网格，`field.vtu` 含 E/H 实虚部，`E.sol` 保留二阶原生解。VTU可在 ParaView 查看；[NGSolve VTK 说明](https://docu.ngsolve.org/latest/i-tutorials/appendix-vtk/vtk.html)区分显示细分与有限元精度。
+
+![真实二阶单带电场与加载实际四面体网格得到的切面。](/assets/diagrams/icrf-fem-single-field.svg)
+
+## 双带同相与反相的三维场
+
+### 几何相同，独立求两组 gap 源
+
+在同一回流腔内将带中心放到 z=±90 mm，各有独立体源间隙。先分别激励每个间隙得到两列响应，再叠加为峰值电流 $(1,1)$ A 或 $(1,-1)$ A。这里求得的是整个三维负载问题的复场，不是用理想阵列因子直接画场。多端口/实际电流的物理背景可对照 [WEST 电路模型](https://west-ic-antenna.readthedocs.io/en/latest/introduction.html)。
+
+```sh
+.venv-fem/bin/python models/icrf-strap/solve.py --straps 2 --order 2 --maxh .075 .055 .04 --out .build/icrf-fem-final-p2
+```
+
+![真实双带同相/反相的E与H切面，按各自求解输入功率归一，同列共享色标。](/assets/diagrams/icrf-fem-double-fields.svg)
+
+原始解为每 gap 峰值 1 A，图将场除以各自输入功率的平方根，因此单位为 V·m⁻¹·W⁻¹ᐟ² 和 A·m⁻¹·W⁻¹ᐟ²，同列共享色标。相位改变后，中心附近的场抵消、近场与向负载传播的分布发生变化。归一化按实际算出的输入功率完成，并非给两工况套同一效率。
+
+体源 $\mathbf J_{\rm ext}=\sum_p I_p\mathbf g_p$，每个 $\mathbf g_p$ 的横截面积分为 1。对峰值相量、$e^{-i\omega t}$，用与体源配对的广义间隙电压定义
+
+$$
+V_q=-\int_{\rm gap_q}\mathbf E\cdot\mathbf g_q\,dV,\quad
+Z_{qp}=V_q/I_p,\quad
+P_{\rm in}=-\frac12\operatorname{Re}\int\mathbf E\cdot\mathbf J_{\rm ext}^*dV
+=\frac12\operatorname{Re}(\mathbf I^\dagger\mathbf Z\mathbf I).
+$$
+
+单独激励 p 时，其余源电流为零。该 Z 属于规定体源的 gap 端口，不能直接宣称是同轴 TEM 口或给出已模拟馈线的 S₁₁。这个区别也影响如何接真实匹配电路。
+
+## 三维求解的网格与功率记录
+
+### 报告真实数值及尚存的离散误差
+
+使用相同几何、负载与 1 A 峰值源，逐级加密四面体，并从一阶提高到二阶边元。最细二阶 h_max=40 mm，gap 局部控制 15 mm；单带 14963 四面体/154035 复自由度，双带 16053 四面体/165360 复自由度。
+
+| 二阶全局 h_max | 单带输入 W | 双带同相输入 W | 双带反相输入 W |
+| --- | --- | --- | --- |
+| 75 mm | 0.251615 | 0.728343 | 0.00731005 |
+| 55 mm | 0.268799 | 0.767565 | 0.00745305 |
+| 40 mm | 0.284481 | 0.801988 | 0.00756624 |
+
+相对最细值，最后两档变化分别为 **5.51%、4.29%、1.50%**。这是已经观察到的网格变化，不是严格误差上界，尤其不能称 1% 网格独立。图中保留一阶与二阶的完整变化；尖角最大电场还需圆角与局部加密，不能用于额定功率/击穿设计。
+
+![实际一阶/二阶网格序列的有效间隙阻抗与人工吸收份额，保留未收敛趋势。](/assets/diagrams/icrf-fem-convergence.svg)
+
+### 两类耗散分别计账
+
+| 最细二阶工况 | 输入 W | 规定冷碰撞耗散 W | 人工吸收层耗散 W |
+| --- | --- | --- | --- |
+| 单带 | 0.284481 | 0.212656 | 0.0718255 |
+| 双带同相 | 0.801988 | 0.598878 | 0.203110 |
+| 双带反相 | 0.00756624 | 0.00756290 | 0.00000333883 |
+
+PEC 金属损耗为零，有限外盒的净通量为零，源做功等于上述两类体耗散之和；人工吸收不能算作芯部热化。最细解的功率闭合约 $10^{-12}$、自由度线性残差约 $10^{-13}$，只说明离散方程与账本解好，不能消除上表离散误差。模型文件保存所有数字与原始复场。[NGSolve 边元说明](https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html)提供离散空间背景。
+
+## 建模层级与几何参数卡
+
+### 从基础模型扩展到常见结构
 
 | 要建的模型 | 适合先回答的问题 | 起步时保留的结构 |
 | --- | --- | --- |
@@ -13,8 +101,6 @@
 前三类是常用的基线或装置结构；三带介绍 ASDEX Upgrade 的设计思路，TWA 介绍特定论文中的研究模型。带数不是完整型号，共轭 T 也不是带数的别名。资料读取至 2026-11-12；图和数值均明确区分文献模型与本库教学模型。
 
 ![五类天线的辐射带排列概览，馈电、回流与匹配网络分别建模。](/assets/diagrams/icrf-common-antennas.svg)
-
-## 建模层级与几何参数卡
 
 ### 几何、负载和电路分三层
 

@@ -146,6 +146,12 @@ class Builder:
             parsed = urlsplit(href)
             if parsed.scheme or parsed.netloc or not parsed.path:
                 continue
+            if parsed.path.startswith('/assets/'):
+                asset_root = (ROOT / 'site/assets').resolve()
+                asset = (ROOT / 'site' / unquote(parsed.path).lstrip('/')).resolve()
+                if not asset.is_relative_to(asset_root) or not asset.is_file():
+                    raise ValueError('Missing or unsafe static asset: ' + href)
+                continue
             target = (ROOT / source).parent / unquote(parsed.path)
             target = target.resolve()
             if not target.is_relative_to(ROOT):

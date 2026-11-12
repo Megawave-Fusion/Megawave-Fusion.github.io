@@ -1188,5 +1188,20 @@
     "tag": "MF000238",
     "status": "draft",
     "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#单带三维几何与可运行模型": {
+    "tag": "MF000239",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#双带同相与反相的三维场": {
+    "tag": "MF000240",
+    "status": "draft",
+    "kind": "专题"
+  },
+  "仿真计算/离子回旋天线建模/README.md#三维求解的网格与功率记录": {
+    "tag": "MF000241",
+    "status": "draft",
+    "kind": "专题"
   }
 }
