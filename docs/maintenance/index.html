@@ -43,8 +43,6 @@
 <h2 id="科学图示与首页">科学图示与首页</h2>
 <p>首页由 <code>scripts/homepage.py</code> 生成，<code>home.css</code> 与 <code>home.mjs</code> 仅在首页加载。环形磁约束画面是几何示意，可暂停，遵循减少动态效果偏好；关闭脚本时显示静态 SVG。</p>
 <p>科学图放在 <code>site/assets/diagrams/</code>，Markdown 使用 <code>/assets/diagrams/&lt;名称&gt;.svg</code> 图片地址。每图包含标题、描述、可缩放的 viewBox，以及变量、单位和教学假设。点击正文图示可放大并横向查看；无脚本时直接打开 SVG。仿真章的 18 张图可运行 <code>.venv/bin/python scripts/simulation_figures.py</code> 重建。<code>tests/figure_coverage.py</code> 检查专题图示、可访问描述、控制字符及仿真条目粒度。</p>
-<p>ICRF 天线专题的 7 张图与解析/网络例由 <code>.venv/bin/python scripts/icrf_antenna_examples.py</code> 重建，复算运行 <code>tests/icrf_antenna_checks.py</code>。输出在 <code>.build/icrf-antenna/</code>；脚本未调用外部电磁求解器。</p>
-<p>实际三维 Maxwell 天线模型见 <code>models/icrf-strap/</code>。求解环境按其中 <code>requirements.txt</code> 单独安装；生成场后用 <code>scripts/render_icrf_fem.py</code> 绘图，<code>scripts/package_icrf_fem.py</code> 打包 STEP/网格/复场下载文件。大规模场求解不属于常规网站构建；<code>tests/icrf_fem_checks.py</code> 检查归档结果、功率口径和包内哈希，不在每次构建时重跑求解器。</p>
 <h2 id="公式与引用">公式与引用</h2>
 <p>支持行内 LaTeX <code>$x^2+y^2$</code> 和独立行公式 <code>$$...$$</code>。示例：</p>
 <div class="arithmatex">\[

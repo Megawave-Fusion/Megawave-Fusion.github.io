@@ -6,7 +6,10 @@
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>内容核验记录</span></div></div><div class="layout layout-overview">
-<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-11-12：补做单带与双带三维-maxwell-模型">2026-11-12：补做单带与双带三维 Maxwell 模型</h2>
+<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-11-12：天线正文聚焦结构与建模原理">2026-11-12：天线正文聚焦结构与建模原理</h2>
+<p>按阅读内容的需要，将天线专题前部改为电流回路、馈电相位和模型层级的讲解，保留五类常见天线的结构图、公式、边界假设与软件比较。正文撤下模型包下载、运行命令、网格记录及三维计算结果展示；下方计算批次保留为历史记录。MF000239–MF000241 及软件步骤条目的永久身份不变。</p>
+<p>源文、241 个永久条目、图示覆盖、站点构建与链接检查通过；4014 个去重公式转换无排版错误。独立复查确认两篇正文已撤下计算产物入口，结构与建模讲解保留。</p>
+<h2 id="2026-11-12：补做单带与双带三维-maxwell-模型">2026-11-12：补做单带与双带三维 Maxwell 模型</h2>
 <p>前一批天线内容主要是结构目录、解析谱与给定网络，未提供可运行的三维场模型。本轮将<a href="/sections/simulation-icrf-antennas/">天线建模</a>及 ICRH 前置入口改为实际模型、下载包和结果优先：参数化有限厚带、底部短路、单连通 PEC 回流腔、顶部 12 mm 体源馈电间隙，单带/双带同相/反相均已实际网格划分和求解。新增三维设置、双带场和网格功率记录三个条目，原 Tag 保留；现 241 条目、41 专题、385 来源。</p>
 <p><code>models/icrf-strap/solve.py</code> 使用 NGSolve/Netgen 6.2.2606、三维复数 H(curl) 边元，电子/氘的带碰撞冷张量由规定 B、密度与频率计算。实际跑过一阶与二阶各三档网格，三种驱动共 18 个正确边界版本的算例；主图与模型包选二阶最细单带及双带。提供 STEP、mesh.vol、复 E/H VTU、原生解、切面 NPZ、参数、完整 Z 和功率 JSON；下载 ZIP 含 27 个可校验文件。四张新图直接来自真实参数、网格和场数据，不采用解析阵列因子伪造场。科学图合计 56 张。</p>
 <p>主代理整合，求解代理编写执行，另一代理独立审查几何、边界、张量及结果，绘图代理读取实际输出制图。审查中发现 gap 独立体端面未继承 PEC 的错误；修复并加入全部外表面标记、单连通金属、gap 体积断言后重新计算，旧错误边界的试算均排除。冷张量另用每物种三维动量矩阵求逆重建，相对差约 1.1×10⁻¹⁶；输入功率另由存档 I†ZI 复算。</p>

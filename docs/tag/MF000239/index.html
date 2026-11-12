@@ -1,61 +1,56 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>单带三维几何与可运行模型 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
-<meta name="theme-color" content="#123c54"><meta property="og:title" content="单带三维几何与可运行模型 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000239/"><meta property="og:type" content="article">
+<title>电流带、回流腔与馈电间隙 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="电流带、回流腔与馈电间隙 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000239/"><meta property="og:type" content="article">
 <link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000239/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
-<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a><span>/</span><span>单带三维几何与可运行模型</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.9.1 · 专题</p><h1>单带三维几何与可运行模型</h1><div class="page-meta"><span class="tag">MF000239</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-icrf-antennas/#MF000239">在连续正文中阅读</a></div><article class="prose"><h3 id="模型文件、尺寸和源域">模型文件、尺寸和源域</h3>
-<p><a href="/assets/models/icrf-strap-fem.zip">下载完整三维模型包（约 30 MB）</a>：包含求解脚本、依赖版本、单/双带 STEP 实体、实际 Netgen 网格、复数 E/H 的 VTU 与原生解、参数和结果 JSON。不是仅供观看的结构图；可修改参数重新生成几何、划网格并求解。</p>
-<figure class="science-figure"><a aria-label="放大图示：从实际模型几何绘制的单/双带透视与馈电间隙，STEP中保留完整回流箱体。" class="figure-link" href="/assets/diagrams/icrf-fem-geometry.svg"><img alt="从实际模型几何绘制的单/双带透视与馈电间隙，STEP中保留完整回流箱体。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-geometry.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a><span>/</span><span>电流带、回流腔与馈电间隙</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.9.1 · 专题</p><h1>电流带、回流腔与馈电间隙</h1><div class="page-meta"><span class="tag">MF000239</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-icrf-antennas/#MF000239">在连续正文中阅读</a></div><article class="prose"><h3 id="一条电流带怎样形成天线回路">一条电流带怎样形成天线回路</h3>
+<p>先把电流路径画完整：馈电内导体接电流带，带的另一端经短路连接到箱体，再由背板、侧壁和馈电外导体回流。短路位置、带与背板的距离、馈入间隙会改变电感、电容及电流沿带的分布。悬浮金属片与具有接地回流的电流带，是不同的边界问题。</p>
+<figure class="science-figure"><a aria-label="放大图示：单带与双带的三维结构示例：电流带、底部短路、回流箱体和顶部馈电间隙。" class="figure-link" href="/assets/diagrams/icrf-fem-geometry.svg"><img alt="单带与双带的三维结构示例：电流带、底部短路、回流箱体和顶部馈电间隙。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-geometry.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>图用于说明连接关系，所画尺寸不是通用设计参数。建立几何时分别辨认下列部分：</p>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
 <thead>
 <tr>
-<th>实际输入</th>
-<th>本轮求解值与定义</th>
+<th>部分</th>
+<th>建模时要表达的关系</th>
+<th>主要影响</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>坐标和频率</td>
-<td>x 径向指向负载、y 沿带、z 为环向及背景磁场方向；50 MHz</td>
+<td>电流带与短路</td>
+<td>有限宽度、厚度、弯曲及接地位置</td>
+<td>带电流分布、单元电感和发射谱</td>
 </tr>
 <tr>
-<td>电流带</td>
-<td>宽 60 mm、厚 15 mm，y 从 −200 至 150 mm，中心 x=−35 mm；底端短接回流腔</td>
+<td>背板、侧壁与框架</td>
+<td>与电流带构成回流回路，并面对等离子体</td>
+<td>镜像电流、互耦、局部近场</td>
 </tr>
 <tr>
-<td>馈电与回流</td>
-<td>顶部留 12 mm 真空间隙；跨隙规定峰值 1 A 的均匀体电流，间隙两端是 PEC，侧面接真空</td>
+<td>馈电区</td>
+<td>同轴线或等效电压/电流间隙，统一方向和参考面</td>
+<td>输入阻抗与激励的定义</td>
 </tr>
 <tr>
-<td>回流腔内尺寸</td>
-<td>x=−135 至 0 mm、y=±200 mm、z=±245 mm；背板/顶底/侧壁连接成一个 PEC 实体</td>
+<td>法拉第屏与限制器</td>
+<td>屏条连接、取向和实际磁连接</td>
+<td>平行近场、表面电流与壁面作用</td>
 </tr>
 <tr>
-<td>冷负载</td>
-<td>x≥25 mm，电子与单电荷氘、各 2×10¹⁸ m⁻³；B=2 T 沿 +z，规定碰撞率 ν/ω=0.025</td>
-</tr>
-<tr>
-<td>截断</td>
-<td>有限外盒 x=−160 至 650 mm、y=±225 mm、z=±270 mm，外表面 PEC；x≥450 mm 另加渐增人工吸收</td>
+<td>天线前方负载</td>
+<td>真空间隙、密度梯度与磁场方向</td>
+<td>截止位置、衰逝层和波耦合</td>
 </tr>
 </tbody>
 </table></div>
-<p>这套平板化几何是本库明确规定的基础模型。碰撞率是现象输入，不是实测经典碰撞值；模型尚未包括法拉第屏、真同轴馈线、热/FLR、鞘层和有限导体损耗。有限外盒与吸收层也未证明达到无限域误差要求。</p>
-<h3 id="实际求解与查看">实际求解与查看</h3>
-<p>采用三维复数 H(curl) 边元求解完整频域 Maxwell 方程，未删除梯度场。冷张量由带碰撞的电子/氘动量方程算出，并检查耗散矩阵被动性；方法接口参见 <a href="https://docu.ngsolve.org/latest/i-tutorials/unit-2.3-hcurlhdiv/hcurlhdiv.html">NGSolve H(curl) 官方文档</a>。运行命令：</p>
-<pre><code class="language-sh">python3 -m venv .venv-fem
-.venv-fem/bin/python -m pip install -r models/icrf-strap/requirements.txt
-.venv-fem/bin/python models/icrf-strap/solve.py --straps 1 --order 2 --maxh .075 .055 .04 --out .build/icrf-fem-final-single-p2
-</code></pre>
-<p>模型包内 <code>pec-metal.step</code> 是实际扣除的导体，<code>field-domain.step</code> 是求解体分区，<code>mesh.vol</code> 为所用网格，<code>field.vtu</code> 含 E/H 实虚部，<code>E.sol</code> 保留二阶原生解。VTU可在 ParaView 查看；<a href="https://docu.ngsolve.org/latest/i-tutorials/appendix-vtk/vtk.html">NGSolve VTK 说明</a>区分显示细分与有限元精度。</p>
-<figure class="science-figure"><a aria-label="放大图示：真实二阶单带电场与加载实际四面体网格得到的切面。" class="figure-link" href="/assets/diagrams/icrf-fem-single-field.svg"><img alt="真实二阶单带电场与加载实际四面体网格得到的切面。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-fem-single-field.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A6%BB%E5%AD%90%E5%9B%9E%E6%97%8B%E5%A4%A9%E7%BA%BF%E5%BB%BA%E6%A8%A1/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000239%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000239,
+<p>PEC 近似用于先理解回路与场分布；研究导体损耗、接触、屏条局部场时再增加相应结构和材料。三维导体、同轴馈电、屏与等离子体响应的连接见 <a href="https://iris.polito.it/handle/11583/1406792">TOPICA 方法论文摘要</a>；单带局部模型见 <a href="https://arxiv.org/html/2309.14015v1">Maquet 等 §2.2</a>。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A6%BB%E5%AD%90%E5%9B%9E%E6%97%8B%E5%A4%A9%E7%BA%BF%E5%BB%BA%E6%A8%A1/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000239%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000239,
   author = {{Megawave-Fusion}},
-  title = {单带三维几何与可运行模型},
+  title = {电流带、回流腔与馈电间隙},
   year = {2026},
   url = {https://megawave-fusion.github.io/tag/MF000239/},
-  note = {Fusion Stacks; revision 7bf47c54a340}
-}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-icrf-antennas/"><small>← 上一页</small>离子回旋天线建模</a><a class="next" href="/tag/MF000240/"><small>下一页 →</small>双带同相与反相的三维场</a></nav></main></div>
+  note = {Fusion Stacks; revision 34d2636394af}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-icrf-antennas/"><small>← 上一页</small>离子回旋天线建模</a><a class="next" href="/tag/MF000240/"><small>下一页 →</small>双带相位与多端口激励</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

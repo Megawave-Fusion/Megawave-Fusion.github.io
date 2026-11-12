@@ -978,19 +978,19 @@
     "status": "draft"
   },
   "MF000239": {
-    "title": "单带三维几何与可运行模型",
+    "title": "电流带、回流腔与馈电间隙",
     "source": "仿真计算/离子回旋天线建模/README.md",
     "url": "/tag/MF000239/",
     "status": "draft"
   },
   "MF000240": {
-    "title": "双带同相与反相的三维场",
+    "title": "双带相位与多端口激励",
     "source": "仿真计算/离子回旋天线建模/README.md",
     "url": "/tag/MF000240/",
     "status": "draft"
   },
   "MF000241": {
-    "title": "三维求解的网格与功率记录",
+    "title": "从等效电路到等离子体全波模型",
     "source": "仿真计算/离子回旋天线建模/README.md",
     "url": "/tag/MF000241/",
     "status": "draft"
@@ -1050,7 +1050,7 @@
     "status": "draft"
   },
   "MF000238": {
-    "title": "软件分工与可复算建模流程",
+    "title": "软件分工与建模步骤",
     "source": "仿真计算/离子回旋天线建模/README.md",
     "url": "/tag/MF000238/",
     "status": "draft"
