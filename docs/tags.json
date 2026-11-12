@@ -503,6 +503,12 @@
     "url": "/tag/MF000015/",
     "status": "draft"
   },
+  "MF000228": {
+    "title": "常见天线结构与建模入口",
+    "source": "辅助加热/离子回旋加热/README.md",
+    "url": "/tag/MF000228/",
+    "status": "draft"
+  },
   "MF000016": {
     "title": "离子共振与局域磁化条件",
     "source": "辅助加热/离子回旋加热/README.md",
@@ -969,6 +975,66 @@
     "title": "弹跳平均 Fokker–Planck 与电流",
     "source": "仿真计算/射频波与分布函数/README.md",
     "url": "/tag/MF000182/",
+    "status": "draft"
+  },
+  "MF000229": {
+    "title": "建模层级与几何参数卡",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000229/",
+    "status": "draft"
+  },
+  "MF000230": {
+    "title": "单电流带的回流路径与谐振近似",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000230/",
+    "status": "draft"
+  },
+  "MF000231": {
+    "title": "双电流带的间距、相位与发射谱",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000231/",
+    "status": "draft"
+  },
+  "MF000232": {
+    "title": "四电流带与共轭 T 的电路连接",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000232/",
+    "status": "draft"
+  },
+  "MF000233": {
+    "title": "三电流带的边框电流与近场优化",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000233/",
+    "status": "draft"
+  },
+  "MF000234": {
+    "title": "行波阵列的多端口与终端余功率",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000234/",
+    "status": "draft"
+  },
+  "MF000235": {
+    "title": "同轴端口、互耦与参考面",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000235/",
+    "status": "draft"
+  },
+  "MF000236": {
+    "title": "法拉第屏、有限电导与局部近场",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000236/",
+    "status": "draft"
+  },
+  "MF000237": {
+    "title": "边缘等离子体与开放边界",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000237/",
+    "status": "draft"
+  },
+  "MF000238": {
+    "title": "软件分工与可复算建模流程",
+    "source": "仿真计算/离子回旋天线建模/README.md",
+    "url": "/tag/MF000238/",
     "status": "draft"
   },
   "MF000183": {

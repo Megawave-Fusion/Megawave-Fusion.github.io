@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>建模层级与几何参数卡 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="建模层级与几何参数卡 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000229/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000229/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a><span>/</span><span>建模层级与几何参数卡</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 6.9.1 · 专题</p><h1>建模层级与几何参数卡</h1><div class="page-meta"><span class="tag">MF000229</span><span class="status">草稿 · 待领域审核</span><a href="/sections/simulation-icrf-antennas/#MF000229">在连续正文中阅读</a></div><article class="prose"><h3 id="几何、负载和电路分三层">几何、负载和电路分三层</h3>
+<p>建立局部右手坐标：<span class="arithmatex">\(x\)</span> 指向等离子体，<span class="arithmatex">\(y\)</span> 为极向，<span class="arithmatex">\(z\)</span> 为环向。带的长向常近似沿 <span class="arithmatex">\(y\)</span>，回流经侧壁/背板形成回路；局部磁场可倾斜，故 <span class="arithmatex">\(E_\parallel=\mathbf E\cdot\mathbf B_0/B_0\)</span>，不能永远用 <span class="arithmatex">\(E_z\)</span> 代替。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>参数卡</th>
+<th>应保存的量</th>
+<th>本文使用的明确基线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>几何与材料</td>
+<td>带宽/高/厚、凹入、腔体、短路、屏、馈通与圆角</td>
+<td>Maquet 2023 单带：130/280/15 mm，凹入 40 mm，箱深/宽 200/200 mm，55 MHz</td>
+</tr>
+<tr>
+<td>等离子体</td>
+<td>磁场方向、组分、密度剖面、坐标原点、碰撞和开放边界</td>
+<td>先均匀张量，再一维剖面；上述尺寸不是完整 CAD 或放电输入</td>
+</tr>
+<tr>
+<td>电路</td>
+<td>端口模/参考面/阻抗、幅相、电容和终端</td>
+<td>先输出每端口响应，再连接真实馈电；电容不由带长单独决定</td>
+</tr>
+</tbody>
+</table></div>
+<p>先求真空 S/Z 与冷测量，再加负载；最后恢复曲率、屏栅和细节。2D 截面适合查色散与边界，有限长带的端部、馈电和旁路电流需三维模型。表中尺寸来自<a href="https://arxiv.org/html/2309.14015v1">Maquet 等 §2.2、表 1</a>，不是可直接复刻 WEST 的完整工程设计。</p>
+<figure class="science-figure"><a aria-label="放大图示：天线辐射面、回流腔、端口与边缘负载的建模层级。" class="figure-link" href="/assets/diagrams/icrf-model-hierarchy.svg"><img alt="天线辐射面、回流腔、端口与边缘负载的建模层级。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-model-hierarchy.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97/%E7%A6%BB%E5%AD%90%E5%9B%9E%E6%97%8B%E5%A4%A9%E7%BA%BF%E5%BB%BA%E6%A8%A1/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000229%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000229,
+  author = {{Megawave-Fusion}},
+  title = {建模层级与几何参数卡},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000229/},
+  note = {Fusion Stacks; revision 330119bb7050}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/simulation-icrf-antennas/"><small>← 上一页</small>离子回旋天线建模</a><a class="next" href="/tag/MF000230/"><small>下一页 →</small>单电流带的回流路径与谐振近似</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

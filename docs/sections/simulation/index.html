@@ -6,7 +6,7 @@
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/simulation/">仿真计算</a><span>/</span><span>仿真计算总览</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
-<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.1 · 连续阅读</p><h1>仿真计算总览</h1><div class="page-meta"><span>1 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>聚变仿真沿着“磁几何 → 波与粒子源 → 分布与输运 → 边缘及工程载荷”连接。按目标量选择模型，每个具体问题对应一个 Tag；软件比较、输入输出和误差检查放在相关过程下。资料核对截至 2026-10-20，论文年份与读取范围见来源索引。</p>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="active" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Section 6.1 · 连续阅读</p><h1>仿真计算总览</h1><div class="page-meta"><span>1 个条目</span><span class="status">草稿 · 待领域审核</span></div><div class="prose"><p>聚变仿真沿着“磁几何 → 波与粒子源 → 分布与输运 → 边缘及工程载荷”连接。按目标量选择模型，每个具体问题对应一个 Tag；软件比较、输入输出和误差检查放在相关过程下。各专题资料的核对日期、论文年份与读取范围见来源索引；2026-11-12 补充离子回旋天线建模。</p>
 <div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
 <thead>
 <tr>
@@ -42,6 +42,10 @@
 <tr>
 <td><span id="射频波与分布函数：射线、准光学、全波与-fp"></span><a href="/sections/simulation-rf-models/">射频波与分布函数方法</a></td>
 <td>射线、全波与 Fokker–Planck 方法</td>
+</tr>
+<tr>
+<td><a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a></td>
+<td>单/双/三/四带、行波阵列、端口与边缘负载</td>
 </tr>
 <tr>
 <td><a href="/sections/simulation-icrh/">离子回旋加热模拟</a></td>
@@ -149,6 +153,6 @@
   title = {仿真计算总览},
   year = {2026},
   url = {https://megawave-fusion.github.io/sections/simulation/},
-  note = {Fusion Stacks; revision e53402a1141b}
+  note = {Fusion Stacks; revision 330119bb7050}
 }</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/chapters/simulation/"><small>← 上一页</small>仿真计算</a><a class="next" href="/tag/MF000063/"><small>下一页 →</small>模型与求解器目录</a></nav></main></div>
 <footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>

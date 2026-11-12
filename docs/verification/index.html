@@ -6,7 +6,47 @@
 <body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
 <form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
 <div class="breadcrumb"><div><a href="/">首页</a><span>/</span><span>内容核验记录</span></div></div><div class="layout layout-overview">
-<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-10-20：过程专题、辅助加热模拟与图解版">2026-10-20：过程专题、辅助加热模拟与图解版</h2>
+<main id="main"><h1>内容核验记录</h1><article class="prose"><h2 id="2026-11-12：离子回旋天线结构与建模">2026-11-12：离子回旋天线结构与建模</h2>
+<p>在<a href="/sections/icrh/">离子回旋加热</a>正文最前新增“常见天线结构与建模入口”，并在仿真章节、原 ICRH 模拟专题前新增<a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a>。新专题按 10 个具体问题组织：参数卡、单带、双带、四带与共轭 T、三带近场、行波阵列、端口互耦、屏与导体、等离子体边界、软件和复算流程。原 227 个永久 Tag 身份保留，新增 MF000228–MF000238；全库为 41 专题、238 条目。</p>
+<p>补充五类结构图、单带回流与三层输入、双/三带电流谱、四带网络、行波终端和计算域等 7 张原创 SVG，全库共 52 张科学图。单带尺寸明确引用 Maquet 2023 的 55 MHz 简化模型；双带几何、电流、给定 Z 矩阵、LC 和 TWA 功率比例明确为本库教学输入。新增 <code>scripts/icrf_antenna_examples.py</code> 生成参数 JSON、谱 CSV、互耦功率和共轭 T 扫描，输出在 <code>.build/icrf-antenna/</code>。没有运行外部三维电磁求解器，也不把解析谱等同于真实等离子体功率谱。</p>
+<p>来源采用开发者文档、原作者论文和机构摘要，新增 10 条记录、为 2 条既有记录追加读取范围，全库来源 383 条。重点依据 TOPICA 方法摘要、HFSS 作者实现、RAPLICASOL 对照、WEST 电路与 COMSOL 接口、AUG 三带摘要、Ansys 端口、scikit-rf 与 MIT 趋肤章节；全文、指定章节和仅摘要分开记录，旧核对日期未覆盖。</p>
+<p>主代理编写，两名代理分别独立核对结构/图和端口/等离子体/公式。已修正双带总电流与面电流的量纲、RMS/峰值功率波、TWA 输出功率、纯衰逝场与净能流的区别；明确 HFSS 2023 论文用等效电导与 ABL、未实现 PML，不能与 RAPLICASOL 的 PML 混称。磁化等离子体不普遍互易；PEC 不含非线性鞘层，三带的低波数消零例也不是装置通用最优配方。所有条目仍为草稿，历史专家/模型审核记录不自动继承到新版本。</p>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>检查</th>
+<th>范围与结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tests/icrf_antenna_checks.py</code></td>
+<td>34 项通过：直接面电流 Fourier 积分、相位反转、低波数阶数、实波形周期功率、功率波闭合、互阻抗、共轭 T、LC、表面/体积焦耳热和 TWA 功率账本</td>
+</tr>
+<tr>
+<td>既有加热复算</td>
+<td>ICRH 25、加热 102、独立加热 121、加热模拟 22 项通过</td>
+</tr>
+<tr>
+<td>源文与 Tag / 图示覆盖</td>
+<td>45 Markdown、383 来源、238 Tag；全部旧身份和新条目粒度、52 张 SVG 的标题/描述/结构检查通过</td>
+</tr>
+<tr>
+<td>构建与链接</td>
+<td>301 页面，搜索、连续阅读、参考片段及知识图检查通过；290 层级节点、219 条关系、13 条学习路径</td>
+</tr>
+<tr>
+<td>公式排版</td>
+<td>首页与全部专题共 4012 个去重公式通过 MathJax 转换，零语法错误</td>
+</tr>
+<tr>
+<td>浏览器及图示</td>
+<td>确认天线入口为 ICRH 第一条；新专题 10 条/7 图、旧模拟与独立端口页显示正常；390 像素无整页横向溢出，图可放大和关闭；7 图已逐张栅格化查看</td>
+</tr>
+</tbody>
+</table></div>
+<p>上述数值检验针对文中给定的教学模型；资料与图示的模型辅助交叉核对不等于真实装置验证或领域专家审稿。</p>
+<h2 id="2026-10-20：过程专题、辅助加热模拟与图解版">2026-10-20：过程专题、辅助加热模拟与图解版</h2>
 <p>本轮将仿真计算拆为 18 个专题、68 个具体条目。平衡、MHD、芯部输运、陀螺动理学、边缘、离散方法、RF/FP、工程、耦合、验证和复现分别组织；ICRH、ECRH/ECCD、NBI、LHCD、EBW、Helicon 各有独立模拟专题，每套按五个实际计算问题展开。原 MF000063–MF000066 身份保留，耦合、验证和复现的旧标签移到对应专题；旧总览片段提供新入口。全库现为 40 个专题、227 个永久条目。</p>
 <p>新增 35 条一手资料记录，来源索引合计 373 条；既有资料补记本轮实际读取范围。辅助加热比较涵盖 TOPICA/RAPLICASOL/HFSS、TORIC/AORSA、TORAY/GRAY/TRAVIS/GENRAY、NUBEAM/BBNBI/ASCOT5/FIDASIM、ALOHA/TORLH/CQL3D、IPF-FDMC/TASK-W1/AMR/LUKE、HELIC/MAGPIE/Petra-M/THEMIS 等在不同过程中的职责。全文、手册、机构摘要与预印本的证据范围分别登记，未用摘要推断未读到的数值结果。</p>
 <p>另通读整理 22 个既有非仿真专题，保留全部 H2、原始来源和教学算例；按 Markdown 中汉字统计（含新增图注），由 116150 减至 103750，减少约 10.7%。将重复的公式复述改为短推导，全库独立公式块由 339 增至 382。新增 45 张原创 SVG：基础/装置 9、辅助加热 9、仿真 18、工程/诊断/材料/实验/文献 9。每个专题均有图，图位于相关 Tag 正文，标注变量、教学参数及模型限制；曲线来自解析关系或给定离散模型，流程图表达数据或证据交接。它们不是外部软件运行或实验测量结果。</p>

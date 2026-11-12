@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>常见天线结构与建模入口 · Fusion Stacks</title><meta name="description" content="曦融兆波聚变知识库：基础原理、装置路线、辅助加热、材料、诊断、仿真与工程。">
+<meta name="theme-color" content="#123c54"><meta property="og:title" content="常见天线结构与建模入口 · Fusion Stacks"><meta property="og:description" content="曦融兆波 · 聚变知识库"><meta property="og:url" content="https://megawave-fusion.github.io/tag/MF000228/"><meta property="og:type" content="article">
+<link rel="canonical" href="https://megawave-fusion.github.io/tag/MF000228/"><link rel="icon" href="/assets/fusion.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v=9566e42d71"><script type="module" src="/assets/site.mjs?v=286d2b343f"></script><script src="/assets/math-config.js?v=de18f0bbc7"></script><script defer src="/assets/mathjax/tex-chtml.js"></script></head>
+<body><a class="skip" href="#main">跳转到正文</a><header class="masthead"><div class="topbar"><a class="brand" href="/"><img src="/assets/fusion.svg" alt="" width="43" height="43"><span><strong>Fusion Stacks</strong><small>曦融兆波 · 聚变知识库</small></span></a><nav class="topnav" aria-label="主导航"><a href="/contents/">目录</a><a href="/knowledge-tree/">知识树</a><a href="/references/">文献</a><a href="/comments/">讨论</a></nav></div>
+<form class="global-search" action="/search/" role="search"><label class="sr-only" for="global-query">搜索知识库</label><input id="global-query" type="search" name="q" placeholder="搜索关键词、ICRH 或永久标签…" autocomplete="off"><button type="submit">搜索</button></form></header>
+<div class="breadcrumb"><div><a href="/">首页</a><span>/</span><a href="/chapters/heating/">辅助加热</a><span>/</span><a href="/sections/icrh/">离子回旋加热（ICRH / ICRF）</a><span>/</span><span>常见天线结构与建模入口</span></div></div><div class="layout"><aside class="sidebar"><div class="sidebar-title">章节</div><nav aria-label="章节目录"><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="active" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></aside>
+<main id="main"><details class="mobile-nav"><summary>切换章节</summary><nav><a class="" href="/chapters/foundations/"><span>01</span>基础原理</a><a class="" href="/sections/devices/"><span>02</span>装置路线</a><a class="active" href="/chapters/heating/"><span>03</span>辅助加热</a><a class="" href="/sections/materials/"><span>04</span>腔体材料</a><a class="" href="/sections/diagnostics/"><span>05</span>诊断控制</a><a class="" href="/chapters/simulation/"><span>06</span>仿真计算</a><a class="" href="/sections/engineering/"><span>07</span>工程系统</a><a class="" href="/sections/experiments/"><span>08</span>实验运行</a><a class="" href="/sections/industry/"><span>09</span>项目产业</a><a class="" href="/sections/literature/"><span>10</span>文献资料</a></nav></details><p class="eyebrow">Entry 3.2.1 · 专题</p><h1>常见天线结构与建模入口</h1><div class="page-meta"><span class="tag">MF000228</span><span class="status">草稿 · 待领域审核</span><a href="/sections/icrh/#MF000228">在连续正文中阅读</a></div><article class="prose"><h3 id="先从辐射单元和馈电结构选模型">先从辐射单元和馈电结构选模型</h3>
+<div aria-label="表格，可横向滚动" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>结构</th>
+<th>初始模型保留什么</th>
+<th>先比较什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单电流带与回流腔</td>
+<td>馈入、带、短路、背板和侧壁</td>
+<td>单元阻抗、表面电流及间隙场</td>
+</tr>
+<tr>
+<td>双电流带</td>
+<td>两套端口、带间距离与共同框架</td>
+<td>同相/反相/行进相位的谱和互耦</td>
+</tr>
+<tr>
+<td>四电流带与谐振双环</td>
+<td>辐射四端口与电容、馈线分别建模</td>
+<td>有源匹配、支路电压和负载变化</td>
+</tr>
+<tr>
+<td>三电流带</td>
+<td>中央/两侧带与实际限制器</td>
+<td>幅相调节后的框架电流和平行近场</td>
+</tr>
+<tr>
+<td>行波阵列 TWA</td>
+<td>多单元互耦、电容和输入/输出终端</td>
+<td>方向谱、带宽、耦合及出口余功率</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="science-figure"><a aria-label="放大图示：单、双、三、四电流带与行波阵列的结构示意；带数与馈电拓扑分别定义。" class="figure-link" href="/assets/diagrams/icrf-common-antennas.svg"><img alt="单、双、三、四电流带与行波阵列的结构示意；带数与馈电拓扑分别定义。" decoding="async" loading="lazy" src="/assets/diagrams/icrf-common-antennas.svg"/></a><figcaption>点击图示放大 · SVG 矢量图</figcaption></figure>
+<p>从<a href="/sections/simulation-icrf-antennas/">离子回旋天线建模</a>进入具体几何参数卡、S/Z 矩阵、端口和边界设置，再接<a href="/sections/simulation-icrh/">芯部吸收与分布模拟</a>。其中给出 55 MHz 文献单带的尺寸起点、双带解析谱、互耦功率和共轭 T 复算；图示不替代制造图。</p>
+<p>单带以回流闭合为起点，多带由实际电流形成发射谱。共轭 T 属于匹配电路，不能从带数直接推断；四分之一波馈线也不等于带的机械长度。WEST 四带结构见<a href="https://west-ic-antenna.readthedocs.io/en/latest/introduction.html">开发者电路说明</a>；三带思路见<a href="https://portal.fis.tum.de/en/publications/first-results-with-3-strap-icrf-antennas-in-asdex-upgrade/">AUG 原论文摘要</a>，TWA 的研究范围见<a href="https://arxiv.org/html/2301.10754v1">作者原文 §2–5</a>。</p></article><details class="page-tools"><summary>引用与编辑</summary><div class="page-actions"><button type="button" data-copy="url">复制永久链接</button><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/edit/main/%E8%BE%85%E5%8A%A9%E5%8A%A0%E7%83%AD/%E7%A6%BB%E5%AD%90%E5%9B%9E%E6%97%8B%E5%8A%A0%E7%83%AD/README.md">编辑源文</a><a class="button" href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io/discussions?discussions_q=%22MF000228%22">讨论本页 ↗</a></div><pre id="citation">@misc{fusion-MF000228,
+  author = {{Megawave-Fusion}},
+  title = {常见天线结构与建模入口},
+  year = {2026},
+  url = {https://megawave-fusion.github.io/tag/MF000228/},
+  note = {Fusion Stacks; revision 330119bb7050}
+}</pre><button type="button" data-copy="citation">复制引用</button></details><nav class="reader-nav bottom" aria-label="阅读顺序"><a class="previous" href="/sections/icrh/"><small>← 上一页</small>离子回旋加热（ICRH / ICRF）</a><a class="next" href="/tag/MF000016/"><small>下一页 →</small>离子共振与局域磁化条件</a></nav></main></div>
+<footer class="footer"><div><span>Megawave-Fusion · 曦融兆波　/　Fusion Stacks</span><nav aria-label="站点说明"><a href="/about/">关于</a><a href="/contributing/">编写规范</a><a href="/verification/">核验记录</a><a href="/sources/">版本与来源</a><a href="https://github.com/Megawave-Fusion/Megawave-Fusion.github.io">GitHub ↗</a></nav></div></footer></body></html>
